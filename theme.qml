@@ -6,21 +6,28 @@ import 'components/gameDetail' as GameDetail
 import 'components/footer' as Footer
 
 // todo list:
-//   system list
-//   game list
-//   detail screen
+//   [ ] system list
+//   [ ] game list
+//   [ ] game detail
 
-//   real time battery
-//   real time clock
+//   [x] footer
+//     [x] buttons
+//   [o] header
+//     [x] real time battery
+//     [x] real time clock
+//     [x] tap to switch 24 hour
+//     [ ] title
 
-//   navigation sounds
-//   all/favorites/recents/apps
-//   random select
-//   alphabetic index
-//   filter/sort modal
-//   touch
-//   dark mode
-//   bg music
+//   [ ] navigation sounds
+//   [ ] all/favorites/recents/apps
+//   [ ] random select
+//   [ ] alphabetic index
+//   [ ] filter/sort modal
+//   [ ] touch
+//   [ ] dark mode
+//   [ ] bg music
+//     [ ] button to stop
+//   [ ] filterable android apps
 
 FocusScope {
     property string currentView: 'systemList';
@@ -33,23 +40,8 @@ FocusScope {
         width: 640;
         height: 480;
 
-        SystemList.Component {
-            visible: currentView === 'systemList';
-        }
-
-        GameList.Component {
-            visible: currentView === 'gameList';
-        }
-
-        GameDetail.Component {
-            visible: currentView === 'gameDetail';
-        }
-
-        Footer.Component {}
-
         MouseArea {
             anchors.fill: parent;
-
             onClicked: {
                 switch (currentView) {
                     case 'systemList':
@@ -68,6 +60,18 @@ FocusScope {
 
                 api.memory.set('currentView', currentView);
             }
+        }
+
+        SystemList.Component {
+            visible: currentView === 'systemList';
+        }
+
+        GameList.Component {
+            visible: currentView === 'gameList';
+        }
+
+        GameDetail.Component {
+            visible: currentView === 'gameDetail';
         }
     }
 }

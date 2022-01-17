@@ -1,24 +1,28 @@
-import QtQuick 2.12
+import QtQuick 2.15
 
 Rectangle {
-    property string title: 'Title';
     property string key: 'X';
+    property string title: 'Title';
     property bool square: false;
 
-    anchors {
-        verticalCenter: parent.verticalCenter;
-    }
+    height: 22;
+    width: icon.width + outerText.width + 4;
+    color: 'transparent';
 
-    Rectangle{
+    // button background
+    Rectangle {
+        id: icon;
+
         height: 22;
         width: square ? 30 : 22;
-        radius: square ? 8 : 22;
+        radius: square ? 6 : 22;
         color: '#444444';
 
         anchors {
             verticalCenter: parent.verticalCenter;
         }
 
+        // button inner text
         Text {
             text: key;
             color: '#ffffff';
@@ -34,22 +38,25 @@ Rectangle {
                 horizontalCenter: parent.horizontalCenter;
             }
         }
+    }
 
-        Text {
-            text: title;
-            color: '#70000000';
+    // button outer text
+    Text {
+        id: outerText;
 
-            font {
-                pixelSize: 14;
-                letterSpacing: -0.3;
-                bold: true;
-            }
+        text: title;
+        color: '#70000000';
 
-            anchors {
-                verticalCenter: parent.verticalCenter;
-                left: parent.right;
-                leftMargin: 4;
-            }
+        font {
+            pixelSize: 14;
+            letterSpacing: -0.3;
+            bold: true;
+        }
+
+        anchors {
+            verticalCenter: parent.verticalCenter;
+            left: icon.right;
+            leftMargin: 4;
         }
     }
 }

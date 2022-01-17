@@ -1,6 +1,8 @@
-import QtQuick 2.12
+import QtQuick 2.15
 
 Rectangle {
+    property var buttons: [];
+
     height: 55;
     color: '#f3f3f3';
 
@@ -10,6 +12,7 @@ Rectangle {
         bottom: parent.bottom;
     }
 
+    // divider
     Rectangle {
         height: 1;
         color: '#20000000';
@@ -23,26 +26,25 @@ Rectangle {
         }
     }
 
-    ButtonLegend {
-        id: buttonLegendA;
-
-        title: 'Select';
-        key: 'A';
-        width: 65;
+    // button guide
+    Row {
+        spacing: 15;
 
         anchors {
+            verticalCenter: parent.verticalCenter;
             left: parent.left;
-            leftMargin: 32;
+            leftMargin: 24;
         }
-    }
 
-    ButtonLegend {
-        title: 'Menu';
-        key: 'B';
+        Repeater {
+            model: buttons;
 
-        anchors {
-            left: buttonLegendA.right;
-            leftMargin: 15;
+            // each individual button
+            ButtonLegend {
+                title: modelData.title;
+                key: modelData.key;
+                square: modelData.square;
+            }
         }
     }
 }
