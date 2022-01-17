@@ -3,15 +3,15 @@ import QtQuick 2.15
 import 'components/systemList' as SystemList
 import 'components/gameList' as GameList
 import 'components/gameDetail' as GameDetail
-import 'components/footer' as Footer
 
 // todo list:
 //   [ ] system list
 //   [ ] game list
 //   [ ] game detail
 
-//   [x] footer
+//   [o] footer
 //     [x] buttons
+//     [ ] # of total label
 //   [o] header
 //     [x] real time battery
 //     [x] real time clock

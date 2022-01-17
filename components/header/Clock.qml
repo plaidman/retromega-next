@@ -4,6 +4,11 @@ Item {
     width: clock.width;
     height: clock.height;
 
+    property bool twelveHour: false;
+    property string timeFormat: {
+        return twelveHour ? 'h:mm ap' : 'hh:mm';
+    };
+
     Timer {
         id: clockTimer;
 
@@ -12,11 +17,7 @@ Item {
         triggeredOnStart: true;
 
         onTriggered: {
-            if (api.memory.get('twelveHour') === true) {
-                clock.text = Qt.formatTime(new Date(), 'h:mm ap');
-            } else {
-                clock.text = Qt.formatTime(new Date(), 'hh:mm');
-            }
+            clock.text = Qt.formatTime(new Date(), timeFormat);
         }
     }
 
@@ -34,10 +35,7 @@ Item {
         }
 
         Component.onCompleted: {
-            if (api.memory.get('twelveHour') === undefined) {
-                api.memory.set('twelveHour', false);
-            }
-
+            twelveHour = api.memory.get('twelveHour') ?? false;
             clockTimer.start();
         }
 
@@ -47,7 +45,8 @@ Item {
             }
 
             onClicked: {
-                api.memory.set('twelveHour', !api.memory.get('twelveHour'));
+                twelveHour = !twelveHour;
+                api.memory.set('twelveHour', twelveHour);
                 clockTimer.restart();
             }
         }
