@@ -36,6 +36,10 @@ FocusScope {
         currentView = api.memory.get('currentView') ?? 'systemList';
     }
 
+    Component.onDestruction: {
+        api.memory.set('currentView', currentView);
+    }
+
     Rectangle {
         width: 640;
         height: 480;
@@ -43,22 +47,12 @@ FocusScope {
         MouseArea {
             anchors.fill: parent;
             onClicked: {
-                switch (currentView) {
-                    case 'systemList':
-                        currentView = 'gameList';
-                        break;
-
-                    case 'gameList':
-                        currentView = 'gameDetail';
-                        break;
-
-                    case 'gameDetail':
-                    default:
-                        currentView = 'systemList';
-                        break;
-                }
-
-                api.memory.set('currentView', currentView);
+                const nextView = {
+                    systemList: 'gameList',
+                    gameList: 'gameDetail',
+                    gameDetail: 'systemList',
+                };
+                currentView = nextView[currentView] ?? 'systemList';
             }
         }
 

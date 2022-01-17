@@ -39,6 +39,10 @@ Item {
             clockTimer.start();
         }
 
+        Component.onDestruction: {
+            api.memory.set('twelveHour', twelveHour);
+        }
+
         MouseArea {
             anchors {
                 fill: parent;
@@ -46,7 +50,6 @@ Item {
 
             onClicked: {
                 twelveHour = !twelveHour;
-                api.memory.set('twelveHour', twelveHour);
                 clockTimer.restart();
             }
         }
