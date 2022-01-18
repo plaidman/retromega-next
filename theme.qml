@@ -18,6 +18,7 @@ import 'components/gameDetail' as GameDetail
 //     [x] tap to switch 24 hour
 //     [ ] title
 
+//   [ ] remove duplicate colors
 //   [ ] navigation sounds
 //   [ ] all/favorites/recents/apps
 //   [ ] random select
