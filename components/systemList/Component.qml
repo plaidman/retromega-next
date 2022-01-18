@@ -8,8 +8,13 @@ Rectangle {
         fill: parent;
     }
 
-    Header.Component {
-        id: header;
+    SystemScroll {
+        anchors {
+            top: parent.top;
+            bottom: footer.top;
+            left: parent.left;
+            right: parent.right;
+        }
     }
 
     Footer.Component {
@@ -21,19 +26,8 @@ Rectangle {
         ];
     }
 
-    Rectangle {
-        anchors {
-            top: header.bottom;
-            bottom: footer.top;
-            left: parent.left;
-            right: parent.right;
-        }
-
-        Text {
-            anchors.centerIn: parent;
-
-            text: 'system list';
-            color: '#000000';
-        }
+    Header.Component {
+        id: header;
+        showDivider: false;
     }
 }

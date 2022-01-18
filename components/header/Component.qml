@@ -2,6 +2,7 @@ import QtQuick 2.15
 
 Rectangle {
     property bool showDivider: true;
+    property bool lightText: true;
 
     color: 'transparent';
     height: 55;
@@ -15,7 +16,7 @@ Rectangle {
     // divider
     Rectangle {
         height: 1;
-        color: '#20000000';
+        color: lightText ? '#20ffffff' : '#20000000';
         visible: showDivider;
 
         anchors {
@@ -27,11 +28,11 @@ Rectangle {
         }
     }
 
-    // battery
-    BatteryIndicator {
+    Battery {
         id: battery;
 
         opacity: 0.5;
+        lightText: lightText;
 
         anchors {
             right: parent.right;
@@ -41,9 +42,11 @@ Rectangle {
     }
 
     Clock {
+        lightText: lightText;
+
         anchors {
             right: battery.left;
-            rightMargin: 32;
+            rightMargin: 12;
             verticalCenter: parent.verticalCenter;
         }
     }

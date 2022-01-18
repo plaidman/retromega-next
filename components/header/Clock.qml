@@ -4,6 +4,7 @@ Item {
     width: clock.width;
     height: clock.height;
 
+    property bool lightText: true;
     property bool twelveHour: false;
     property string timeFormat: {
         return twelveHour ? 'h:mm ap' : 'hh:mm';
@@ -26,7 +27,7 @@ Item {
         id: clock;
 
         text: '00:00';
-        color: '#60000000';
+        color: lightText ? '#80ffffff' : '#80000000';
 
         font {
             pixelSize: 18;
