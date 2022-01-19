@@ -5,7 +5,12 @@ import 'components/gameList' as GameList
 import 'components/gameDetail' as GameDetail
 
 // todo list:
-//   [ ] system list
+//   [o] system list
+//     [ ] # of total in footer
+//     [ ] touch support
+//     [ ] controller support
+//     [ ] break up systemscroll.qml
+//     [ ] better system name font spacing
 //   [ ] game list
 //   [ ] game detail
 
@@ -18,6 +23,8 @@ import 'components/gameDetail' as GameDetail
 //     [x] tap to switch 24 hour
 //     [ ] title
 
+//   [ ] ps2 controller
+//   [ ] wii controller
 //   [ ] remove duplicate colors
 //   [ ] navigation sounds
 //   [ ] all/favorites/recents/apps
@@ -42,6 +49,7 @@ FocusScope {
     }
 
     Rectangle {
+        x: 200;
         width: 640;
         height: 480;
 
