@@ -16,7 +16,7 @@ Rectangle {
     // divider
     Rectangle {
         height: 1;
-        color: lightText ? '#20ffffff' : '#20000000';
+        color: '#20000000';
         visible: showDivider;
 
         anchors {
@@ -32,7 +32,7 @@ Rectangle {
         id: battery;
 
         opacity: 0.5;
-        lightText: lightText;
+        lightText: parent.lightText;
 
         anchors {
             right: parent.right;
@@ -42,7 +42,7 @@ Rectangle {
     }
 
     Clock {
-        lightText: lightText;
+        lightText: parent.lightText;
 
         anchors {
             right: battery.left;

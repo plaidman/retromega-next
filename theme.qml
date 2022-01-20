@@ -44,7 +44,7 @@ FocusScope {
     property int currentGame: 0;
 
     Component.onCompleted: {
-        currentView = /* api.memory.get('currentView') ?? */ 'systemList';
+        currentView = api.memory.get('currentView') ?? 'systemList';
         currentCollection = api.memory.get('currentCollection') ?? 0;
         currentGame = api.memory.get('currentGame') ?? 0;
     }
@@ -62,14 +62,17 @@ FocusScope {
 
         SystemList.Component {
             visible: currentView === 'systemList';
+            focus: currentView === 'systemList';
         }
 
         GameList.Component {
             visible: currentView === 'gameList';
+            focus: currentView === 'gameList';
         }
 
         GameDetail.Component {
             visible: currentView === 'gameDetail';
+            focus: currentView === 'gameDetail';
         }
 
         Rectangle {

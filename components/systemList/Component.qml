@@ -8,11 +8,8 @@ Item {
         fill: parent;
     }
 
-    focus: true;
     Keys.onPressed: {
         if (api.keys.isAccept(event)) {
-            debug.text = 'pressed';
-
             event.accepted = true;
 
             currentGame = 0;
@@ -23,14 +20,14 @@ Item {
     SystemScroll {
         anchors {
             top: parent.top;
-            bottom: footer.top;
+            bottom: collectionListFooter.top;
             left: parent.left;
             right: parent.right;
         }
     }
 
     Footer.Component {
-        id: footer;
+        id: collectionListFooter;
 
         buttons: [
             { title: 'Select', key: 'A', square: false },
@@ -39,7 +36,7 @@ Item {
     }
 
     Header.Component {
-        id: header;
         showDivider: false;
+        lightText: true;
     }
 }
