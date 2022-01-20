@@ -1,8 +1,22 @@
 import QtQuick 2.15
 
-Text {
-    anchors.centerIn: parent;
+Item {
+    anchors {
+        fill: parent;
+    }
 
-    text: 'game list';
-    color: '#000000';
+    Text {
+        anchors.centerIn: parent;
+
+        text: 'game list ' + api.collections.get(currentCollection).shortName;
+        color: '#000000';
+    }
+
+    Keys.onPressed: {
+        if (api.keys.isBack(event)) {
+            event.accepted = true;
+
+            currentView = 'systemList';
+        }
+    }
 }

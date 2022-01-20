@@ -3,9 +3,21 @@ import QtQuick 2.15
 import '../footer' as Footer
 import '../header' as Header
 
-Rectangle {
+Item {
     anchors {
         fill: parent;
+    }
+
+    focus: true;
+    Keys.onPressed: {
+        if (api.keys.isAccept(event)) {
+            debug.text = 'pressed';
+
+            event.accepted = true;
+
+            currentGame = 0;
+            currentView = 'gameList';
+        }
     }
 
     SystemScroll {
