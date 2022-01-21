@@ -2,8 +2,9 @@ import QtQuick 2.15
 
 import '../resources' as Resources
 
-Rectangle {
+Item {
     property int collectionCount: api.collections.count;
+    property alias systemsListView: systemsListView;
 
     function systemColor(shortName) {
         return systemData.systemColors[shortName] ?? systemData.systemColors['default'];
