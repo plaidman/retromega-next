@@ -5,17 +5,15 @@ import '../resources' as Resources
 Rectangle {
     property int collectionCount: api.collections.count;
 
-    function systemColor(index) {
-        const collection = api.collections.get(index);
-        const shortName = collection.shortName ?? 'default';
+    function systemColor(shortName) {
         return systemData.systemColors[shortName] ?? systemData.systemColors['default'];
     }
 
     Component.onCompleted: {
-        systemsListView.currentIndex = currentCollection;
-        systemsListView.positionViewAtIndex(currentCollection, ListView.Center);
+        systemsListView.currentIndex = currentCollectionIndex;
+        systemsListView.positionViewAtIndex(currentCollectionIndex, ListView.Center);
 
-        backgroundColor.color = systemColor(systemsListView.currentIndex);
+        backgroundColor.color = systemColor(currentCollection.shortName);
     }
 
     Resources.SystemData { id: systemData; }
@@ -26,7 +24,7 @@ Rectangle {
 
         width: parent.width;
         height: parent.height;
-        color: systemColor(currentCollection);
+        color: systemColor(currentCollection.shortName);
 
         Behavior on color {
             ColorAnimation {
@@ -64,8 +62,9 @@ Rectangle {
         spacing: 50;
 
         onCurrentIndexChanged: {
-            currentCollection = currentIndex;
-            backgroundColor.color = systemColor(currentIndex);
+            currentCollectionIndex = currentIndex;
+            currentCollection = api.collections.get(currentIndex);
+            backgroundColor.color = systemColor(currentCollection.shortName);
         }
 
         anchors {

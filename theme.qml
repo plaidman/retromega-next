@@ -40,19 +40,25 @@ import 'components/gameDetail' as GameDetail
 
 FocusScope {
     property string currentView: 'systemList';
-    property int currentCollection: 0;
-    property int currentGame: 0;
+    property int currentCollectionIndex: 0;
+    property var currentCollection;
+    property int currentGameIndex: 0;
+    property var currentGame;
 
     Component.onCompleted: {
         currentView = api.memory.get('currentView') ?? 'systemList';
-        currentCollection = api.memory.get('currentCollection') ?? 0;
-        currentGame = api.memory.get('currentGame') ?? 0;
+
+        currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
+        currentCollection = api.collections.get(currentCollectionIndex);
+
+        currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
+        currentGame = currentCollection.games.get(currentGameIndex);
     }
 
     Component.onDestruction: {
         api.memory.set('currentView', currentView);
-        api.memory.set('currentCollection', currentCollection);
-        api.memory.set('currentGame', currentGame);
+        api.memory.set('currentCollectionIndex', currentCollectionIndex);
+        api.memory.set('currentGameIndex', currentGameIndex);
     }
 
     Rectangle {

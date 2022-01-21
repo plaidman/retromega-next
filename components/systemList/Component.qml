@@ -12,7 +12,8 @@ Item {
         if (api.keys.isAccept(event)) {
             event.accepted = true;
 
-            currentGame = 0;
+            currentGameIndex = 0;
+            currentGame = currentCollection.games.get(0);
             currentView = 'gameList';
         }
     }

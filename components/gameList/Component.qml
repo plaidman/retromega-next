@@ -34,7 +34,7 @@ Rectangle {
             right: parent.right;
         }
 
-        text: 'game list ' + api.collections.get(currentCollection).shortName;
+        text: 'game list ' + currentCollection.shortName;
         color: '#000000';
     }
 
