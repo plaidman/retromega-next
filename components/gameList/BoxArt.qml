@@ -2,6 +2,17 @@ import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
 Item {
+    function resizeImage(imgWid, imgHgt, parWid, parHgt) {
+        const horizScale = parWid / imgWid;
+        const vertScale = parHgt / imgHgt;
+        const minScale = Math.min(horizScale, vertScale);
+
+        debug.text = minScale;
+
+        boxartImage.width = imgWid * minScale;
+        boxartImage.height = imgHgt * minScale;
+    }
+
     Image {
         id: boxartShadow;
 
@@ -12,13 +23,13 @@ Item {
         anchors.centerIn: parent;
     }
 
-    Image {
-        id: boxartDoubleBuffer;
+    /* Image { */
+    /*     id: boxartBuffer; */
 
-        fillMode: Image.PreserveAspectFit;
-        asynchronous: false;
-        anchors.centerIn: parent;
-    }
+    /*     fillMode: Image.PreserveAspectFit; */
+    /*     asynchronous: false; */
+    /*     anchors.centerIn: parent; */
+    /* } */
 
     Image {
         id: boxartImage;
@@ -26,23 +37,40 @@ Item {
         fillMode: Image.PreserveAspectFit;
         source: currentGame.assets.boxFront;
         asynchronous: true;
-
-        width: parent.width * .75;
-        height: parent.height * .75;
+        width: 1;
+        height: 1;
         anchors.centerIn: parent;
 
-        sourceSize {
-            width: 640;
-            height: 480;
-        }
+        /* sourceSize { */
+        /*     width: 640; */
+        /*     height: 480; */
+        /* } */
 
         onStatusChanged: {
             if (status == Image.Ready) {
-                boxartDoubleBuffer.source = source;
-                boxartDoubleBuffer.width = paintedWidth;
-                boxartDoubleBuffer.height = paintedHeight;
+                /* boxartBuffer.source = source; */
+                /* boxartBuffer.width = paintedWidth; */
+                /* boxartBuffer.height = paintedHeight; */
 
                 boxartShadow.visible = true;
+
+                resizeImage(paintedWidth, paintedHeight, parent.width * .75, parent.height * .75);
+            }
+        }
+
+        layer.enabled: true
+        layer.effect: OpacityMask {
+            maskSource: Item {
+                width: boxartImage.width
+                height: boxartImage.height
+                anchors.centerIn: boxartImage;
+
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: boxartImage.width
+                    height: boxartImage.height
+                    radius: 6
+                }
             }
         }
     }
