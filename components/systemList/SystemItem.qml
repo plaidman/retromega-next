@@ -1,20 +1,10 @@
 import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
-import '../resources' as Resources
-
 Item {
-    id: lvDelegateItem;
-
     function letterSpacing(str) {
         return str === 'NES' ? 1.0 : -1.0;
     }
-
-    function systemCompany(shortName) {
-        return systemData.systemCompanies[shortName] ?? '';
-    }
-
-    Resources.SystemData { id: systemData; }
 
     // background stripe
     Image {
@@ -84,11 +74,12 @@ Item {
     }
 
     Text {
-        text: systemCompany(shortName).toUpperCase();
+        text: systemCompany(shortName);
         color: '#ffffff';
         opacity: 0.7;
 
         font {
+            capitalization: Font.AllUppercase;
             pixelSize: 12;
             letterSpacing: 1.3;
             bold: true;
@@ -106,7 +97,6 @@ Item {
         id: device;
 
         source: '../../assets/images/devices/' + shortName + '.png';
-        cache: true;
         asynchronous: true;
 
         anchors {
@@ -118,18 +108,18 @@ Item {
 
         states: [
             State {
-                name: "active";
-                when: lvDelegateItem.ListView.isCurrentItem;
+                name: 'active';
+                when: systemsListView.currentIndex === index;
                 PropertyChanges { target: device; anchors.rightMargin: -60.0; }
             },
             State {
-                name: "inactiveRight";
-                when: !lvDelegateItem.ListView.isCurrentItem && systemsListView.currentIndex < index;
+                name: 'inactiveRight';
+                when: systemsListView.currentIndex < index;
                 PropertyChanges { target: device; anchors.rightMargin: -160.0; }
             },
             State {
-                name: "inactiveLeft";
-                when: !lvDelegateItem.ListView.isCurrentItem && systemsListView.currentIndex > index;
+                name: 'inactiveLeft';
+                when: systemsListView.currentIndex > index;
                 PropertyChanges { target: device; anchors.rightMargin: 40.0; }
             }
         ]

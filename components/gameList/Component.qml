@@ -3,18 +3,52 @@ import QtQuick 2.15
 import '../footer' as Footer
 import '../header' as Header
 
-Rectangle {
-    color: 'magenta';
-
+Item {
     anchors {
         fill: parent;
+    }
+
+    Keys.onUpPressed: {
+        event.accepted = true;
+        gameScroll.gamesListView.decrementCurrentIndex();
+    }
+
+    Keys.onDownPressed: {
+        event.accepted = true;
+        gameScroll.gamesListView.incrementCurrentIndex();
+    }
+
+    Keys.onPressed: {
+        if (api.keys.isCancel(event)) {
+            event.accepted = true;
+            currentView = 'systemList';
+        }
+    }
+
+    Rectangle {
+        color: '#f3f3f3';
+
+        anchors {
+            fill: parent;
+        }
+    }
+
+    GameScroll {
+        id: gameScroll;
+
+        anchors {
+            top: gameListHeader.bottom;
+            bottom: gameListFooter.top;
+            left: parent.left;
+            right: parent.right;
+        }
     }
 
     Footer.Component {
         id: gameListFooter;
 
         buttons: [
-            { title: 'Select', key: 'A', square: false },
+            { title: 'Play', key: 'A', square: false },
             { title: 'Back', key: 'B', square: false },
         ];
     }
@@ -24,24 +58,6 @@ Rectangle {
 
         showDivider: true;
         lightText: false;
-    }
-
-    Text {
-        anchors {
-            top: gameListHeader.bottom;
-            bottom: gameListHeader.top;
-            left: parent.left;
-            right: parent.right;
-        }
-
-        text: 'game list ' + currentCollection.shortName;
-        color: '#000000';
-    }
-
-    Keys.onPressed: {
-        if (api.keys.isCancel(event)) {
-            event.accepted = true;
-            currentView = 'systemList';
-        }
+        color: '#f3f3f3';
     }
 }

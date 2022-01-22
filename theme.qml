@@ -3,18 +3,23 @@ import QtQuick 2.15
 import 'components/systemList' as SystemList
 import 'components/gameList' as GameList
 import 'components/gameDetail' as GameDetail
+import 'components/resources' as Resources
 
 // todo list:
 //   [o] system list
+//     [x] controller support
+//     [x] break up systemscroll.qml
 //     [ ] # of total in footer
 //     [ ] touch support
-//     [ ] controller support
-//     [ ] break up systemscroll.qml
 //     [ ] better system name font spacing
 //     [ ] rename all 'system' to collection
-//   [ ] game list
-//   [ ] game detail
-
+//   [o] game list
+//     [o] controller support
+//     [ ] system title in header
+//     [ ] # of total in footer
+//     [ ] verify things work when picking multi disk game, but cancelling.
+//     [ ] touch support
+//     [ ] rounded boxart
 //   [o] footer
 //     [x] buttons
 //     [ ] # of total label
@@ -22,20 +27,31 @@ import 'components/gameDetail' as GameDetail
 //     [x] real time battery
 //     [x] real time clock
 //     [x] tap to switch 24 hour
-//     [ ] title
-
+//     [ ] system title with color
+//   [ ] system colors
+//     [ ] make sure they are dark enough
+//     [ ] remove duplicates
+//   [ ] navigation sounds
+//   [ ] bg music
+//     [ ] button to stop
+//   [ ] random select
 //   [ ] ps2 controller
 //   [ ] wii controller
-//   [ ] remove duplicate colors
-//   [ ] navigation sounds
-//   [ ] all/favorites/recents/apps
-//   [ ] random select
+//      https://www.vhv.rs/viewpic/ThTTbhi_wii-controller-hd-png-download/
+//      https://www.vhv.rs/viewpic/ThTbhoR_wii-png-download-wii-mario-kart-controller-png/
+//      https://www.vhv.rs/viewpic/iibbTRi_transparent-wii-controller-png-wii-classic-controller-pro/
+//   [ ] update readme
+
+//   [ ] all/favorites/recents/apps collections
+//   [ ] zoomed out system view
+//   [ ] game list
+//     [ ] scrolling text instead of elipses
+//     [ ] more thematic experience for multi-disk games
+//   [ ] game detail view
 //   [ ] alphabetic index
 //   [ ] filter/sort modal
 //   [ ] touch
 //   [ ] dark mode
-//   [ ] bg music
-//     [ ] button to stop
 //   [ ] filterable android apps
 
 FocusScope {
@@ -61,8 +77,16 @@ FocusScope {
         api.memory.set('currentGameIndex', currentGameIndex);
     }
 
+    Resources.SystemData { id: systemData; }
+    function systemColor(shortName) {
+        return systemData.systemColors[shortName] ?? systemData.systemColors['default'];
+    }
+    function systemCompany(shortName) {
+        return systemData.systemCompanies[shortName] ?? '';
+    }
+
     Rectangle {
-        x: 200;
+        /* x: 200; */
         width: 640;
         height: 480;
 

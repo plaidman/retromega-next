@@ -1,14 +1,8 @@
 import QtQuick 2.15
 
-import '../resources' as Resources
-
 Item {
     property int collectionCount: api.collections.count;
     property alias systemsListView: systemsListView;
-
-    function systemColor(shortName) {
-        return systemData.systemColors[shortName] ?? systemData.systemColors['default'];
-    }
 
     Component.onCompleted: {
         systemsListView.currentIndex = currentCollectionIndex;
@@ -16,8 +10,6 @@ Item {
 
         backgroundColor.color = systemColor(currentCollection.shortName);
     }
-
-    Resources.SystemData { id: systemData; }
 
     // background color, fades when system changes
     Rectangle {
@@ -51,8 +43,7 @@ Item {
         id: systemsListView;
 
         model: api.collections;
-        delegate: lvDelegate;
-        cacheBuffer: 10;
+        delegate: lvSystemDelegate;
         orientation: ListView.Horizontal;
         highlightRangeMode: ListView.StrictlyEnforceRange;
         preferredHighlightBegin: 0;
@@ -62,19 +53,19 @@ Item {
         highlightMoveVelocity: -1;
         spacing: 50;
 
+        anchors {
+            fill: parent;
+        }
+
         onCurrentIndexChanged: {
             currentCollectionIndex = currentIndex;
             currentCollection = api.collections.get(currentIndex);
             backgroundColor.color = systemColor(currentCollection.shortName);
         }
-
-        anchors {
-            fill: parent;
-        }
     }
 
     Component {
-        id: lvDelegate;
+        id: lvSystemDelegate;
 
         SystemItem {
             width: systemsListView.width;
