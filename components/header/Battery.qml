@@ -9,10 +9,7 @@ Item {
     // battery outline
     Image {
         source: lightText ? '../../assets/images/battery.png' : '../../assets/images/battery-dark.png';
-
-        anchors {
-            centerIn: parent;
-        }
+        anchors.centerIn: parent;
     }
 
     // battery percentage fill

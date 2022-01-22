@@ -52,10 +52,7 @@ Item {
         highlightMoveDuration: 225;
         highlightMoveVelocity: -1;
         spacing: 50;
-
-        anchors {
-            fill: parent;
-        }
+        anchors.fill: parent;
 
         onCurrentIndexChanged: {
             currentCollectionIndex = currentIndex;

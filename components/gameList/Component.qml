@@ -4,9 +4,7 @@ import '../footer' as Footer
 import '../header' as Header
 
 Item {
-    anchors {
-        fill: parent;
-    }
+    anchors.fill: parent;
 
     Keys.onUpPressed: {
         event.accepted = true;
@@ -27,10 +25,7 @@ Item {
 
     Rectangle {
         color: '#f3f3f3';
-
-        anchors {
-            fill: parent;
-        }
+        anchors.fill: parent;
     }
 
     GameScroll {

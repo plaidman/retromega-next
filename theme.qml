@@ -2,7 +2,6 @@ import QtQuick 2.15
 
 import 'components/systemList' as SystemList
 import 'components/gameList' as GameList
-import 'components/gameDetail' as GameDetail
 import 'components/resources' as Resources
 
 // todo list:
@@ -98,11 +97,6 @@ FocusScope {
         GameList.Component {
             visible: currentView === 'gameList';
             focus: currentView === 'gameList';
-        }
-
-        GameDetail.Component {
-            visible: currentView === 'gameDetail';
-            focus: currentView === 'gameDetail';
         }
 
         Rectangle {

@@ -17,10 +17,7 @@ Rectangle {
         width: square ? 30 : 22;
         radius: square ? 6 : 22;
         color: '#444444';
-
-        anchors {
-            verticalCenter: parent.verticalCenter;
-        }
+        anchors.verticalCenter: parent.verticalCenter;
 
         // button inner text
         Text {

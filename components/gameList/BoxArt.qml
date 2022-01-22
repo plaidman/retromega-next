@@ -6,25 +6,19 @@ Item {
         id: boxartShadow;
 
         source: "../../assets/images/cover-shadow.png";
-        width: (371 / 200) * boxartImage.paintedWidth;    // 371 is the total shadow image size
-        height: (371 / 200) * boxartImage.paintedHeight;  // 200 is the black part of the image
+        width: (371 / 200) * boxartImage.paintedWidth - 2;   // 371 is the total shadow image size
+        height: (371 / 200) * boxartImage.paintedHeight - 2; // 200 is the black part of the image
         visible: false;
-
-        anchors {
-            centerIn: parent;
-        }
+        anchors.centerIn: parent;
     }
 
-    /* Image { */
-    /*     id: boxartDoubleBuffer; */
+    Image {
+        id: boxartDoubleBuffer;
 
-    /*     fillMode: Image.PreserveAspectFit; */
-    /*     asynchronous: false; */
-
-    /*     anchors { */
-    /*         centerIn: parent; */
-    /*     } */
-    /* } */
+        fillMode: Image.PreserveAspectFit;
+        asynchronous: false;
+        anchors.centerIn: parent;
+    }
 
     Image {
         id: boxartImage;
@@ -35,49 +29,23 @@ Item {
 
         width: parent.width * .75;
         height: parent.height * .75;
+        anchors.centerIn: parent;
 
         sourceSize {
             width: 640;
             height: 480;
         }
 
-        anchors {
-            centerIn: parent;
-        }
-
         onStatusChanged: {
             if (status == Image.Ready) {
-                boxartDoubleBuffer.source = source
+                boxartDoubleBuffer.source = source;
                 boxartDoubleBuffer.width = paintedWidth;
                 boxartDoubleBuffer.height = paintedHeight;
 
                 boxartShadow.visible = true;
             }
         }
-
-/*         layer.enabled: true */
-/*         layer.effect: OpacityMask { */
-/*             maskSource: mask */
-/*         } */
     }
-
-    /* layer.enabled: true; */
-    /* layer.effect: OpacityMask { */
-    /*     maskSource: Item { */
-    /*         width: boxartImage.width; */
-    /*         height: boxartImage.height; */
-
-    /*         Rectangle { */
-    /*             width: boxartImage.paintedWidth; */
-    /*             height: boxartImage.paintedHeight; */
-    /*             radius: 6; */
-
-    /*             anchors { */
-    /*                 centerIn: parent; */
-    /*             } */
-    /*         } */
-    /*     } */
-    /* } */
 }
 
 

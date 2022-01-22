@@ -48,10 +48,7 @@ Item {
         color: '#20000000';
         radius: 20;
         samples: 10;
-
-        anchors {
-            fill: title;
-        }
+        anchors.fill: title;
     }
 
     Text {

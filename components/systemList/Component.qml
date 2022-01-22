@@ -4,9 +4,7 @@ import '../footer' as Footer
 import '../header' as Header
 
 Item {
-    anchors {
-        fill: parent;
-    }
+    anchors.fill: parent;
 
     Keys.onLeftPressed: {
         event.accepted = true;
