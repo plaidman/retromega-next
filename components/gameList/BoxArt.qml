@@ -70,10 +70,8 @@ Item {
             maskSource: Item {
                 width: boxartImage.width;
                 height: boxartImage.height;
-                anchors.centerIn: boxartImage;
 
                 Rectangle {
-                    anchors.centerIn: parent;
                     width: boxartImage.width;
                     height: boxartImage.height;
                     radius: 6;

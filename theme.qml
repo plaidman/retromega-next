@@ -9,9 +9,9 @@ import 'components/resources' as Resources
 //     [x] controller support
 //     [x] break up systemscroll.qml
 //     [x] # of total in footer
+//     [x] rename all 'system' to collection
 //     [ ] touch support
 //     [ ] better system name font spacing
-//     [x] rename all 'system' to collection
 //   [o] game list
 //     [x] rounded boxart
 //     [x] # of total in footer
@@ -19,7 +19,6 @@ import 'components/resources' as Resources
 //     [x] controller support
 //     [ ] verify things work when picking multi disk game, but cancelling.
 //     [ ] touch support
-//     [ ] DropShadow for boxart
 //   [x] footer
 //     [x] buttons
 //     [x] # of total label
@@ -49,8 +48,10 @@ import 'components/resources' as Resources
 //   [ ] all/favorites/recents/apps collections
 //   [ ] zoomed out system view
 //   [ ] game list
+//     [ ] white heart on favorites when highlighted
 //     [ ] scrolling text instead of elipses
 //     [ ] more thematic experience for multi-disk games
+//     [ ] use DropShadow instead of image for boxart
 //   [ ] game detail view
 //   [ ] alphabetic index
 //   [ ] filter/sort modal

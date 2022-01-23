@@ -6,6 +6,18 @@ Item {
         return str === 'NES' ? 1.0 : -1.0;
     }
 
+    MouseArea {
+        anchors.fill: parent;
+        onClicked: {
+            collectionListView.currentIndex = index;
+
+            currentGameIndex = 0;
+            currentGame = currentCollection.games.get(0);
+
+            currentView = 'gameList';
+        }
+    }
+
     // background stripe
     Image {
         source: '../../assets/images/menu-side-2.png';
@@ -109,11 +121,13 @@ Item {
                 when: collectionListView.currentIndex === index;
                 PropertyChanges { target: device; anchors.rightMargin: -60.0; }
             },
+
             State {
                 name: 'inactiveRight';
                 when: collectionListView.currentIndex < index;
                 PropertyChanges { target: device; anchors.rightMargin: -160.0; }
             },
+
             State {
                 name: 'inactiveLeft';
                 when: collectionListView.currentIndex > index;
