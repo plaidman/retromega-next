@@ -1,6 +1,6 @@
 import QtQuick 2.15
 
-import 'components/systemList' as SystemList
+import 'components/collectionList' as CollectionList
 import 'components/gameList' as GameList
 import 'components/resources' as Resources
 
@@ -11,12 +11,12 @@ import 'components/resources' as Resources
 //     [x] # of total in footer
 //     [ ] touch support
 //     [ ] better system name font spacing
-//     [ ] rename all 'system' to collection
+//     [x] rename all 'system' to collection
 //   [o] game list
 //     [x] rounded boxart
 //     [x] # of total in footer
 //     [x] system title in header
-//     [o] controller support
+//     [x] controller support
 //     [ ] verify things work when picking multi disk game, but cancelling.
 //     [ ] touch support
 //     [ ] DropShadow for boxart
@@ -59,14 +59,14 @@ import 'components/resources' as Resources
 //   [ ] filterable android apps
 
 FocusScope {
-    property string currentView: 'systemList';
+    property string currentView: 'collectionList';
     property int currentCollectionIndex: 0;
     property var currentCollection;
     property int currentGameIndex: 0;
     property var currentGame;
 
     Component.onCompleted: {
-        currentView = api.memory.get('currentView') ?? 'systemList';
+        currentView = api.memory.get('currentView') ?? 'collectionList';
 
         currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
         currentCollection = api.collections.get(currentCollectionIndex);
@@ -81,12 +81,12 @@ FocusScope {
         api.memory.set('currentGameIndex', currentGameIndex);
     }
 
-    Resources.SystemData { id: systemData; }
-    function systemColor(shortName) {
-        return systemData.systemColors[shortName] ?? systemData.systemColors['default'];
+    Resources.CollectionData { id: collectionData; }
+    function collectionColor(shortName) {
+        return collectionData.colors[shortName] ?? collectionData.colors['default'];
     }
-    function systemCompany(shortName) {
-        return systemData.systemCompanies[shortName] ?? '';
+    function collectionCompany(shortName) {
+        return collectionData.companies[shortName] ?? '';
     }
 
     Rectangle {
@@ -94,9 +94,9 @@ FocusScope {
         width: 640;
         height: 480;
 
-        SystemList.Component {
-            visible: currentView === 'systemList';
-            focus: currentView === 'systemList';
+        CollectionList.Component {
+            visible: currentView === 'collectionList';
+            focus: currentView === 'collectionList';
         }
 
         GameList.Component {

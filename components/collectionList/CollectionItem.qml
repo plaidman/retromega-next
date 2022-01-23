@@ -71,7 +71,7 @@ Item {
     }
 
     Text {
-        text: systemCompany(shortName);
+        text: collectionCompany(shortName);
         color: '#ffffff';
         opacity: 0.7;
 
@@ -106,17 +106,17 @@ Item {
         states: [
             State {
                 name: 'active';
-                when: systemsListView.currentIndex === index;
+                when: collectionListView.currentIndex === index;
                 PropertyChanges { target: device; anchors.rightMargin: -60.0; }
             },
             State {
                 name: 'inactiveRight';
-                when: systemsListView.currentIndex < index;
+                when: collectionListView.currentIndex < index;
                 PropertyChanges { target: device; anchors.rightMargin: -160.0; }
             },
             State {
                 name: 'inactiveLeft';
-                when: systemsListView.currentIndex > index;
+                when: collectionListView.currentIndex > index;
                 PropertyChanges { target: device; anchors.rightMargin: 40.0; }
             }
         ]

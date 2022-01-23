@@ -1,7 +1,7 @@
 import QtQuick 2.15
 
 Item {
-    property var systemColors: {
+    property var colors: {
         'gamecube': '#4b0082',
         '3ds': '#b70297',
         'arcade': '#b87333',
@@ -36,7 +36,7 @@ Item {
         'default': '#2387ff',
     };
 
-    property var systemCompanies: {
+    property var companies: {
         'arcade': 'Various',
         'wswan': 'Bandai',
         'wswanc': 'Bandai',

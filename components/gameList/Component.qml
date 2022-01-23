@@ -19,7 +19,7 @@ Item {
     Keys.onPressed: {
         if (api.keys.isCancel(event)) {
             event.accepted = true;
-            currentView = 'systemList';
+            currentView = 'collectionList';
         }
 
         if (api.keys.isAccept(event)) {

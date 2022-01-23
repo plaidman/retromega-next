@@ -55,7 +55,7 @@ Rectangle {
     Text {
         visible: showCollection;
         text: currentCollection.name;
-        color: systemColor(currentCollection.shortName);
+        color: collectionColor(currentCollection.shortName);
         width: 300;
         elide: Text.ElideRight;
 

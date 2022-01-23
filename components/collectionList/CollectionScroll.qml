@@ -2,22 +2,22 @@ import QtQuick 2.15
 
 Item {
     property int collectionCount: api.collections.count;
-    property alias systemsListView: systemsListView;
+    property alias collectionListView: collectionListView;
 
     Component.onCompleted: {
-        systemsListView.currentIndex = currentCollectionIndex;
-        systemsListView.positionViewAtIndex(currentCollectionIndex, ListView.Center);
+        collectionListView.currentIndex = currentCollectionIndex;
+        collectionListView.positionViewAtIndex(currentCollectionIndex, ListView.Center);
 
-        backgroundColor.color = systemColor(currentCollection.shortName);
+        backgroundColor.color = collectionColor(currentCollection.shortName);
     }
 
-    // background color, fades when system changes
+    // background color, fades when collection changes
     Rectangle {
         id: backgroundColor;
 
         width: parent.width;
         height: parent.height;
-        color: systemColor(currentCollection.shortName);
+        color: collectionColor(currentCollection.shortName);
 
         Behavior on color {
             ColorAnimation {
@@ -29,7 +29,7 @@ Item {
 
     // dots
     PageIndicator {
-        currentIndex: systemsListView.currentIndex;
+        currentIndex: collectionListView.currentIndex;
         pageCount: collectionCount;
 
         anchors {
@@ -40,10 +40,10 @@ Item {
     }
 
     ListView {
-        id: systemsListView;
+        id: collectionListView;
 
         model: api.collections;
-        delegate: lvSystemDelegate;
+        delegate: lvCollectionDelegate;
         orientation: ListView.Horizontal;
         highlightRangeMode: ListView.StrictlyEnforceRange;
         preferredHighlightBegin: 0;
@@ -57,16 +57,16 @@ Item {
         onCurrentIndexChanged: {
             currentCollectionIndex = currentIndex;
             currentCollection = api.collections.get(currentIndex);
-            backgroundColor.color = systemColor(currentCollection.shortName);
+            backgroundColor.color = collectionColor(currentCollection.shortName);
         }
     }
 
     Component {
-        id: lvSystemDelegate;
+        id: lvCollectionDelegate;
 
-        SystemItem {
-            width: systemsListView.width;
-            height: systemsListView.height;
+        CollectionItem {
+            width: collectionListView.width;
+            height: collectionListView.height;
         }
     }
 }

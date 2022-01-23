@@ -8,12 +8,12 @@ Item {
 
     Keys.onLeftPressed: {
         event.accepted = true;
-        systemScroll.systemsListView.decrementCurrentIndex();
+        collectionScroll.collectionListView.decrementCurrentIndex();
     }
 
     Keys.onRightPressed: {
         event.accepted = true;
-        systemScroll.systemsListView.incrementCurrentIndex();
+        collectionScroll.collectionListView.incrementCurrentIndex();
     }
 
     Keys.onPressed: {
@@ -26,8 +26,8 @@ Item {
         }
     }
 
-    SystemScroll {
-        id: systemScroll;
+    CollectionScroll {
+        id: collectionScroll;
 
         anchors {
             top: parent.top;
