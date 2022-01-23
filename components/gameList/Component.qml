@@ -17,13 +17,15 @@ Item {
     }
 
     function onAcceptPressed() {
+        sounds.launchSound.play();
         /* currentGame.launch(); */
         debug.text = currentGame.title;
     }
 
     function onCancelPressed() {
-        gameScroll.gamesListView.currentIndex = 0;
         currentView = 'collectionList';
+        gameScroll.gamesListView.currentIndex = 0;
+        sounds.backSound.play();
     }
 
     Keys.onPressed: {

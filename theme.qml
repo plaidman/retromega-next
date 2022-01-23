@@ -5,20 +5,20 @@ import 'components/gameList' as GameList
 import 'components/resources' as Resources
 
 // todo list:
-//   [o] system list
+//   [x] system list
 //     [x] controller support
 //     [x] break up systemscroll.qml
 //     [x] # of total in footer
 //     [x] rename all 'system' to collection
 //     [x] touch support
-//     [ ] better system name font spacing
+//     [x] better system name font spacing
 //   [o] game list
 //     [x] rounded boxart
 //     [x] # of total in footer
 //     [x] system title in header
 //     [x] controller support
+//     [x] touch support
 //     [ ] verify things work when picking multi disk game, but cancelling.
-//     [ ] touch support
 //   [x] footer
 //     [x] buttons
 //     [x] # of total label
@@ -27,10 +27,12 @@ import 'components/resources' as Resources
 //     [x] real time clock
 //     [x] tap to switch 24 hour
 //     [x] system title with color
+//   [x] navigation sounds
+//     [x] double sound when going back from game view
+//     [x] double sound when navigating after coming back from game view
 //   [ ] system colors
 //     [ ] make sure they are dark enough
 //     [ ] remove duplicates
-//   [ ] navigation sounds
 //   [ ] bg music
 //     [ ] button to start/stop
 //   [ ] random select
@@ -74,6 +76,8 @@ FocusScope {
 
         currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
         currentGame = currentCollection.games.get(currentGameIndex);
+
+        sounds.startSound.play();
     }
 
     Component.onDestruction: {
@@ -89,6 +93,8 @@ FocusScope {
     function collectionCompany(shortName) {
         return collectionData.companies[shortName] ?? '';
     }
+
+    Resources.Sounds { id: sounds; }
 
     Rectangle {
         /* x: 200; */

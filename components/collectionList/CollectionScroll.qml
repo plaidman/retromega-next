@@ -57,7 +57,10 @@ Item {
         onCurrentIndexChanged: {
             currentCollectionIndex = currentIndex;
             currentCollection = api.collections.get(currentIndex);
+
             backgroundColor.color = collectionColor(currentCollection.shortName);
+
+            if (currentView === 'collectionList') sounds.navSound.play();
         }
     }
 

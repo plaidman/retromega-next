@@ -20,6 +20,7 @@ Item {
         currentGameIndex = 0;
         currentGame = currentCollection.games.get(0);
         currentView = 'gameList';
+        sounds.forwardSound.play();
     }
 
     Keys.onPressed: {

@@ -39,6 +39,8 @@ Item {
         onCurrentIndexChanged: {
             currentGameIndex = currentIndex;
             currentGame = currentCollection.games.get(currentIndex);
+
+            if (currentView === 'gameList') sounds.navSound.play();
         }
     }
 

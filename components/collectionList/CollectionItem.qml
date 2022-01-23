@@ -2,10 +2,6 @@ import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
 Item {
-    function letterSpacing(str) {
-        return str === 'NES' ? 1.0 : -1.0;
-    }
-
     MouseArea {
         anchors.fill: parent;
         onClicked: {
@@ -15,12 +11,13 @@ Item {
             currentGame = currentCollection.games.get(0);
 
             currentView = 'gameList';
+            sounds.forwardSound.play();
         }
     }
 
     // background stripe
     Image {
-        source: '../../assets/images/menu-side-2.png';
+        source: '../../assets/images/menu-side.png';
         fillMode: Image.PreserveAspectFit;
         height: parent.height;
 
@@ -42,7 +39,6 @@ Item {
 
         font {
             pixelSize: 36;
-            letterSpacing: letterSpacing(name);
             bold: true;
         }
 
@@ -57,9 +53,9 @@ Item {
     DropShadow {
         source: title;
         verticalOffset: 10;
-        color: '#20000000';
+        color: '#40000000';
         radius: 20;
-        samples: 10;
+        samples: 20;
         anchors.fill: title;
     }
 
