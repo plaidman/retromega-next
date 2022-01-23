@@ -78,6 +78,11 @@ FocusScope {
         currentGame = currentCollection.games.get(currentGameIndex);
 
         sounds.startSound.play();
+
+        if (music.bgPlaylist.itemCount > 0) {
+            music.bgPlaylist.shuffle();
+            music.bgMusic.play();
+        }
     }
 
     Component.onDestruction: {
@@ -95,6 +100,7 @@ FocusScope {
     }
 
     Resources.Sounds { id: sounds; }
+    Resources.Music { id: music; }
 
     Rectangle {
         /* x: 200; */
