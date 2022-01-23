@@ -16,13 +16,16 @@ Item {
         collectionScroll.collectionListView.incrementCurrentIndex();
     }
 
+    function onAcceptPressed() {
+        currentGameIndex = 0;
+        currentGame = currentCollection.games.get(0);
+        currentView = 'gameList';
+    }
+
     Keys.onPressed: {
         if (api.keys.isAccept(event)) {
             event.accepted = true;
-
-            currentGameIndex = 0;
-            currentGame = currentCollection.games.get(0);
-            currentView = 'gameList';
+            onAcceptPressed();
         }
     }
 
@@ -43,9 +46,15 @@ Item {
         total: api.collections.count;
 
         buttons: [
-            { title: 'Select', key: 'A', square: false },
-            { title: 'Menu', key: 'B', square: false },
+            { title: 'Select', key: 'A', square: false, sigValue: 'accept' },
+            { title: 'Menu', key: 'B', square: false, sigValue: null },
         ];
+
+        onButtonClicked: {
+            if (sigValue === 'accept') {
+                onAcceptPressed();
+            }
+        }
     }
 
     Header.Component {

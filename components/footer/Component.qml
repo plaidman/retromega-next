@@ -5,6 +5,8 @@ Rectangle {
     property int index;
     property int total;
 
+    signal buttonClicked (string sigValue);
+
     height: 55;
     color: '#f3f3f3';
 
@@ -46,6 +48,13 @@ Rectangle {
                 title: modelData.title;
                 key: modelData.key;
                 square: modelData.square;
+
+                MouseArea {
+                    anchors.fill: parent;
+                    onClicked: {
+                        buttonClicked(modelData.sigValue)
+                    }
+                }
             }
         }
     }
