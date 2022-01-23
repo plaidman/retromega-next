@@ -31,7 +31,7 @@ Item {
         }
 
         highlight: Rectangle {
-            color: systemColor(currentCollection.shortName);
+            color: collectionColor(currentCollection.shortName);
             radius: 8;
             width: gamesListView.width;
         }
