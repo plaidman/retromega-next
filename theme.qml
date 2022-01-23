@@ -10,7 +10,7 @@ import 'components/resources' as Resources
 //     [x] break up systemscroll.qml
 //     [x] # of total in footer
 //     [x] rename all 'system' to collection
-//     [ ] touch support
+//     [x] touch support
 //     [ ] better system name font spacing
 //   [o] game list
 //     [x] rounded boxart

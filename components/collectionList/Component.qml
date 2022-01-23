@@ -51,9 +51,7 @@ Item {
         ];
 
         onButtonClicked: {
-            if (sigValue === 'accept') {
-                onAcceptPressed();
-            }
+            if (sigValue === 'accept') onAcceptPressed();
         }
     }
 

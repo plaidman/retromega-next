@@ -16,15 +16,25 @@ Item {
         gameScroll.gamesListView.incrementCurrentIndex();
     }
 
+    function onAcceptPressed() {
+        /* currentGame.launch(); */
+        debug.text = currentGame.title;
+    }
+
+    function onCancelPressed() {
+        gameScroll.gamesListView.currentIndex = 0;
+        currentView = 'collectionList';
+    }
+
     Keys.onPressed: {
         if (api.keys.isCancel(event)) {
             event.accepted = true;
-            currentView = 'collectionList';
+            onCancelPressed();
         }
 
         if (api.keys.isAccept(event)) {
             event.accepted = true;
-            currentGame.launch();
+            onAcceptPressed();
         }
     }
 
@@ -50,9 +60,14 @@ Item {
         total: currentCollection.games.count;
 
         buttons: [
-            { title: 'Play', key: 'A', square: false },
-            { title: 'Back', key: 'B', square: false },
+            { title: 'Play', key: 'A', square: false, sigValue: 'accept' },
+            { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
         ];
+
+        onButtonClicked: {
+            if (sigValue === 'accept') onAcceptPressed();
+            if (sigValue === 'cancel') onCancelPressed();
+        }
     }
 
     Header.Component {
