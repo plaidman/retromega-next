@@ -5,7 +5,7 @@ Item {
     property int currentIndex: 0;
     property int pageCount: 1;
 
-    width: pageCount * (4 + 10)
+    width: pageCount * (4 + 10);
 
     Row {
         spacing: 10;

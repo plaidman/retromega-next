@@ -9,32 +9,32 @@ Item {
     property alias startSound: startSound;
 
     SoundEffect {
-        id: backSound
-        source: "../../assets/sound/sound-back.wav"
-        volume: 0.5
+        id: backSound;
+        source: '../../assets/sound/sound-back.wav';
+        volume: 0.5;
     }
 
     SoundEffect {
-        id: forwardSound
-        source: "../../assets/sound/sound-forward.wav"
-        volume: 0.5
+        id: forwardSound;
+        source: '../../assets/sound/sound-forward.wav';
+        volume: 0.5;
     }
 
     SoundEffect {
-        id: navSound
-        source: "../../assets/sound/sound-click.wav"
-        volume: 1.0
+        id: navSound;
+        source: '../../assets/sound/sound-click.wav';
+        volume: 1.0;
     }
 
     SoundEffect {
-        id: launchSound
-        source: "../../assets/sound/sound-launch.wav"
-        volume: 0.35
+        id: launchSound;
+        source: '../../assets/sound/sound-launch.wav';
+        volume: 0.35;
     }
 
     SoundEffect {
-        id: startSound
-        source: "../../assets/sound/sound-start.wav"
-        volume: 0.35
+        id: startSound;
+        source: '../../assets/sound/sound-start.wav';
+        volume: 0.35;
     }
 }

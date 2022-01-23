@@ -61,14 +61,14 @@ Rectangle {
 
         anchors {
             left: parent.left;
-            leftMargin: 32
-            verticalCenter: parent.verticalCenter
+            leftMargin: 32;
+            verticalCenter: parent.verticalCenter;
         }
 
         font {
-            pixelSize: 18
-            letterSpacing: -0.3
-            bold: true
+            pixelSize: 18;
+            letterSpacing: -0.3;
+            bold: true;
         }
     }
 }

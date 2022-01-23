@@ -52,7 +52,7 @@ Rectangle {
                 MouseArea {
                     anchors.fill: parent;
                     onClicked: {
-                        buttonClicked(modelData.sigValue)
+                        buttonClicked(modelData.sigValue);
                     }
                 }
             }

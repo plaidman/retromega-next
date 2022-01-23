@@ -132,7 +132,11 @@ Item {
         ]
 
         transitions: Transition {
-            NumberAnimation { properties: 'anchors.rightMargin'; easing.type: Easing.InOutCubic; duration: 225  }
+            NumberAnimation {
+                properties: 'anchors.rightMargin';
+                easing.type: Easing.InOutCubic;
+                duration: 225;
+            }
         }
     }
 }
