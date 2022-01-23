@@ -1,6 +1,19 @@
 import QtQuick 2.15
 
 Item {
+    MouseArea {
+        anchors.fill: parent;
+        onClicked: {
+            if (gamesListView.currentIndex === index) {
+                onAcceptPressed();
+            } else {
+                gamesListView.currentIndex = index;
+                currentGameIndex = index;
+                currentGame = currentCollection.games.get(index);
+            }
+        }
+    }
+
     Text {
         id: gameTitle;
 
