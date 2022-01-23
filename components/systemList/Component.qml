@@ -39,6 +39,8 @@ Item {
 
     Footer.Component {
         id: collectionListFooter;
+        index: currentCollectionIndex + 1;
+        total: api.collections.count;
 
         buttons: [
             { title: 'Select', key: 'A', square: false },

@@ -29,7 +29,7 @@ Item {
         width: 12;
         visible: favorite;
         fillMode: Image.PreserveAspectFit;
-        source: "../../assets/images/favorite.svg";
+        source: '../../assets/images/favorite.svg';
         asynchronous: true;
 
         anchors {

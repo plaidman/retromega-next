@@ -3,6 +3,7 @@ import QtQuick 2.15
 Rectangle {
     property bool showDivider: true;
     property bool lightText: true;
+    property bool showCollection: false;
 
     color: 'transparent';
     height: 55;
@@ -48,6 +49,26 @@ Rectangle {
             right: battery.left;
             rightMargin: 12;
             verticalCenter: parent.verticalCenter;
+        }
+    }
+
+    Text {
+        visible: showCollection;
+        text: currentCollection.name;
+        color: systemColor(currentCollection.shortName);
+        width: 300;
+        elide: Text.ElideRight;
+
+        anchors {
+            left: parent.left;
+            leftMargin: 32
+            verticalCenter: parent.verticalCenter
+        }
+
+        font {
+            pixelSize: 18
+            letterSpacing: -0.3
+            bold: true
         }
     }
 }

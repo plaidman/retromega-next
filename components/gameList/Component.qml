@@ -21,6 +21,11 @@ Item {
             event.accepted = true;
             currentView = 'systemList';
         }
+
+        if (api.keys.isAccept(event)) {
+            event.accepted = true;
+            currentGame.launch();
+        }
     }
 
     Rectangle {
@@ -41,6 +46,8 @@ Item {
 
     Footer.Component {
         id: gameListFooter;
+        index: currentGameIndex + 1;
+        total: currentCollection.games.count;
 
         buttons: [
             { title: 'Play', key: 'A', square: false },
@@ -54,5 +61,6 @@ Item {
         showDivider: true;
         lightText: false;
         color: '#f3f3f3';
+        showCollection: true;
     }
 }

@@ -2,6 +2,8 @@ import QtQuick 2.15
 
 Rectangle {
     property var buttons: [];
+    property int index;
+    property int total;
 
     height: 55;
     color: '#f3f3f3';
@@ -45,6 +47,23 @@ Rectangle {
                 key: modelData.key;
                 square: modelData.square;
             }
+        }
+    }
+
+    Text {
+        text: index + ' of ' + total;
+        color: '#9b9b9b';
+
+        anchors {
+            right: parent.right;
+            rightMargin: 32;
+            verticalCenter: parent.verticalCenter;
+        }
+
+        font {
+            pixelSize: 18;
+            letterSpacing: -0.3;
+            bold: true;
         }
     }
 }

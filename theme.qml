@@ -8,34 +8,39 @@ import 'components/resources' as Resources
 //   [o] system list
 //     [x] controller support
 //     [x] break up systemscroll.qml
-//     [ ] # of total in footer
+//     [x] # of total in footer
 //     [ ] touch support
 //     [ ] better system name font spacing
 //     [ ] rename all 'system' to collection
 //   [o] game list
+//     [x] rounded boxart
+//     [x] # of total in footer
+//     [x] system title in header
 //     [o] controller support
-//     [ ] system title in header
-//     [ ] # of total in footer
 //     [ ] verify things work when picking multi disk game, but cancelling.
 //     [ ] touch support
-//     [ ] rounded boxart
-//   [o] footer
+//     [ ] DropShadow for boxart
+//   [x] footer
 //     [x] buttons
-//     [ ] # of total label
-//   [o] header
+//     [x] # of total label
+//   [x] header
 //     [x] real time battery
 //     [x] real time clock
 //     [x] tap to switch 24 hour
-//     [ ] system title with color
+//     [x] system title with color
 //   [ ] system colors
 //     [ ] make sure they are dark enough
 //     [ ] remove duplicates
 //   [ ] navigation sounds
 //   [ ] bg music
-//     [ ] button to stop
+//     [ ] button to start/stop
 //   [ ] random select
-//   [ ] ps2 controller
-//   [ ] wii controller
+//   [ ] new collections
+//     [ ] ps2
+//     [ ] wii
+//     [ ] all
+//     [ ] favorites
+//     [ ] recents
 //      https://www.vhv.rs/viewpic/ThTTbhi_wii-controller-hd-png-download/
 //      https://www.vhv.rs/viewpic/ThTbhoR_wii-png-download-wii-mario-kart-controller-png/
 //      https://www.vhv.rs/viewpic/iibbTRi_transparent-wii-controller-png-wii-classic-controller-pro/
