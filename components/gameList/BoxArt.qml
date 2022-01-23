@@ -2,6 +2,8 @@ import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
 Item {
+    id: boxart;
+
     function resizeImage(imgWid, imgHgt, parWid, parHgt) {
         const horizScale = parWid / imgWid;
         const vertScale = parHgt / imgHgt;
@@ -9,8 +11,8 @@ Item {
 
         debug.text = minScale;
 
-        boxartImage.width = imgWid * minScale;
-        boxartImage.height = imgHgt * minScale;
+        boxartContainer.width = imgWid * minScale;
+        boxartContainer.height = imgHgt * minScale;
     }
 
     Image {
@@ -23,38 +25,45 @@ Item {
         anchors.centerIn: parent;
     }
 
-    /* Image { */
-    /*     id: boxartBuffer; */
+    Item {
+        id: boxartContainer;
 
-    /*     fillMode: Image.PreserveAspectFit; */
-    /*     asynchronous: false; */
-    /*     anchors.centerIn: parent; */
-    /* } */
-
-    Image {
-        id: boxartImage;
-
-        fillMode: Image.PreserveAspectFit;
-        source: currentGame.assets.boxFront;
-        asynchronous: true;
-        width: 1;
-        height: 1;
+        width: parent.width;
+        height: parent.height;
         anchors.centerIn: parent;
 
-        /* sourceSize { */
-        /*     width: 640; */
-        /*     height: 480; */
-        /* } */
+        Image {
+            id: boxartBuffer;
 
-        onStatusChanged: {
-            if (status == Image.Ready) {
-                /* boxartBuffer.source = source; */
-                /* boxartBuffer.width = paintedWidth; */
-                /* boxartBuffer.height = paintedHeight; */
+            fillMode: Image.PreserveAspectFit;
+            asynchronous: false;
+            anchors.centerIn: parent;
+        }
 
-                boxartShadow.visible = true;
+        Image {
+            id: boxartImage;
 
-                resizeImage(paintedWidth, paintedHeight, parent.width * .75, parent.height * .75);
+            fillMode: Image.PreserveAspectFit;
+            source: currentGame.assets.boxFront;
+            asynchronous: true;
+            anchors.fill: parent;
+            cache: false;
+
+            sourceSize {
+                width: 640;
+                height: 480;
+            }
+
+            onStatusChanged: {
+                if (status === Image.Ready) {
+                    boxartBuffer.source = source;
+                    boxartBuffer.width = paintedWidth;
+                    boxartBuffer.height = paintedHeight;
+
+                    boxartShadow.visible = true;
+
+                    resizeImage(paintedWidth, paintedHeight, boxart.width * .75, boxart.height * .75);
+                }
             }
         }
 
