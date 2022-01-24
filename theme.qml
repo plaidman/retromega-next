@@ -18,7 +18,7 @@ import 'components/resources' as Resources
 //     [x] system title in header
 //     [x] controller support
 //     [x] touch support
-//     [ ] verify things work when picking multi disk game, but cancelling.
+//     [o] verify things work when picking multi disk game, but cancelling.
 //   [x] footer
 //     [x] buttons
 //     [x] # of total label
@@ -31,11 +31,13 @@ import 'components/resources' as Resources
 //     [x] double sound when going back from game view
 //     [x] double sound when navigating after coming back from game view
 //     [ ] double sound when starting the theme
+//   [o] bg music
+//     [x] random playlist
+//     [o] suspend on power off
+//     [ ] button to start/stop
 //   [ ] system colors
 //     [ ] make sure they are dark enough
 //     [ ] remove duplicates
-//   [ ] bg music
-//     [ ] button to start/stop
 //   [ ] random select
 //   [ ] new collections
 //     [ ] ps2
@@ -47,7 +49,11 @@ import 'components/resources' as Resources
 //      https://www.vhv.rs/viewpic/ThTbhoR_wii-png-download-wii-mario-kart-controller-png/
 //      https://www.vhv.rs/viewpic/iibbTRi_transparent-wii-controller-png-wii-classic-controller-pro/
 //   [ ] update readme
+//   [ ] remove 640x480 from theme.qml
+//   [ ] enable game launch
 
+//   [ ] bg music
+//     [ ] better way to generate the playlist from files
 //   [ ] all/favorites/recents/apps collections
 //   [ ] zoomed out system view
 //   [ ] game list
@@ -65,6 +71,7 @@ import 'components/resources' as Resources
 FocusScope {
     property string currentView: 'collectionList';
     property var bgMusicEnabled: true;
+    property var bgMusicSuspended: false;
     property int currentCollectionIndex: 0;
     property var currentCollection;
     property int currentGameIndex: 0;
@@ -105,6 +112,25 @@ FocusScope {
 
     Resources.Sounds { id: sounds; }
     Resources.Music { id: music; }
+
+    Connections {
+        target: Qt.application;
+        function onStateChanged() {
+            if (!bgMusicEnabled) return;
+
+            if (Qt.application.state === Qt.ApplicationActive) {
+                if (!bgMusicSuspended) return;
+
+                music.play();
+                bgMusicSuspended = false;
+            } else {
+                if (bgMusicSuspended) return;
+
+                music.pause();
+                bgMusicSuspended = true;
+            }
+        }
+    }
 
     Rectangle {
         /* x: 200; */
