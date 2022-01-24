@@ -5,14 +5,14 @@ import 'components/gameList' as GameList
 import 'components/resources' as Resources
 
 // todo list:
-//   [o] system list
+//   [x] system list
 //     [x] controller support
 //     [x] break up systemscroll.qml
 //     [x] # of total in footer
 //     [x] rename all 'system' to collection
 //     [x] touch support
 //     [x] better system name font spacing
-//     [ ] system name shadow cutting into 'y' character
+//     [x] system name shadow cutting into 'y' character
 //   [x] game list
 //     [x] rounded boxart
 //     [x] # of total in footer

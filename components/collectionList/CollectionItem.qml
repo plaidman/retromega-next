@@ -28,6 +28,15 @@ Item {
         }
     }
 
+    DropShadow {
+        source: title;
+        verticalOffset: 10;
+        color: '#30000000';
+        radius: 20;
+        samples: 41;
+        anchors.fill: title;
+    }
+
     Text {
         id: title;
 
@@ -48,15 +57,6 @@ Item {
             leftMargin: 30;
             verticalCenterOffset: -5;
         }
-    }
-
-    DropShadow {
-        source: title;
-        verticalOffset: 10;
-        color: '#40000000';
-        radius: 20;
-        samples: 20;
-        anchors.fill: title;
     }
 
     Text {
