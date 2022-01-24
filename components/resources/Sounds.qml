@@ -2,39 +2,39 @@ import QtQuick 2.15
 import QtMultimedia 5.9
 
 Item {
-    property alias backSound: backSound;
-    property alias forwardSound: forwardSound;
-    property alias navSound: navSound;
-    property alias launchSound: launchSound;
-    property alias startSound: startSound;
+    function back() { backSound.play(); }
+    function forward() { forwardSound.play(); }
+    function nav() { navSound.play(); }
+    function launch() { launchSound.play(); }
+    function start() { startSound.play(); }
 
     SoundEffect {
         id: backSound;
-        source: '../../assets/sound/sound-back.wav';
+        source: '../../assets/sound/back.wav';
         volume: 0.5;
     }
 
     SoundEffect {
         id: forwardSound;
-        source: '../../assets/sound/sound-forward.wav';
+        source: '../../assets/sound/forward.wav';
         volume: 0.5;
     }
 
     SoundEffect {
         id: navSound;
-        source: '../../assets/sound/sound-click.wav';
+        source: '../../assets/sound/click.wav';
         volume: 1.0;
     }
 
     SoundEffect {
         id: launchSound;
-        source: '../../assets/sound/sound-launch.wav';
+        source: '../../assets/sound/launch.wav';
         volume: 0.35;
     }
 
     SoundEffect {
         id: startSound;
-        source: '../../assets/sound/sound-start.wav';
+        source: '../../assets/sound/start.wav';
         volume: 0.35;
     }
 }

@@ -84,7 +84,7 @@ FocusScope {
         currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
         currentGame = currentCollection.games.get(currentGameIndex);
 
-        sounds.startSound.play();
+        sounds.start();
 
         bgMusicEnabled = api.memory.get('bgMusicEnabled') ?? true;
         if (music.count > 0 && bgMusicEnabled) {

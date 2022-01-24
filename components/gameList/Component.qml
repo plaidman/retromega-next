@@ -17,7 +17,7 @@ Item {
     }
 
     function onAcceptPressed() {
-        sounds.launchSound.play();
+        sounds.launch();
         // debug
         /* currentGame.launch(); */
         debug.text = currentGame.title;
@@ -26,7 +26,7 @@ Item {
     function onCancelPressed() {
         currentView = 'collectionList';
         gameScroll.gamesListView.currentIndex = 0;
-        sounds.backSound.play();
+        sounds.back();
     }
 
     Keys.onPressed: {

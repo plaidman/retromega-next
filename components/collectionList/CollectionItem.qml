@@ -11,7 +11,7 @@ Item {
             currentGame = currentCollection.games.get(0);
 
             currentView = 'gameList';
-            sounds.forwardSound.play();
+            sounds.forward();
         }
     }
 

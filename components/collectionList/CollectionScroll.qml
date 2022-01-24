@@ -60,7 +60,7 @@ Item {
 
             backgroundColor.color = collectionColor(currentCollection.shortName);
 
-            if (currentView === 'collectionList') sounds.navSound.play();
+            /* if (currentView === 'collectionList') sounds.nav(); */
         }
     }
 

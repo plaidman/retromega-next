@@ -40,7 +40,7 @@ Item {
             currentGameIndex = currentIndex;
             currentGame = currentCollection.games.get(currentIndex);
 
-            if (currentView === 'gameList') sounds.navSound.play();
+            /* if (currentView === 'gameList') sounds.nav(); */
         }
     }
 
