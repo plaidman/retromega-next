@@ -27,9 +27,10 @@ import 'components/resources' as Resources
 //     [x] real time clock
 //     [x] tap to switch 24 hour
 //     [x] system title with color
-//   [x] navigation sounds
+//   [o] navigation sounds
 //     [x] double sound when going back from game view
 //     [x] double sound when navigating after coming back from game view
+//     [ ] double sound when starting the theme
 //   [ ] system colors
 //     [ ] make sure they are dark enough
 //     [ ] remove duplicates
@@ -63,6 +64,7 @@ import 'components/resources' as Resources
 
 FocusScope {
     property string currentView: 'collectionList';
+    property var bgMusicEnabled: true;
     property int currentCollectionIndex: 0;
     property var currentCollection;
     property int currentGameIndex: 0;
@@ -79,9 +81,10 @@ FocusScope {
 
         sounds.startSound.play();
 
-        if (music.bgPlaylist.itemCount > 0) {
-            music.bgPlaylist.shuffle();
-            music.bgMusic.play();
+        bgMusicEnabled = api.memory.get('bgMusicEnabled') ?? true;
+        if (music.count > 0 && bgMusicEnabled) {
+            music.shuffle();
+            music.play();
         }
     }
 
@@ -89,6 +92,7 @@ FocusScope {
         api.memory.set('currentView', currentView);
         api.memory.set('currentCollectionIndex', currentCollectionIndex);
         api.memory.set('currentGameIndex', currentGameIndex);
+        api.memory.set('bgMusicEnabled', bgMusicEnabled);
     }
 
     Resources.CollectionData { id: collectionData; }
