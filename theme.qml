@@ -5,20 +5,21 @@ import 'components/gameList' as GameList
 import 'components/resources' as Resources
 
 // todo list:
-//   [x] system list
+//   [o] system list
 //     [x] controller support
 //     [x] break up systemscroll.qml
 //     [x] # of total in footer
 //     [x] rename all 'system' to collection
 //     [x] touch support
 //     [x] better system name font spacing
-//   [o] game list
+//     [ ] system name shadow cutting into 'y' character
+//   [x] game list
 //     [x] rounded boxart
 //     [x] # of total in footer
 //     [x] system title in header
 //     [x] controller support
 //     [x] touch support
-//     [o] verify things work when picking multi disk game, but cancelling.
+//     [x] verify things work when picking multi disk game, but cancelling.
 //   [x] footer
 //     [x] buttons
 //     [x] # of total label
@@ -27,18 +28,18 @@ import 'components/resources' as Resources
 //     [x] real time clock
 //     [x] tap to switch 24 hour
 //     [x] system title with color
-//   [o] navigation sounds
-//     [x] double sound when going back from game view
-//     [x] double sound when navigating after coming back from game view
-//     [ ] double sound when starting the theme
 //   [o] bg music
 //     [x] random playlist
-//     [o] suspend on power off
+//     [x] suspend on power off
+//     [x] 1s timer before playing
 //     [ ] button to start/stop
+//   [o] navigation sounds
+//     [ ] clean up when nav.wav is played
 //   [ ] system colors
 //     [ ] make sure they are dark enough
 //     [ ] remove duplicates
 //   [ ] random select
+//   [ ] delete subpar collections: pikomini, wswans
 //   [ ] new collections
 //     [ ] ps2
 //     [ ] wii
@@ -50,6 +51,10 @@ import 'components/resources' as Resources
 //      https://www.vhv.rs/viewpic/iibbTRi_transparent-wii-controller-png-wii-classic-controller-pro/
 //   [ ] update readme
 //   [ ] hide all debug code
+//   [ ] new games
+//     [ ] genesis mystic defender
+//     [ ] nes shadow of the ninja
+
 
 //   [ ] bg music
 //     [ ] better way to generate the playlist from files
@@ -75,6 +80,19 @@ FocusScope {
     property int currentGameIndex: 0;
     property var currentGame;
 
+    Timer {
+        id: bgMusicTimer;
+
+        interval: 300;
+        repeat: false;
+        onTriggered: {
+            if (music.count > 0 && bgMusicEnabled) {
+                music.shuffle();
+                music.play();
+            }
+        }
+    }
+
     Component.onCompleted: {
         currentView = api.memory.get('currentView') ?? 'collectionList';
 
@@ -87,10 +105,7 @@ FocusScope {
         sounds.start();
 
         bgMusicEnabled = api.memory.get('bgMusicEnabled') ?? true;
-        if (music.count > 0 && bgMusicEnabled) {
-            music.shuffle();
-            music.play();
-        }
+        bgMusicTimer.start();
     }
 
     Component.onDestruction: {
