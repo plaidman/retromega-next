@@ -18,6 +18,7 @@ Item {
 
     function onAcceptPressed() {
         sounds.launchSound.play();
+        // debug
         /* currentGame.launch(); */
         debug.text = currentGame.title;
     }

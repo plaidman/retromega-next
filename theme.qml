@@ -49,8 +49,7 @@ import 'components/resources' as Resources
 //      https://www.vhv.rs/viewpic/ThTbhoR_wii-png-download-wii-mario-kart-controller-png/
 //      https://www.vhv.rs/viewpic/iibbTRi_transparent-wii-controller-png-wii-classic-controller-pro/
 //   [ ] update readme
-//   [ ] remove 640x480 from theme.qml
-//   [ ] enable game launch
+//   [ ] hide all debug code
 
 //   [ ] bg music
 //     [ ] better way to generate the playlist from files
@@ -71,7 +70,6 @@ import 'components/resources' as Resources
 FocusScope {
     property string currentView: 'collectionList';
     property var bgMusicEnabled: true;
-    property var bgMusicSuspended: false;
     property int currentCollectionIndex: 0;
     property var currentCollection;
     property int currentGameIndex: 0;
@@ -119,20 +117,15 @@ FocusScope {
             if (!bgMusicEnabled) return;
 
             if (Qt.application.state === Qt.ApplicationActive) {
-                if (!bgMusicSuspended) return;
-
-                music.play();
-                bgMusicSuspended = false;
+                if (!music.isPlaying()) music.play();
             } else {
-                if (bgMusicSuspended) return;
-
-                music.pause();
-                bgMusicSuspended = true;
+                if (music.isPlaying()) music.pause();
             }
         }
     }
 
     Rectangle {
+        // debug
         /* x: 200; */
         width: 640;
         height: 480;
@@ -147,6 +140,7 @@ FocusScope {
             focus: currentView === 'gameList';
         }
 
+        // debug
         Rectangle {
             x: 100;
             y: 100;
@@ -162,6 +156,15 @@ FocusScope {
                 text: 'debug';
                 color: 'magenta';
                 anchors.centerIn: parent;
+            }
+
+            MouseArea {
+                anchors.fill: parent;
+                onClicked: {
+                    bgMusicEnabled = !bgMusicEnabled;
+                    if (bgMusicEnabled) { music.shuffle(); music.play(); }
+                    else music.stop();
+                }
             }
         }
     }

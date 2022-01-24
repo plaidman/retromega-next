@@ -5,9 +5,10 @@ Item {
     property alias count: bgPlaylist.itemCount;
 
     function shuffle() { bgPlaylist.shuffle(); }
-    function play() { bgMusic.play(); }
-    function pause() { bgMusic.pause(); }
-    function stop() { bgMusic.stop(); }
+    function play() { bgMusic.play(); debug.text = 'playing'; }
+    function pause() { bgMusic.pause(); debug.text = 'paused'; }
+    function stop() { bgMusic.stop(); debug.text = 'stopped'; }
+    function isPlaying() { return bgMusic.playbackState === Audio.PlayingState; }
 
     Audio {
         id: bgMusic;
