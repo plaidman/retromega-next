@@ -9,11 +9,13 @@ Item {
     Keys.onUpPressed: {
         event.accepted = true;
         gameScroll.gamesListView.decrementCurrentIndex();
+        sounds.nav();
     }
 
     Keys.onDownPressed: {
         event.accepted = true;
         gameScroll.gamesListView.incrementCurrentIndex();
+        sounds.nav();
     }
 
     function onAcceptPressed() {

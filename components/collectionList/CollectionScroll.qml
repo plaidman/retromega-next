@@ -3,12 +3,16 @@ import QtQuick 2.15
 Item {
     property int collectionCount: api.collections.count;
     property alias collectionListView: collectionListView;
+    property bool startupMute: true;
 
     Component.onCompleted: {
         collectionListView.currentIndex = currentCollectionIndex;
         collectionListView.positionViewAtIndex(currentCollectionIndex, ListView.Center);
 
         backgroundColor.color = collectionColor(currentCollection.shortName);
+
+        // prevent line 9 from triggering the sound effect
+        startupMute = false;
     }
 
     // background color, fades when collection changes
@@ -60,7 +64,7 @@ Item {
 
             backgroundColor.color = collectionColor(currentCollection.shortName);
 
-            /* if (currentView === 'collectionList') sounds.nav(); */
+            if (currentView === 'collectionList' && startupMute === false) sounds.nav();
         }
     }
 

@@ -10,6 +10,7 @@ Item {
                 gamesListView.currentIndex = index;
                 currentGameIndex = index;
                 currentGame = currentCollection.games.get(index);
+                sounds.nav();
             }
         }
     }
