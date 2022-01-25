@@ -30,6 +30,11 @@ Item {
             event.accepted = true;
             onAcceptPressed();
         }
+
+        if (api.keys.isDetails(event)) {
+            event.accepted = true;
+            toggleMusicEnabled();
+        }
     }
 
     CollectionScroll {
@@ -51,10 +56,12 @@ Item {
         buttons: [
             { title: 'Select', key: 'A', square: false, sigValue: 'accept' },
             { title: 'Menu', key: 'B', square: false, sigValue: null },
+            { title: 'Music', key: 'X', square: false, sigValue: 'music' },
         ];
 
         onButtonClicked: {
             if (sigValue === 'accept') onAcceptPressed();
+            if (sigValue === 'music') toggleMusicEnabled();
         }
     }
 
