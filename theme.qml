@@ -56,7 +56,18 @@ FocusScope {
     }
 
     Resources.Sounds { id: sounds; }
+
     Resources.Music { id: music; }
+    function toggleMusicEnabled() {
+        bgMusicEnabled = !bgMusicEnabled;
+
+        if (bgMusicEnabled) {
+            music.shuffle();
+            music.play();
+        } else {
+            music.stop();
+        }
+    }
 
     Connections {
         target: Qt.application;
@@ -108,9 +119,6 @@ FocusScope {
             MouseArea {
                 anchors.fill: parent;
                 onClicked: {
-                    bgMusicEnabled = !bgMusicEnabled;
-                    if (bgMusicEnabled) { music.shuffle(); music.play(); }
-                    else music.stop();
                 }
             }
         }

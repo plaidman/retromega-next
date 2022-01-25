@@ -59,13 +59,23 @@ Rectangle {
         }
     }
 
+    MusicIcon {
+        id: musicIcon;
+
+        anchors {
+            verticalCenter: parent.verticalCenter;
+            right: parent.right;
+            rightMargin: 20;
+        }
+    }
+
     Text {
         text: index + ' of ' + total;
         color: '#9b9b9b';
 
         anchors {
-            right: parent.right;
-            rightMargin: 32;
+            right: musicIcon.left;
+            rightMargin: 20;
             verticalCenter: parent.verticalCenter;
         }
 
