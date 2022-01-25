@@ -1,6 +1,10 @@
 import QtQuick 2.15
 
 Item {
+    property string theme: {
+        return gamesListView.currentIndex === index ? 'light' : 'dark';
+    }
+
     MouseArea {
         anchors.fill: parent;
         onClicked: {
@@ -43,7 +47,7 @@ Item {
         width: 12;
         visible: favorite;
         fillMode: Image.PreserveAspectFit;
-        source: '../../assets/images/favorite.svg';
+        source: '../../assets/images/' + theme + '/favorite.svg';
         asynchronous: true;
 
         anchors {

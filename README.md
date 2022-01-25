@@ -45,7 +45,7 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 * filterable android apps
 
 ## Version History
-### Next - 
+### Next -
 * rewrote all views and functionality from scratch
     * break up folder structure and code to make it easier to edit
     * greatly simplified the view logic in collection list and especially game list
@@ -59,6 +59,7 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
     * fixed black screen when cancelling multi-file select or if game launch fails
     * fixed back and forward sound effects not properly playing
     * fixed title screen dropshadow overlapping 'g' and 'y' letters
+    * fixed miscolored favorite icon when game is highlighted
 
 ### Next - Jan 15th
 * updated arcade controller
