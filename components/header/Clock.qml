@@ -1,14 +1,17 @@
 import QtQuick 2.15
 
 Item {
-    width: clock.width;
-    height: clock.height;
-
-    property bool lightText: true;
+    property string theme: 'light';
+    property string themeColor: {
+        return theme === 'light' ? '#80ffffff' : '#80000000';
+    }
     property bool twelveHour: false;
     property string timeFormat: {
         return twelveHour ? 'h:mm ap' : 'hh:mm';
     };
+
+    width: clock.width;
+    height: clock.height;
 
     Timer {
         id: clockTimer;
@@ -27,7 +30,7 @@ Item {
         id: clock;
 
         text: '00:00';
-        color: lightText ? '#80ffffff' : '#80000000';
+        color: themeColor;
 
         font {
             pixelSize: 18;

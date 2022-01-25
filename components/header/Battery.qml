@@ -1,20 +1,23 @@
 import QtQuick 2.15
 
 Item {
-    property bool lightText: true;
+    property string theme: 'light';
+    property string themeColor: {
+        return theme === 'light' ? '#ffffff' : '#000000';
+    }
 
     width: 27;
     height: 14;
 
     // battery outline
     Image {
-        source: lightText ? '../../assets/images/battery.png' : '../../assets/images/battery-dark.png';
+        source: '../../assets/images/' + theme + '/battery.png';
         anchors.centerIn: parent;
     }
 
     // battery percentage fill
     Rectangle {
-        color: lightText ? '#ffffff' : '#000000';
+        color: themeColor;
         radius: 2;
         width: Math.max(api.device.batteryPercent * 17.6, 2);
         height: 8;

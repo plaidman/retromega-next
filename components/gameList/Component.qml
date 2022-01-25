@@ -79,7 +79,7 @@ Item {
         id: gameListHeader;
 
         showDivider: true;
-        lightText: false;
+        theme: 'dark';
         color: '#f3f3f3';
         showCollection: true;
     }

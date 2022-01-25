@@ -2,7 +2,7 @@ import QtQuick 2.15
 
 Rectangle {
     property bool showDivider: true;
-    property bool lightText: true;
+    property string theme: 'light';
     property bool showCollection: false;
 
     color: 'transparent';
@@ -29,29 +29,6 @@ Rectangle {
         }
     }
 
-    Battery {
-        id: battery;
-
-        opacity: 0.5;
-        lightText: parent.lightText;
-
-        anchors {
-            right: parent.right;
-            rightMargin: 32;
-            verticalCenter: parent.verticalCenter;
-        }
-    }
-
-    Clock {
-        lightText: parent.lightText;
-
-        anchors {
-            right: battery.left;
-            rightMargin: 12;
-            verticalCenter: parent.verticalCenter;
-        }
-    }
-
     Text {
         visible: showCollection;
         text: currentCollection.name;
@@ -69,6 +46,40 @@ Rectangle {
             pixelSize: 18;
             letterSpacing: -0.3;
             bold: true;
+        }
+    }
+
+    MusicIcon {
+        id: musicIcon;
+        theme: parent.theme;
+
+        anchors {
+            verticalCenter: parent.verticalCenter;
+            right: parent.right;
+            rightMargin: 20;
+        }
+    }
+
+    Battery {
+        id: battery;
+
+        opacity: 0.5;
+        theme: parent.theme;
+
+        anchors {
+            right: musicIcon.left;
+            rightMargin: 12;
+            verticalCenter: parent.verticalCenter;
+        }
+    }
+
+    Clock {
+        theme: parent.theme;
+
+        anchors {
+            right: battery.left;
+            rightMargin: 12;
+            verticalCenter: parent.verticalCenter;
         }
     }
 }
