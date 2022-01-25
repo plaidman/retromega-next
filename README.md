@@ -26,7 +26,6 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 * follow the instructions [on lines 23-25](https://github.com/plaidman/retromega-next/blob/master/components/resources/Music.qml#L23-L25) to register the music files in `/components/resources/Music.qml`
 
 ## Planned Updates
-* random game select
 * options panel toggles
     * 12/24 hour
     * dark mode
@@ -38,9 +37,6 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
     * sorting games list
     * games list alpha index
 * zoomed out system view
-* new systems
-    * wii
-    * ps2
 * dark mode support
 * filterable android apps
 
@@ -53,8 +49,12 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
     * organized external resource files (collections and music) for easy editing
     * consolidated input code and cleaned up any double-presses
 * new features
+    * random game selection
     * touch support
     * background music
+    * added ps2, wii collections
+    * touched up wswan, arcade, android, gc, nds, vboy images
+    * removed pokemini and wswancolor for now
 * bug fixes
     * fixed black screen when cancelling multi-file select or if game launch fails
     * fixed back and forward sound effects not properly playing
