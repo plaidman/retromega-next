@@ -3,12 +3,12 @@ import QtQuick 2.15
 Item {
     property string theme: 'light';
 
-    height: 20;
-    width: 20;
+    height: 24;
+    width: 24;
 
     Image {
         fillMode: Image.PreserveAspectFit;
-        source: '../../assets/images/' + theme + '/music.png';
+        source: '../../assets/images/' + theme + '/mute.png';
         asynchronous: true;
         opacity: .5;
         anchors.fill: parent;
@@ -17,7 +17,7 @@ Item {
 
     Image {
         fillMode: Image.PreserveAspectFit;
-        source: '../../assets/images/' + theme + '/mute.png';
+        source: '../../assets/images/' + theme + '/music.png';
         asynchronous: true;
         opacity: .5;
         anchors.fill: parent;
