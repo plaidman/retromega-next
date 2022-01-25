@@ -67,6 +67,6 @@ Item {
 
     Header.Component {
         showDivider: false;
-        theme: light;
+        theme: 'light';
     }
 }

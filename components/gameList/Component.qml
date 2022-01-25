@@ -31,6 +31,17 @@ Item {
         sounds.back();
     }
 
+    function onDetailsPressed() {
+        currentGame.favorite = !currentGame.favorite;
+    }
+
+    function onFiltersPressed() {
+        const gameCount = currentCollection.games.count;
+        const randomIndex = Math.floor(Math.random() * gameCount);
+        gameScroll.gamesListView.currentIndex = randomIndex;
+        sounds.nav();
+    }
+
     Keys.onPressed: {
         if (api.keys.isCancel(event)) {
             event.accepted = true;
@@ -40,6 +51,16 @@ Item {
         if (api.keys.isAccept(event)) {
             event.accepted = true;
             onAcceptPressed();
+        }
+
+        if (api.keys.isDetails(event)) {
+            event.accepted = true;
+            onDetailsPressed();
+        }
+
+        if (api.keys.isFilters(event)) {
+            event.accepted = true;
+            onFiltersPressed();
         }
     }
 
@@ -67,11 +88,15 @@ Item {
         buttons: [
             { title: 'Play', key: 'A', square: false, sigValue: 'accept' },
             { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
+            { title: 'Favorite', key: 'X', square: false, sigValue: 'favorite' },
+            { title: 'Random', key: 'Y', square: false, sigValue: 'random' },
         ];
 
         onButtonClicked: {
             if (sigValue === 'accept') onAcceptPressed();
             if (sigValue === 'cancel') onCancelPressed();
+            if (sigValue === 'favorite') onDetailsPressed();
+            if (sigValue === 'random') onFiltersPressed();
         }
     }
 
