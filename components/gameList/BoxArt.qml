@@ -61,17 +61,14 @@ Item {
             onStatusChanged: {
                 if (status == Image.Null) {
                     failed = true;
-                    debug.text = 'null';
                 }
 
                 if (status == Image.Error) {
                     failed = true;
-                    debug.text = 'error';
                 }
 
                 if (status === Image.Ready) {
                     failed = false;
-                    debug.text = currentGame.assets.boxFront;
                     boxartBuffer.source = source;
                     boxartBuffer.width = paintedWidth;
                     boxartBuffer.height = paintedHeight;

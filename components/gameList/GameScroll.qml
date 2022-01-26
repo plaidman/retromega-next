@@ -52,7 +52,7 @@ Item {
 
         onCurrentIndexChanged: {
             currentGameIndex = currentIndex;
-            currentGame = currentCollection.games.get(currentIndex);
+            currentGame = getMappedGame(currentIndex);
         }
     }
 

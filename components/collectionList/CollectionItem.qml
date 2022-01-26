@@ -8,7 +8,7 @@ Item {
             collectionListView.currentIndex = index;
 
             currentGameIndex = 0;
-            currentGame = currentCollection.games.get(0);
+            currentGame = getMappedGame(0);
 
             currentView = 'gameList';
             sounds.forward();

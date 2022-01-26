@@ -16,12 +16,22 @@ FocusScope {
     property var allCollections: {
         const collections = api.collections.toVarArray();
 
-        collections.unshift({"name": "Favorites", "shortName": "favorites", "games": allFavorites});
-        collections.unshift({"name": "Last Played", "shortName": "recents", "games": filterLastPlayed});
-        collections.unshift({"name": "All Games", "shortName": "allgames", "games": api.allGames});
+        collections.unshift({'name': 'Favorites', 'shortName': 'favorites', 'games': allFavorites});
+        collections.unshift({'name': 'Last Played', 'shortName': 'recents', 'games': filterLastPlayed});
+        collections.unshift({'name': 'All Games', 'shortName': 'allgames', 'games': api.allGames});
 
         return collections;
     };
+
+    function getMappedGame(index) {
+        if (currentCollection.shortName === 'favorites') {
+            return api.allGames.get(allFavorites.mapToSource(index));
+        } else if (currentCollection.shortName === 'recents') {
+            return api.allGames.get(filterLastPlayed.mapToSource(index));
+        } else {
+            return currentCollection.games.get(index);
+        }
+    }
 
     Timer {
         id: bgMusicTimer;
@@ -43,7 +53,7 @@ FocusScope {
         currentCollection = allCollections[currentCollectionIndex];
 
         currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
-        currentGame = currentCollection.games.get(currentGameIndex);
+        currentGame = getMappedGame(currentGameIndex);
 
         sounds.start();
 
@@ -62,15 +72,15 @@ FocusScope {
         id: allFavorites;
 
         sourceModel: api.allGames;
-        filters: ValueFilter { roleName: "favorite"; value: true; }
+        filters: ValueFilter { roleName: 'favorite'; value: true; }
     }
 
     SortFilterProxyModel {
         id: allLastPlayed;
 
         sourceModel: api.allGames;
-        filters: ValueFilter { roleName: "lastPlayed"; value: ""; inverted: true; }
-        sorters: RoleSorter { roleName: "lastPlayed"; sortOrder: Qt.DescendingOrder; }
+        filters: ValueFilter { roleName: 'lastPlayed'; value: ''; inverted: true; }
+        sorters: RoleSorter { roleName: 'lastPlayed'; sortOrder: Qt.DescendingOrder; }
     }
 
     SortFilterProxyModel {
