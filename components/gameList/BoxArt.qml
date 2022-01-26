@@ -4,12 +4,13 @@ import QtGraphicalEffects 1.12
 Item {
     id: boxart;
 
-    property bool showArt: true;
-    property string artSource: {
-        if (visible) return currentGame.assets.boxFront;
-        else return '../../assets/images/clear.png';
+    property bool failed: true;
+    visible: {
+        currentCollection.games.count > 0 && !failed && currentGame.assets.boxFront.length > 0;
     }
 
+    // must manually calculate width and height for the rounded corners
+    // the shader doesn't work with paintedWidth and paintedHeight
     function resizeImage(imgWid, imgHgt, parWid, parHgt) {
         const horizScale = parWid / imgWid;
         const vertScale = parHgt / imgHgt;
@@ -25,7 +26,6 @@ Item {
         source: '../../assets/images/cover-shadow.png';
         width: (371 / 200) * boxartImage.paintedWidth - 2;   // 371 is the total shadow image size
         height: (371 / 200) * boxartImage.paintedHeight - 2; // 200 is the black part of the image
-        visible: false;
         anchors.centerIn: parent;
     }
 
@@ -48,7 +48,7 @@ Item {
             id: boxartImage;
 
             fillMode: Image.PreserveAspectFit;
-            source: artSource;
+            source: currentGame.assets.boxFront;
             asynchronous: true;
             anchors.fill: parent;
             cache: false;
@@ -59,12 +59,22 @@ Item {
             }
 
             onStatusChanged: {
+                if (status == Image.Null) {
+                    failed = true;
+                    debug.text = 'null';
+                }
+
+                if (status == Image.Error) {
+                    failed = true;
+                    debug.text = 'error';
+                }
+
                 if (status === Image.Ready) {
+                    failed = false;
+                    debug.text = currentGame.assets.boxFront;
                     boxartBuffer.source = source;
                     boxartBuffer.width = paintedWidth;
                     boxartBuffer.height = paintedHeight;
-
-                    boxartShadow.visible = true;
 
                     resizeImage(paintedWidth, paintedHeight, boxart.width * .75, boxart.height * .75);
                 }

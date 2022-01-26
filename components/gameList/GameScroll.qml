@@ -66,7 +66,6 @@ Item {
     }
 
     BoxArt {
-        visible: currentCollection.games.count > 0;
         width: parent.width / 2;
         height: parent.height;
         x: parent.width / 2;
