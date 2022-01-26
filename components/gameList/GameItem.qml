@@ -8,6 +8,11 @@ Item {
         return favorite && currentCollection.shortName !== 'favorites';
     }
 
+    ListView.onRemove: {
+        currentGameIndex = gamesListView.currentIndex;
+        currentGame = getMappedGame(gamesListView.currentIndex);
+    }
+
     MouseArea {
         anchors.fill: parent;
         onClicked: {
@@ -16,7 +21,7 @@ Item {
             } else {
                 gamesListView.currentIndex = index;
                 currentGameIndex = index;
-                currentGame = currentCollection.games.get(index);
+                currentGame = getMappedGame(index);
                 sounds.nav();
             }
         }

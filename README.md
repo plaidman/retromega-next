@@ -59,6 +59,7 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
     - fixed back and forward sound effects not properly playing
     - fixed title screen dropshadow overlapping 'g' and 'y' letters
     - fixed miscolored favorite icon when game is highlighted
+    - fixed a layout bug when you un-favorite a game while on the favorites list
     - removed pokemini and wswancolor for now until I can find better art
 
 ### Next - Jan 15th
