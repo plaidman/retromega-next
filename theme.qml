@@ -27,7 +27,7 @@ FocusScope {
         if (currentCollection.shortName === 'favorites') {
             return api.allGames.get(allFavorites.mapToSource(index));
         } else if (currentCollection.shortName === 'recents') {
-            return api.allGames.get(filterLastPlayed.mapToSource(index));
+            return api.allGames.get(allLastPlayed.mapToSource(filterLastPlayed.mapToSource(index)));
         } else {
             return currentCollection.games.get(index);
         }
@@ -87,7 +87,7 @@ FocusScope {
         id: filterLastPlayed;
 
         sourceModel: allLastPlayed;
-        filters: IndexFilter { maximumIndex: 25; }
+        filters: IndexFilter { maximumIndex: 24; }
     }
 
     Resources.CollectionData { id: collectionData; }
