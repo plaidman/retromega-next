@@ -4,6 +4,9 @@ Item {
     property string theme: {
         return gamesListView.currentIndex === index ? 'light' : 'dark';
     }
+    property bool showFavorite: {
+        return favorite && currentCollection.shortName !== 'favorites';
+    }
 
     MouseArea {
         anchors.fill: parent;
@@ -39,13 +42,13 @@ Item {
             left: parent.left;
             leftMargin: 12;
             right: parent.right;
-            rightMargin: favorite ? 24 : 12;
+            rightMargin: showFavorite ? 24 : 12;
         }
     }
 
     Image {
         width: 12;
-        visible: favorite;
+        visible: showFavorite;
         fillMode: Image.PreserveAspectFit;
         source: '../../assets/images/' + theme + '/favorite.svg';
         asynchronous: true;
