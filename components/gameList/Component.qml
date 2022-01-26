@@ -60,6 +60,22 @@ Item {
             event.accepted = true;
             onFiltersPressed();
         }
+
+        // L2
+        if (api.keys.isPageUp(event)) {
+            if (currentCollectionIndex === 0) return;
+
+            currentCollectionIndex = currentCollectionIndex - 1;
+            currentCollection = allCollections[currentCollectionIndex];
+        }
+
+        // R2
+        if (api.keys.isPageDown(event)) {
+            if (currentCollectionIndex === allCollections.length - 1) return;
+
+            currentCollectionIndex = currentCollectionIndex + 1;
+            currentCollection = allCollections[currentCollectionIndex];
+        }
     }
 
     Rectangle {
