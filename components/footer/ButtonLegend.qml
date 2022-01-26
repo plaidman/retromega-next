@@ -42,7 +42,7 @@ Rectangle {
         id: outerText;
 
         text: title;
-        color: '#70000000';
+        color: '#80000000';
 
         font {
             pixelSize: 14;
