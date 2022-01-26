@@ -8,6 +8,20 @@ Item {
         gamesListView.positionViewAtIndex(currentGameIndex, ListView.Center);
     }
 
+    Text {
+        visible: currentCollection.games.count === 0;
+        text: 'No Games';
+        anchors.centerIn: gamesListView;
+        color: '#80000000';
+
+        font {
+            family: globalFonts.sans;
+            pixelSize: 18;
+            letterSpacing: -0.3;
+            bold: true;
+        }
+    }
+
     ListView {
         id: gamesListView;
 

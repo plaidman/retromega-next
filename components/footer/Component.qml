@@ -62,6 +62,7 @@ Rectangle {
     Text {
         text: index + ' of ' + total;
         color: '#9b9b9b';
+        visible: total > 0;
 
         anchors {
             right: parent.right;

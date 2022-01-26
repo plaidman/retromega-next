@@ -40,7 +40,7 @@ Item {
     Text {
         id: title;
 
-        text: name;
+        text: modelData.name;
         color: '#ffffff';
         width: 300;
         wrapMode: Text.WordWrap;
@@ -60,7 +60,7 @@ Item {
     }
 
     Text {
-        text: games.count + ' games';
+        text: modelData.games.count + ' games';
         color: '#ffffff';
         opacity: 0.7;
 
@@ -79,7 +79,7 @@ Item {
     }
 
     Text {
-        text: collectionCompany(shortName);
+        text: collectionCompany(modelData.shortName);
         color: '#ffffff';
         opacity: 0.7;
 
@@ -101,7 +101,7 @@ Item {
     Image {
         id: device;
 
-        source: '../../assets/images/devices/' + shortName + '.png';
+        source: '../../assets/images/devices/' + modelData.shortName + '.png';
         asynchronous: true;
 
         anchors {

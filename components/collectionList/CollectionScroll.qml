@@ -1,7 +1,7 @@
 import QtQuick 2.15
 
 Item {
-    property int collectionCount: api.collections.count;
+    property int collectionCount: allCollections.length;
     property alias collectionListView: collectionListView;
     property bool startupMute: true;
 
@@ -46,7 +46,7 @@ Item {
     ListView {
         id: collectionListView;
 
-        model: api.collections;
+        model: allCollections;
         delegate: lvCollectionDelegate;
         orientation: ListView.Horizontal;
         highlightRangeMode: ListView.StrictlyEnforceRange;
@@ -60,7 +60,7 @@ Item {
 
         onCurrentIndexChanged: {
             currentCollectionIndex = currentIndex;
-            currentCollection = api.collections.get(currentIndex);
+            currentCollection = allCollections[currentIndex];
 
             backgroundColor.color = collectionColor(currentCollection.shortName);
 

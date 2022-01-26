@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import SortFilterProxyModel 0.2
 
 import 'components/collectionList' as CollectionList
 import 'components/gameList' as GameList
@@ -11,6 +12,16 @@ FocusScope {
     property var currentCollection;
     property int currentGameIndex: 0;
     property var currentGame;
+
+    property var allCollections: {
+        const collections = api.collections.toVarArray();
+
+        collections.unshift({"name": "Favorites", "shortName": "favorites", "games": allFavorites});
+        collections.unshift({"name": "Last Played", "shortName": "recents", "games": filterLastPlayed});
+        collections.unshift({"name": "All Games", "shortName": "allgames", "games": api.allGames});
+
+        return collections;
+    };
 
     Timer {
         id: bgMusicTimer;
@@ -29,7 +40,7 @@ FocusScope {
         currentView = api.memory.get('currentView') ?? 'collectionList';
 
         currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
-        currentCollection = api.collections.get(currentCollectionIndex);
+        currentCollection = allCollections[currentCollectionIndex];
 
         currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
         currentGame = currentCollection.games.get(currentGameIndex);
@@ -46,6 +57,47 @@ FocusScope {
         api.memory.set('currentGameIndex', currentGameIndex);
         api.memory.set('bgMusicEnabled', bgMusicEnabled);
     }
+
+    SortFilterProxyModel {
+        id: allFavorites;
+
+        sourceModel: api.allGames;
+        filters: ValueFilter { roleName: "favorite"; value: true; }
+    }
+
+    SortFilterProxyModel {
+        id: allLastPlayed;
+
+        sourceModel: api.allGames;
+        filters: ValueFilter { roleName: "lastPlayed"; value: ""; inverted: true; }
+        sorters: RoleSorter { roleName: "lastPlayed"; sortOrder: Qt.DescendingOrder; }
+    }
+
+    SortFilterProxyModel {
+        id: filterLastPlayed;
+
+        sourceModel: allLastPlayed;
+        filters: IndexFilter { maximumIndex: 25; }
+    }
+
+    /* SortFilterProxyModel { */
+    /*     id: currentFavorites; */
+
+    /*     sourceModel: currentCollection.games; */
+    /*     filters: ValueFilter { roleName: "favorite"; value: true; } */
+    /* } */
+
+    /* SortFilterProxyModel { */
+    /* id: searchGames */
+
+    /*     sourceModel: currentCollection.games */
+    /*     filters: [ */
+    /*          RegExpFilter { roleName: "title"; pattern: searchValue; caseSensitivity: Qt.CaseInsensitive; enabled: searchValue != "" } */
+    /*     ] */
+    /*     // sorters: [ */
+    /*     //     RoleSorter { roleName: sortByFilter[sortByIndex]; sortOrder: orderBy } */
+    /*     // ] */
+    /* } */
 
     Resources.CollectionData { id: collectionData; }
     function collectionColor(shortName) {
