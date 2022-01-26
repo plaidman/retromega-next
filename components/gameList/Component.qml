@@ -61,6 +61,42 @@ Item {
             onFiltersPressed();
         }
 
+        // L1
+        if (api.keys.isPrevPage(event)) {
+            const oldLetter = currentGame.title[0].toLowerCase();
+            let newIndex = currentGameIndex;
+
+            while (newIndex > 0) {
+                newIndex--;
+                const newGame = currentCollection.games.get(newIndex);
+                const newLetter = newGame.title[0].toLowerCase();
+
+                if (newLetter !== oldLetter) {
+                    break;
+                }
+            }
+
+            gameScroll.gamesListView.currentIndex = newIndex;
+        }
+
+        // R1
+        if (api.keys.isNextPage(event)) {
+            const oldLetter = currentGame.title[0].toLowerCase();
+            let newIndex = currentGameIndex;
+
+            while (newIndex < currentCollection.games.count - 1) {
+                newIndex++;
+                const newGame = currentCollection.games.get(newIndex);
+                const newLetter = newGame.title[0].toLowerCase();
+
+                if (newLetter !== oldLetter) {
+                    break;
+                }
+            }
+
+            gameScroll.gamesListView.currentIndex = newIndex;
+        }
+
         // L2
         if (api.keys.isPageUp(event)) {
             if (currentCollectionIndex === 0) return;
