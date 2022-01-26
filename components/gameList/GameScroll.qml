@@ -4,14 +4,14 @@ Item {
     property alias gamesListView: gamesListView;
 
     Component.onCompleted: {
-        gamesListView.currentIndex = currentGameIndex
+        gamesListView.currentIndex = currentGameIndex;
         gamesListView.positionViewAtIndex(currentGameIndex, ListView.Center);
     }
 
     Text {
         visible: currentCollection.games.count === 0;
         text: 'No Games';
-        anchors.centerIn: gamesListView;
+        anchors.centerIn: parent;
         color: '#80000000';
 
         font {
@@ -66,6 +66,7 @@ Item {
     }
 
     BoxArt {
+        visible: currentCollection.games.count > 0;
         width: parent.width / 2;
         height: parent.height;
         x: parent.width / 2;

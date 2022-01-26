@@ -4,6 +4,12 @@ import QtGraphicalEffects 1.12
 Item {
     id: boxart;
 
+    property bool showArt: true;
+    property string artSource: {
+        if (visible) return currentGame.assets.boxFront;
+        else return '../../assets/images/clear.png';
+    }
+
     function resizeImage(imgWid, imgHgt, parWid, parHgt) {
         const horizScale = parWid / imgWid;
         const vertScale = parHgt / imgHgt;
@@ -42,7 +48,7 @@ Item {
             id: boxartImage;
 
             fillMode: Image.PreserveAspectFit;
-            source: currentGame.assets.boxFront;
+            source: artSource;
             asynchronous: true;
             anchors.fill: parent;
             cache: false;

@@ -80,25 +80,6 @@ FocusScope {
         filters: IndexFilter { maximumIndex: 25; }
     }
 
-    /* SortFilterProxyModel { */
-    /*     id: currentFavorites; */
-
-    /*     sourceModel: currentCollection.games; */
-    /*     filters: ValueFilter { roleName: "favorite"; value: true; } */
-    /* } */
-
-    /* SortFilterProxyModel { */
-    /* id: searchGames */
-
-    /*     sourceModel: currentCollection.games */
-    /*     filters: [ */
-    /*          RegExpFilter { roleName: "title"; pattern: searchValue; caseSensitivity: Qt.CaseInsensitive; enabled: searchValue != "" } */
-    /*     ] */
-    /*     // sorters: [ */
-    /*     //     RoleSorter { roleName: sortByFilter[sortByIndex]; sortOrder: orderBy } */
-    /*     // ] */
-    /* } */
-
     Resources.CollectionData { id: collectionData; }
     function collectionColor(shortName) {
         return collectionData.colors[shortName] ?? collectionData.colors['default'];
@@ -134,45 +115,13 @@ FocusScope {
         }
     }
 
-    Rectangle {
-        // debug
-        /* x: 200; */
-        width: 640;
-        height: 480;
+    CollectionList.Component {
+        visible: currentView === 'collectionList';
+        focus: currentView === 'collectionList';
+    }
 
-        CollectionList.Component {
-            visible: currentView === 'collectionList';
-            focus: currentView === 'collectionList';
-        }
-
-        GameList.Component {
-            visible: currentView === 'gameList';
-            focus: currentView === 'gameList';
-        }
-
-        // debug
-        Rectangle {
-            x: 100;
-            y: 100;
-            width: debug.width + 10;
-            height: debug.height + 10;
-
-            color: 'black';
-            border.color: 'white';
-
-            Text {
-                id: debug;
-
-                text: 'debug';
-                color: 'magenta';
-                anchors.centerIn: parent;
-            }
-
-            MouseArea {
-                anchors.fill: parent;
-                onClicked: {
-                }
-            }
-        }
+    GameList.Component {
+        visible: currentView === 'gameList';
+        focus: currentView === 'gameList';
     }
 }

@@ -20,9 +20,7 @@ Item {
 
     function onAcceptPressed() {
         sounds.launch();
-        // debug
-        /* currentGame.launch(); */
-        debug.text = currentGame.title;
+        currentGame.launch();
     }
 
     function onCancelPressed() {

@@ -19,11 +19,10 @@ Item {
     Image {
         source: '../../assets/images/menu-side.png';
         fillMode: Image.PreserveAspectFit;
-        height: parent.height;
+        horizontalAlignment: Image.AlignRight;
 
         anchors {
-            top: parent.top;
-            right: parent.right;
+            fill: parent;
             rightMargin: 70;
         }
     }
