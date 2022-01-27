@@ -63,17 +63,21 @@ Item {
 
         // L1
         if (api.keys.isPrevPage(event)) {
-            const oldLetter = currentGame.title[0].toLowerCase();
-            let newIndex = currentGameIndex;
+            if (currentGameIndex === 0) return;
+
+            let newIndex = currentGameIndex - 1;
+            const oldGame = currentCollection.games.get(newIndex);
+            const oldLetter = oldGame.title[0].toLowerCase();
 
             while (newIndex > 0) {
-                newIndex--;
-                const newGame = currentCollection.games.get(newIndex);
+                const newGame = currentCollection.games.get(newIndex - 1);
                 const newLetter = newGame.title[0].toLowerCase();
 
                 if (newLetter !== oldLetter) {
                     break;
                 }
+
+                newIndex--;
             }
 
             gameScroll.gamesListView.currentIndex = newIndex;
@@ -81,6 +85,8 @@ Item {
 
         // R1
         if (api.keys.isNextPage(event)) {
+            if (currentGameIndex === currentCollection.games.count - 1) return;
+
             const oldLetter = currentGame.title[0].toLowerCase();
             let newIndex = currentGameIndex;
 

@@ -30,7 +30,6 @@ Item {
         width: (parent.width / 2) - 20; // 20 is left margin
         height: parent.height;
         highlightMoveDuration: 0;
-        keyNavigationWraps: true;
         preferredHighlightBegin: 30; // height of an item minus top margin
         preferredHighlightEnd: parent.height - 54; // height of an item plus top margin
         highlightRangeMode: ListView.ApplyRange;
