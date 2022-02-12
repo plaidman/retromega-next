@@ -2,94 +2,88 @@ import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
 Item {
-    id: boxart;
-
     property bool failed: true;
     visible: {
-        currentCollection.games.count > 0 && !failed && currentGame.assets.boxFront.length > 0;
-    }
+        if (failed) return false;
+        if (currentCollection.games.count === 0) return false;
+        if (currentGame.assets.boxFront.length === 0) return false;
 
-    // must manually calculate width and height for the rounded corners
-    // the shader doesn't work with paintedWidth and paintedHeight
-    function resizeImage(imgWid, imgHgt, parWid, parHgt) {
-        const horizScale = parWid / imgWid;
-        const vertScale = parHgt / imgHgt;
-        const minScale = Math.min(horizScale, vertScale);
-
-        boxartContainer.width = imgWid * minScale;
-        boxartContainer.height = imgHgt * minScale;
+        return true;
     }
 
     Image {
-        id: boxartShadow;
+        id: boxartBuffer;
 
-        source: '../../assets/images/cover-shadow.png';
-        width: (371 / 200) * boxartImage.paintedWidth - 2;   // 371 is the total shadow image size
-        height: (371 / 200) * boxartImage.paintedHeight - 2; // 200 is the black part of the image
+        // invisible because the dropshadow element essentially copies it
+        visible: false;
+        fillMode: Image.PreserveAspectFit;
+        cache: false;
+        width: parent.width * .75;
+        height: parent.height * .75;
         anchors.centerIn: parent;
     }
 
-    Item {
-        id: boxartContainer;
+    Image {
+        id: boxartImage;
 
-        width: parent.width;
-        height: parent.height;
+        // invisible because the buffer element is actually what is shown
+        visible: false;
+        fillMode: Image.PreserveAspectFit;
+        source: currentGame ? currentGame.assets.boxFront : '';
+        asynchronous: true;
+        cache: false;
+        width: parent.width * .75;
+        height: parent.height * .75;
         anchors.centerIn: parent;
 
-        Image {
-            id: boxartBuffer;
+        onStatusChanged: {
+            if (status == Image.Null) {
+                failed = true;
+            }
 
-            fillMode: Image.PreserveAspectFit;
-            asynchronous: false;
+            if (status == Image.Error) {
+                failed = true;
+            }
+
+            if (status === Image.Ready) {
+                failed = false;
+                boxartBuffer.source = source;
+            }
+        }
+    }
+
+    Item {
+        id: boxartMask;
+
+        // invisible because the dropshadow element essentially copies it
+        visible: false;
+        anchors.fill: boxartBuffer;
+
+        Rectangle {
+            color: 'white';
+            radius: 10;
             anchors.centerIn: parent;
+            width: boxartBuffer.paintedWidth;
+            height: boxartBuffer.paintedHeight;
         }
+    }
 
-        Image {
-            id: boxartImage;
+    OpacityMask {
+        id: boxartRounded;
 
-            fillMode: Image.PreserveAspectFit;
-            source: currentGame.assets.boxFront;
-            asynchronous: true;
-            anchors.fill: parent;
-            cache: false;
+        // invisible because the dropshadow element essentially copies it
+        visible: false;
+        anchors.fill: boxartBuffer;
+        source: boxartBuffer;
+        maskSource: boxartMask;
+    }
 
-            sourceSize {
-                width: 640;
-                height: 480;
-            }
-
-            onStatusChanged: {
-                if (status == Image.Null) {
-                    failed = true;
-                }
-
-                if (status == Image.Error) {
-                    failed = true;
-                }
-
-                if (status === Image.Ready) {
-                    failed = false;
-                    boxartBuffer.source = source;
-                    boxartBuffer.width = paintedWidth;
-                    boxartBuffer.height = paintedHeight;
-
-                    resizeImage(paintedWidth, paintedHeight, boxart.width * .75, boxart.height * .75);
-                }
-            }
-        }
-
-        layer.enabled: true;
-        layer.effect: OpacityMask {
-            maskSource: Item {
-                width: boxartImage.width;
-                height: boxartImage.height;
-
-                Rectangle {
-                    width: boxartImage.width;
-                    height: boxartImage.height;
-                    radius: 6;
-                }
-            }
-        }
+    DropShadow {
+        source: boxartRounded;
+        verticalOffset: 10;
+        color: '#60000000';
+        radius: 30;
+        samples: 61;
+        anchors.fill: boxartRounded;
     }
 }

@@ -9,8 +9,6 @@ Item {
     Component.onCompleted: {
         gamesListView.currentIndex = currentGameIndex;
         gamesListView.positionViewAtIndex(currentGameIndex, ListView.Center);
-
-        debug.text = gamesListView.height;
     }
 
     Text {
