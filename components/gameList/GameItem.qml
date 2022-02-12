@@ -52,16 +52,22 @@ Item {
     }
 
     Image {
-        width: 12;
-        visible: showFavorite;
-        fillMode: Image.PreserveAspectFit;
         source: '../../assets/images/' + theme + '/favorite.svg';
+        sourceSize: Qt.size( parent.height * .28, parent.height * .28 );
+        fillMode: Image.PreserveAspectFit;
+        visible: showFavorite;
         asynchronous: true;
 
         anchors {
             verticalCenter: parent.verticalCenter;
             right: parent.right;
             rightMargin: 10;
+        }
+
+        Image {
+            source: parent.source;
+            width: 0
+            height: 0
         }
     }
 }

@@ -6,26 +6,48 @@ Item {
         return theme === 'light' ? '#ffffff' : '#000000';
     }
 
-    width: 27;
-    height: 14;
+    // border
+    Rectangle {
+        id: batteryBorder;
 
-    // battery outline
-    Image {
-        source: '../../assets/images/' + theme + '/battery.png';
-        anchors.centerIn: parent;
+        height: parent.height;
+        width: parent.width;
+        radius: 3;
+        color: 'transparent';
+
+        border {
+            color: themeColor;
+            width: 2;
+        }
     }
 
-    // battery percentage fill
+    // fill level
     Rectangle {
         color: themeColor;
-        radius: 2;
-        width: Math.max(api.device.batteryPercent * 17.6, 2);
-        height: 8;
+
+        width: Math.max(api.device.batteryPercent * (parent.width - 9), 2);
+        height: parent.height - 6;
+        radius: 1;
+
+        anchors {
+            left: parent.left;
+            leftMargin: 3;
+            top: parent.top;
+            topMargin: 3;
+        }
+    }
+
+    // button
+    Rectangle {
+        height: parent.height * .42;
+        width: parent.height * .14;
+        radius: width;
+        color: themeColor;
 
         anchors {
             verticalCenter: parent.verticalCenter;
-            left: parent.left;
-            leftMargin: 3;
+            left: parent.right;
+            leftMargin: 1;
         }
     }
 }
