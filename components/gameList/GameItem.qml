@@ -47,7 +47,7 @@ Item {
             left: parent.left;
             leftMargin: 12;
             right: parent.right;
-            rightMargin: showFavorite ? 24 : 12;
+            rightMargin: showFavorite ? parent.height * .36 + 10 : 10;
         }
     }
 
@@ -62,12 +62,6 @@ Item {
             verticalCenter: parent.verticalCenter;
             right: parent.right;
             rightMargin: 10;
-        }
-
-        Image {
-            source: parent.source;
-            width: 0
-            height: 0
         }
     }
 }

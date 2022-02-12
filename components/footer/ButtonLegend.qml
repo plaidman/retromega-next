@@ -58,7 +58,7 @@ Item {
         anchors {
             verticalCenter: parent.verticalCenter;
             left: icon.right;
-            leftMargin: root.width * .006;
+            leftMargin: footer.height * .07;
         }
     }
 }

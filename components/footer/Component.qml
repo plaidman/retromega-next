@@ -34,7 +34,7 @@ Rectangle {
 
     // button guide
     Row {
-        spacing: root.width * .025;
+        spacing: parent.height * .27;
 
         anchors {
             verticalCenter: parent.verticalCenter;

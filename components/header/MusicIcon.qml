@@ -14,12 +14,6 @@ Item {
         opacity: .5;
         anchors.fill: parent;
         visible: !bgMusicEnabled;
-
-        Image {
-            source: parent.source;
-            width: 0
-            height: 0
-        }
     }
 
     Image {
@@ -30,12 +24,6 @@ Item {
         opacity: .5;
         anchors.fill: parent;
         visible: bgMusicEnabled;
-
-        Image {
-            source: parent.source;
-            width: 0
-            height: 0
-        }
     }
 
     MouseArea {
