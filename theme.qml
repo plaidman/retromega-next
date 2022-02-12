@@ -6,8 +6,10 @@ import 'components/gameList' as GameList
 import 'components/resources' as Resources
 
 FocusScope {
+    id: root;
+
     property string currentView: 'collectionList';
-    property var bgMusicEnabled: true;
+    property bool bgMusicEnabled: true;
     property int currentCollectionIndex: 0;
     property var currentCollection;
     property int currentGameIndex: 0;

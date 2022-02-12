@@ -11,7 +11,6 @@ Item {
     };
 
     width: clock.width;
-    height: clock.height;
 
     Timer {
         id: clockTimer;
@@ -32,8 +31,10 @@ Item {
         text: '00:00';
         color: themeColor;
 
+        anchors.verticalCenter: parent.verticalCenter;
+
         font {
-            pixelSize: 18;
+            pixelSize: parent.height * .33;
             letterSpacing: -0.3;
             bold: true;
         }

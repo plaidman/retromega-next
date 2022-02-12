@@ -41,12 +41,12 @@ Item {
 
         text: modelData.name;
         color: '#ffffff';
-        width: 300;
+        width: root.width * .46;
         wrapMode: Text.WordWrap;
         lineHeight: 0.8;
 
         font {
-            pixelSize: 36;
+            pixelSize: root.height * .075;
             bold: true;
         }
 
@@ -67,11 +67,11 @@ Item {
             left: parent.left;
             leftMargin: 30;
             top: title.bottom;
-            topMargin: 10;
+            topMargin: root.height * .02;
         }
 
         font {
-            pixelSize: 14;
+            pixelSize: root.height * .03;
             letterSpacing: -0.3;
             bold: true;
         }
@@ -84,7 +84,7 @@ Item {
 
         font {
             capitalization: Font.AllUppercase;
-            pixelSize: 12;
+            pixelSize: root.height * .025;
             letterSpacing: 1.3;
             bold: true;
         }
@@ -93,7 +93,6 @@ Item {
             left: parent.left;
             leftMargin: 30;
             bottom: title.top;
-            bottomMargin: -1;
         }
     }
 
@@ -101,6 +100,10 @@ Item {
         id: device;
 
         source: '../../assets/images/devices/' + modelData.shortName + '.png';
+        width: root.width * .59;
+        height: root.height * .78;
+        fillMode: Image.PreserveAspectFit;
+        horizontalAlignment: Image.AlignRight;
         asynchronous: true;
 
         anchors {

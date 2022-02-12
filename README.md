@@ -6,10 +6,12 @@ Adapted from [David Fumberger's RetroMega](https://github.com/djfumberger/retrom
 ## Installation
 [Download](https://github.com/plaidman/retromega/archive/main.zip) and extract to your [theme directory](http://pegasus-frontend.org/docs/user-guide/installing-themes) under the folder retromega. You can then select the theme in the settings menu of Pegasus.
 
+The theme uses `boxart2dfront` on the games list, and `screenshot` in the game detail view.
+
 To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [available here](https://basvroegop.nl/pegasus) or a great video guide [available here](https://www.youtube.com/watch?v=fGWve7YYwGQ). You can also use [DragoonDorise's pegasus installer](https://www.pegasus-installer.com/) to scrape files on your device easier.
 
 ## Features
-- optimised for the RP2/2+
+- optimised for handheld devices with small screens
 - rewritten code from scratch
 - controller support
 - touch support
@@ -35,13 +37,16 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
     - game details screen
     - favorites filter
     - sorting games list
-    - games list alpha index
 - zoomed out system view
 - dark mode support
 - filterable android apps
 
 ## Version History
 ### Next -
+- added support for higher resolution handhelds (e.g. Odin, RG552)
+- changed png icons to svg with improved scaling to make them look better at all resolutions
+
+### Next - Jan 26th
 - rewrote all views and functionality from scratch
     - break up folder structure and code to make it easier to edit
     - greatly simplified the view logic in collection list and especially game list

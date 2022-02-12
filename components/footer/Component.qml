@@ -1,13 +1,15 @@
 import QtQuick 2.15
 
 Rectangle {
+    id: footer;
+
     property var buttons: [];
     property int index;
     property int total;
 
     signal buttonClicked (string sigValue);
 
-    height: 55;
+    height: root.height * .115;
     color: '#f3f3f3';
 
     anchors {
@@ -32,7 +34,7 @@ Rectangle {
 
     // button guide
     Row {
-        spacing: 15;
+        spacing: root.width * .025;
 
         anchors {
             verticalCenter: parent.verticalCenter;
@@ -71,7 +73,7 @@ Rectangle {
         }
 
         font {
-            pixelSize: 18;
+            pixelSize: parent.height * .33;
             letterSpacing: -0.3;
             bold: true;
         }

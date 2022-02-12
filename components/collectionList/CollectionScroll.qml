@@ -35,6 +35,8 @@ Item {
     PageIndicator {
         currentIndex: collectionListView.currentIndex;
         pageCount: collectionCount;
+        width: parent.width * .85;
+        height: parent.height * .01;
 
         anchors {
             horizontalCenter: parent.horizontalCenter;

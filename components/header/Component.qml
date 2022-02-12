@@ -6,7 +6,7 @@ Rectangle {
     property bool showCollection: false;
 
     color: 'transparent';
-    height: 55;
+    height: root.height * .115;
 
     anchors {
         left: parent.left;
@@ -43,7 +43,7 @@ Rectangle {
         }
 
         font {
-            pixelSize: 18;
+            pixelSize: parent.height * .33;
             letterSpacing: -0.3;
             bold: true;
         }
@@ -56,7 +56,7 @@ Rectangle {
         anchors {
             verticalCenter: parent.verticalCenter;
             right: parent.right;
-            rightMargin: 20;
+            rightMargin: parent.height * .36;
         }
     }
 
@@ -65,10 +65,12 @@ Rectangle {
 
         opacity: 0.5;
         theme: parent.theme;
+        height: parent.height * .25;
+        width: parent.height * .55;
 
         anchors {
             right: musicIcon.left;
-            rightMargin: 12;
+            rightMargin: parent.height * .30;
             verticalCenter: parent.verticalCenter;
         }
     }
@@ -76,10 +78,11 @@ Rectangle {
     Clock {
         theme: parent.theme;
 
+        height: parent.height;
+
         anchors {
             right: battery.left;
-            rightMargin: 12;
-            verticalCenter: parent.verticalCenter;
+            rightMargin: parent.height * .30;
         }
     }
 }
