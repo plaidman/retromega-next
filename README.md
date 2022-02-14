@@ -51,6 +51,10 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
     - more straightforward scaling logic
     - fix issues with images that fail to load
     - fix issues with images that affect other elements on the page
+- new systems
+    - pico-8
+    - lynx
+    - ports
 
 ### Next - Jan 26th
 - rewrote all views and functionality from scratch
