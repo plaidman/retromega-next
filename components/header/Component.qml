@@ -32,7 +32,7 @@ Rectangle {
     Text {
         visible: showCollection;
         text: currentCollection.name;
-        color: collectionColor(currentCollection.shortName);
+        color: collectionData.getColor(currentCollection.shortName);
         width: 300;
         elide: Text.ElideRight;
 

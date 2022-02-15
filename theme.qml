@@ -93,13 +93,6 @@ FocusScope {
     }
 
     Resources.CollectionData { id: collectionData; }
-    function collectionColor(shortName) {
-        return collectionData.colors[shortName] ?? collectionData.colors['default'];
-    }
-    function collectionCompany(shortName) {
-        return collectionData.companies[shortName] ?? '';
-    }
-
     Resources.Sounds { id: sounds; }
 
     Resources.Music { id: music; }

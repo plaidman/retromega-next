@@ -9,7 +9,7 @@ Item {
         collectionListView.currentIndex = currentCollectionIndex;
         collectionListView.positionViewAtIndex(currentCollectionIndex, ListView.Center);
 
-        backgroundColor.color = collectionColor(currentCollection.shortName);
+        backgroundColor.color = collectionData.getColor(currentCollection.shortName);
 
         // prevent line 9 from triggering the sound effect
         startupMute = false;
@@ -21,7 +21,7 @@ Item {
 
         width: parent.width;
         height: parent.height;
-        color: collectionColor(currentCollection.shortName);
+        color: collectionData.getColor(currentCollection.shortName);
 
         Behavior on color {
             ColorAnimation {
@@ -64,7 +64,7 @@ Item {
             currentCollectionIndex = currentIndex;
             currentCollection = allCollections[currentIndex];
 
-            backgroundColor.color = collectionColor(currentCollection.shortName);
+            backgroundColor.color = collectionData.getColor(currentCollection.shortName);
 
             if (currentView === 'collectionList' && startupMute === false) sounds.nav();
         }

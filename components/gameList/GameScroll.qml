@@ -47,7 +47,7 @@ Item {
         }
 
         highlight: Rectangle {
-            color: collectionColor(currentCollection.shortName);
+            color: collectionData.getColor(currentCollection.shortName);
             radius: 8;
             width: gamesListView.width;
         }

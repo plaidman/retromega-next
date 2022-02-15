@@ -78,7 +78,7 @@ Item {
     }
 
     Text {
-        text: collectionCompany(modelData.shortName);
+        text: collectionData.getCompany(modelData.shortName);
         color: '#ffffff';
         opacity: 0.7;
 

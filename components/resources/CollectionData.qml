@@ -1,6 +1,14 @@
 import QtQuick 2.15
 
 Item {
+    function getColor(shortName) {
+        return collectionData.colors[shortName] ?? collectionData.colors['default'];
+    }
+
+    function getCompany(shortName) {
+        return collectionData.companies[shortName] ?? '';
+    }
+
     property var colors: {
         '3ds': '#73bc9e',
         'allgames': '#292463',
