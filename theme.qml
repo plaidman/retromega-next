@@ -35,19 +35,6 @@ FocusScope {
         }
     }
 
-    Timer {
-        id: bgMusicTimer;
-
-        interval: 300;
-        repeat: false;
-        onTriggered: {
-            if (music.count > 0 && bgMusicEnabled) {
-                music.shuffle();
-                music.play();
-            }
-        }
-    }
-
     Component.onCompleted: {
         currentView = api.memory.get('currentView') ?? 'collectionList';
 
@@ -60,7 +47,7 @@ FocusScope {
         sounds.start();
 
         bgMusicEnabled = api.memory.get('bgMusicEnabled') ?? true;
-        bgMusicTimer.start();
+        music.init();
     }
 
     Component.onDestruction: {
@@ -94,8 +81,8 @@ FocusScope {
 
     Resources.CollectionData { id: collectionData; }
     Resources.Sounds { id: sounds; }
-
     Resources.Music { id: music; }
+
     function toggleMusicEnabled() {
         bgMusicEnabled = !bgMusicEnabled;
 

@@ -25,7 +25,7 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 
 ## Adding Background Music
 - add .mp3 files into `/asssets/music/whatever.mp3`
-- follow the instructions [on lines 23-25](https://github.com/plaidman/retromega-next/blob/master/components/resources/Music.qml#L23-L25) to register the music files in `/components/resources/Music.qml`
+- follow the instructions [on lines 10-12](https://github.com/plaidman/retromega-next/blob/master/components/resources/Music.qml#L23-L25) to register the music files in `/components/resources/Music.qml`
 
 ## Planned Updates
 - options panel toggles
@@ -36,10 +36,10 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 - continuing to implement missed features from rewrite
     - game details screen
     - favorites filter
+    - search by name
     - sorting games list
 - zoomed out system view
 - dark mode support
-- filterable android apps
 
 ## Version History
 ### Next -
