@@ -7,7 +7,7 @@ Rectangle {
     property int index;
     property int total;
 
-    signal buttonClicked (string sigValue);
+    signal buttonClicked(string sigValue);
 
     height: root.height * .115;
     color: '#f3f3f3';

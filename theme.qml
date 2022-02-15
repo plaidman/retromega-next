@@ -15,6 +15,39 @@ FocusScope {
     property int currentGameIndex: 0;
     property var currentGame;
 
+
+    // code to handle reading and writing api.memory
+    Component.onCompleted: {
+        currentView = api.memory.get('currentView') ?? 'collectionList';
+
+        currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
+        currentCollection = allCollections[currentCollectionIndex];
+
+        currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
+        currentGame = getMappedGame(currentGameIndex);
+
+        settings.set('bgMusic', api.memory.get('bgMusic') ?? true);
+        settings.set('navSounds', api.memory.get('navSounds') ?? true);
+        settings.set('darkMode', api.memory.get('darkMode') ?? false);
+        settings.set('twelveHour', api.memory.get('twelveHour') ?? false);
+
+        sounds.start();
+        music.init();
+    }
+
+    Component.onDestruction: {
+        api.memory.set('currentView', currentView);
+        api.memory.set('currentCollectionIndex', currentCollectionIndex);
+        api.memory.set('currentGameIndex', currentGameIndex);
+
+        api.memory.set('bgMusic', settings.values.bgMusic);
+        api.memory.set('navSounds', settings.values.navSounds);
+        api.memory.set('darkMode', settings.values.darkMode);
+        api.memory.set('twelveHour', settings.values.twelveHour);
+    }
+
+
+    // code to handle collection modification
     property var allCollections: {
         const collections = api.collections.toVarArray();
 
@@ -33,26 +66,6 @@ FocusScope {
         } else {
             return currentCollection.games.get(index);
         }
-    }
-
-    Component.onCompleted: {
-        currentView = api.memory.get('currentView') ?? 'collectionList';
-
-        currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
-        currentCollection = allCollections[currentCollectionIndex];
-
-        currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
-        currentGame = getMappedGame(currentGameIndex);
-
-        sounds.start();
-        music.init();
-    }
-
-    Component.onDestruction: {
-        api.memory.set('currentView', currentView);
-        api.memory.set('currentCollectionIndex', currentCollectionIndex);
-        api.memory.set('currentGameIndex', currentGameIndex);
-        settings.save();
     }
 
     SortFilterProxyModel {
@@ -77,10 +90,12 @@ FocusScope {
         filters: IndexFilter { maximumIndex: 24; }
     }
 
+
+    // data components
+    Settings.Handler { id: settings; }
     Resources.CollectionData { id: collectionData; }
     Resources.Sounds { id: sounds; }
     Resources.Music { id: music; }
-    Settings.Handler { id: settings; }
 
     Connections {
         target: Qt.application;
@@ -89,6 +104,8 @@ FocusScope {
         }
     }
 
+
+    // ui components
     CollectionList.Component {
         visible: currentView === 'collectionList';
         focus: currentView === 'collectionList';

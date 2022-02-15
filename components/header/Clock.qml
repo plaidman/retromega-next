@@ -5,12 +5,22 @@ Item {
     property string themeColor: {
         return theme === 'light' ? '#80ffffff' : '#80000000';
     }
-    property bool twelveHour: false;
-    property string timeFormat: {
-        return twelveHour ? 'h:mm ap' : 'hh:mm';
-    };
+
+    function updateTime() {
+        let format = 'hh:mm';
+
+        if (settings.values.twelveHour) {
+            format = 'h:mm ap';
+        }
+
+        clock.text = Qt.formatTime(new Date(), format);
+    }
 
     width: clock.width;
+
+    Component.onCompleted: {
+        clockTimer.start();
+    }
 
     Timer {
         id: clockTimer;
@@ -20,11 +30,10 @@ Item {
         triggeredOnStart: true;
 
         onTriggered: {
-            clock.text = Qt.formatTime(new Date(), timeFormat);
+            updateTime();
         }
     }
 
-    // time
     Text {
         id: clock;
 
@@ -39,20 +48,11 @@ Item {
             bold: true;
         }
 
-        Component.onCompleted: {
-            twelveHour = api.memory.get('twelveHour') ?? false;
-            clockTimer.start();
-        }
-
-        Component.onDestruction: {
-            api.memory.set('twelveHour', twelveHour);
-        }
-
         MouseArea {
             anchors.fill: parent;
 
             onClicked: {
-                twelveHour = !twelveHour;
+                settings.toggle('twelveHour');
                 clockTimer.restart();
             }
         }

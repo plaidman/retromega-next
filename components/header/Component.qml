@@ -3,7 +3,9 @@ import QtQuick 2.15
 Rectangle {
     property bool showDivider: true;
     property string theme: 'light';
-    property bool showCollection: false;
+    property bool showTitle: false;
+    property string title: '';
+    property string titleColor: '';
 
     color: 'transparent';
     height: root.height * .115;
@@ -30,9 +32,9 @@ Rectangle {
     }
 
     Text {
-        visible: showCollection;
-        text: currentCollection.name;
-        color: collectionData.getColor(currentCollection.shortName);
+        visible: showTitle;
+        text: title.length > 0 ? title : currentCollection.name;
+        color: titleColor.length > 0 ? titleColor : collectionData.getColor(currentCollection.shortName);
         width: 300;
         elide: Text.ElideRight;
 
