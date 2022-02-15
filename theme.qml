@@ -3,13 +3,13 @@ import SortFilterProxyModel 0.2
 
 import 'components/collectionList' as CollectionList
 import 'components/gameList' as GameList
+import 'components/settings' as Settings
 import 'components/resources' as Resources
 
 FocusScope {
     id: root;
 
     property string currentView: 'collectionList';
-    property bool bgMusicEnabled: true;
     property int currentCollectionIndex: 0;
     property var currentCollection;
     property int currentGameIndex: 0;
@@ -45,8 +45,6 @@ FocusScope {
         currentGame = getMappedGame(currentGameIndex);
 
         sounds.start();
-
-        bgMusicEnabled = api.memory.get('bgMusicEnabled') ?? true;
         music.init();
     }
 
@@ -54,7 +52,7 @@ FocusScope {
         api.memory.set('currentView', currentView);
         api.memory.set('currentCollectionIndex', currentCollectionIndex);
         api.memory.set('currentGameIndex', currentGameIndex);
-        api.memory.set('bgMusicEnabled', bgMusicEnabled);
+        settings.save();
     }
 
     SortFilterProxyModel {
@@ -82,28 +80,12 @@ FocusScope {
     Resources.CollectionData { id: collectionData; }
     Resources.Sounds { id: sounds; }
     Resources.Music { id: music; }
-
-    function toggleMusicEnabled() {
-        bgMusicEnabled = !bgMusicEnabled;
-
-        if (bgMusicEnabled) {
-            music.shuffle();
-            music.play();
-        } else {
-            music.stop();
-        }
-    }
+    Settings.Handler { id: settings; }
 
     Connections {
         target: Qt.application;
         function onStateChanged() {
-            if (!bgMusicEnabled) return;
-
-            if (Qt.application.state === Qt.ApplicationActive) {
-                if (!music.isPlaying()) music.play();
-            } else {
-                if (music.isPlaying()) music.pause();
-            }
+            music.blurFocus(Qt.application.state);
         }
     }
 

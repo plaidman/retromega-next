@@ -25,6 +25,12 @@ Item {
         sounds.forward();
     }
 
+    function onSettingsPressed() {
+        /* currentView = 'settings'; */
+        /* sounds.forward(); */
+        settings.toggle('bgMusic')
+    }
+
     Keys.onPressed: {
         if (api.keys.isAccept(event)) {
             event.accepted = true;
@@ -33,7 +39,7 @@ Item {
 
         if (api.keys.isDetails(event)) {
             event.accepted = true;
-            toggleMusicEnabled();
+            onSettingsPressed();
         }
     }
 
@@ -56,12 +62,12 @@ Item {
         buttons: [
             { title: 'Select', key: 'A', square: false, sigValue: 'accept' },
             { title: 'Menu', key: 'B', square: false, sigValue: null },
-            { title: 'Music', key: 'X', square: false, sigValue: 'music' },
+            { title: 'Music', key: 'X', square: false, sigValue: 'settings' },
         ];
 
         onButtonClicked: {
             if (sigValue === 'accept') onAcceptPressed();
-            if (sigValue === 'music') toggleMusicEnabled();
+            if (sigValue === 'settings') onSettingsPressed();
         }
     }
 

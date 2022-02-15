@@ -12,14 +12,24 @@ Item {
         // PlaylistItem { source: '../../assets/music/whatever.mp3'; }
     }
 
-    property alias count: bgPlaylist.itemCount;
-
     function init() { bgMusicTimer.start(); }
     function shuffle() { bgPlaylist.shuffle(); }
     function play() { bgMusic.play(); }
-    function pause() { bgMusic.pause(); }
     function stop() { bgMusic.stop(); }
-    function isPlaying() { return bgMusic.playbackState === Audio.PlayingState; }
+
+    property bool isPlaying: {
+        return bgMusic.playbackState === Audio.PlayingState;
+    }
+
+    function blurFocus(newState) {
+        if (settings.values.bgMusic === false) return;
+
+        if (newState === Qt.ApplicationActive) {
+            if (!isPlaying) bgMusic.play();
+        } else {
+            if (isPlaying) bgMusic.pause();
+        }
+    }
 
     Audio {
         id: bgMusic;
@@ -34,9 +44,9 @@ Item {
         interval: 300;
         repeat: false;
         onTriggered: {
-            if (music.count > 0 && bgMusicEnabled) {
-                music.shuffle();
-                music.play();
+            if (bgPlaylist.itemCount > 0 && settings.values.bgMusic) {
+                bgPlaylist.shuffle();
+                bgMusic.play();
             }
         }
     }

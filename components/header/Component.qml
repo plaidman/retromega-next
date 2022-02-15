@@ -49,17 +49,6 @@ Rectangle {
         }
     }
 
-    MusicIcon {
-        id: musicIcon;
-        theme: parent.theme;
-
-        anchors {
-            verticalCenter: parent.verticalCenter;
-            right: parent.right;
-            rightMargin: parent.height * .36;
-        }
-    }
-
     Battery {
         id: battery;
 
@@ -69,8 +58,8 @@ Rectangle {
         width: parent.height * .55;
 
         anchors {
-            right: musicIcon.left;
-            rightMargin: parent.height * .30;
+            right: parent.right;
+            rightMargin: parent.height * .36;
             verticalCenter: parent.verticalCenter;
         }
     }
