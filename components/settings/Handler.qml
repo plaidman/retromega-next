@@ -15,7 +15,9 @@ Item {
     function callback(key) {
         if (callbacks[key] === undefined) return;
 
-        callbacks[key]();
+        for (let i = 0; i < callbacks[key].length; i++) {
+            callbacks[key][i](values[key]);
+        }
     }
 
     property var values: {
@@ -26,14 +28,10 @@ Item {
     }
 
     property var callbacks: {
-        'bgMusic': function () {
-            if (values.bgMusic) {
-                music.shuffle();
-                music.play();
-            } else {
-                music.stop();
-            }
-        },
+        'bgMusic': [],
+        'navSounds': [],
+        'darkMode': [],
+        'twelveHour': [],
     }
 
     property var titles: {

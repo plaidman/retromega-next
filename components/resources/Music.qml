@@ -17,8 +17,21 @@ Item {
     function play() { bgMusic.play(); }
     function stop() { bgMusic.stop(); }
 
+    function toggle(enabled) {
+        if (enabled) {
+            shuffle();
+            play();
+        } else {
+            stop();
+        }
+    }
+
     property bool isPlaying: {
         return bgMusic.playbackState === Audio.PlayingState;
+    }
+
+    Component.onCompleted: {
+        settings.callbacks.bgMusic.push(toggle);
     }
 
     function blurFocus(newState) {

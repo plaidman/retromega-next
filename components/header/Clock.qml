@@ -20,6 +20,7 @@ Item {
 
     Component.onCompleted: {
         clockTimer.start();
+        settings.callbacks.twelveHour.push(clockTimer.restart);
     }
 
     Timer {
@@ -53,7 +54,6 @@ Item {
 
             onClicked: {
                 settings.toggle('twelveHour');
-                clockTimer.restart();
             }
         }
     }
