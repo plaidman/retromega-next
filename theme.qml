@@ -40,10 +40,10 @@ FocusScope {
         api.memory.set('currentCollectionIndex', currentCollectionIndex);
         api.memory.set('currentGameIndex', currentGameIndex);
 
-        api.memory.set('bgMusic', settings.values.bgMusic);
-        api.memory.set('navSounds', settings.values.navSounds);
-        api.memory.set('darkMode', settings.values.darkMode);
-        api.memory.set('twelveHour', settings.values.twelveHour);
+        api.memory.set('bgMusic', settings.get('bgMusic'));
+        api.memory.set('navSounds', settings.get('navSounds'));
+        api.memory.set('darkMode', settings.get('darkMode'));
+        api.memory.set('twelveHour', settings.get('twelveHour'));
     }
 
 

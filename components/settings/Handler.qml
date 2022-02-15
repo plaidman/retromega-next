@@ -4,12 +4,21 @@ import QtMultimedia 5.9
 Item {
     property var keys: ['bgMusic', 'navSounds', 'darkMode', 'twelveHour'];
 
+    function get(key) { return values[key]; }
+
     function toggle(key) { set(key, !values[key]); }
+
     function set(key, value) {
         if (values[key] === undefined) return;
 
         values[key] = value;
         callback(key);
+    }
+
+    function addCallback(key, callback) {
+        if (callbacks[key] === undefined) return;
+
+        callbacks[key].push(callback);
     }
 
     function callback(key) {

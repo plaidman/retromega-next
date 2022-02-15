@@ -6,21 +6,11 @@ Item {
         return theme === 'light' ? '#80ffffff' : '#80000000';
     }
 
-    function updateTime() {
-        let format = 'hh:mm';
-
-        if (settings.values.twelveHour) {
-            format = 'h:mm ap';
-        }
-
-        clock.text = Qt.formatTime(new Date(), format);
-    }
-
     width: clock.width;
 
     Component.onCompleted: {
         clockTimer.start();
-        settings.callbacks.twelveHour.push(clockTimer.restart);
+        settings.addCallback('twelveHour', clockTimer.restart);
     }
 
     Timer {
@@ -31,7 +21,13 @@ Item {
         triggeredOnStart: true;
 
         onTriggered: {
-            updateTime();
+            let format = 'hh:mm';
+
+            if (settings.get('twelveHour')) {
+                format = 'h:mm ap';
+            }
+
+            clock.text = Qt.formatTime(new Date(), format);
         }
     }
 
