@@ -17,7 +17,7 @@ Item {
 
     // background stripe
     Image {
-        source: '../../assets/images/menu-side.png';
+        source: '../../assets/images/stripe.png';
         fillMode: Image.PreserveAspectFit;
         horizontalAlignment: Image.AlignRight;
 

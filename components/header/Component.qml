@@ -51,6 +51,33 @@ Rectangle {
         }
     }
 
+    Text {
+        id: settingsIcon;
+
+        text: glyphs.settings;
+        color: parent.theme === 'light' ? '#80ffffff' : '#80000000';
+
+        font {
+            family: glyphs.name;
+            pixelSize: parent.height * .33;
+        }
+
+        anchors {
+            right: parent.right;
+            rightMargin: parent.height * .36;
+            verticalCenter: parent.verticalCenter;
+        }
+
+        MouseArea {
+            anchors.fill: parent;
+            onClicked: {
+                previousView = currentView;
+                currentView = 'settings';
+                sounds.forward();
+            }
+        }
+    }
+
     Battery {
         id: battery;
 
@@ -60,8 +87,8 @@ Rectangle {
         width: parent.height * .55;
 
         anchors {
-            right: parent.right;
-            rightMargin: parent.height * .36;
+            right: settingsIcon.left;
+            rightMargin: parent.height * .30;
             verticalCenter: parent.verticalCenter;
         }
     }

@@ -10,6 +10,7 @@ FocusScope {
     id: root;
 
     property string currentView: 'collectionList';
+    property string previousView: 'collectionList';
     property int currentCollectionIndex: 0;
     property var currentCollection;
     property int currentGameIndex: 0;
@@ -19,6 +20,7 @@ FocusScope {
     // code to handle reading and writing api.memory
     Component.onCompleted: {
         currentView = api.memory.get('currentView') ?? 'collectionList';
+        previousView = currentView;
 
         currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
         currentCollection = allCollections[currentCollectionIndex];
@@ -96,6 +98,17 @@ FocusScope {
     Resources.CollectionData { id: collectionData; }
     Resources.Sounds { id: sounds; }
     Resources.Music { id: music; }
+
+    FontLoader {
+        id: glyphs;
+
+        property string favorite: '\ue805';
+        property string settings: '\uf1de';
+        property string enabled: '\ue800';
+        property string disabled: '\uf096';
+
+        source: "assets/images/fontello.ttf";
+    }
 
     Connections {
         target: Qt.application;

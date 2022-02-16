@@ -26,7 +26,7 @@ Item {
     }
 
     function onCancelPressed() {
-        currentView = 'collectionList';
+        currentView = previousView;
         sounds.back();
     }
 

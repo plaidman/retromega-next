@@ -52,12 +52,17 @@ Item {
         }
     }
 
-    Image {
-        source: '../../assets/images/' + theme + '/favorite.svg';
-        sourceSize: Qt.size( parent.height * .28, parent.height * .28 );
-        fillMode: Image.PreserveAspectFit;
+    Text {
         visible: showFavorite;
-        asynchronous: true;
+        text: glyphs.favorite;
+        verticalAlignment: Text.AlignVCenter;
+        color: gamesListView.currentIndex === index ? '#ffffff' : '#333333';
+        height: parent.height;
+
+        font {
+            family: glyphs.name;
+            pixelSize: parent.height * .3;
+        }
 
         anchors {
             verticalCenter: parent.verticalCenter;

@@ -26,6 +26,7 @@ Item {
     }
 
     function onSettingsPressed() {
+        previousView = currentView;
         currentView = 'settings';
         sounds.forward();
     }
