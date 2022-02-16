@@ -49,12 +49,18 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 - improve boxart rendering code
     - more natural DropShadow instad of a hacky shadow.png file
     - more straightforward scaling logic
-    - fix issues with images that fail to load
-    - fix issues with images that affect other elements on the page
+    - images that fail to load will fail more gracefully
+    - very tall images will no longer affect other elements on the page
 - new systems
     - pico-8
     - lynx
     - ports
+- settings screen
+    - 24/12 hour clock
+    - dark mode
+    - navigation sounds
+    - background music
+- general code improvements and cleanup
 
 ### Next - Jan 26th
 - rewrote all views and functionality from scratch

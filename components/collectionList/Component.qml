@@ -26,9 +26,8 @@ Item {
     }
 
     function onSettingsPressed() {
-        /* currentView = 'settings'; */
-        /* sounds.forward(); */
-        settings.toggle('bgMusic')
+        currentView = 'settings';
+        sounds.forward();
     }
 
     Keys.onPressed: {
@@ -62,7 +61,7 @@ Item {
         buttons: [
             { title: 'Select', key: 'A', square: false, sigValue: 'accept' },
             { title: 'Menu', key: 'B', square: false, sigValue: null },
-            { title: 'Music', key: 'X', square: false, sigValue: 'settings' },
+            { title: 'Settings', key: 'X', square: false, sigValue: 'settings' },
         ];
 
         onButtonClicked: {

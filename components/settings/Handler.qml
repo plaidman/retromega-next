@@ -5,7 +5,7 @@ Item {
     property var keys: ['bgMusic', 'navSounds', 'darkMode', 'twelveHour'];
 
     function get(key) { return values[key]; }
-
+    function title(key) { return titles[key]; }
     function toggle(key) { set(key, !values[key]); }
 
     function set(key, value) {

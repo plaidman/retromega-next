@@ -115,4 +115,9 @@ FocusScope {
         visible: currentView === 'gameList';
         focus: currentView === 'gameList';
     }
+
+    Settings.Component {
+        visible: currentView === 'settings';
+        focus: currentView === 'settings';
+    }
 }

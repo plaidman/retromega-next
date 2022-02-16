@@ -138,6 +138,7 @@ Item {
 
     Footer.Component {
         id: gameListFooter;
+
         index: currentGameIndex + 1;
         total: currentCollection.games.count;
 
@@ -162,6 +163,6 @@ Item {
         showDivider: true;
         theme: 'dark';
         color: '#f3f3f3';
-        showCollection: true;
+        showTitle: true;
     }
 }

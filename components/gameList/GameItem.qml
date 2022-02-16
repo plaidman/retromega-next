@@ -8,6 +8,7 @@ Item {
         return favorite && currentCollection.shortName !== 'favorites';
     }
 
+    // when removing a game on the favorites collection
     ListView.onRemove: {
         currentGameIndex = gamesListView.currentIndex;
         currentGame = getMappedGame(gamesListView.currentIndex);

@@ -31,7 +31,7 @@ Item {
         model: currentCollection.games;
         delegate: lvGameDelegate;
         width: (parent.width / 2) - 20; // 20 is left margin
-        height: parent.height;
+        height: parent.height - 24;
         highlightMoveDuration: 0;
         preferredHighlightBegin: itemHeight - 12; // height of an item minus top margin
         preferredHighlightEnd: parent.height - (itemHeight + 12); // height of an item plus bottom margin
