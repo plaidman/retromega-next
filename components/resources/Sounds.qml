@@ -2,11 +2,11 @@ import QtQuick 2.15
 import QtMultimedia 5.9
 
 Item {
-    function back() { backSound.play(); }
-    function forward() { forwardSound.play(); }
-    function nav() { navSound.play(); }
-    function launch() { launchSound.play(); }
-    function start() { startSound.play(); }
+    function back() { if (settings.get('navSounds')) backSound.play(); }
+    function forward() { if (settings.get('navSounds')) forwardSound.play(); }
+    function nav() { if (settings.get('navSounds')) navSound.play(); }
+    function launch() { if (settings.get('navSounds')) launchSound.play(); }
+    function start() { if (settings.get('navSounds')) startSound.play(); }
 
     SoundEffect {
         id: backSound;
