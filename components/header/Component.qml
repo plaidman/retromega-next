@@ -71,6 +71,8 @@ Rectangle {
         MouseArea {
             anchors.fill: parent;
             onClicked: {
+                if (currentView === 'settings') return;
+
                 previousView = currentView;
                 currentView = 'settings';
                 sounds.forward();

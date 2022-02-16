@@ -1,17 +1,17 @@
 import QtQuick 2.15
 
 Item {
-    function itemTitle() {
+    function getGlyph() {
         if (settings.get(modelData)) {
-            return '+ ' + settings.title(modelData);
+            return glyphs.enabled;
         } else {
-            return '- ' + settings.title(modelData);
+            return glyphs.disabled;
         }
     }
 
     Component.onCompleted: {
         settings.addCallback(modelData, function () {
-            settingTitle.text = itemTitle();
+            settingIcon.text = getGlyph();
         });
     }
 
@@ -28,11 +28,29 @@ Item {
     }
 
     Text {
+        id: settingIcon;
+
+        text: getGlyph();
+        verticalAlignment: Text.AlignVCenter;
+        color: settingsListView.currentIndex === index ? '#ffffff' : '#333333';
+        height: parent.height;
+
+        font {
+            family: glyphs.name;
+            pixelSize: parent.height * .43;
+        }
+
+        anchors {
+            left: parent.left;
+            leftMargin: 20;
+        }
+    }
+
+    Text {
         id: settingTitle;
 
-        text: itemTitle();
+        text: settings.title(modelData);
         verticalAlignment: Text.AlignVCenter;
-        elide: Text.ElideRight;
         color: settingsListView.currentIndex === index ? '#ffffff' : '#333333';
         height: parent.height;
 
@@ -44,7 +62,7 @@ Item {
         }
 
         anchors {
-            left: parent.left;
+            left: settingIcon.right;
             leftMargin: 20;
             right: parent.right;
             rightMargin: 20;

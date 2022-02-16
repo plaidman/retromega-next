@@ -20,7 +20,6 @@ FocusScope {
     // code to handle reading and writing api.memory
     Component.onCompleted: {
         currentView = api.memory.get('currentView') ?? 'collectionList';
-        previousView = currentView;
 
         currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
         currentCollection = allCollections[currentCollectionIndex];
