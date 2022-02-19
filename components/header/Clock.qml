@@ -1,9 +1,11 @@
 import QtQuick 2.15
 
 Item {
-    property string theme: 'light';
-    property string themeColor: {
-        return theme === 'light' ? '#80ffffff' : '#80000000';
+    property string shade: 'light';
+    property string shadeColor: {
+        return shade === 'light'
+            ? theme.current.clockColorLight
+            : theme.current.clockColorDark;
     }
 
     width: clock.width;
@@ -35,7 +37,7 @@ Item {
         id: clock;
 
         text: '00:00';
-        color: themeColor;
+        color: shadeColor;
 
         anchors.verticalCenter: parent.verticalCenter;
 

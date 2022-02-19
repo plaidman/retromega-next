@@ -40,7 +40,7 @@ Item {
         id: title;
 
         text: modelData.name;
-        color: '#ffffff';
+        color: theme.current.titleColor;
         width: root.width * .46;
         wrapMode: Text.WordWrap;
         lineHeight: 0.8;
@@ -60,7 +60,7 @@ Item {
 
     Text {
         text: modelData.games.count + ' games';
-        color: '#ffffff';
+        color: theme.current.titleColor;
         opacity: 0.7;
 
         anchors {
@@ -79,7 +79,7 @@ Item {
 
     Text {
         text: collectionData.getCompany(modelData.shortName);
-        color: '#ffffff';
+        color: theme.current.titleColor;
         opacity: 0.7;
 
         font {

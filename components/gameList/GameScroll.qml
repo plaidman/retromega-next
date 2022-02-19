@@ -15,11 +15,12 @@ Item {
         visible: currentCollection.games.count === 0;
         text: 'No Games';
         anchors.centerIn: parent;
-        color: '#80000000';
+        color: theme.current.blurTextColor;
+        opacity: 0.5;
 
         font {
             family: globalFonts.sans;
-            pixelSize: 18;
+            pixelSize: parent.height * .065;
             letterSpacing: -0.3;
             bold: true;
         }
@@ -48,6 +49,7 @@ Item {
 
         highlight: Rectangle {
             color: collectionData.getColor(currentCollection.shortName);
+            opacity: theme.current.bgOpacity;
             radius: 8;
             width: gamesListView.width;
         }

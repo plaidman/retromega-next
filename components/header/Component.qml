@@ -2,10 +2,9 @@ import QtQuick 2.15
 
 Rectangle {
     property bool showDivider: true;
-    property string theme: 'light';
+    property string shade: 'light';
     property bool showTitle: false;
     property string title: '';
-    property string titleColor: '';
 
     color: 'transparent';
     height: root.height * .115;
@@ -19,7 +18,7 @@ Rectangle {
     // divider
     Rectangle {
         height: 1;
-        color: '#20000000';
+        color: theme.current.dividerColor;
         visible: showDivider;
 
         anchors {
@@ -33,8 +32,13 @@ Rectangle {
 
     Text {
         visible: showTitle;
-        text: title.length > 0 ? title : currentCollection.name;
-        color: titleColor.length > 0 ? titleColor : collectionData.getColor(currentCollection.shortName);
+        text: title.length > 0
+            ? title
+            : currentCollection.name;
+        color: title.length > 0
+            ? theme.current.defaultHeaderNameColor
+            : collectionData.getColor(currentCollection.shortName);
+        opacity: theme.current.bgOpacity;
         width: 300;
         elide: Text.ElideRight;
 
@@ -55,7 +59,10 @@ Rectangle {
         id: settingsIcon;
 
         text: glyphs.settings;
-        color: parent.theme === 'light' ? '#80ffffff' : '#80000000';
+        opacity: 0.5;
+        color: parent.shade === 'light'
+            ? theme.current.settingsColorLight
+            : theme.current.settingsColorDark;
 
         font {
             family: glyphs.name;
@@ -84,7 +91,7 @@ Rectangle {
         id: battery;
 
         opacity: 0.5;
-        theme: parent.theme;
+        shade: parent.shade;
         height: parent.height * .25;
         width: parent.height * .55;
 
@@ -96,9 +103,9 @@ Rectangle {
     }
 
     Clock {
-        theme: parent.theme;
-
+        shade: parent.shade;
         height: parent.height;
+        opacity: 0.5;
 
         anchors {
             right: battery.left;

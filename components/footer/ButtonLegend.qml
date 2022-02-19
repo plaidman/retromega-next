@@ -27,7 +27,7 @@ Item {
         // button inner text
         Text {
             text: key;
-            color: '#ffffff';
+            color: theme.current.buttonLetterColor;
 
             font {
                 pixelSize: fontSize;
@@ -47,7 +47,7 @@ Item {
         id: outerText;
 
         text: title;
-        color: '#80000000';
+        color: theme.current.buttonLabelColor;
 
         font {
             pixelSize: fontSize;

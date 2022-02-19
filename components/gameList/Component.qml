@@ -121,7 +121,7 @@ Item {
     }
 
     Rectangle {
-        color: '#f3f3f3';
+        color: theme.current.bgColor;
         anchors.fill: parent;
     }
 
@@ -161,8 +161,8 @@ Item {
         id: gameListHeader;
 
         showDivider: true;
-        theme: 'dark';
-        color: '#f3f3f3';
+        shade: 'dark';
+        color: theme.current.bgColor;
         showTitle: true;
     }
 }

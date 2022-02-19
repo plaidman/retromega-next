@@ -5,6 +5,7 @@ import 'components/collectionList' as CollectionList
 import 'components/gameList' as GameList
 import 'components/settings' as Settings
 import 'components/resources' as Resources
+import 'components/themes' as Themes
 
 FocusScope {
     id: root;
@@ -32,6 +33,7 @@ FocusScope {
         settings.set('darkMode', api.memory.get('darkMode') ?? false);
         settings.set('twelveHour', api.memory.get('twelveHour') ?? false);
 
+        theme.setDarkMode(settings.get('darkMode'));
         sounds.start();
         music.init();
     }
@@ -94,6 +96,7 @@ FocusScope {
 
     // data components
     Settings.Handler { id: settings; }
+    Themes.Handler { id: theme; }
     Resources.CollectionData { id: collectionData; }
     Resources.Sounds { id: sounds; }
     Resources.Music { id: music; }

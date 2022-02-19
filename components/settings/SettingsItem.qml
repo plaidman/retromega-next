@@ -32,7 +32,9 @@ Item {
 
         text: getGlyph();
         verticalAlignment: Text.AlignVCenter;
-        color: settingsListView.currentIndex === index ? '#ffffff' : '#333333';
+        color: settingsListView.currentIndex === index
+            ? theme.current.focusTextColor
+            : theme.current.blurTextColor;
         height: parent.height;
 
         font {
@@ -51,7 +53,9 @@ Item {
 
         text: settings.title(modelData);
         verticalAlignment: Text.AlignVCenter;
-        color: settingsListView.currentIndex === index ? '#ffffff' : '#333333';
+        color: settingsListView.currentIndex === index
+            ? theme.current.focusTextColor
+            : theme.current.blurTextColor;
         height: parent.height;
 
         font {

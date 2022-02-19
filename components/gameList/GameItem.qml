@@ -1,9 +1,6 @@
 import QtQuick 2.15
 
 Item {
-    property string theme: {
-        return gamesListView.currentIndex === index ? 'light' : 'dark';
-    }
     property bool showFavorite: {
         return favorite && currentCollection.shortName !== 'favorites';
     }
@@ -34,7 +31,9 @@ Item {
         text: title;
         verticalAlignment: Text.AlignVCenter;
         elide: Text.ElideRight;
-        color: gamesListView.currentIndex === index ? '#ffffff' : '#333333';
+        color: gamesListView.currentIndex === index
+            ? theme.current.focusTextColor
+            : theme.current.blurTextColor;
         height: parent.height;
 
         font {
@@ -56,7 +55,9 @@ Item {
         visible: showFavorite;
         text: glyphs.favorite;
         verticalAlignment: Text.AlignVCenter;
-        color: gamesListView.currentIndex === index ? '#ffffff' : '#333333';
+        color: gamesListView.currentIndex === index
+            ? theme.current.focusTextColor
+            : theme.current.blurTextColor;
         height: parent.height;
 
         font {

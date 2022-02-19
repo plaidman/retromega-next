@@ -1,9 +1,11 @@
 import QtQuick 2.15
 
 Item {
-    property string theme: 'light';
-    property string themeColor: {
-        return theme === 'light' ? '#ffffff' : '#000000';
+    property string shade: 'light';
+    property string shadeColor: {
+        return shade === 'light'
+            ? theme.current.batteryColorLight
+            : theme.current.batteryColorDark;
     }
 
     // border
@@ -16,16 +18,16 @@ Item {
         color: 'transparent';
 
         border {
-            color: themeColor;
+            color: shadeColor;
             width: 2;
         }
     }
 
     // fill level
     Rectangle {
-        color: themeColor;
+        color: shadeColor;
 
-        width: Math.max(api.device.batteryPercent * (parent.width - 9), 2);
+        width: Math.max(api.device.batteryPercent * (parent.width - 6), 2);
         height: parent.height - 6;
         radius: 1;
 
@@ -42,7 +44,7 @@ Item {
         height: parent.height * .42;
         width: parent.height * .14;
         radius: width;
-        color: themeColor;
+        color: shadeColor;
 
         anchors {
             verticalCenter: parent.verticalCenter;

@@ -25,7 +25,8 @@ Item {
                 height: pageIndicator.height;
                 radius: pageIndicator.height / 2;
 
-                color: currentIndex === index ? 'white' : '#20ffffff';
+                color: theme.current.titleColor;
+                opacity: currentIndex === index ? 1 : 0.2;
             }
         }
     }

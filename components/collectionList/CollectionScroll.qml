@@ -15,6 +15,12 @@ Item {
         startupMute = false;
     }
 
+    Rectangle {
+        width: parent.width;
+        height: parent.height;
+        color: 'black';
+    }
+
     // background color, fades when collection changes
     Rectangle {
         id: backgroundColor;
@@ -22,6 +28,7 @@ Item {
         width: parent.width;
         height: parent.height;
         color: collectionData.getColor(currentCollection.shortName);
+        opacity: theme.current.bgOpacity;
 
         Behavior on color {
             ColorAnimation {

@@ -35,7 +35,7 @@ Item {
         }
 
         highlight: Rectangle {
-            color: '#555555';
+            color: theme.current.highlightColor;
             radius: 8;
             width: settingsListView.width;
         }

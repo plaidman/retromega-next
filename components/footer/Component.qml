@@ -10,7 +10,7 @@ Rectangle {
     signal buttonClicked(string sigValue);
 
     height: root.height * .115;
-    color: '#f3f3f3';
+    color: theme.current.bgColor;
 
     anchors {
         left: parent.left;
@@ -21,7 +21,7 @@ Rectangle {
     // divider
     Rectangle {
         height: 1;
-        color: '#20000000';
+        color: theme.current.dividerColor;
 
         anchors {
             top: parent.top;
@@ -63,7 +63,7 @@ Rectangle {
 
     Text {
         text: index + ' of ' + total;
-        color: '#9b9b9b';
+        color: theme.current.footerCountColor;
         visible: total > 0;
 
         anchors {
