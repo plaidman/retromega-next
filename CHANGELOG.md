@@ -15,7 +15,7 @@
 - attract mode
 
 # Changes
-## Next -
+## Next - Feb 20th
 - added support for other handhelds (e.g. Odin, RG552)
     - new scaling code to make icons look better in all resolutions
     - fonts, images, and spacing scale to screen resolution
