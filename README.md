@@ -43,12 +43,15 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 [![CC-BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## Screenshots
-![favorites](.meta/screenshots/favorites.png)
 ---
-![favorites](.meta/screenshots/gba.png)
+![collection list 4:3](.meta/screenshots/genesis43.png)
 ---
-![favorites](.meta/screenshots/genesis.png)
+![dark mode 4:3](.meta/screenshots/dark43.png)
 ---
-![favorites](.meta/screenshots/light.png)
+![game list 4:3](.meta/screenshots/light43.png)
 ---
-![favorites](.meta/screenshots/dark.png)
+![collection list 6:9](.meta/screenshots/snes169.png)
+---
+![dark mode 6:9](.meta/screenshots/dark169.png)
+---
+![game list 6:9](.meta/screenshots/light169.png)
