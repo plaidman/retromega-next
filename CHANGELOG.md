@@ -11,6 +11,8 @@
 - additional settings
     - carousel loop
     - game list loop
+    - video on game list
+    - video on game details
 - "zoomed out" collection view
 - attract mode
 
