@@ -2,95 +2,90 @@ import QtQuick 2.15
 
 Item {
     function getColor(shortName) {
-        return collectionData.colors[shortName] ?? collectionData.colors['default'];
+        const alias = getAlias(shortName);
+        return collectionData.metadata[alias].color
+            ?? collectionData.metadata['default'].color;
     }
 
-    function getCompany(shortName) {
-        return collectionData.companies[shortName] ?? '';
+    function getVendor(shortName) {
+        const alias = getAlias(shortName);
+        return collectionData.metadata[alias].vendor ?? '';
     }
 
-    property var colors: {
-        '3ds': '#73bc9e',
-        'allgames': '#292463',
-        'android': '#266f4f',
-        'arcade': '#528821',
-        'atomiswave': '#025669',
-        'dreamcast': '#2387ff',
-        'favorites': '#b75057',
-        'gamecube': '#4b0082',
-        'gamegear': '#d0970d',
-        'gb': '#9f75b0',
-        'gba': '#342692',
-        'gbc': '#7b4ccc',
-        'genesis': '#df535b',
-        'lynx': '#4c9141',
-        'mastersystem': '#2f34c2',
-        'megadrive': '#df535b',
-        'n64': '#807c68',
-        'nds': '#d09826',
-        'neogeo': '#1499de',
-        'neogeocd': '#9e5c27',
-        'nes': '#c85173',
-        'ngp': '#aa6aff',
-        'pcengine': '#25482b',
-        'pico8': '#1c542d',
-        'pokemini': '#19b091',
-        'ports': '#1d334a',
-        'ps2': '#347867',
-        'psp': '#4e0b9c',
-        'psx': '#365f8d',
-        'recents': '#906226',
-        'saturn': '#5b92ff',
-        'sega32x': '#6935e9',
-        'segacd': '#cc4545',
-        'snes': '#aa6aff',
-        'tg16': '#25482b',
-        'vboy': '#802325',
-        'wii': '#e0e027',
-        'wswan': '#d38aba',
-        'wswanc': '#9b3f23',
-        'default': '#194492',
-    };
+    function getImage(shortName) {
+        const alias = getAlias(shortName);
+        return collectionData.metadata[alias].image ?? alias;
+    }
 
-    property var companies: {
-        '3ds': 'Nintendo',
-        'allgames': '',
-        'android': '',
-        'arcade': '',
-        'atomiswave': 'Sammy',
-        'dreamcast': 'Sega',
-        'favorites': '',
-        'gamecube': 'Nintendo',
-        'gamegear': 'Sega',
-        'gb': 'Nintendo',
-        'gba': 'Nintendo',
-        'gbc': 'Nintendo',
-        'genesis': 'Sega',
-        'lynx': 'Atari',
-        'mastersystem': 'Sega',
-        'megadrive': 'Sega',
-        'n64': 'Nintendo',
-        'nds': 'Nintendo',
-        'neogeo': 'SNK',
-        'neogeocd': 'SNK',
-        'nes': 'Nintendo',
-        'ngp': 'SNK',
-        'pcengine': 'NEC',
-        'pico8': 'Lexaloffle',
-        'pokemini': 'Nintendo',
-        'ports': '',
-        'ps2': 'Sony',
-        'psp': 'Sony',
-        'psx': 'Sony',
-        'recents': '',
-        'saturn': 'Sega',
-        'sega32x': 'Sega',
-        'segacd': 'Sega',
-        'snes': 'Nintendo',
-        'tg16': 'NEC',
-        'vboy': 'Nintendo',
-        'wii': 'Nintendo',
-        'wswan': 'Bandai',
-        'wswanc': 'Bandai',
+    function getAlias(shortName) {
+        if (aliases[shortName] !== undefined) return aliases[shortName];
+        if (metadata[shortName] !== undefined) return shortName;
+        return 'default'
+    }
+
+    property var aliases: {
+        'megadrive': 'genesis',
+        'gc': 'gamecube',
+        'mame': 'arcade',
+        'fba': 'arcade',
+        'fbneo': 'arcade',
+        'fbn': 'arcade',
+        'ngpc': 'ngp',
+        'tg16': 'pcengine',
+        'turbografx16': 'pcengine',
+        'atarilynx': 'lynx',
+        'gameboy': 'gb',
+        'vb': 'vboy',
+        'virtualboy': 'vboy',
+        'ps1': 'psx',
+        'megacd': 'segacd',
+        'mega32x': 'sega32x',
+        'dc': 'dreamcast',
+        'md': 'genesis',
+        'supernes': 'snes',
+        'wonderswan': 'wswan',
+        'wonderswancolor': 'wswanc',
+        'wonderswanc': 'wswanc',
+    }
+
+    property var metadata: {
+        '3ds': { color: '#73bc9e', vendor: 'Nintendo' },
+        'allgames': { color: '#292463' },
+        'android': { color: '#266f4f' },
+        'arcade': { color: '#528821' },
+        'atomiswave': { color: '#025669', vendor: 'Sammy', image: 'arcade' },
+        'dreamcast': { color: '#2387ff', vendor: 'Sega' },
+        'favorites': { color: '#b75057' },
+        'gamecube': { color: '#4b0082', vendor: 'Nintendo' },
+        'gamegear': { color: '#d0970d', vendor: 'Sega' },
+        'gb': { color: '#9f75b0', vendor: 'Nintendo' },
+        'gba': { color: '#342692', vendor: 'Nintendo' },
+        'gbc': { color: '#7b4ccc', vendor: 'Nintendo' },
+        'genesis': { color: '#df535b', vendor: 'Sega' },
+        'lynx': { color: '#4c9141', vendor: 'Atari' },
+        'mastersystem': { color: '#2f34c2', vendor: 'Sega' },
+        'n64': { color: '#807c68', vendor: 'Nintendo' },
+        'nds': { color: '#d09826', vendor: 'Nintendo' },
+        'neogeo': { color: '#1499de', vendor: 'SNK' },
+        'neogeocd': { color: '#9e5c27', vendor: 'SNK' },
+        'nes': { color: '#c85173', vendor: 'Nintendo' },
+        'ngp': { color: '#aa6aff', vendor: 'SNK' }, // same color as snes
+        'pcengine': { color: '#25482b', vendor: 'NEC' },
+        'pico8': { color: '#1c542d', vendor: 'Lexaloffle' },
+        'pokemini': { color: '#19b091', vendor: 'Nintendo' },
+        'ports': { color: '#1d334a' },
+        'ps2': { color: '#347867', vendor: 'Sony' },
+        'psp': { color: '#4e0b9c', vendor: 'Sony' },
+        'psx': { color: '#365f8d', vendor: 'Sony' },
+        'recents': { color: '#906226' },
+        'saturn': { color: '#5b92ff', vendor: 'Sega' },
+        'sega32x': { color: '#6935e9', vendor: 'Sega', image: 'segacd' },
+        'segacd': { color: '#cc4545', vendor: 'Sega' },
+        'snes': { color: '#aa6aff', vendor: 'Nintendo' }, // same color as ngp
+        'vboy': { color: '#802325', vendor: 'Nintendo' },
+        'wii': { color: '#e0e027', vendor: 'Nintendo' },
+        'wswan': { color: '#d38aba', vendor: 'Bandai' },
+        'wswanc': { color: '#9b3f23', vendor: 'Bandai', image: 'wswan' },
+        'default': { color: '#194492' },
     };
 }

@@ -17,6 +17,12 @@
 - attract mode
 
 # Changes
+## Next - Feb 23rd
+- improved compatibility with different shortnames for collections
+    - compatible with pegasus standard
+    - compatible with es standard
+    - compatible with any other weird aliases I could think of
+
 ## Next - Feb 20th
 - added support for other handhelds (e.g. Odin, RG552)
     - new scaling code to make icons look better in all resolutions

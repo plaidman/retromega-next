@@ -78,7 +78,7 @@ Item {
     }
 
     Text {
-        text: collectionData.getCompany(modelData.shortName);
+        text: collectionData.getVendor(modelData.shortName);
         color: theme.current.titleColor;
         opacity: 0.7;
 
@@ -99,7 +99,7 @@ Item {
     Image {
         id: device;
 
-        source: '../../assets/images/devices/' + modelData.shortName + '.png';
+        source: '../../assets/images/devices/' + collectionData.getImage(modelData.shortName) + '.png';
         width: root.width * .59;
         height: root.height * .78;
         fillMode: Image.PreserveAspectFit;

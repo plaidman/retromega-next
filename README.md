@@ -26,7 +26,7 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 
 ## Adding New Systems
 - add controller files into `/assets/images/devices/shortname.png`
-- add new colors and companies into `/components/resources/SystemData.qml`
+- add new colors and vendors into `/components/resources/SystemData.qml`
 
 ## Adding Background Music
 - add .mp3 files into `/asssets/music/whatever.mp3`
