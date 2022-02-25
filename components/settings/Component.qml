@@ -40,6 +40,11 @@ Item {
             event.accepted = true;
             onAcceptPressed();
         }
+
+        if (api.keys.isDetails(event)) {
+            event.accepted = true;
+            onCancelPressed();
+        }
     }
 
     Rectangle {

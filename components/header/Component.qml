@@ -78,11 +78,14 @@ Rectangle {
         MouseArea {
             anchors.fill: parent;
             onClicked: {
-                if (currentView === 'settings') return;
-
-                previousView = currentView;
-                currentView = 'settings';
-                sounds.forward();
+                if (currentView === 'settings') {
+                    currentView = previousView;
+                    sounds.back();
+                } else {
+                    previousView = currentView;
+                    currentView = 'settings';
+                    sounds.forward();
+                }
             }
         }
     }
