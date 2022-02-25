@@ -7,7 +7,7 @@ Rectangle {
     property string title: '';
 
     color: 'transparent';
-    height: root.height * .115;
+    height: root.height * .115 * theme.fontScale;
 
     anchors {
         left: parent.left;

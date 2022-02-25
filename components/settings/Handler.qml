@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtMultimedia 5.9
 
 Item {
-    property var keys: ['bgMusic', 'navSounds', 'darkMode', 'twelveHour'];
+    property var keys: ['bgMusic', 'navSounds', 'darkMode', 'twelveHour', 'smallFont'];
 
     function get(key) { return values[key]; }
     function title(key) { return titles[key]; }
@@ -34,6 +34,7 @@ Item {
         'navSounds': true,
         'darkMode': false,
         'twelveHour': false,
+        'smallFont': false,
     }
 
     property var callbacks: {
@@ -41,6 +42,7 @@ Item {
         'navSounds': [],
         'darkMode': [],
         'twelveHour': [],
+        'smallFont': [],
     }
 
     property var titles: {
@@ -48,5 +50,6 @@ Item {
         'navSounds': 'Navigation Sounds',
         'darkMode': 'Dark Theme',
         'twelveHour': 'Twelve Hour Clock',
+        'smallFont': 'Use Smaller Font',
     }
 }

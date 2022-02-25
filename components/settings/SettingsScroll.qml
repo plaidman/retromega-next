@@ -3,7 +3,7 @@ import QtQuick 2.15
 Item {
     property alias settingsListView: settingsListView;
     property double itemHeight: {
-        return settingsListView.height * .16;
+        return settingsListView.height * .16 * theme.fontScale;
     }
 
     Component.onCompleted: {

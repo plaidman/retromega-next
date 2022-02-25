@@ -3,7 +3,7 @@ import QtQuick 2.15
 Item {
     property alias gamesListView: gamesListView;
     property double itemHeight: {
-        return gamesListView.height * .12;
+        return gamesListView.height * .12 * theme.fontScale;
     }
 
     Component.onCompleted: {

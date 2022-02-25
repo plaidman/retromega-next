@@ -9,7 +9,7 @@ Rectangle {
 
     signal buttonClicked(string sigValue);
 
-    height: root.height * .115;
+    height: root.height * .115 * theme.fontScale;
     color: theme.current.bgColor;
 
     anchors {

@@ -32,8 +32,10 @@ FocusScope {
         settings.set('navSounds', api.memory.get('navSounds') ?? true);
         settings.set('darkMode', api.memory.get('darkMode') ?? false);
         settings.set('twelveHour', api.memory.get('twelveHour') ?? false);
+        settings.set('smallFont', api.memory.get('smallFont') ?? false);
 
         theme.setDarkMode(settings.get('darkMode'));
+        theme.setFontScale(settings.get('smallFont'));
         sounds.start();
         music.init();
     }
@@ -47,6 +49,7 @@ FocusScope {
         api.memory.set('navSounds', settings.get('navSounds'));
         api.memory.set('darkMode', settings.get('darkMode'));
         api.memory.set('twelveHour', settings.get('twelveHour'));
+        api.memory.set('smallFont', settings.get('smallFont'));
     }
 
 
