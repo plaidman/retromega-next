@@ -33,11 +33,11 @@ FocusScope {
         settings.set('darkMode', api.memory.get('darkMode') ?? false);
         settings.set('twelveHour', api.memory.get('twelveHour') ?? false);
         settings.set('smallFont', api.memory.get('smallFont') ?? false);
+        settings.set('gameListVideo', api.memory.get('gameListVideo') ?? true);
 
         theme.setDarkMode(settings.get('darkMode'));
         theme.setFontScale(settings.get('smallFont'));
         sounds.start();
-        music.init();
     }
 
     Component.onDestruction: {
@@ -50,6 +50,7 @@ FocusScope {
         api.memory.set('darkMode', settings.get('darkMode'));
         api.memory.set('twelveHour', settings.get('twelveHour'));
         api.memory.set('smallFont', settings.get('smallFont'));
+        api.memory.set('gameListVideo', settings.get('gameListVideo'));
     }
 
 

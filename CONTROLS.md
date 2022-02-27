@@ -21,4 +21,13 @@
 |`R1/L1`||skip to previous or next letter|
 |`R2/L2`||previous or next collection (this is bugged, you have to press twice)|
 ||`tap settings icon`|retromega settings menu|
-||`tap clock`|12/24 hour clock|
+
+## Settings
+|controller|touch|action|
+|----------|-----|------|
+|`up/down`|`tap unfocused item`|focus a setting|
+||`swipe`|scroll list without changing focus|
+|`a`|`tap focused item`|toggle setting|
+|`b`|`tap B icon in footer`|back to previous screen|
+|`x`||back to previous screen|
+||`tap settings icon`|back to previous screen|

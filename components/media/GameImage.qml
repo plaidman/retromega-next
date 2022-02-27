@@ -3,10 +3,13 @@ import QtGraphicalEffects 1.12
 
 Item {
     property bool failed: true;
+    property string imageSource: '';
+    property string videoSettingKey: '';
+
     visible: {
         if (failed) return false;
         if (currentCollection.games.count === 0) return false;
-        if (currentGame.assets.boxFront.length === 0) return false;
+        if (imageSource.length === 0) return false;
 
         return true;
     }
@@ -26,10 +29,10 @@ Item {
     Image {
         id: boxartImage;
 
-        // invisible because the buffer element is actually what is shown
+        // invisible because the buffer element is actually what is shown to prevent flickering
         visible: false;
         fillMode: Image.PreserveAspectFit;
-        source: currentGame ? currentGame.assets.boxFront : '';
+        source: imageSource;
         asynchronous: true;
         cache: false;
         width: parent.width * .75;

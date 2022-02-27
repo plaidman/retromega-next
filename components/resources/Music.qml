@@ -17,6 +17,8 @@ Item {
     }
 
     Component.onCompleted: {
+        bgMusicTimer.start();
+
         settings.addCallback('bgMusic', function (enabled) {
             if (enabled) {
                 bgPlaylist.shuffle();
@@ -27,7 +29,6 @@ Item {
         });
     }
 
-    function init() { bgMusicTimer.start(); }
     function blurFocus(newState) {
         if (settings.get('bgMusic') === false) return;
 

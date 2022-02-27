@@ -1,5 +1,7 @@
 import QtQuick 2.15
 
+import '../media' as Media
+
 Item {
     property alias gamesListView: gamesListView;
     property double itemHeight: {
@@ -69,9 +71,13 @@ Item {
         }
     }
 
-    BoxArt {
+    Media.GameImage {
+        id: gameListBoxart;
+
         width: parent.width / 2;
         height: parent.height;
         x: parent.width / 2;
+        imageSource: currentGame.assets.boxFront;
+        videoSettingKey: 'gameListVideo';
     }
 }
