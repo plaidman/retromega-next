@@ -7,15 +7,25 @@ Item {
     anchors.fill: parent;
 
     Keys.onUpPressed: {
+        const prevIndex = settingsScroll.settingsListView.currentIndex;
         event.accepted = true;
         settingsScroll.settingsListView.decrementCurrentIndex();
-        sounds.nav();
+        const currentIndex = settingsScroll.settingsListView.currentIndex;
+
+        if (currentIndex !== prevIndex) {
+            sounds.nav();
+        }
     }
 
     Keys.onDownPressed: {
+        const prevIndex = settingsScroll.settingsListView.currentIndex;
         event.accepted = true;
         settingsScroll.settingsListView.incrementCurrentIndex();
-        sounds.nav();
+        const currentIndex = settingsScroll.settingsListView.currentIndex;
+
+        if (currentIndex !== prevIndex) {
+            sounds.nav();
+        }
     }
 
     function onAcceptPressed() {

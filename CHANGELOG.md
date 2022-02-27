@@ -17,6 +17,17 @@
 - attract mode
 
 # Changes
+## Next -
+- new settings
+    - small font for better experience on larger screens
+    - video playback on game list
+- more ways to return from the settings screen
+    - X button
+    - tap the settings icon
+- bug fixes
+    - silence navigation sound if the game selection doesn't move when pressing up or down
+- general system stability improvements to enhance the user's experience
+
 ## Next - Feb 23rd
 - improved compatibility with different shortnames for collections
     - compatible with pegasus standard
@@ -43,7 +54,7 @@
     - navigation sounds
     - background music
 - added dark mode support to all existing screens
-- general code improvements and cleanup
+- general system stability improvements to enhance the user's experience
 
 ## Next - Jan 26th
 - rewrote all views and functionality from scratch
@@ -65,6 +76,7 @@
     - fixed miscolored favorite icon when game is highlighted
     - fixed a layout bug when you un-favorite a game while on the favorites list
     - removed pokemini and wswancolor for now until I can find better art
+- general system stability improvements to enhance the user's experience
 
 ## Next - Jan 15th
 - updated arcade controller

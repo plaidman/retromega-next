@@ -7,15 +7,23 @@ Item {
     anchors.fill: parent;
 
     Keys.onUpPressed: {
+        const prevIndex = currentGameIndex;
         event.accepted = true;
         gameScroll.gamesListView.decrementCurrentIndex();
-        sounds.nav();
+
+        if (currentGameIndex !== prevIndex) {
+            sounds.nav();
+        }
     }
 
     Keys.onDownPressed: {
+        const prevIndex = currentGameIndex;
         event.accepted = true;
         gameScroll.gamesListView.incrementCurrentIndex();
-        sounds.nav();
+
+        if (currentGameIndex !== prevIndex) {
+            sounds.nav();
+        }
     }
 
     function onAcceptPressed() {
