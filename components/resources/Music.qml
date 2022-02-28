@@ -12,6 +12,14 @@ Item {
         // PlaylistItem { source: '../../assets/music/whatever.mp3'; }
     }
 
+    function loud() {
+        bgMusic.volume = 0.3;
+    }
+
+    function quiet() {
+        bgMusic.volume = 0.05;
+    }
+
     property bool isPlaying: {
         return bgMusic.playbackState === Audio.PlayingState;
     }
@@ -29,13 +37,16 @@ Item {
         });
     }
 
-    function blurFocus(newState) {
-        if (settings.get('bgMusic') === false) return;
+    Connections {
+        target: Qt.application;
+        function onStateChanged() {
+            if (settings.get('bgMusic') === false) return;
 
-        if (newState === Qt.ApplicationActive) {
-            if (!isPlaying) bgMusic.play();
-        } else {
-            if (isPlaying) bgMusic.pause();
+            if (Qt.application.state === Qt.ApplicationActive) {
+                if (!isPlaying) bgMusic.play();
+            } else {
+                if (isPlaying) bgMusic.pause();
+            }
         }
     }
 
@@ -44,6 +55,13 @@ Item {
 
         volume: 0.3;
         playlist: bgPlaylist;
+
+        Behavior on volume {
+            NumberAnimation {
+                duration: 250;
+                easing.type: Easing.InOutQuad;
+            }
+        }
     }
 
     Timer {

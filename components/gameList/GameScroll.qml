@@ -11,6 +11,10 @@ Item {
     Component.onCompleted: {
         gamesListView.currentIndex = currentGameIndex;
         gamesListView.positionViewAtIndex(currentGameIndex, ListView.Center);
+
+        settings.addCallback('gameListVideo', function (value) {
+            gameListVideo.switchVideo();
+        });
     }
 
     Text {
@@ -59,6 +63,7 @@ Item {
         onCurrentIndexChanged: {
             currentGameIndex = currentIndex;
             currentGame = getMappedGame(currentIndex);
+            gameListVideo.switchVideo();
         }
     }
 
@@ -78,6 +83,19 @@ Item {
         height: parent.height;
         x: parent.width / 2;
         imageSource: currentGame.assets.boxFront;
-        videoSettingKey: 'gameListVideo';
+    }
+
+    Media.GameVideo {
+        id: gameListVideo;
+
+        width: parent.width / 2;
+        height: parent.height;
+        x: parent.width / 2;
+        settingKey: 'gameListVideo';
+        validView: 'gameList';
+
+        onVideoToggled: {
+            gameListBoxart.videoPlaying = videoPlaying;
+        }
     }
 }

@@ -12,10 +12,22 @@ FocusScope {
 
     property string currentView: 'collectionList';
     property string previousView: 'collectionList';
+    property var currentViewCallbacks: [];
+
     property int currentCollectionIndex: 0;
     property var currentCollection;
     property int currentGameIndex: 0;
     property var currentGame;
+
+    function addCurrentViewCallback(callback) {
+        currentViewCallbacks.push(callback);
+    }
+
+    onCurrentViewChanged: {
+        for (let i = 0; i < currentViewCallbacks.length; i++) {
+            currentViewCallbacks[i](currentView);
+        }
+    }
 
 
     // code to handle reading and writing api.memory
@@ -114,13 +126,6 @@ FocusScope {
         property string disabled: '\uf096';
 
         source: "assets/images/fontello.ttf";
-    }
-
-    Connections {
-        target: Qt.application;
-        function onStateChanged() {
-            music.blurFocus(Qt.application.state);
-        }
     }
 
 

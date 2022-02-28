@@ -3,11 +3,12 @@ import QtGraphicalEffects 1.12
 
 Item {
     property bool failed: true;
+    property bool videoPlaying: false;
     property string imageSource: '';
-    property string videoSettingKey: '';
 
     visible: {
         if (failed) return false;
+        if (videoPlaying) return false;
         if (currentCollection.games.count === 0) return false;
         if (imageSource.length === 0) return false;
 
@@ -17,7 +18,7 @@ Item {
     Image {
         id: boxartBuffer;
 
-        // invisible because the dropshadow element essentially copies it
+        // invisible - displayed by the dropshadow element
         visible: false;
         fillMode: Image.PreserveAspectFit;
         cache: false;
@@ -29,7 +30,7 @@ Item {
     Image {
         id: boxartImage;
 
-        // invisible because the buffer element is actually what is shown to prevent flickering
+        // invisible - boxartBuffer is shown and updated to prevent flickering
         visible: false;
         fillMode: Image.PreserveAspectFit;
         source: imageSource;
@@ -58,7 +59,7 @@ Item {
     Item {
         id: boxartMask;
 
-        // invisible because the dropshadow element essentially copies it
+        // invisible - displayed by the dropshadow element
         visible: false;
         anchors.fill: boxartBuffer;
 
@@ -74,7 +75,7 @@ Item {
     OpacityMask {
         id: boxartRounded;
 
-        // invisible because the dropshadow element essentially copies it
+        // invisible - displayed by the dropshadow element
         visible: false;
         anchors.fill: boxartBuffer;
         source: boxartBuffer;
@@ -87,6 +88,7 @@ Item {
         color: '#60000000';
         radius: 30;
         samples: 61;
+        cached: true;
         anchors.fill: boxartRounded;
     }
 }

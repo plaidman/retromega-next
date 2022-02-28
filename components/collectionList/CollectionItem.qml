@@ -33,6 +33,7 @@ Item {
         color: '#30000000';
         radius: 20;
         samples: 41;
+        cached: true;
         anchors.fill: title;
     }
 
