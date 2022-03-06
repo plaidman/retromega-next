@@ -14,6 +14,7 @@ Item {
 
     function getImage(shortName) {
         const alias = getAlias(shortName);
+        if (alias === 'default') alias = shortName;
         return collectionData.metadata[alias].image ?? alias;
     }
 
@@ -32,7 +33,12 @@ Item {
         'fbn': 'arcade',
         'ngpc': 'ngp',
         'tg16': 'pcengine',
+        'tg16cd': 'pcengine',
         'turbografx16': 'pcengine',
+        'turbografx16cd': 'pcengine',
+        'pcenginecd': 'pcengine',
+        'pce': 'pcengine',
+        'pcecd': 'pcengine',
         'atarilynx': 'lynx',
         'gameboy': 'gb',
         'vb': 'vboy',
