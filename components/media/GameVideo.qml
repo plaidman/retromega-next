@@ -22,6 +22,16 @@ Item {
         videoPlayerTimer.stop();
     }
 
+    function quickVideoCallback(enabled) {
+        if (enabled) videoPlayerTimer.interval = 500;
+        else videoPlayerTimer.interval = 2000;
+    }
+
+    function quietVideoCallback(enabled) {
+        if (enabled) videoPlayer.volume = 0;
+        else videoPlayer.volume = .7;
+    }
+
     Component.onCompleted: {
         addCurrentViewCallback(function (currentView) {
             if (currentView === validView) {
@@ -30,6 +40,12 @@ Item {
                 videoOff();
             }
         });
+
+        quickVideoCallback(settings.get('quickVideo'));
+        settings.addCallback('quickVideo', quickVideoCallback);
+
+        quietVideoCallback(settings.get('quietVideo'));
+        settings.addCallback('quietVideo', quietVideoCallback);
     }
 
     Connections {
@@ -57,7 +73,7 @@ Item {
 
             videoToggled(true);
 
-            music.quiet();
+            if (videoPlayer.volume > 0) music.quiet();
 
             videoPlayer.source = currentGame.assets.video;
             videoPlayer.play();
@@ -68,6 +84,7 @@ Item {
         id: videoPlayer;
 
         visible: false;
+        volume: 0.7;
         source: currentGame.assets.video;
         autoPlay: false;
         loops: MediaPlayer.Infinite;

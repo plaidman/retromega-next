@@ -40,15 +40,10 @@ FocusScope {
         currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
         currentGame = getMappedGame(currentGameIndex);
 
-        settings.set('bgMusic', api.memory.get('bgMusic') ?? true);
-        settings.set('navSounds', api.memory.get('navSounds') ?? true);
-        settings.set('darkMode', api.memory.get('darkMode') ?? false);
-        settings.set('twelveHour', api.memory.get('twelveHour') ?? false);
-        settings.set('smallFont', api.memory.get('smallFont') ?? false);
-        settings.set('gameListVideo', api.memory.get('gameListVideo') ?? true);
-
+        // this is done in here to prevent a quick flash of light mode
         theme.setDarkMode(settings.get('darkMode'));
         theme.setFontScale(settings.get('smallFont'));
+
         sounds.start();
     }
 
@@ -57,12 +52,7 @@ FocusScope {
         api.memory.set('currentCollectionIndex', currentCollectionIndex);
         api.memory.set('currentGameIndex', currentGameIndex);
 
-        api.memory.set('bgMusic', settings.get('bgMusic'));
-        api.memory.set('navSounds', settings.get('navSounds'));
-        api.memory.set('darkMode', settings.get('darkMode'));
-        api.memory.set('twelveHour', settings.get('twelveHour'));
-        api.memory.set('smallFont', settings.get('smallFont'));
-        api.memory.set('gameListVideo', settings.get('gameListVideo'));
+        settings.saveAll();
     }
 
 

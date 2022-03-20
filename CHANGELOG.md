@@ -17,7 +17,12 @@
 - attract mode
 
 # Changes
-## Next -
+## Next - Mar XXth
+- new settings
+    - mute video
+    - reduce the video delay
+
+## Next - Feb 28th
 - new settings
     - small font for better experience on larger screens
     - video playback on game list

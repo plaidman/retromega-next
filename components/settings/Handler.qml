@@ -2,11 +2,27 @@ import QtQuick 2.15
 import QtMultimedia 5.9
 
 Item {
-    property var keys: ['bgMusic', 'navSounds', 'darkMode', 'twelveHour', 'smallFont', 'gameListVideo'];
+    property var keys: [
+        'bgMusic', 'navSounds', 'darkMode', 'twelveHour', 'smallFont',
+        'gameListVideo', 'gameDetailsVideo', 'quietVideo', 'quickVideo',
+    ];
 
-    function get(key) { return values[key]; }
     function title(key) { return titles[key]; }
     function toggle(key) { set(key, !values[key]); }
+
+    function get(key) {
+        if (values[key] === null) {
+            set(key, api.memory.get(key) ?? defaults[key]);
+        }
+
+        return values[key];
+    }
+
+    function saveAll() {
+        for (const key of keys) {
+            api.memory.set(key, get(key));
+        }
+    }
 
     function set(key, value) {
         if (values[key] === undefined) return;
@@ -29,13 +45,28 @@ Item {
         }
     }
 
-    property var values: {
+    property var defaults: {
         'bgMusic': true,
         'navSounds': true,
         'darkMode': false,
         'twelveHour': false,
         'smallFont': false,
         'gameListVideo': true,
+        'gameDetailsVideo': true,
+        'quietVideo': false,
+        'quickVideo': false,
+    }
+
+    property var values: {
+        'bgMusic': null,
+        'navSounds': null,
+        'darkMode': null,
+        'twelveHour': null,
+        'smallFont': null,
+        'gameListVideo': null,
+        'gameDetailsVideo': null,
+        'quietVideo': null,
+        'quickVideo': null,
     }
 
     property var callbacks: {
@@ -45,6 +76,9 @@ Item {
         'twelveHour': [],
         'smallFont': [],
         'gameListVideo': [],
+        'gameDetailsVideo': [],
+        'quietVideo': [],
+        'quickVideo': [],
     }
 
     property var titles: {
@@ -54,5 +88,8 @@ Item {
         'twelveHour': 'Twelve Hour Clock',
         'smallFont': 'Use Smaller Font',
         'gameListVideo': 'Video On Game List',
+        'gameDetailsVideo': 'Video On Game Details',
+        'quietVideo': 'Silent Videos',
+        'quickVideo': 'Shorter Video Delay',
     }
 }
