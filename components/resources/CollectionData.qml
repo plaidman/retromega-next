@@ -14,7 +14,7 @@ Item {
 
     function getImage(shortName) {
         const alias = getAlias(shortName);
-        if (alias === 'default') alias = shortName;
+        if (alias === 'default') return shortName;
         return collectionData.metadata[alias].image ?? alias;
     }
 
@@ -75,7 +75,7 @@ Item {
         'neogeo': { color: '#1499de', vendor: 'SNK' },
         'neogeocd': { color: '#9e5c27', vendor: 'SNK' },
         'nes': { color: '#c85173', vendor: 'Nintendo' },
-        'ngp': { color: '#aa6aff', vendor: 'SNK' }, // same color as snes
+        'ngp': { color: '#b32428', vendor: 'SNK' },
         'pcengine': { color: '#25482b', vendor: 'NEC' },
         'pico8': { color: '#1c542d', vendor: 'Lexaloffle' },
         'pokemini': { color: '#19b091', vendor: 'Nintendo' },
@@ -87,7 +87,7 @@ Item {
         'saturn': { color: '#5b92ff', vendor: 'Sega' },
         'sega32x': { color: '#6935e9', vendor: 'Sega', image: 'segacd' },
         'segacd': { color: '#cc4545', vendor: 'Sega' },
-        'snes': { color: '#aa6aff', vendor: 'Nintendo' }, // same color as ngp
+        'snes': { color: '#aa6aff', vendor: 'Nintendo' },
         'vboy': { color: '#802325', vendor: 'Nintendo' },
         'wii': { color: '#e0e027', vendor: 'Nintendo' },
         'wswan': { color: '#d38aba', vendor: 'Bandai' },
