@@ -83,7 +83,6 @@ Item {
     Video {
         id: videoPlayer;
 
-        visible: false;
         volume: 0.7;
         source: currentGame.assets.video;
         autoPlay: false;
