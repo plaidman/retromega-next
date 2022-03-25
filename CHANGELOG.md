@@ -1,6 +1,5 @@
 # Planned Features
 - continuing to implement missed features from rewrite
-    - game details screen
     - favorites filter
     - search by name
     - sorting games list
@@ -11,16 +10,23 @@
 - additional settings
     - carousel loop
     - game list loop
-    - video on game list
-    - video on game details
 - "zoomed out" collection view
 - attract mode
 
 # Changes
 ## Next - Mar XXth
+- game details screen
+    - show screenshot/video
+    - short/long description
+    - start game, toggle favorite buttons
+    - fixed a bug from original retromega when rendering the short description
 - new settings
     - mute video
     - reduce the video delay
+- bug fixes
+    - fixed loading collection images without metadata
+    - fixed an issue with video and dropshadow
+
 
 ## Next - Feb 28th
 - new settings

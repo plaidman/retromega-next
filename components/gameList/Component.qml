@@ -38,7 +38,8 @@ Item {
     }
 
     function onDetailsPressed() {
-        currentGame.favorite = !currentGame.favorite;
+        currentView = 'gameDetails';
+        sounds.forward();
     }
 
     function onFiltersPressed() {
@@ -153,15 +154,15 @@ Item {
         buttons: [
             { title: 'Play', key: 'A', square: false, sigValue: 'accept' },
             { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
-            { title: 'Favorite', key: 'X', square: false, sigValue: 'favorite' },
-            { title: 'Random', key: 'Y', square: false, sigValue: 'random' },
+            { title: 'Details', key: 'X', square: false, sigValue: 'details' },
+            { title: 'Random', key: 'Y', square: false, sigValue: 'filters' },
         ];
 
         onButtonClicked: {
             if (sigValue === 'accept') onAcceptPressed();
             if (sigValue === 'cancel') onCancelPressed();
-            if (sigValue === 'favorite') onDetailsPressed();
-            if (sigValue === 'random') onFiltersPressed();
+            if (sigValue === 'details') onDetailsPressed();
+            if (sigValue === 'filters') onFiltersPressed();
         }
     }
 

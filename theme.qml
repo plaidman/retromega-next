@@ -3,6 +3,7 @@ import SortFilterProxyModel 0.2
 
 import 'components/collectionList' as CollectionList
 import 'components/gameList' as GameList
+import 'components/gameDetails' as GameDetails
 import 'components/settings' as Settings
 import 'components/resources' as Resources
 import 'components/themes' as Themes
@@ -111,9 +112,11 @@ FocusScope {
         id: glyphs;
 
         property string favorite: '\ue805';
+        property string unfavorite: '\ue802';
         property string settings: '\uf1de';
         property string enabled: '\ue800';
         property string disabled: '\uf096';
+        property string play: '\ue801';
 
         source: "assets/images/fontello.ttf";
     }
@@ -128,6 +131,11 @@ FocusScope {
     GameList.Component {
         visible: currentView === 'gameList';
         focus: currentView === 'gameList';
+    }
+
+    GameDetails.Component {
+        visible: currentView === 'gameDetails';
+        focus: currentView === 'gameDetails';
     }
 
     Settings.Component {

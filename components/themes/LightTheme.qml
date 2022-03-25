@@ -11,6 +11,9 @@ Item {
     property string focusTextColor: '#ffffff';
     property string blurTextColor: '#333333';
 
+    // details
+    property string detailsColor: '#333333';
+
     // settings
     property string highlightColor: '#555555';
 
