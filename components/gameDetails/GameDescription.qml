@@ -7,6 +7,10 @@ import '../media' as Media
 Item {
     property var blurSource;
 
+    function resetFlickable() {
+        flickable.contentY = -flickable.topMargin;
+    }
+
     // solves some kerning issues with period and commas
     // todo test this on retroid
     property var descText: {
@@ -31,19 +35,22 @@ Item {
     }
 
     Flickable {
-        anchors {
-            fill: parent;
-            margins: 40;
-        }
+        id: flickable;
 
         contentWidth: fullDesc.width;
         contentHeight: fullDesc.height;
         flickableDirection: Flickable.VerticalFlick;
+        anchors.fill: parent;
+        clip: true;
+        bottomMargin: 40;
+        leftMargin: 40;
+        rightMargin: 40;
+        topMargin: 40;
 
         Text {
             id: fullDesc;
 
-            width: root.width - 80;
+            width: root.width - flickable.leftMargin - flickable.rightMargin;
             text: descText;
             wrapMode: Text.WordWrap;
             lineHeight: 1.2;

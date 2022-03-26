@@ -29,6 +29,8 @@ Item {
         if (fullDescriptionShowing) fullDescription.anchors.topMargin = 0;
         else fullDescription.anchors.topMargin = root.height;
 
+        fullDescription.resetFlickable();
+
         sounds.forward();
     }
 
@@ -64,9 +66,14 @@ Item {
             anchors.fill: parent;
         }
 
-        // todo touch functionality (flickable)
+        // todo touch functionality
+        //   enter details screen from game list
+        //     tap image/video?
+        //     hold game on game list?
+        //   exit full description screen
         // todo controller functionality
-        // todo tap and hold game name or tap game image/video to go to details screen
+        //   exit full description screen
+        //   scroll text
         // todo up/down arrow on details to change games
         AllDetails {
             anchors {
@@ -87,7 +94,7 @@ Item {
                         break;
 
                     case 'more':
-                        // show details
+                        onDetailsPressed();
                         break;
                 }
             }
