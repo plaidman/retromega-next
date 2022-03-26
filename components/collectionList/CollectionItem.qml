@@ -5,6 +5,8 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
+            // todo make this a signal?
+            // todo or just call onAcceptPressed from here;
             collectionListView.currentIndex = index;
 
             currentGameIndex = 0;
@@ -79,6 +81,7 @@ Item {
     }
 
     Text {
+        // todo .join(" • ") for year
         text: collectionData.getVendor(modelData.shortName);
         color: theme.current.titleColor;
         opacity: 0.7;

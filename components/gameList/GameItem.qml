@@ -14,6 +14,7 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
+            // todo make this a signal?
             if (gamesListView.currentIndex === index) {
                 onAcceptPressed();
             } else {

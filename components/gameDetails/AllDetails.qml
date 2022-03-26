@@ -73,6 +73,7 @@ Item {
 
         text: introDescText;
         wrapMode: Text.WordWrap;
+        horizontalAlignment: Text.AlignJustify;
         color: theme.current.detailsColor;
         lineHeight: 1.2;
         elide: Text.ElideRight;

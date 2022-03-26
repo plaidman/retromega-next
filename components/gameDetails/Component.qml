@@ -1,10 +1,12 @@
 import QtQuick 2.15
+import QtGraphicalEffects 1.12
 
 import '../footer' as Footer
 import '../header' as Header
 
 Item {
     anchors.fill: parent;
+    property bool fullDescriptionShowing: false;
 
     function onCancelPressed() {
         currentView = 'gameList';
@@ -22,8 +24,12 @@ Item {
     }
 
     function onDetailsPressed() {
-        /* currentGame.favorite = !currentGame.favorite; */
-        /* sounds.forward(); */
+        fullDescriptionShowing = !fullDescriptionShowing;
+
+        if (fullDescriptionShowing) fullDescription.anchors.topMargin = 0;
+        else fullDescription.anchors.topMargin = root.height;
+
+        sounds.forward();
     }
 
     Keys.onPressed: {
@@ -48,57 +54,82 @@ Item {
         }
     }
 
-    Rectangle {
-        color: theme.current.bgColor;
-        anchors.fill: parent;
-    }
+    Item {
+        id: allDetails;
 
-    // todo long description
-    // todo touch functionality
-    // todo controller functionality
-    // todo smaller font
-    AllDetails {
-        anchors {
-            top: parent.top;
-            bottom: detailsFooter.top;
-            left: parent.left;
-            right: parent.right;
+        anchors.fill: parent;
+
+        Rectangle {
+            color: theme.current.bgColor;
+            anchors.fill: parent;
         }
 
-        onButtonClicked: {
-            switch (button) {
-                case 'play':
-                    onAcceptPressed();
-                    break;
+        // todo touch functionality (flickable)
+        // todo controller functionality
+        // todo tap and hold game name or tap game image/video to go to details screen
+        // todo up/down arrow on details to change games
+        AllDetails {
+            anchors {
+                top: parent.top;
+                bottom: detailsFooter.top;
+                left: parent.left;
+                right: parent.right;
+            }
 
-                case 'favorite':
-                    onFiltersPressed();
-                    break;
+            onButtonClicked: {
+                switch (button) {
+                    case 'play':
+                        onAcceptPressed();
+                        break;
 
-                case 'more':
-                    // show details
-                    break;
+                    case 'favorite':
+                        onFiltersPressed();
+                        break;
+
+                    case 'more':
+                        // show details
+                        break;
+                }
+            }
+        }
+
+        Footer.Component {
+            id: detailsFooter;
+
+            total: 0;
+
+            buttons: [
+                { title: 'Play', key: 'A', square: false, sigValue: 'accept' },
+                { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
+                { title: 'More', key: 'X', square: false, sigValue: 'details' },
+                { title: 'Favorite', key: 'Y', square: false, sigValue: 'filters' },
+            ];
+
+            onButtonClicked: {
+                if (sigValue === 'accept') onAcceptPressed();
+                if (sigValue === 'cancel') onCancelPressed();
+                if (sigValue === 'filters') onFiltersPressed();
+                if (sigValue === 'details') onDetailsPressed();
             }
         }
     }
 
-    Footer.Component {
-        id: detailsFooter;
+    GameDescription {
+        id: fullDescription;
 
-        total: 0;
+        height: parent.height;
+        width: parent.width;
+        blurSource: allDetails;
 
-        buttons: [
-            { title: 'Play', key: 'A', square: false, sigValue: 'accept' },
-            { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
-            { title: 'More', key: 'X', square: false, sigValue: 'details' },
-            { title: 'Favorite', key: 'Y', square: false, sigValue: 'filters' },
-        ];
+        anchors {
+            top: parent.top;
+            topMargin: root.height;
+            left: parent.left;
+            right: parent.right;
+        }
 
-        onButtonClicked: {
-            if (sigValue === 'accept') onAcceptPressed();
-            if (sigValue === 'cancel') onCancelPressed();
-            if (sigValue === 'filters') onFiltersPressed();
-            if (sigValue === 'details') onDetailsPressed();
+        Behavior on anchors.topMargin {
+            PropertyAnimation { easing.type: Easing.OutCubic; duration: 200  }
         }
     }
 }
