@@ -30,22 +30,31 @@ Item {
         cached: true;
     }
 
-    Text {
-        text: descText;
-        wrapMode: Text.WordWrap;
-        lineHeight: 1.2;
-        color: theme.current.detailsColor;
-        horizontalAlignment: Text.AlignJustify;
-
+    Flickable {
         anchors {
             fill: parent;
-            margins: 50;
+            margins: 40;
         }
 
-        font {
-            pixelSize: parent.height * .035 * theme.fontScale;
-            letterSpacing: -0.35;
-            bold: true;
+        contentWidth: fullDesc.width;
+        contentHeight: fullDesc.height;
+        flickableDirection: Flickable.VerticalFlick;
+
+        Text {
+            id: fullDesc;
+
+            width: root.width - 80;
+            text: descText;
+            wrapMode: Text.WordWrap;
+            lineHeight: 1.2;
+            color: theme.current.detailsColor;
+            horizontalAlignment: Text.AlignJustify;
+
+            font {
+                pixelSize: root.height * .042 * theme.fontScale;
+                letterSpacing: -0.35;
+                bold: true;
+            }
         }
     }
 }
