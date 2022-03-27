@@ -3,16 +3,12 @@ import QtQuick 2.15
 Item {
     property int collectionCount: allCollections.length;
     property alias collectionListView: collectionListView;
-    property bool startupMute: true;
 
     Component.onCompleted: {
         collectionListView.currentIndex = currentCollectionIndex;
         collectionListView.positionViewAtIndex(currentCollectionIndex, ListView.Center);
 
         backgroundColor.color = collectionData.getColor(currentCollection.shortName);
-
-        // prevent line 9 from triggering the sound effect
-        startupMute = false;
     }
 
     Rectangle {
@@ -68,12 +64,14 @@ Item {
         anchors.fill: parent;
 
         onCurrentIndexChanged: {
-            currentCollectionIndex = currentIndex;
-            currentCollection = allCollections[currentIndex];
+            let shortName = 'default';
 
-            backgroundColor.color = collectionData.getColor(currentCollection.shortName);
+            if (currentCollection) {
+                // for some reason this function is being triggered before currentCollection is initialized
+                shortName = currentCollection.shortName;
+            }
 
-            if (currentView === 'collectionList' && startupMute === false) sounds.nav();
+            backgroundColor.color = collectionData.getColor(shortName);
         }
     }
 

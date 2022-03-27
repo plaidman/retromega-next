@@ -6,6 +6,7 @@ Item {
     }
 
     // when removing a game on the favorites collection
+    // todo maybe don't update currentGameIndex here, causes weird behavior when looking at details screen
     ListView.onRemove: {
         currentGameIndex = gamesListView.currentIndex;
         currentGame = getMappedGame(gamesListView.currentIndex);
@@ -14,7 +15,6 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
-            // todo make this a signal?
             if (gamesListView.currentIndex === index) {
                 onAcceptPressed();
             } else {

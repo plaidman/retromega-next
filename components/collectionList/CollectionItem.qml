@@ -5,15 +5,8 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
-            // todo make this a signal?
-            // todo or just call onAcceptPressed from here;
             collectionListView.currentIndex = index;
-
-            currentGameIndex = 0;
-            currentGame = getMappedGame(0);
-
-            currentView = 'gameList';
-            sounds.forward();
+            onAcceptPressed();
         }
     }
 

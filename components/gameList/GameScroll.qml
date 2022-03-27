@@ -12,7 +12,7 @@ Item {
         gamesListView.currentIndex = currentGameIndex;
         gamesListView.positionViewAtIndex(currentGameIndex, ListView.Center);
 
-        settings.addCallback('gameListVideo', function (value) {
+        settings.addCallback('gameListVideo', function () {
             gameListVideo.switchVideo();
         });
     }
@@ -61,8 +61,6 @@ Item {
         }
 
         onCurrentIndexChanged: {
-            currentGameIndex = currentIndex;
-            currentGame = getMappedGame(currentIndex);
             gameListVideo.switchVideo();
         }
     }

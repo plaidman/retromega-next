@@ -26,12 +26,14 @@ Item {
     function onDetailsPressed() {
         fullDescriptionShowing = !fullDescriptionShowing;
 
-        if (fullDescriptionShowing) fullDescription.anchors.topMargin = 0;
-        else fullDescription.anchors.topMargin = root.height;
-
-        fullDescription.resetFlickable();
-
-        sounds.forward();
+        if (fullDescriptionShowing) {
+            fullDescription.anchors.topMargin = 0;
+            fullDescription.resetFlickable();
+            sounds.back();
+        } else {
+            fullDescription.anchors.topMargin = root.height;
+            sounds.forward();
+        }
     }
 
     Keys.onPressed: {
@@ -75,6 +77,9 @@ Item {
         //   exit full description screen
         //   scroll text
         // todo up/down arrow on details to change games
+        // todo fix bug when switching collections, then press escape, the collection scroll doesn't change
+        //   also use the same technique on up/down on details page
+        //   addCurrentViewCallback on collection and game components to update index (without making a sound)
         AllDetails {
             anchors {
                 top: parent.top;

@@ -6,22 +6,22 @@ import '../header' as Header
 Item {
     anchors.fill: parent;
 
+    function updateIndex(newIndex) {
+        collectionScroll.collectionListView.currentIndex = newIndex;
+    }
+
     Keys.onLeftPressed: {
         event.accepted = true;
-        collectionScroll.collectionListView.decrementCurrentIndex();
+        currentCollectionIndex = currentCollectionIndex - 1;
     }
 
     Keys.onRightPressed: {
         event.accepted = true;
-        collectionScroll.collectionListView.incrementCurrentIndex();
+        currentCollectionIndex = currentCollectionIndex + 1;
     }
 
     function onAcceptPressed() {
-        currentGameIndex = 0;
-        currentGame = getMappedGame(0);
-
         currentView = 'gameList';
-
         sounds.forward();
     }
 

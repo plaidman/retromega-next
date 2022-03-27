@@ -6,24 +6,18 @@ import '../header' as Header
 Item {
     anchors.fill: parent;
 
-    Keys.onUpPressed: {
-        const prevIndex = currentGameIndex;
-        event.accepted = true;
-        gameScroll.gamesListView.decrementCurrentIndex();
+    function updateIndex(newIndex) {
+        gameScroll.gamesListView.currentIndex = newIndex;
+    }
 
-        if (currentGameIndex !== prevIndex) {
-            sounds.nav();
-        }
+    Keys.onUpPressed: {
+        event.accepted = true;
+        currentGameIndex = currentGameIndex - 1;
     }
 
     Keys.onDownPressed: {
-        const prevIndex = currentGameIndex;
         event.accepted = true;
-        gameScroll.gamesListView.incrementCurrentIndex();
-
-        if (currentGameIndex !== prevIndex) {
-            sounds.nav();
-        }
+        currentGameIndex = currentGameIndex + 1;
     }
 
     function onAcceptPressed() {
@@ -72,6 +66,7 @@ Item {
 
         // L1
         if (api.keys.isPrevPage(event)) {
+            event.accepted = true;
             if (currentGameIndex === 0) return;
 
             let newIndex = currentGameIndex - 1;
@@ -94,6 +89,7 @@ Item {
 
         // R1
         if (api.keys.isNextPage(event)) {
+            event.accepted = true;
             if (currentGameIndex === currentCollection.games.count - 1) return;
 
             const oldLetter = currentGame.title[0].toLowerCase();
@@ -114,18 +110,14 @@ Item {
 
         // L2
         if (api.keys.isPageUp(event)) {
-            if (currentCollectionIndex === 0) return;
-
+            event.accepted = true;
             currentCollectionIndex = currentCollectionIndex - 1;
-            currentCollection = allCollections[currentCollectionIndex];
         }
 
         // R2
         if (api.keys.isPageDown(event)) {
-            if (currentCollectionIndex === allCollections.length - 1) return;
-
+            event.accepted = true;
             currentCollectionIndex = currentCollectionIndex + 1;
-            currentCollection = allCollections[currentCollectionIndex];
         }
     }
 

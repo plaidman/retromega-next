@@ -30,16 +30,33 @@ FocusScope {
         }
     }
 
+    onCurrentCollectionIndexChanged: {
+        currentCollectionIndex = Math.max(0, Math.min(currentCollectionIndex, allCollections.length - 1));
+
+        currentCollection = allCollections[currentCollectionIndex];
+        collectionList.updateIndex(currentCollectionIndex);
+
+        currentGameIndex = 0;
+        // todo this is not updating currentGame correctly since game index is not changing if it's already zero
+        // todo implement sound logic here or in the keypresses?
+        // todo change these on-changed to proper functions to be called, then you can call updateGameIndex() here to ensure the currentGame is updated
+    }
+
+    onCurrentGameIndexChanged: {
+        currentGameIndex = Math.max(0, Math.min(currentGameIndex, currentCollection.games.count - 1));
+
+        currentGame = getMappedGame(currentGameIndex);
+        gameList.updateIndex(currentGameIndex);
+        // todo implement sound logic here or in the keypresses?
+    }
+
 
     // code to handle reading and writing api.memory
     Component.onCompleted: {
         currentView = api.memory.get('currentView') ?? 'collectionList';
 
         currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
-        currentCollection = allCollections[currentCollectionIndex];
-
         currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
-        currentGame = getMappedGame(currentGameIndex);
 
         // this is done in here to prevent a quick flash of light mode
         theme.setDarkMode(settings.get('darkMode'));
@@ -124,11 +141,15 @@ FocusScope {
 
     // ui components
     CollectionList.Component {
+        id: collectionList;
+
         visible: currentView === 'collectionList';
         focus: currentView === 'collectionList';
     }
 
     GameList.Component {
+        id: gameList;
+
         visible: currentView === 'gameList';
         focus: currentView === 'gameList';
     }

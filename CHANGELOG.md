@@ -17,8 +17,8 @@
 ## Next - Mar XXth
 - game details screen
     - show screenshot/video
-    - short/long description
     - start game, toggle favorite buttons
+    - long description view with touch scrolling
     - fixed a bug from original retromega when rendering the short description
 - new settings
     - mute video

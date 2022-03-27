@@ -1,7 +1,7 @@
 # Retro Mega Next
 [Pegasus](https://pegasus-frontend.org) theme for the Retroid Pocket 2/2+.
 
-Adapted from [David Fumberger's RetroMega](https://github.com/djfumberger/retromega) theme. Completely rewritten from scratch to simplify code and allow me to add new features easier.
+Adapted from [David Fumberger's RetroMega](https://github.com/djfumberger/retromega) theme. Completely rewritten from scratch to simplify code and allow me to add new features easier. I looked at each line of code, asking myself "what does it do?", "is it needed?", and "can it be done better?"
 
 ## Installation and Scraping
 [Download](https://github.com/plaidman/retromega/archive/main.zip) and extract to your [theme directory](http://pegasus-frontend.org/docs/user-guide/installing-themes) under the folder retromega. You can then select the theme in the settings menu of Pegasus.
@@ -18,6 +18,7 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 - random game selection
 - 24/12 hour clock (tap the clock to switch)
 - background music and navigation sounds
+- game details and metadata screen
 - settings screen
 - dark mode
 
