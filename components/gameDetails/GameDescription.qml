@@ -11,6 +11,20 @@ Item {
         flickable.contentY = -flickable.topMargin;
     }
 
+    function scrollUp() {
+        flickable.contentY = Math.max(
+            -flickable.topMargin,
+            flickable.contentY - fullDesc.font.pixelSize,
+        );
+    }
+
+    function scrollDown() {
+        flickable.contentY = Math.min(
+            flickable.contentY + fullDesc.font.pixelSize,
+            flickable.contentHeight - root.height + flickable.bottomMargin,
+        );
+    }
+
     // solves some kerning issues with period and commas
     // todo test this on retroid
     property var descText: {
@@ -46,6 +60,10 @@ Item {
         leftMargin: 40;
         rightMargin: 40;
         topMargin: 40;
+
+        Behavior on contentY {
+            PropertyAnimation { easing.type: Easing.OutCubic; duration: 150  }
+        }
 
         Text {
             id: fullDesc;

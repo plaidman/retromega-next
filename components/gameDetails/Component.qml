@@ -28,31 +28,47 @@ Item {
     }
 
     function onDetailsPressed() {
-        fullDescriptionShowing = !fullDescriptionShowing;
+        fullDescriptionShowing = true;
+        fullDescription.anchors.topMargin = 0;
+        sounds.forward();
+    }
 
-        if (fullDescriptionShowing) {
-            fullDescription.anchors.topMargin = 0;
-            fullDescription.resetFlickable();
-            sounds.back();
-        } else {
-            fullDescription.anchors.topMargin = root.height;
-            sounds.forward();
-        }
+    function hideFullDescription() {
+        fullDescriptionShowing = false;
+        fullDescription.anchors.topMargin = root.height;
+        fullDescription.resetFlickable();
+        sounds.back();
     }
 
     Keys.onUpPressed: {
+        if (fullDescriptionShowing) {
+            fullDescription.scrollUp();
+            return;
+        }
+
         event.accepted = true;
         const updated = updateGameIndex(currentGameIndex - 1);
         if (updated) { sounds.nav(); }
     }
 
     Keys.onDownPressed: {
+        if (fullDescriptionShowing) {
+            fullDescription.scrollDown();
+            return;
+        }
+
         event.accepted = true;
         const updated = updateGameIndex(currentGameIndex + 1);
         if (updated) { sounds.nav(); }
     }
 
     Keys.onPressed: {
+        if (fullDescriptionShowing) {
+            event.accepted = true;
+            hideFullDescription();
+            return;
+        }
+
         if (api.keys.isCancel(event)) {
             event.accepted = true;
             onCancelPressed();
@@ -89,9 +105,6 @@ Item {
         //     tap image/video?
         //     hold game on game list?
         //   exit full description screen
-        // todo controller functionality
-        //   exit full description screen
-        //   up/down scroll text
         AllDetails {
             anchors {
                 top: parent.top;
