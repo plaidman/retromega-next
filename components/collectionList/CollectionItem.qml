@@ -74,8 +74,7 @@ Item {
     }
 
     Text {
-        // todo .join(" • ") for year
-        text: collectionData.getVendor(modelData.shortName);
+        text: collectionData.getVendorYear(modelData.shortName);
         color: theme.current.titleColor;
         opacity: 0.7;
 

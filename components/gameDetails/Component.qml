@@ -92,7 +92,6 @@ Item {
         // todo controller functionality
         //   exit full description screen
         //   up/down scroll text
-        // todo up/down arrow on AllDetails to change games
         AllDetails {
             anchors {
                 top: parent.top;
