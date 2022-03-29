@@ -82,13 +82,16 @@ Item {
         maskSource: boxartMask;
     }
 
+    // todo this slows down scrolling a lot - yeet it?
     DropShadow {
         source: boxartRounded;
-        verticalOffset: 10;
-        color: '#60000000';
-        radius: 30;
-        samples: 61;
-        cached: true;
         anchors.fill: boxartRounded;
+        verticalOffset: 10;
+        horizontalOffset: 5;
+        color: '#60000000';
+        radius: 10;
+        samples: 11;
+        cached: true;
+        visible: true;
     }
 }

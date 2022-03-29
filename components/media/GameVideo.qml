@@ -93,13 +93,16 @@ Item {
         fillMode: VideoOutput.PreserveAspectFit;
     }
 
+    // todo this slows down video a lot - yeet it?
     DropShadow {
         source: videoPlayer;
-        verticalOffset: 10;
-        color: '#60000000';
-        radius: 30;
-        samples: 61;
-        cached: true;
         anchors.fill: videoPlayer;
+        verticalOffset: 10;
+        horizontalOffset: 5;
+        color: '#60000000';
+        radius: 10;
+        samples: 11;
+        cached: true;
+        visible: true;
     }
 }
