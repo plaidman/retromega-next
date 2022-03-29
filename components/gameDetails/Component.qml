@@ -9,6 +9,10 @@ Item {
     property bool fullDescriptionShowing: false;
 
     function onCancelPressed() {
+        if (currentCollection.shortName === 'favorites') {
+            updateGameIndex(currentGameIndex, true);
+        }
+
         currentView = 'gameList';
         sounds.back();
     }

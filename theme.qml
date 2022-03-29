@@ -48,10 +48,10 @@ FocusScope {
         return true;
     }
 
-    function updateGameIndex(newIndex, fromCollection = false) {
+    function updateGameIndex(newIndex, forceUpdate = false) {
         const clampedIndex = clamp(0, newIndex, currentCollection.games.count - 1);
 
-        if (!fromCollection && clampedIndex === currentGameIndex) return false;
+        if (!forceUpdate && clampedIndex === currentGameIndex) return false;
 
         currentGameIndex = clampedIndex;
         currentGame = getMappedGame(currentGameIndex);

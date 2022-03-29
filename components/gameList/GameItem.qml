@@ -5,14 +5,6 @@ Item {
         return favorite && currentCollection.shortName !== 'favorites';
     }
 
-    // when removing a game on the favorites collection
-    // todo maybe don't update currentGameIndex here
-    //   causes weird behavior when loading favorites collection, then looking at details, then removing favorite
-    ListView.onRemove: {
-        currentGameIndex = gamesListView.currentIndex;
-        currentGame = getMappedGame(gamesListView.currentIndex);
-    }
-
     MouseArea {
         anchors.fill: parent;
         onClicked: {
