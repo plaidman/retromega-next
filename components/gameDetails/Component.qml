@@ -40,6 +40,18 @@ Item {
         }
     }
 
+    Keys.onUpPressed: {
+        event.accepted = true;
+        const updated = updateGameIndex(currentGameIndex - 1);
+        if (updated) { sounds.nav(); }
+    }
+
+    Keys.onDownPressed: {
+        event.accepted = true;
+        const updated = updateGameIndex(currentGameIndex + 1);
+        if (updated) { sounds.nav(); }
+    }
+
     Keys.onPressed: {
         if (api.keys.isCancel(event)) {
             event.accepted = true;
