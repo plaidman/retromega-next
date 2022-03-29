@@ -12,12 +12,14 @@ Item {
 
     Keys.onUpPressed: {
         event.accepted = true;
-        currentGameIndex = currentGameIndex - 1;
+        const updated = updateGameIndex(currentGameIndex - 1);
+        if (updated) { sounds.nav(); }
     }
 
     Keys.onDownPressed: {
         event.accepted = true;
-        currentGameIndex = currentGameIndex + 1;
+        const updated = updateGameIndex(currentGameIndex + 1);
+        if (updated) { sounds.nav(); }
     }
 
     function onAcceptPressed() {
@@ -84,7 +86,8 @@ Item {
                 newIndex--;
             }
 
-            gameScroll.gamesListView.currentIndex = newIndex;
+            const updated = updateGameIndex(newIndex);
+            if (updated) { sounds.nav(); }
         }
 
         // R1
@@ -105,19 +108,22 @@ Item {
                 }
             }
 
-            gameScroll.gamesListView.currentIndex = newIndex;
+            const updated = updateGameIndex(newIndex);
+            if (updated) { sounds.nav(); }
         }
 
         // L2
         if (api.keys.isPageUp(event)) {
             event.accepted = true;
-            currentCollectionIndex = currentCollectionIndex - 1;
+            const updated = updateCollectionIndex(currentCollectionIndex - 1);
+            if (updated) { sounds.nav(); }
         }
 
         // R2
         if (api.keys.isPageDown(event)) {
             event.accepted = true;
-            currentCollectionIndex = currentCollectionIndex + 1;
+            const updated = updateCollectionIndex(currentCollectionIndex + 1);
+            if (updated) { sounds.nav(); }
         }
     }
 

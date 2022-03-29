@@ -12,12 +12,14 @@ Item {
 
     Keys.onLeftPressed: {
         event.accepted = true;
-        currentCollectionIndex = currentCollectionIndex - 1;
+        const updated = updateCollectionIndex(currentCollectionIndex - 1);
+        if (updated) { sounds.nav(); }
     }
 
     Keys.onRightPressed: {
         event.accepted = true;
-        currentCollectionIndex = currentCollectionIndex + 1;
+        const updated = updateCollectionIndex(currentCollectionIndex + 1);
+        if (updated) { sounds.nav(); }
     }
 
     function onAcceptPressed() {

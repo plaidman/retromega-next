@@ -15,9 +15,9 @@ FocusScope {
     property string previousView: 'collectionList';
     property var currentViewCallbacks: [];
 
-    property int currentCollectionIndex: 0;
+    property int currentCollectionIndex: -1;
     property var currentCollection;
-    property int currentGameIndex: 0;
+    property int currentGameIndex: -1;
     property var currentGame;
 
     function addCurrentViewCallback(callback) {
@@ -30,24 +30,34 @@ FocusScope {
         }
     }
 
-    onCurrentCollectionIndexChanged: {
-        currentCollectionIndex = Math.max(0, Math.min(currentCollectionIndex, allCollections.length - 1));
-
-        currentCollection = allCollections[currentCollectionIndex];
-        collectionList.updateIndex(currentCollectionIndex);
-
-        currentGameIndex = 0;
-        // todo this is not updating currentGame correctly since game index is not changing if it's already zero
-        // todo implement sound logic here or in the keypresses?
-        // todo change these on-changed to proper functions to be called, then you can call updateGameIndex() here to ensure the currentGame is updated
+    function clamp(min, val, max) {
+        return Math.max(0, Math.min(val, max));
     }
 
-    onCurrentGameIndexChanged: {
-        currentGameIndex = Math.max(0, Math.min(currentGameIndex, currentCollection.games.count - 1));
+    function updateCollectionIndex(newIndex) {
+        const clampedIndex = clamp(0, newIndex, allCollections.length - 1);
 
+        if (clampedIndex === currentCollectionIndex) return false;
+
+        currentCollectionIndex = clampedIndex;
+        currentCollection = allCollections[currentCollectionIndex];
+        updateGameIndex(0, true);
+
+        collectionList.updateIndex(currentCollectionIndex);
+
+        return true;
+    }
+
+    function updateGameIndex(newIndex, fromCollection = false) {
+        const clampedIndex = clamp(0, newIndex, currentCollection.games.count - 1);
+
+        if (!fromCollection && clampedIndex === currentGameIndex) return false;
+
+        currentGameIndex = clampedIndex;
         currentGame = getMappedGame(currentGameIndex);
         gameList.updateIndex(currentGameIndex);
-        // todo implement sound logic here or in the keypresses?
+
+        return true;
     }
 
 
@@ -55,8 +65,8 @@ FocusScope {
     Component.onCompleted: {
         currentView = api.memory.get('currentView') ?? 'collectionList';
 
-        currentCollectionIndex = api.memory.get('currentCollectionIndex') ?? 0;
-        currentGameIndex = api.memory.get('currentGameIndex') ?? 0;
+        updateCollectionIndex(api.memory.get('currentCollectionIndex') ?? 0);
+        updateGameIndex(api.memory.get('currentGameIndex') ?? 0);
 
         // this is done in here to prevent a quick flash of light mode
         theme.setDarkMode(settings.get('darkMode'));

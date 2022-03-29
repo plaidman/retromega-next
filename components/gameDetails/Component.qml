@@ -75,11 +75,8 @@ Item {
         //   exit full description screen
         // todo controller functionality
         //   exit full description screen
-        //   scroll text
-        // todo up/down arrow on details to change games
-        // todo fix bug when switching collections, then press escape, the collection scroll doesn't change
-        //   also use the same technique on up/down on details page
-        //   addCurrentViewCallback on collection and game components to update index (without making a sound)
+        //   up/down scroll text
+        // todo up/down arrow on AllDetails to change games
         AllDetails {
             anchors {
                 top: parent.top;

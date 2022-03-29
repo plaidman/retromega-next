@@ -6,7 +6,8 @@ Item {
     }
 
     // when removing a game on the favorites collection
-    // todo maybe don't update currentGameIndex here, causes weird behavior when looking at details screen
+    // todo maybe don't update currentGameIndex here
+    //   causes weird behavior when loading favorites collection, then looking at details, then removing favorite
     ListView.onRemove: {
         currentGameIndex = gamesListView.currentIndex;
         currentGame = getMappedGame(gamesListView.currentIndex);
@@ -18,10 +19,8 @@ Item {
             if (gamesListView.currentIndex === index) {
                 onAcceptPressed();
             } else {
-                gamesListView.currentIndex = index;
-                currentGameIndex = index;
-                currentGame = getMappedGame(index);
-                sounds.nav();
+                const updated = updateGameIndex(index);
+                if (updated) { sounds.nav(); }
             }
         }
     }
