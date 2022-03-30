@@ -22,6 +22,18 @@ Item {
         if (updated) { sounds.nav(); }
     }
 
+    Keys.onLeftPressed: {
+        event.accepted = true;
+        const updated = updateCollectionIndex(currentCollectionIndex - 1);
+        if (updated) { sounds.nav(); }
+    }
+
+    Keys.onRightPressed: {
+        event.accepted = true;
+        const updated = updateCollectionIndex(currentCollectionIndex + 1);
+        if (updated) { sounds.nav(); }
+    }
+
     function onAcceptPressed() {
         sounds.launch();
         currentGame.launch();

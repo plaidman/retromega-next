@@ -120,8 +120,6 @@ Item {
             anchors.fill: parent;
         }
 
-        // todo touch functionality
-        //   exit full description screen
         AllDetails {
             anchors {
                 top: parent.top;

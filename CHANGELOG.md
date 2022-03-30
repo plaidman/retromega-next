@@ -14,18 +14,20 @@
 - attract mode
 
 # Changes
-## Next - Mar XXth
+## Next - Apr XXth
 - game details screen
     - show screenshot/video
     - start game, toggle favorite buttons
     - long description view with touch scrolling
-    - fixed a bug from original retromega when rendering the short description
+    - fixed a short-description rendering problem
 - new settings
     - mute video
     - reduce the video delay
 - bug fixes
     - fixed loading collection images without metadata
     - fixed an issue with video and dropshadow
+    - improved some performance related issues with dropshadow
+- general system stability improvements to enhance the user's experience
 
 
 ## Next - Feb 28th
