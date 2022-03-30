@@ -34,7 +34,7 @@ FocusScope {
         return Math.max(0, Math.min(val, max));
     }
 
-    function updateCollectionIndex(newIndex) {
+    function updateCollectionIndex(newIndex, skipCollectionListUpdate = false) {
         const clampedIndex = clamp(0, newIndex, allCollections.length - 1);
 
         if (clampedIndex === currentCollectionIndex) return false;
@@ -43,7 +43,9 @@ FocusScope {
         currentCollection = allCollections[currentCollectionIndex];
         updateGameIndex(0, true);
 
-        collectionList.updateIndex(currentCollectionIndex);
+        if (!skipCollectionListUpdate) {
+            collectionList.updateIndex(currentCollectionIndex);
+        }
 
         return true;
     }
