@@ -7,9 +7,19 @@ Item {
 
     MouseArea {
         anchors.fill: parent;
+
         onClicked: {
             if (gamesListView.currentIndex === index) {
                 onAcceptPressed();
+            } else {
+                const updated = updateGameIndex(index);
+                if (updated) { sounds.nav(); }
+            }
+        }
+
+        onPressAndHold: {
+            if (gamesListView.currentIndex === index) {
+                onDetailsPressed();
             } else {
                 const updated = updateGameIndex(index);
                 if (updated) { sounds.nav(); }

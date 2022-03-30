@@ -101,9 +101,6 @@ Item {
         }
 
         // todo touch functionality
-        //   enter details screen from game list
-        //     tap image/video?
-        //     hold game on game list?
         //   exit full description screen
         AllDetails {
             anchors {
