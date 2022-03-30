@@ -4,8 +4,6 @@ import QtGraphicalEffects 1.12
 import '../media' as Media
 
 Item {
-    signal buttonClicked(string button);
-
     // get rid of newlines for the short description
     // also some weird kerning on periods and commas for some reason
     property var introDescText: {
@@ -74,6 +72,7 @@ Item {
         text: introDescText;
         wrapMode: Text.WordWrap;
         horizontalAlignment: Text.AlignJustify;
+        // todo vertical align justify?
         color: theme.current.detailsColor;
         lineHeight: 1.2;
         elide: Text.ElideRight;
@@ -94,6 +93,14 @@ Item {
             right: parent.right;
             rightMargin: 30;
         }
+
+        MouseArea {
+            anchors.fill: parent;
+
+            onClicked: {
+                detailsButtonClicked('more');
+            }
+        }
     }
 
     MoreButton {
@@ -104,14 +111,6 @@ Item {
             rightMargin: 30;
             bottom: introDesc.bottom;
             bottomMargin: parent.height * .01;
-        }
-
-        MouseArea {
-            anchors.fill: parent;
-
-            onClicked: {
-                buttonClicked('more');
-            }
         }
     }
 }

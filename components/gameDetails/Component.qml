@@ -40,6 +40,26 @@ Item {
         sounds.back();
     }
 
+    function detailsButtonClicked(button) {
+        switch (button) {
+            case 'play':
+                onAcceptPressed();
+                break;
+
+            case 'favorite':
+                onFiltersPressed();
+                break;
+
+            case 'more':
+                onDetailsPressed();
+                break;
+
+            case 'less':
+                hideFullDescription();
+                break;
+        }
+    }
+
     Keys.onUpPressed: {
         if (fullDescriptionShowing) {
             fullDescription.scrollUp();
@@ -108,22 +128,6 @@ Item {
                 bottom: detailsFooter.top;
                 left: parent.left;
                 right: parent.right;
-            }
-
-            onButtonClicked: {
-                switch (button) {
-                    case 'play':
-                        onAcceptPressed();
-                        break;
-
-                    case 'favorite':
-                        onFiltersPressed();
-                        break;
-
-                    case 'more':
-                        onDetailsPressed();
-                        break;
-                }
             }
         }
 

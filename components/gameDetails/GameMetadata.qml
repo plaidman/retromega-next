@@ -128,7 +128,7 @@ Item {
                 anchors.fill: parent;
 
                 onClicked: {
-                    buttonClicked('play');
+                    detailsButtonClicked('play');
                 }
             }
         }
@@ -146,7 +146,7 @@ Item {
                 anchors.fill: parent;
 
                 onClicked: {
-                    buttonClicked('favorite');
+                    detailsButtonClicked('favorite');
                 }
             }
         }
