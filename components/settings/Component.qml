@@ -83,7 +83,7 @@ Item {
             { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
         ];
 
-        onButtonClicked: {
+        onFooterButtonClicked: {
             if (sigValue === 'accept') onAcceptPressed();
             if (sigValue === 'cancel') onCancelPressed();
         }

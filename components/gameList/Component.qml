@@ -156,7 +156,7 @@ Item {
             { title: 'Random', key: 'Y', square: false, sigValue: 'filters' },
         ];
 
-        onButtonClicked: {
+        onFooterButtonClicked: {
             if (sigValue === 'accept') onAcceptPressed();
             if (sigValue === 'cancel') onCancelPressed();
             if (sigValue === 'details') onDetailsPressed();

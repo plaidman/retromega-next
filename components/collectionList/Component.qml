@@ -67,7 +67,7 @@ Item {
             { title: 'Settings', key: 'X', square: false, sigValue: 'settings' },
         ];
 
-        onButtonClicked: {
+        onFooterButtonClicked: {
             if (sigValue === 'accept') onAcceptPressed();
             if (sigValue === 'settings') onSettingsPressed();
         }

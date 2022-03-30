@@ -7,7 +7,7 @@ Rectangle {
     property int index;
     property int total;
 
-    signal buttonClicked(string sigValue);
+    signal footerButtonClicked(string sigValue);
 
     height: root.height * .115 * theme.fontScale;
     color: theme.current.bgColor;
@@ -54,7 +54,7 @@ Rectangle {
                 MouseArea {
                     anchors.fill: parent;
                     onClicked: {
-                        buttonClicked(modelData.sigValue);
+                        footerButtonClicked(modelData.sigValue);
                     }
                 }
             }
