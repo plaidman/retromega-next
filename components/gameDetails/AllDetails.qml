@@ -72,9 +72,9 @@ Item {
         text: introDescText;
         wrapMode: Text.WordWrap;
         horizontalAlignment: Text.AlignJustify;
-        // todo vertical align justify?
+        verticalAlignment: Text.AlignVCenter;
         color: theme.current.detailsColor;
-        lineHeight: 1.2;
+        lineHeight: 1.3;
         elide: Text.ElideRight;
 
         font {
