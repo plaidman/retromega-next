@@ -68,7 +68,10 @@ Item {
 
         event.accepted = true;
         const updated = updateGameIndex(currentGameIndex - 1);
-        if (updated) { sounds.nav(); }
+        if (updated) {
+            sounds.nav();
+            allDetails.video.switchVideo();
+        }
     }
 
     Keys.onDownPressed: {
@@ -79,7 +82,10 @@ Item {
 
         event.accepted = true;
         const updated = updateGameIndex(currentGameIndex + 1);
-        if (updated) { sounds.nav(); }
+        if (updated) {
+            sounds.nav();
+            allDetails.video.switchVideo();
+        }
     }
 
     Keys.onPressed: {
@@ -111,7 +117,7 @@ Item {
     }
 
     Item {
-        id: allDetails;
+        id: allDetailsBlur;
 
         anchors.fill: parent;
 
@@ -121,6 +127,8 @@ Item {
         }
 
         AllDetails {
+            id: allDetails;
+
             anchors {
                 top: parent.top;
                 bottom: detailsFooter.top;
@@ -155,7 +163,7 @@ Item {
 
         height: parent.height;
         width: parent.width;
-        blurSource: allDetails;
+        blurSource: allDetailsBlur;
 
         anchors {
             top: parent.top;

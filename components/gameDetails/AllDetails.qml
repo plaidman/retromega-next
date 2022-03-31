@@ -4,6 +4,8 @@ import QtGraphicalEffects 1.12
 import '../media' as Media
 
 Item {
+    property alias video: gameDetailsVideo;
+
     // get rid of newlines for the short description
     // also some weird kerning on periods and commas for some reason
     property var introDescText: {
@@ -37,6 +39,7 @@ Item {
         imageSource: currentGame.assets.screenshot;
     }
 
+    // todo this is not playing when starting the app on gameDetails screen
     Media.GameVideo {
         id: gameDetailsVideo;
 
@@ -78,7 +81,7 @@ Item {
         elide: Text.ElideRight;
 
         font {
-            pixelSize: parent.height * .042 * theme.fontScale;
+            pixelSize: parent.height * .04 * theme.fontScale;
             letterSpacing: -0.1;
             bold: true;
         }
@@ -104,7 +107,7 @@ Item {
     }
 
     MoreButton {
-        pixelSize: parent.height * .042 * theme.fontScale;
+        pixelSize: parent.height * .04 * theme.fontScale;
 
         anchors {
             right: parent.right;

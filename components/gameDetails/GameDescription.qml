@@ -26,7 +26,6 @@ Item {
     }
 
     // solves some kerning issues with period and commas
-    // todo test this on retroid
     property var descText: {
         return currentGame.description
             .replace(/\. {1,}/g, '.  ')
@@ -76,7 +75,7 @@ Item {
             horizontalAlignment: Text.AlignJustify;
 
             font {
-                pixelSize: root.height * .042 * theme.fontScale;
+                pixelSize: root.height * .045 * theme.fontScale;
                 letterSpacing: -0.35;
                 bold: true;
             }
