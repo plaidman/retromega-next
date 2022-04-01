@@ -103,8 +103,9 @@ Item {
         source: boxartRounded;
         anchors.fill: boxartRounded;
         color: theme.current.dropShadowColor;
-        radius: 30;
-        samples: 61;
+        verticalOffset: 5;
+        radius: 20;
+        samples: 41;
         cached: false;
         visible: true;
     }

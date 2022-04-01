@@ -95,7 +95,7 @@ Item {
 
         anchors {
             top: detailsDivider.bottom;
-            topMargin: 18;
+            topMargin: 10;
             bottom: parent.bottom;
             bottomMargin: 10;
             left: parent.left;

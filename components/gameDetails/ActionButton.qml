@@ -32,11 +32,11 @@ Item {
 
     DropShadow {
         source: button;
-        verticalOffset: 5;
-        color: '#60000000';
-        radius: 15;
-        samples: 31;
-        cached: true;
         anchors.fill: button;
+        color: '#50000000';
+        verticalOffset: 5;
+        radius: 20;
+        samples: 41;
+        cached: true;
     }
 }

@@ -113,8 +113,9 @@ Item {
         source: videoPlayer;
         anchors.fill: videoPlayer;
         color: theme.current.dropShadowColor;
+        verticalOffset: 5;
         radius: 20;
-        samples: 40;
+        samples: 41;
         cached: true;
         visible: true;
     }
