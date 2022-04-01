@@ -41,7 +41,7 @@ Item {
 
     function onCancelPressed() {
         currentView = 'collectionList';
-        gameScroll.gamesListView.currentIndex = 0;
+        updateGameIndex(0, true);
         sounds.back();
     }
 

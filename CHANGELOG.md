@@ -15,6 +15,7 @@
 
 # Changes
 ## Next - Apr XXth
+- system year on collection list
 - game details screen
     - show screenshot/video
     - buttons to start game and toggle favorite
