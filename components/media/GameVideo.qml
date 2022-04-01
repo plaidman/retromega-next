@@ -80,15 +80,9 @@ Item {
         interval: 2000;
         repeat: false;
         onTriggered: {
-            if (currentGame.assets.video === '') {
-                debug.text = 'video';
-                return;
-            }
-
-            if (settings.get(settingKey) === false) {
-                debug.text = 'settingKey';
-                return;
-            }
+            if (currentGame.assets.video === '') return;
+            if (settings.get(settingKey) === false) return;
+            if (currentView !== validView) return;
 
             videoToggled(true);
 

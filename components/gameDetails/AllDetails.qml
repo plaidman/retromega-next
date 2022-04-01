@@ -16,6 +16,13 @@ Item {
             .replace(/, {1,}/g, ',  ');
     }
 
+    Component.onCompleted: {
+        gameDetailsVideo.switchVideo();
+        settings.addCallback('gameDetailsVideo', function () {
+            gameDetailsVideo.switchVideo();
+        });
+    }
+
     GameMetadata {
         width: parent.width / 2 - 50;
         pixelSize: parent.height * .055;
