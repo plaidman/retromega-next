@@ -1,33 +1,44 @@
 # Controls
 
+Most things are interactable in the header and footer. Try tapping on them!
+
 ## Collection Screen
 |controller|touch|action|
 |----------|-----|------|
-|`left/right`|`swipe`|navigate forward/backward in the list|
-|`a`|`tap collection`|switch to games list for that collection|
-|`b`||pegasus settings menu|
-|`x`|`tap settings icon`|retromega settings menu|
+|`left/right`|`swipe left/right`|navigate forward/backward in the list|
+|`a button`|`tap collection`|switch to games list|
+|`b button`||pegasus settings menu|
+|`x button`|`tap settings icon`|retromega settings menu|
 ||`tap clock`|12/24 hour clock|
 
 ## Game List
 |controller|touch|action|
 |----------|-----|------|
-|`up/down`|`tap unfocused game`|focus a game|
-||`swipe`|scroll list without changing focus|
-|`a`|`tap focused game`|launch game|
-|`b`|`tap B icon in footer`|back to collection list|
-|`x`|`tap X icon in footer`|favorite a game|
-|`y`|`tap Y icon in footer`|select random game|
+|`up/down`|`tap`|select a game|
+||`swipe up/down`|scroll list|
+|`left/right`||previous or next collection|
+|`a button`|`tap focused game`|launch game|
+|`b button`|`tap footer icon`|back to collection list|
+|`x button`|`long press game`|game details screen|
+|`y button`|`tap footer icon`|select random game|
 |`R1/L1`||skip to previous or next letter|
-|`R2/L2`||previous or next collection (this is bugged, you have to press twice)|
-||`tap settings icon`|retromega settings menu|
+|`R2/L2`||previous or next collection|
+
+## Game Details
+|controller|touch|action|
+|----------|-----|------|
+|`up/down`||change game|
+|`a button`|`tap play button`|launch game|
+|`b button`|`tap footer icon`|back to game list|
+|`x button`|`tap short description`|full description|
+|`y button`|`tap heart button`|toggle favorite|
+|`any button`|`tap screen`|back to details (from full description)|
 
 ## Settings
 |controller|touch|action|
 |----------|-----|------|
-|`up/down`|`tap unfocused item`|focus a setting|
-||`swipe`|scroll list without changing focus|
-|`a`|`tap focused item`|toggle setting|
-|`b`|`tap B icon in footer`|back to previous screen|
-|`x`||back to previous screen|
+|`up/down`|`tap`|highlight a setting|
+||`swipe`|scroll list|
+|`a button`|`tap`|toggle setting|
+|`b/x button`|`tap footer icons`|back to previous screen|
 ||`tap settings icon`|back to previous screen|

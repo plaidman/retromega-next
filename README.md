@@ -25,6 +25,9 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 ## Controls
 [controls](CONTROLS.md)
 
+## Settings
+[settings](SETTINGS.md)
+
 ## Adding New Systems
 - add controller files into `/assets/images/devices/shortname.png`
 - add new colors and vendors into `/components/resources/CollectionData.qml`
@@ -37,7 +40,7 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 [changelog](CHANGELOG.md)
 
 ## Credits
-- original theme: [DJFumberger](https://github.com/djfumberger/retromega)
+- original theme and design: [DJFumberger](https://github.com/djfumberger/retromega)
 - improvements: plaidman
 
 ## License
