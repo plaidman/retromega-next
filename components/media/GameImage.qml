@@ -15,10 +15,25 @@ Item {
         return true;
     }
 
+    function dropShadowCallback(enabled) {
+        if (enabled) {
+            dropShadow.visible = true;
+            boxartRounded.visible = false;
+        } else {
+            boxartRounded.visible = true;
+            dropShadow.visible = false;
+        }
+    }
+
+    Component.onCompleted: {
+        dropShadowCallback(settings.get('dropShadow'));
+        settings.addCallback('dropShadow', dropShadowCallback);
+    }
+
     Image {
         id: boxartBuffer;
 
-        // invisible - displayed by the dropshadow element
+        // invisible - displayed by the rounded element
         visible: false;
         fillMode: Image.PreserveAspectFit;
         cache: false;
@@ -59,7 +74,7 @@ Item {
     Item {
         id: boxartMask;
 
-        // invisible - displayed by the dropshadow element
+        // invisible - displayed by the rounded element
         visible: false;
         anchors.fill: boxartBuffer;
 
@@ -82,16 +97,15 @@ Item {
         maskSource: boxartMask;
     }
 
-    // todo this slows down scrolling a lot - yeet it?
     DropShadow {
+        id: dropShadow;
+
         source: boxartRounded;
         anchors.fill: boxartRounded;
-        verticalOffset: 10;
-        horizontalOffset: 5;
-        color: '#60000000';
-        radius: 10;
-        samples: 11;
-        cached: true;
+        color: theme.current.dropShadowColor;
+        radius: 30;
+        samples: 61;
+        cached: false;
         visible: true;
     }
 }

@@ -32,6 +32,16 @@ Item {
         else videoPlayer.volume = .7;
     }
 
+    function dropShadowCallback(enabled) {
+        if (enabled) {
+            dropShadow.visible = true;
+            videoPlayer.visible = false;
+        } else {
+            videoPlayer.visible = true;
+            dropShadow.visible = false;
+        }
+    }
+
     Component.onCompleted: {
         addCurrentViewCallback(function (currentView) {
             if (currentView === validView) {
@@ -46,6 +56,9 @@ Item {
 
         quietVideoCallback(settings.get('quietVideo'));
         settings.addCallback('quietVideo', quietVideoCallback);
+
+        dropShadowCallback(settings.get('dropShadow'));
+        settings.addCallback('dropShadow', dropShadowCallback);
     }
 
     Connections {
@@ -67,9 +80,15 @@ Item {
         interval: 2000;
         repeat: false;
         onTriggered: {
-            if (currentGame.assets.video === '') return;
-            if (settings.get(settingKey) === false) return;
-            if (currentView !== validView) return;
+            if (currentGame.assets.video === '') {
+                debug.text = 'video';
+                return;
+            }
+
+            if (settings.get(settingKey) === false) {
+                debug.text = 'settingKey';
+                return;
+            }
 
             videoToggled(true);
 
@@ -83,6 +102,7 @@ Item {
     Video {
         id: videoPlayer;
 
+        visible: false;
         volume: 0.7;
         source: currentGame.assets.video;
         autoPlay: false;
@@ -93,15 +113,14 @@ Item {
         fillMode: VideoOutput.PreserveAspectFit;
     }
 
-    // todo this slows down video a lot - yeet it?
     DropShadow {
+        id: dropShadow;
+
         source: videoPlayer;
         anchors.fill: videoPlayer;
-        verticalOffset: 10;
-        horizontalOffset: 5;
-        color: '#60000000';
-        radius: 10;
-        samples: 11;
+        color: theme.current.dropShadowColor;
+        radius: 20;
+        samples: 40;
         cached: true;
         visible: true;
     }

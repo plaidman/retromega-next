@@ -8,6 +8,7 @@ Item {
         id: button;
 
         color: collectionData.getColor(currentCollection.shortName);
+        opacity: theme.current.bgOpacity;
         radius: parent.height * .05;
         width: parent.width;
         height: parent.height;

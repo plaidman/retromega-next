@@ -10,6 +10,7 @@ Item {
     property string dividerColor: '#20ffffff';
     property string focusTextColor: '#cccccc';
     property string blurTextColor: '#555555';
+    property string dropShadowColor: '#40ffffff';
 
     // details
     property string detailsColor: '#999999';

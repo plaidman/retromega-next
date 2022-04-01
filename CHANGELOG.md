@@ -17,16 +17,17 @@
 ## Next - Apr XXth
 - game details screen
     - show screenshot/video
-    - start game, toggle favorite buttons
+    - buttons to start game and toggle favorite
     - long description view with touch scrolling
     - fixed a short-description rendering problem
 - new settings
     - mute video
     - reduce the video delay
+    - toggle video/image dropshadow
 - bug fixes
-    - fixed loading collection images without metadata
-    - fixed an issue with video and dropshadow
-    - improved some performance related issues with dropshadow
+    - loading collection images without metadata
+    - made dropshadow optional for better performance and fix some display issues
+    - system name in game list was cut off too short
 - general system stability improvements to enhance the user's experience
 
 

@@ -24,6 +24,7 @@ Item {
 
             text: 'MORE';
             color: collectionData.getColor(currentCollection.shortName);
+            opacity: theme.current.bgOpacity;
 
             font {
                 pixelSize: pixelSize;
