@@ -5,6 +5,12 @@ Rectangle {
     property string shade: 'light';
     property bool showTitle: false;
     property string title: '';
+    property double titleWidth: {
+        return root.width - 50
+            - settingsIcon.width - settingsIcon.anchors.rightMargin
+            - battery.width - battery.anchors.rightMargin
+            - clock.width - clock.anchors.rightMargin;
+    }
 
     color: 'transparent';
     height: root.height * .115 * theme.fontScale;
@@ -39,7 +45,7 @@ Rectangle {
             ? theme.current.defaultHeaderNameColor
             : collectionData.getColor(currentCollection.shortName);
         opacity: theme.current.bgOpacity;
-        width: 300;
+        width: titleWidth;
         elide: Text.ElideRight;
 
         anchors {
@@ -106,6 +112,8 @@ Rectangle {
     }
 
     Clock {
+        id: clock;
+
         shade: parent.shade;
         height: parent.height;
         opacity: 0.5;

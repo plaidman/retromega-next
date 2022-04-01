@@ -8,7 +8,7 @@ Item {
             : theme.current.clockColorDark;
     }
 
-    width: clock.width;
+    width: clockText.width;
 
     Component.onCompleted: {
         clockTimer.start();
@@ -29,12 +29,12 @@ Item {
                 format = 'h:mm ap';
             }
 
-            clock.text = Qt.formatTime(new Date(), format);
+            clockText.text = Qt.formatTime(new Date(), format);
         }
     }
 
     Text {
-        id: clock;
+        id: clockText;
 
         text: '00:00';
         color: shadeColor;
