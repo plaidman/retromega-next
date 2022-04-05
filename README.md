@@ -1,5 +1,5 @@
 # Retro Mega Next
-[Pegasus](https://pegasus-frontend.org) theme for the Retroid Pocket 2/2+.
+[Pegasus](https://pegasus-frontend.org) theme for handheld devices.
 
 Adapted from [David Fumberger's RetroMega](https://github.com/djfumberger/retromega) theme. Completely rewritten from scratch to simplify code and allow me to add new features easier. I looked at each line of code, asking myself "what does it do?", "is it needed?", and "can it be done better?"
 
@@ -8,7 +8,7 @@ Adapted from [David Fumberger's RetroMega](https://github.com/djfumberger/retrom
 
 The theme uses `boxart2dfront` on the games list, and `screenshot` in the game detail view.
 
-To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [available here](https://basvroegop.nl/pegasus) or a great video guide [available here](https://www.youtube.com/watch?v=fGWve7YYwGQ). You can also use [DragoonDorise's pegasus installer](https://www.pegasus-installer.com/) to scrape files on your device easier.
+To setup Pegasus with scraped assets, there's a great written guide [available here](https://basvroegop.nl/pegasus) or a great video guide [available here](https://www.youtube.com/watch?v=fGWve7YYwGQ). You can also use [DragoonDorise's pegasus installer](https://www.pegasus-installer.com/) to scrape files on your device easier.
 
 ## Features
 - optimized for handheld devices with small screens
@@ -30,11 +30,12 @@ To get Pegasus setup on your Retroid Pocket 2/2+ there's a great written guide [
 
 ## Adding New Systems
 - add controller files into `/assets/images/devices/shortname.png`
-- add new colors and vendors into `/components/resources/CollectionData.qml`
+- add new metadata into `/components/resources/CollectionData.qml`
+- both of these steps are optional, you will be able to play any system without them
 
 ## Adding Background Music
 - add .mp3 files into `/asssets/music/whatever.mp3`
-- follow the instructions [on lines 10-12](https://github.com/plaidman/retromega-next/blob/master/components/resources/Music.qml#L23-L25) to register the music files in `/components/resources/Music.qml`
+- follow the instructions in `/components/resources/Music.qml` [on lines 10-12](https://github.com/plaidman/retromega-next/blob/master/components/resources/Music.qml#L10-L12) to register the music files
 
 ## Version History and Planned Features
 [changelog](CHANGELOG.md)
