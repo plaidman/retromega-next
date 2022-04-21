@@ -115,18 +115,14 @@ FocusScope {
     }
 
     SortFilterProxyModel {
-        id: allLastPlayed;
-
-        sourceModel: api.allGames;
-        filters: ValueFilter { roleName: 'lastPlayed'; value: ''; inverted: true; }
-        sorters: RoleSorter { roleName: 'lastPlayed'; sortOrder: Qt.DescendingOrder; }
-    }
-
-    SortFilterProxyModel {
         id: filterLastPlayed;
 
-        sourceModel: allLastPlayed;
-        filters: IndexFilter { maximumIndex: 24; }
+        sourceModel: api.allGames;
+        filters: [
+            ValueFilter { roleName: 'lastPlayed'; value: ''; inverted: true; },
+            IndexFilter { maximumIndex: 24; }
+        ]
+        sorters: RoleSorter { roleName: 'lastPlayed'; sortOrder: Qt.DescendingOrder; }
     }
 
 

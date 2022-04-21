@@ -14,7 +14,11 @@
 - attract mode
 
 # Changes
-## Next - Apr XXth
+## Next - May XXth
+- bug fixes
+    - small bug when picking a random game fixed
+
+## Next - Apr 1st
 - system year on collection list
 - game details screen
     - show screenshot/video

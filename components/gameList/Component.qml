@@ -53,7 +53,7 @@ Item {
     function onFiltersPressed() {
         const gameCount = currentCollection.games.count;
         const randomIndex = Math.floor(Math.random() * gameCount);
-        gameScroll.gamesListView.currentIndex = randomIndex;
+        updateGameIndex(randomIndex);
         sounds.nav();
     }
 
