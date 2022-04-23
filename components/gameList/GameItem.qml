@@ -2,7 +2,9 @@ import QtQuick 2.15
 
 Item {
     property bool showFavorite: {
-        return favorite && currentCollection.shortName !== 'favorites';
+        return favorite
+            && currentCollection.shortName !== 'favorites'
+            && onlyFavorites === false;
     }
 
     MouseArea {

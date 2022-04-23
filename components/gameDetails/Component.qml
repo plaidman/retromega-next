@@ -9,7 +9,7 @@ Item {
     property bool fullDescriptionShowing: false;
 
     function onCancelPressed() {
-        if (currentCollection.shortName === 'favorites') {
+        if (currentCollection.shortName === 'favorites' || onlyFavorites === true) {
             updateGameIndex(currentGameIndex, true);
         }
 

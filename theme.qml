@@ -17,8 +17,17 @@ FocusScope {
 
     property int currentCollectionIndex: -1;
     property var currentCollection;
+    property var currentGameList;
     property int currentGameIndex: -1;
     property var currentGame;
+
+    property bool onlyFavorites: false;
+    property string currentSort: 'sortBy';
+    /* property string currentSort: 'lastPlayed'; */
+    /* property string currentSort: 'rating'; */
+    /* property string currentSort: 'release'; */
+    property var sortDir: Qt.AscendingOrder;
+    /* property var sortDir: Qt.DescendingOrder; */
 
     function addCurrentViewCallback(callback) {
         currentViewCallbacks.push(callback);
@@ -41,6 +50,15 @@ FocusScope {
 
         currentCollectionIndex = clampedIndex;
         currentCollection = allCollections[currentCollectionIndex];
+
+        if (currentCollection.shortName === 'favorites') {
+            currentGameList = allFavorites;
+        } else if (currentCollection.shortName === 'recents') {
+            currentGameList = filterLastPlayed;
+        } else {
+            currentGameList = sortedCollection;
+        }
+
         updateGameIndex(0, true);
 
         if (!skipCollectionListUpdate) {
@@ -51,7 +69,7 @@ FocusScope {
     }
 
     function updateGameIndex(newIndex, forceUpdate = false) {
-        const clampedIndex = clamp(0, newIndex, currentCollection.games.count - 1);
+        const clampedIndex = clamp(0, newIndex, currentGameList.count - 1);
 
         if (!forceUpdate && clampedIndex === currentGameIndex) return false;
 
@@ -101,9 +119,9 @@ FocusScope {
         if (currentCollection.shortName === 'favorites') {
             return api.allGames.get(allFavorites.mapToSource(index));
         } else if (currentCollection.shortName === 'recents') {
-            return api.allGames.get(allLastPlayed.mapToSource(filterLastPlayed.mapToSource(index)));
+            return api.allGames.get(filterLastPlayed.mapToSource(index));
         } else {
-            return currentCollection.games.get(index);
+            return currentCollection.games.get(sortedCollection.mapToSource(index));
         }
     }
 
@@ -112,6 +130,7 @@ FocusScope {
 
         sourceModel: api.allGames;
         filters: ValueFilter { roleName: 'favorite'; value: true; }
+        sorters: RoleSorter { roleName: currentSort; sortOrder: sortDir }
     }
 
     SortFilterProxyModel {
@@ -119,10 +138,19 @@ FocusScope {
 
         sourceModel: api.allGames;
         filters: [
+            ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites },
             ValueFilter { roleName: 'lastPlayed'; value: ''; inverted: true; },
             IndexFilter { maximumIndex: 24; }
         ]
         sorters: RoleSorter { roleName: 'lastPlayed'; sortOrder: Qt.DescendingOrder; }
+    }
+
+    SortFilterProxyModel {
+        id: sortedCollection;
+
+        sourceModel: currentCollection.games;
+        sorters: RoleSorter { roleName: currentSort; sortOrder: sortDir }
+        filters: ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites }
     }
 
 

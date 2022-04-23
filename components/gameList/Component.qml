@@ -51,7 +51,7 @@ Item {
     }
 
     function onFiltersPressed() {
-        const gameCount = currentCollection.games.count;
+        const gameCount = currentGameList.count;
         const randomIndex = Math.floor(Math.random() * gameCount);
         updateGameIndex(randomIndex);
         sounds.nav();
@@ -84,12 +84,12 @@ Item {
             if (currentGameIndex === 0) return;
 
             let newIndex = currentGameIndex - 1;
-            const oldGame = currentCollection.games.get(newIndex);
-            const oldLetter = oldGame.title[0].toLowerCase();
+            const oldGame = getMappedGame(newIndex);
+            const oldLetter = oldGame.sortBy[0].toLowerCase();
 
             while (newIndex > 0) {
-                const newGame = currentCollection.games.get(newIndex - 1);
-                const newLetter = newGame.title[0].toLowerCase();
+                const newGame = getMappedGame(newIndex - 1);
+                const newLetter = newGame.sortBy[0].toLowerCase();
 
                 if (newLetter !== oldLetter) {
                     break;
@@ -105,15 +105,15 @@ Item {
         // R1
         if (api.keys.isNextPage(event)) {
             event.accepted = true;
-            if (currentGameIndex === currentCollection.games.count - 1) return;
+            if (currentGameIndex === currentGameList.count - 1) return;
 
-            const oldLetter = currentGame.title[0].toLowerCase();
+            const oldLetter = currentGame.sortBy[0].toLowerCase();
             let newIndex = currentGameIndex;
 
-            while (newIndex < currentCollection.games.count - 1) {
+            while (newIndex < currentGameList.count - 1) {
                 newIndex++;
-                const newGame = currentCollection.games.get(newIndex);
-                const newLetter = newGame.title[0].toLowerCase();
+                const newGame = getMappedGame(newIndex);
+                const newLetter = newGame.sortBy[0].toLowerCase();
 
                 if (newLetter !== oldLetter) {
                     break;
@@ -159,7 +159,7 @@ Item {
         id: gameListFooter;
 
         index: currentGameIndex + 1;
-        total: currentCollection.games.count;
+        total: currentGameList.count;
 
         buttons: [
             { title: 'Play', key: 'A', square: false, sigValue: 'accept' },

@@ -18,7 +18,7 @@ Item {
     }
 
     Text {
-        visible: currentCollection.games.count === 0;
+        visible: currentGameList.count === 0;
         text: 'No Games';
         anchors.centerIn: parent;
         color: theme.current.blurTextColor;
@@ -35,7 +35,7 @@ Item {
     ListView {
         id: gamesListView;
 
-        model: currentCollection.games;
+        model: currentGameList;
         delegate: lvGameDelegate;
         width: (parent.width / 2) - 20; // 20 is left margin
         height: parent.height - 24;

@@ -9,7 +9,7 @@ Item {
     visible: {
         if (failed) return false;
         if (videoPlaying) return false;
-        if (currentCollection.games.count === 0) return false;
+        if (currentGameList.count === 0) return false;
         if (imageSource.length === 0) return false;
 
         return true;
