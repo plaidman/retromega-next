@@ -51,6 +51,15 @@ Item {
         }
     }
 
+    Keys.onReleased: {
+        // R2
+        if (api.keys.isPageDown(event)) {
+            event.accepted = true;
+            currentView = previousView;
+            sounds.back();
+        }
+    }
+
     Rectangle {
         color: theme.current.bgColor;
         anchors.fill: parent;

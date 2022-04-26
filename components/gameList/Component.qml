@@ -123,19 +123,17 @@ Item {
             const updated = updateGameIndex(newIndex);
             if (updated) { sounds.nav(); }
         }
+    }
 
-        // L2
-        if (api.keys.isPageUp(event)) {
-            event.accepted = true;
-            const updated = updateCollectionIndex(currentCollectionIndex - 1);
-            if (updated) { sounds.nav(); }
-        }
-
+    // todo keep an eye on this issue https://github.com/mmatyas/pegasus-frontend/issues/781
+    // R2 and L2 must be handled 'onRelease' because of an android bug that requires double presses
+    Keys.onReleased: {
         // R2
         if (api.keys.isPageDown(event)) {
             event.accepted = true;
-            const updated = updateCollectionIndex(currentCollectionIndex + 1);
-            if (updated) { sounds.nav(); }
+            previousView = currentView;
+            currentView = 'sorting';
+            sounds.forward();
         }
     }
 

@@ -45,6 +45,16 @@ Item {
         }
     }
 
+    Keys.onReleased: {
+        // R2
+        if (api.keys.isPageDown(event)) {
+            event.accepted = true;
+            previousView = currentView;
+            currentView = 'sorting';
+            sounds.forward();
+        }
+    }
+
     CollectionScroll {
         id: collectionScroll;
 
