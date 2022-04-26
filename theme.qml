@@ -58,6 +58,7 @@ FocusScope {
 
         updateGameIndex(0, true);
 
+        // this prevents a circular update loop if we're updating from dragging the collection list
         if (!skipCollectionListUpdate) {
             collectionList.updateIndex(currentCollectionIndex);
         }

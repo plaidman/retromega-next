@@ -41,8 +41,6 @@ Item {
         }
     }
 
-    // todo reset currentGameIndex when updating sort;
-
     function updateSort(key, defaultSort) {
         return () => {
             if (sortKey !== key) {
@@ -70,5 +68,6 @@ Item {
         };
 
         callbacks[key]();
+        updateGameIndex(currentGameIndex, true);
     }
 }
