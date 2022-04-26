@@ -82,8 +82,12 @@ FocusScope {
     Component.onCompleted: {
         currentView = api.memory.get('currentView') ?? 'collectionList';
 
-        updateCollectionIndex(api.memory.get('currentCollectionIndex') ?? 0);
-        updateGameIndex(api.memory.get('currentGameIndex') ?? 0);
+        updateCollectionIndex(api.memory.get('currentCollectionIndex') ?? -1);
+        updateGameIndex(api.memory.get('currentGameIndex') ?? -1);
+
+        onlyFavorites = api.memory.get('onlyFavorites') ?? false;
+        sortKey = api.memory.get('sortKey') ?? 'sortBy';
+        sortOrder = api.memory.get('sortOrder') ?? Qt.AscendingOrder;
 
         // this is done in here to prevent a quick flash of light mode
         theme.setDarkMode(settings.get('darkMode'));
@@ -96,6 +100,10 @@ FocusScope {
         api.memory.set('currentView', currentView);
         api.memory.set('currentCollectionIndex', currentCollectionIndex);
         api.memory.set('currentGameIndex', currentGameIndex);
+
+        api.memory.set('onlyFavorites', onlyFavorites);
+        api.memory.set('sortKey', sortKey);
+        api.memory.set('sortOrder', sortOrder);
 
         settings.saveAll();
     }
