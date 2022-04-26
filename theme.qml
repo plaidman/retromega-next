@@ -157,6 +157,7 @@ FocusScope {
     Resources.CollectionData { id: collectionData; }
     Resources.Sounds { id: sounds; }
     Resources.Music { id: music; }
+    Sorting.Handler { id: sorting; }
 
     FontLoader {
         id: glyphs;

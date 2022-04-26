@@ -15,7 +15,7 @@ Item {
     ListView {
         id: sortingListView;
 
-        model: sortingModel;
+        model: sorting.model;
         delegate: lvSortingDelegate;
         width: parent.width - 40; // minus the margins
         height: parent.height - 24;
