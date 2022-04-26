@@ -1,8 +1,6 @@
 import QtQuick 2.15
 
 Item {
-    property string ascGlyph;
-    property string descGlyph;
     property bool value;
 
     property string icon: {

@@ -177,10 +177,8 @@ FocusScope {
         property string enabled: '\ue800';
         property string disabled: '\uf096';
         property string play: '\ue801';
-        property string numerDesc: '\uf163';
-        property string numerAsc: '\uf162';
-        property string alphaDesc: '\uf15e';
-        property string alphaAsc: '\uf15d';
+        property string ascend: '\uf160';
+        property string descend: '\uf161';
 
         source: "assets/images/fontello.ttf";
     }

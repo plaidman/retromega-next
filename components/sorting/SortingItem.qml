@@ -1,17 +1,14 @@
 import QtQuick 2.15
 
 Item {
-    property string ascGlyph;
-    property string descGlyph;
-
     property string icon: {
         if (sortKey !== key) {
-            if (defaultOrder === 'asc') return ascGlyph;
-            return descGlyph;
+            if (defaultOrder === 'asc') return glyphs.ascend;
+            return glyphs.descend;
         }
 
-        if (sortDir === Qt.AscendingOrder) return ascGlyph;
-        return descGlyph;
+        if (sortDir === Qt.AscendingOrder) return glyphs.ascend;
+        return glyphs.descend;
     }
 
     property double glyphOpacity: {

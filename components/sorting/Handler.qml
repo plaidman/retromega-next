@@ -8,28 +8,28 @@ Item {
         ListElement {
             key: 'sortBy';
             title: 'Title';
-            type: 'alpha';
+            type: 'sort';
             defaultOrder: 'asc';
         }
 
         ListElement {
             key: 'lastPlayed';
             title: 'Last Played';
-            type: 'numeric';
+            type: 'sort';
             defaultOrder: 'desc';
         }
 
         ListElement {
             key: 'rating';
             title: 'Rating';
-            type: 'numeric';
+            type: 'sort';
             defaultOrder: 'desc';
         }
 
         ListElement {
             key: 'release';
             title: 'Release Date';
-            type: 'numeric';
+            type: 'sort';
             defaultOrder: 'asc';
         }
 
@@ -37,7 +37,6 @@ Item {
             key: 'onlyFavorites';
             title: 'Only Favorites';
             type: 'onlyFavorites';
-            defaultOrder: 'enabled';
         }
     }
 

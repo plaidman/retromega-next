@@ -47,24 +47,11 @@ Item {
         role: 'type';
 
         DelegateChoice {
-            roleValue: 'alpha';
+            roleValue: 'sort';
 
             SortingItem {
                 width: sortingListView.width;
                 height: itemHeight;
-                ascGlyph: glyphs.alphaAsc;
-                descGlyph: glyphs.alphaDesc;
-            }
-        }
-
-        DelegateChoice {
-            roleValue: 'numeric';
-
-            SortingItem {
-                width: sortingListView.width;
-                height: itemHeight;
-                ascGlyph: glyphs.numerAsc;
-                descGlyph: glyphs.numerDesc;
             }
         }
 
