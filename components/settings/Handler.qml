@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import QtMultimedia 5.9
 
 Item {
     property var keys: [

@@ -46,7 +46,6 @@ Item {
         imageSource: currentGame.assets.screenshot;
     }
 
-    // todo this is not playing when starting the app on gameDetails screen
     Media.GameVideo {
         id: gameDetailsVideo;
 

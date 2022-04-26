@@ -7,6 +7,7 @@ import 'components/gameDetails' as GameDetails
 import 'components/settings' as Settings
 import 'components/resources' as Resources
 import 'components/themes' as Themes
+import 'components/sorting' as Sorting
 
 FocusScope {
     id: root;
@@ -22,12 +23,8 @@ FocusScope {
     property var currentGame;
 
     property bool onlyFavorites: false;
-    property string currentSort: 'sortBy';
-    /* property string currentSort: 'lastPlayed'; */
-    /* property string currentSort: 'rating'; */
-    /* property string currentSort: 'release'; */
-    property var sortDir: Qt.AscendingOrder;
-    /* property var sortDir: Qt.DescendingOrder; */
+    property string sortKey: 'sortBy';
+    property var sortOrder: Qt.AscendingOrder;
 
     function addCurrentViewCallback(callback) {
         currentViewCallbacks.push(callback);
@@ -130,7 +127,7 @@ FocusScope {
 
         sourceModel: api.allGames;
         filters: ValueFilter { roleName: 'favorite'; value: true; }
-        sorters: RoleSorter { roleName: currentSort; sortOrder: sortDir }
+        sorters: RoleSorter { roleName: sortKey; sortOrder: sortOrder }
     }
 
     SortFilterProxyModel {
@@ -149,7 +146,7 @@ FocusScope {
         id: sortedCollection;
 
         sourceModel: currentCollection.games;
-        sorters: RoleSorter { roleName: currentSort; sortOrder: sortDir }
+        sorters: RoleSorter { roleName: sortKey; sortOrder: sortOrder }
         filters: ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites }
     }
 
@@ -170,6 +167,10 @@ FocusScope {
         property string enabled: '\ue800';
         property string disabled: '\uf096';
         property string play: '\ue801';
+        property string numerDesc: '\uf163';
+        property string numerAsc: '\uf162';
+        property string alphaDesc: '\uf15e';
+        property string alphaAsc: '\uf15d';
 
         source: "assets/images/fontello.ttf";
     }
@@ -198,5 +199,10 @@ FocusScope {
     Settings.Component {
         visible: currentView === 'settings';
         focus: currentView === 'settings';
+    }
+
+    Sorting.Component {
+        visible: currentView === 'sorting';
+        focus: currentView === 'sorting';
     }
 }
