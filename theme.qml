@@ -24,7 +24,7 @@ FocusScope {
 
     property bool onlyFavorites: false;
     property string sortKey: 'sortBy';
-    property var sortOrder: Qt.AscendingOrder;
+    property var sortDir: Qt.AscendingOrder;
 
     function addCurrentViewCallback(callback) {
         currentViewCallbacks.push(callback);
@@ -87,7 +87,7 @@ FocusScope {
 
         onlyFavorites = api.memory.get('onlyFavorites') ?? false;
         sortKey = api.memory.get('sortKey') ?? 'sortBy';
-        sortOrder = api.memory.get('sortOrder') ?? Qt.AscendingOrder;
+        sortDir = api.memory.get('sortDir') ?? Qt.AscendingOrder;
 
         // this is done in here to prevent a quick flash of light mode
         theme.setDarkMode(settings.get('darkMode'));
@@ -103,7 +103,7 @@ FocusScope {
 
         api.memory.set('onlyFavorites', onlyFavorites);
         api.memory.set('sortKey', sortKey);
-        api.memory.set('sortOrder', sortOrder);
+        api.memory.set('sortDir', sortDir);
 
         settings.saveAll();
     }
@@ -135,7 +135,7 @@ FocusScope {
 
         sourceModel: api.allGames;
         filters: ValueFilter { roleName: 'favorite'; value: true; }
-        sorters: RoleSorter { roleName: sortKey; sortOrder: sortOrder }
+        sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
     }
 
     SortFilterProxyModel {
@@ -154,7 +154,7 @@ FocusScope {
         id: sortedCollection;
 
         sourceModel: currentCollection.games;
-        sorters: RoleSorter { roleName: sortKey; sortOrder: sortOrder }
+        sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
         filters: ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites }
     }
 

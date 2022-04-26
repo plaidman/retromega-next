@@ -41,20 +41,22 @@ Item {
         }
     }
 
+    // todo reset currentGameIndex when updating sort;
+
     function updateSort(key, defaultSort) {
         return () => {
             if (sortKey !== key) {
                 sortKey = key;
-                sortOrder = defaultSort;
+                sortDir = defaultSort;
                 return;
             }
 
-            if (sortOrder === Qt.AscendingOrder) {
-                sortOrder = Qt.DescendingOrder;
+            if (sortDir === Qt.AscendingOrder) {
+                sortDir = Qt.DescendingOrder;
                 return;
             }
 
-            sortOrder = Qt.AscendingOrder;
+            sortDir = Qt.AscendingOrder;
         }
     }
 

@@ -10,7 +10,7 @@ Item {
             return descGlyph;
         }
 
-        if (sortOrder === Qt.AscendingOrder) return ascGlyph;
+        if (sortDir === Qt.AscendingOrder) return ascGlyph;
         return descGlyph;
     }
 
