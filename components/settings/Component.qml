@@ -93,6 +93,7 @@ Item {
         id: settingsHeader;
 
         showDivider: true;
+        showSorting: false;
         shade: 'dark';
         color: theme.current.bgColor;
         showTitle: true;

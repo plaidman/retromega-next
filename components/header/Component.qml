@@ -4,6 +4,7 @@ Rectangle {
     property bool showDivider: true;
     property string shade: 'light';
     property bool showTitle: false;
+    property bool showSorting: true;
     property string title: '';
     property double titleWidth: {
         return root.width - 50
@@ -127,6 +128,7 @@ Rectangle {
     Sort {
         shade: parent.shade;
         height: parent.height * .5;
+        visible: showSorting;
 
         anchors {
             right: clock.left;
