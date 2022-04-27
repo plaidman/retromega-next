@@ -8,6 +8,18 @@ Item {
         return glyphs.disabled;
     }
 
+    MouseArea {
+        anchors.fill: parent;
+        onClicked: {
+            if (sortingListView.currentIndex === index) {
+                onAcceptPressed();
+            } else {
+                sortingListView.currentIndex = index;
+                sounds.nav();
+            }
+        }
+    }
+
     Text {
         id: sortingIcon;
 
