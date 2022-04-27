@@ -25,6 +25,8 @@ Item {
         return glyphs.descend;
     }
 
+    width: buttonRect.width + sortRow.width + parent.height * .3;
+
     Rectangle {
         id: sortRect;
 
@@ -69,61 +71,60 @@ Item {
             }
         }
 
-        Text {
-            id: sortingIcon;
+        Row {
+            id: sortRow;
 
-            text: icon;
-            verticalAlignment: Text.AlignVCenter;
-            color: shadeColor;
-
-            font {
-                family: glyphs.name;
-                pixelSize: parent.height * .5;
-            }
+            spacing: parent.height * .25;
+            height: parent.height;
 
             anchors {
                 verticalCenter: parent.verticalCenter;
                 left: buttonRect.right;
                 leftMargin: parent.height * .25;
             }
-        }
 
-        Text {
-            id: labelText;
+            Text {
+                id: sortingIcon;
 
-            text: label;
-            color: shadeColor;
+                text: icon;
+                verticalAlignment: Text.AlignVCenter;
+                anchors.verticalCenter: parent.verticalCenter;
+                color: shadeColor;
 
-            font {
-                pixelSize: parent.height * .7;
-                letterSpacing: -0.3;
-                bold: true;
+                font {
+                    family: glyphs.name;
+                    pixelSize: parent.height * .5;
+                }
             }
 
-            anchors {
-                verticalCenter: parent.verticalCenter;
-                left: sortingIcon.right;
-                leftMargin: parent.height * .25;
-            }
-        }
+            Text {
+                id: labelText;
 
-        Text {
-            id: favoritesIcon;
+                text: label;
+                color: shadeColor;
+                verticalAlignment: Text.AlignVCenter;
+                anchors.verticalCenter: parent.verticalCenter;
 
-            visible: onlyFavorites;
-            text: glyphs.favorite;
-            verticalAlignment: Text.AlignVCenter;
-            color: shadeColor;
-
-            font {
-                family: glyphs.name;
-                pixelSize: parent.height * .5;
+                font {
+                    pixelSize: parent.height * .7;
+                    letterSpacing: -0.3;
+                    bold: true;
+                }
             }
 
-            anchors {
-                verticalCenter: parent.verticalCenter;
-                right: sortRect.right;
-                rightMargin: parent.height * .25;
+            Text {
+                id: favoritesIcon;
+
+                visible: onlyFavorites;
+                text: glyphs.favorite;
+                verticalAlignment: Text.AlignVCenter;
+                anchors.verticalCenter: parent.verticalCenter;
+                color: shadeColor;
+
+                font {
+                    family: glyphs.name;
+                    pixelSize: parent.height * .5;
+                }
             }
         }
 

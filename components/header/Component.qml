@@ -127,11 +127,10 @@ Rectangle {
     Sort {
         shade: parent.shade;
         height: parent.height * .5;
-        width: parent.height * 2.8;
 
         anchors {
             right: clock.left;
-            rightMargin: parent.height * .30;
+            rightMargin: parent.height * .25;
             verticalCenter: parent.verticalCenter;
         }
     }
