@@ -11,12 +11,12 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
-            if (sortingListView.currentIndex === index) {
-                onAcceptPressed();
-            } else {
+            if (sortingListView.currentIndex !== index) {
                 sortingListView.currentIndex = index;
                 sounds.nav();
             }
+
+            onAcceptPressed();
         }
     }
 

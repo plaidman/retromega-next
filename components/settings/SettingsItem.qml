@@ -18,12 +18,12 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
-            if (settingsListView.currentIndex === index) {
-                onAcceptPressed();
-            } else {
+            if (settingsListView.currentIndex !== index) {
                 settingsListView.currentIndex = index;
                 sounds.nav();
             }
+
+            onAcceptPressed();
         }
     }
 
