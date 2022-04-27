@@ -26,6 +26,10 @@ Item {
     property string clockColorDark: '#777777';
     property string settingsColorLight: '#cccccc';
     property string settingsColorDark: '#777777';
+    property string sortColorLight: '#80cccccc';
+    property string sortColorDark: '#80777777';
+    property string sortButtonColorLight: '#80000000';
+    property string sortButtonColorDark: '#cccccc';
 
     // footer
     property string buttonLetterColor: '#000000';

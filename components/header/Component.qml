@@ -123,4 +123,16 @@ Rectangle {
             rightMargin: parent.height * .30;
         }
     }
+
+    Sort {
+        shade: parent.shade;
+        height: parent.height * .5;
+        width: parent.height * 2.8;
+
+        anchors {
+            right: clock.left;
+            rightMargin: parent.height * .30;
+            verticalCenter: parent.verticalCenter;
+        }
+    }
 }

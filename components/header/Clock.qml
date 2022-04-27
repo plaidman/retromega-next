@@ -49,7 +49,6 @@ Item {
 
         MouseArea {
             anchors.fill: parent;
-
             onClicked: {
                 settings.toggle('twelveHour');
             }

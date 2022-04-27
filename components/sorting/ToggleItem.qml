@@ -17,6 +17,7 @@ Item {
             ? theme.current.focusTextColor
             : theme.current.blurTextColor;
         height: parent.height;
+        width: parent.height * .43;
 
         font {
             family: glyphs.name;
