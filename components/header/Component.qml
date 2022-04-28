@@ -5,12 +5,14 @@ Rectangle {
     property string shade: 'light';
     property bool showTitle: false;
     property bool showSorting: true;
+    property bool showSettings: true;
     property string title: '';
     property double titleWidth: {
         return root.width - 50
             - settingsIcon.width - settingsIcon.anchors.rightMargin
             - battery.width - battery.anchors.rightMargin
-            - clock.width - clock.anchors.rightMargin;
+            - clock.width - clock.anchors.rightMargin
+            - sort.width - sort.anchors.rightMargin;
     }
 
     color: 'transparent';
@@ -65,7 +67,7 @@ Rectangle {
     Text {
         id: settingsIcon;
 
-        text: glyphs.settings;
+        text: showSettings ? glyphs.settings : '';
         opacity: 0.5;
         color: parent.shade === 'light'
             ? theme.current.settingsColorLight
@@ -78,7 +80,7 @@ Rectangle {
 
         anchors {
             right: parent.right;
-            rightMargin: parent.height * .36;
+            rightMargin: showSettings ? parent.height * .30 : 0;
             verticalCenter: parent.verticalCenter;
         }
 
@@ -126,6 +128,8 @@ Rectangle {
     }
 
     Sort {
+        id: sort;
+
         shade: parent.shade;
         height: parent.height * .5;
         visible: showSorting;

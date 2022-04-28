@@ -97,6 +97,7 @@ Item {
 
         showDivider: true;
         shade: 'dark';
+        showSettings: false;
         color: theme.current.bgColor;
         showTitle: true;
         title: 'Sorting and Filters';
