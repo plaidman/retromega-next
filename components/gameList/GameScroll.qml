@@ -8,6 +8,11 @@ Item {
         return gamesListView.height * .12 * theme.fontScale;
     }
 
+    property string imgSrc: {
+        if (currentGame === null) return '';
+        return currentGame.assets.boxFront;
+    }
+
     Component.onCompleted: {
         gamesListView.currentIndex = currentGameIndex;
         gamesListView.positionViewAtIndex(currentGameIndex, ListView.Center);
@@ -80,7 +85,7 @@ Item {
         width: parent.width / 2;
         height: parent.height;
         x: parent.width / 2;
-        imageSource: currentGame.assets.boxFront;
+        imageSource: imgSrc;
     }
 
     Media.GameVideo {

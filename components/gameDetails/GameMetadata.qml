@@ -12,6 +12,8 @@ Item {
     }
 
     property string genreText: {
+        if (currentGame === null) return '';
+
         if (currentGame.genreList.length === 0) { return null; }
 
         const genre = currentGame.genreList[0] ?? '';
@@ -23,6 +25,8 @@ Item {
     }
 
     property string lastPlayedText: {
+        if (currentGame === null) return '';
+
         const lastPlayed = currentGame.lastPlayed.getTime();
         if (isNaN(lastPlayed)) return '';
 
@@ -48,12 +52,14 @@ Item {
     }
 
     property string releaseDateText: {
-        if (!currentGame.releaseYear) { return ''; }
-
+        if (currentGame === null) return '';
+        if (!currentGame.releaseYear) return '';
         return 'Released ' + currentGame.releaseYear;
     }
 
     property string developedByText: {
+        if (currentGame === null) return '';
+
         if (currentGame.developer) {
             return 'Dev\'d by ' + currentGame.developer;
         }
@@ -77,8 +83,14 @@ Item {
     }
 
     property string favoriteGlyph: {
+        if (currentGame === null) return '';
         if (currentGame.favorite) return glyphs.favorite;
         return glyphs.unfavorite;
+    }
+
+    property string titleText: {
+        if (currentGame === null) return '';
+        return currentGame.title;
     }
 
     Text {
@@ -87,7 +99,7 @@ Item {
         width: parent.width;
         wrapMode: Text.WordWrap;
         maximumLineCount: 2;
-        text: currentGame.title;
+        text: titleText;
         color: theme.current.detailsColor;
         elide: Text.ElideRight;
 

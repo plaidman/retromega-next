@@ -26,6 +26,8 @@ Item {
 
     // solves some kerning issues with period and commas
     property var descText: {
+        if (currentGame === null) return '';
+
         return currentGame.description
             .replace(/\. {1,}/g, '.  ')
             .replace(/, {1,}/g, ',  ');

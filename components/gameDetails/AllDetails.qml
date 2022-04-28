@@ -9,6 +9,8 @@ Item {
     // get rid of newlines for the short description
     // also some weird kerning on periods and commas for some reason
     property var introDescText: {
+        if (currentGame === null) return '';
+
         return currentGame.description
             .replace(/\n/g, ' ')
             .replace(/ {2,}/g, ' ')
@@ -17,11 +19,13 @@ Item {
     }
 
     property var hasMoreButton: {
+        if (currentGame === null) return false;
         if (currentGame.description) return true;
         return false;
     }
 
     property var ratingText: {
+        if (currentGame === null) return '';
         if (currentGame.rating === 0) return '';
 
         let stars = [];
@@ -38,6 +42,11 @@ Item {
         }
 
         return stars.join(' ');
+    }
+
+    property string imgSrc: {
+        if (currentGame === null) return '';
+        return currentGame.assets.screenshot;
     }
 
     Component.onCompleted: {
@@ -67,7 +76,7 @@ Item {
         width: parent.width / 2;
         height: parent.height * .675;
         x: parent.width / 2;
-        imageSource: currentGame.assets.screenshot;
+        imageSource: imgSrc;
     }
 
     Media.GameVideo {
