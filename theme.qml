@@ -216,4 +216,8 @@ FocusScope {
         visible: currentView === 'sorting';
         focus: currentView === 'sorting';
     }
+
+    /* Text { id: debug; x: 20; y: 20; width: 20; height: 20; text: 'debug'; } */
+    /* Rectangle { width: 640; height: 480; color: 'transparent'; border.color: 'magenta'; } */
+    /* Rectangle { width: 1280; height: 720; color: 'transparent'; border.color: 'magenta'; } */
 }
