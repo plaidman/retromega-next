@@ -25,6 +25,7 @@ FocusScope {
     property bool onlyFavorites: false;
     property string sortKey: 'sortBy';
     property var sortDir: Qt.AscendingOrder;
+    property string nameFilter: '';
 
     function addCurrentViewCallback(callback) {
         currentViewCallbacks.push(callback);
@@ -86,9 +87,10 @@ FocusScope {
         onlyFavorites = api.memory.get('onlyFavorites') ?? false;
         sortKey = api.memory.get('sortKey') ?? 'sortBy';
         sortDir = api.memory.get('sortDir') ?? Qt.AscendingOrder;
+        nameFilter = api.memory.get('nameFilter') ?? '';
 
         updateCollectionIndex(api.memory.get('currentCollectionIndex') ?? -1);
-        updateGameIndex(api.memory.get('currentGameIndex') ?? -1);
+        updateGameIndex(api.memory.get('currentGameIndex') ?? -1, true);
 
         // this is done in here to prevent a quick flash of light mode
         theme.setDarkMode(settings.get('darkMode'));
@@ -105,6 +107,7 @@ FocusScope {
         api.memory.set('onlyFavorites', onlyFavorites);
         api.memory.set('sortKey', sortKey);
         api.memory.set('sortDir', sortDir);
+        api.memory.set('nameFilter', nameFilter);
 
         settings.saveAll();
     }
@@ -135,7 +138,10 @@ FocusScope {
         id: allFavorites;
 
         sourceModel: api.allGames;
-        filters: ValueFilter { roleName: 'favorite'; value: true; }
+        filters: [
+            ValueFilter { roleName: 'favorite'; value: true; },
+            RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }
+        ]
         sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
     }
 
@@ -144,8 +150,9 @@ FocusScope {
 
         sourceModel: api.allGames;
         filters: [
-            ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites },
+            ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
             ValueFilter { roleName: 'lastPlayed'; value: ''; inverted: true; },
+            RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; },
             IndexFilter { maximumIndex: 24; }
         ]
         sorters: RoleSorter { roleName: 'lastPlayed'; sortOrder: Qt.DescendingOrder; }
@@ -156,7 +163,10 @@ FocusScope {
 
         sourceModel: currentCollection.games;
         sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
-        filters: ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites }
+        filters: [
+            ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
+            RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }
+        ]
     }
 
 
