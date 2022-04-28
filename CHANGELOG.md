@@ -10,7 +10,7 @@
 - attract mode
 
 # Changes
-## Next - May XXth
+## Next - Apr 28th
 - game sorting screen
     - sort any collection by last played, release date, rating, title
     - toggle between ascending or descending
