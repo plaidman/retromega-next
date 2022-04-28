@@ -14,6 +14,7 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
 - optimized for handheld devices with small screens
 - rewritten code from scratch
 - controller support
+- sorting/filtering options
 - touch support
 - random game selection
 - 24/12 hour clock (tap the clock to switch)

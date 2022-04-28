@@ -1,9 +1,5 @@
 # Planned Features
-- continuing to implement missed features from rewrite
-    - favorites filter
-    - search by name
-    - sorting games list
-        - use `sortBy` not `title`
+- search for game by name
 - improve game selection
     - games with long names
     - games with multiple files
@@ -15,8 +11,20 @@
 
 # Changes
 ## Next - May XXth
+- game sorting screen
+    - sort any collection by last played, release date, rating, title
+    - toggle between ascending or descending
+    - filter games by favorites
+    - current sorting is displayed on collection and game list
+- new data on game details page
+    - added last played time and game rating
+    - dynamic spacing if there are many things shown
+    - hide 'more' button if there is no description
 - bug fixes
-    - small bug when picking a random game fixed
+    - small bug when picking a random game
+    - improved navigation sounds
+    - quicker changing settings with one tap
+- general system stability improvements to enhance the user's experience
 
 ## Next - Apr 1st
 - system year on collection list
