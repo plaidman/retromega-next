@@ -22,6 +22,50 @@ Item {
         return split[0];
     }
 
+    property var ratingText: {
+        if (currentGame.rating === 0) return '';
+
+        let string = '';
+        const rating = Math.round(currentGame.rating * 500) / 100;
+
+        for (let i = 0; i < 5; i++) {
+            if (rating - i <= 0) {
+                string += glyphs.emptyStar;
+            } else if (rating - i < 1) {
+                string += glyphs.halfStar;
+            } else {
+                string += glyphs.fullStar;
+            }
+        }
+
+        return string;
+    }
+
+    property string lastPlayedText: {
+        const lastPlayed = currentGame.lastPlayed.getTime();
+        if (isNaN(lastPlayed)) return '';
+
+        const now = new Date().getTime();
+
+        let time = Math.floor((now - lastPlayed) / 1000);
+        if (time < 60) {
+            return 'Played ' + time + ' seconds ago';
+        }
+
+        time = Math.floor(time / 60);
+        if (time < 60) {
+            return 'Played ' + time + ' minutes ago';
+        }
+
+        time = Math.floor(time / 60);
+        if (time < 24) {
+            return 'Played ' + time + ' hours ago';
+        }
+
+        time = Math.floor(time / 24);
+        return 'Played ' + time + ' days ago';
+    }
+
     property string releaseDateText: {
         if (!currentGame.releaseYear) { return ''; }
 
@@ -30,18 +74,18 @@ Item {
 
     property string developedByText: {
         if (currentGame.developer) {
-            return 'Dev\'d By ' + currentGame.developer;
+            return 'Dev\'d by ' + currentGame.developer;
         }
 
         if (currentGame.publisher) {
-            return 'Pub\'d By ' + currentGame.publisher;
+            return 'Pub\'d by ' + currentGame.publisher;
         }
 
         return '';
     }
 
     property var metadataText: {
-        return [genreText, releaseDateText, developedByText]
+        return [lastPlayedText, genreText, releaseDateText, developedByText]
             .filter(v => { return v !== null })
             .filter(v => { return v !== '' });
     }
@@ -82,6 +126,21 @@ Item {
         anchors {
             top: title.bottom;
             topMargin: 8;
+        }
+
+        Text {
+            text: ratingText;
+            color: theme.current.detailsColor;
+            opacity: 0.5;
+            width: parent.width;
+            elide: Text.ElideRight
+            maximumLineCount: 1;
+
+            font {
+                family: glyphs.name;
+                pixelSize: pixelSize * .75;
+                letterSpacing: -0.35;
+            }
         }
 
         Repeater {

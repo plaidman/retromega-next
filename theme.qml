@@ -179,6 +179,9 @@ FocusScope {
         property string play: '\ue801';
         property string ascend: '\uf160';
         property string descend: '\uf161';
+        property string fullStar: '\ue803';
+        property string halfStar: '\uf123';
+        property string emptyStar: '\ue804';
 
         source: "assets/images/fontello.ttf";
     }
