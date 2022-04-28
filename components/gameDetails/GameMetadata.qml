@@ -65,6 +65,11 @@ Item {
         return '';
     }
 
+    property var metadataSpacing: {
+        if (title.lineCount > 1 && metadataText.length > 3) return 4;
+        return 8;
+    }
+
     property var metadataText: {
         return [lastPlayedText, genreText, releaseDateText, developedByText]
             .filter(v => { return v !== null })
@@ -83,8 +88,8 @@ Item {
         wrapMode: Text.WordWrap;
         maximumLineCount: 2;
         text: currentGame.title;
-        lineHeight: 1.1;
         color: theme.current.detailsColor;
+        elide: Text.ElideRight;
 
         font {
             pixelSize: pixelSize;
@@ -101,7 +106,7 @@ Item {
     Column {
         id: metadata;
 
-        spacing: 8;
+        spacing: metadataSpacing;
         width: parent.width;
 
         anchors {
