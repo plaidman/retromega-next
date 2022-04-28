@@ -28,6 +28,8 @@ Item {
     }
 
     function onDetailsPressed() {
+        if (!currentGame.description) return;
+
         fullDescriptionShowing = true;
         fullDescription.anchors.topMargin = 0;
         sounds.forward();

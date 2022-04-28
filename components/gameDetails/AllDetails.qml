@@ -16,6 +16,11 @@ Item {
             .replace(/, {1,}/g, ',  ');
     }
 
+    property var hasMoreButton: {
+        if (currentGame.description) return true;
+        return false;
+    }
+
     property var ratingText: {
         if (currentGame.rating === 0) return '';
 
@@ -149,6 +154,7 @@ Item {
 
     MoreButton {
         pixelSize: parent.height * .04 * theme.fontScale;
+        visible: hasMoreButton;
 
         anchors {
             right: parent.right;
