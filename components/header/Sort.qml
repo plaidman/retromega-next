@@ -44,12 +44,15 @@ Item {
             id: buttonRect;
 
             color: shadeColor;
-            radius: parent.radius;
-            height: parent.height;
+            radius: parent.radius - 1;
+            height: parent.height - 2;
             width: buttonText.width + parent.height * .4;
 
             anchors {
                 left: parent.left;
+                leftMargin: 1;
+                top: parent.top;
+                topMargin: 1;
             }
 
             Text {

@@ -1,6 +1,5 @@
 import QtQuick 2.15
 import QtGraphicalEffects 1.12
-import "qrc:/qmlutils" as PegasusUtils
 
 import '../media' as Media
 
