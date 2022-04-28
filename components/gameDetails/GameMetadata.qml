@@ -71,8 +71,8 @@ Item {
     }
 
     property var metadataText: {
-        return [lastPlayedText, genreText, releaseDateText, developedByText]
-            .filter(v => { return v !== null })
+        const texts = [releaseDateText, genreText, developedByText, lastPlayedText];
+        return texts.filter(v => { return v !== null })
             .filter(v => { return v !== '' });
     }
 
