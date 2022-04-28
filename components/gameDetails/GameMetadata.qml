@@ -22,25 +22,6 @@ Item {
         return split[0];
     }
 
-    property var ratingText: {
-        if (currentGame.rating === 0) return '';
-
-        let string = '';
-        const rating = Math.round(currentGame.rating * 500) / 100;
-
-        for (let i = 0; i < 5; i++) {
-            if (rating - i <= 0) {
-                string += glyphs.emptyStar;
-            } else if (rating - i < 1) {
-                string += glyphs.halfStar;
-            } else {
-                string += glyphs.fullStar;
-            }
-        }
-
-        return string;
-    }
-
     property string lastPlayedText: {
         const lastPlayed = currentGame.lastPlayed.getTime();
         if (isNaN(lastPlayed)) return '';
@@ -126,21 +107,6 @@ Item {
         anchors {
             top: title.bottom;
             topMargin: 8;
-        }
-
-        Text {
-            text: ratingText;
-            color: theme.current.detailsColor;
-            opacity: 0.5;
-            width: parent.width;
-            elide: Text.ElideRight
-            maximumLineCount: 1;
-
-            font {
-                family: glyphs.name;
-                pixelSize: pixelSize * .75;
-                letterSpacing: -0.35;
-            }
         }
 
         Repeater {

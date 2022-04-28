@@ -16,6 +16,25 @@ Item {
             .replace(/, {1,}/g, ',  ');
     }
 
+    property var ratingText: {
+        if (currentGame.rating === 0) return '';
+
+        let stars = [];
+        const rating = Math.round(currentGame.rating * 500) / 100;
+
+        for (let i = 0; i < 5; i++) {
+            if (rating - i <= 0) {
+                stars.push(glyphs.emptyStar);
+            } else if (rating - i < 1) {
+                stars.push(glyphs.halfStar);
+            } else {
+                stars.push(glyphs.fullStar);
+            }
+        }
+
+        return stars.join(' ');
+    }
+
     Component.onCompleted: {
         gameDetailsVideo.switchVideo();
         settings.addCallback('gameDetailsVideo', function () {
@@ -57,6 +76,22 @@ Item {
 
         onVideoToggled: {
             gameDetailsScreenshot.videoPlaying = videoPlaying;
+        }
+    }
+
+    Text {
+        text: ratingText;
+        color: theme.current.detailsColor;
+        opacity: 0.5;
+        width: parent.width / 2;
+        height: parent.height * .65;
+        x: parent.width / 2;
+        verticalAlignment: Text.AlignBottom;
+        horizontalAlignment: Text.AlignHCenter;
+
+        font {
+            family: glyphs.name;
+            pixelSize: parent.height * .04;
         }
     }
 
