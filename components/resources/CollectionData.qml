@@ -88,7 +88,7 @@ Item {
         'ps2': { color: '#347867', vendor: 'Sony', year: '2000-2013' },
         'psp': { color: '#4e0b9c', vendor: 'Sony', year: '2004-2014' },
         'psx': { color: '#365f8d', vendor: 'Sony', year: '1994-2006' },
-        'recents': { color: '#906226' },
+        'recents': { color: '#906226', vendor: 'past 30 days' },
         'saturn': { color: '#5b92ff', vendor: 'Sega', year: '1994-2000' },
         'sega32x': { color: '#6935e9', vendor: 'Sega', image: 'segacd', year: '1994-1996' },
         'segacd': { color: '#cc4545', vendor: 'Sega', year: '1991-1996' },

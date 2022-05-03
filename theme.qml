@@ -151,9 +151,17 @@ FocusScope {
         sourceModel: api.allGames;
         filters: [
             ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
-            ValueFilter { roleName: 'lastPlayed'; value: ''; inverted: true; },
             /* RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }, */
-            IndexFilter { maximumIndex: 24; }
+            ExpressionFilter {
+                expression: {
+                    const lastPlayedTime = lastPlayed.getTime();
+                    if (isNaN(lastPlayedTime)) return false;
+
+                    const curTime = new Date().getTime();
+                    const lastMonth = 1000 * 60 * 60 * 24 * 31;
+                    return (curTime - lastPlayedTime < lastMonth)
+                }
+            }
         ]
         sorters: RoleSorter { roleName: 'lastPlayed'; sortOrder: Qt.DescendingOrder; }
     }
