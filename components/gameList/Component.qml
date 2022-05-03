@@ -25,13 +25,19 @@ Item {
     Keys.onLeftPressed: {
         event.accepted = true;
         const updated = updateCollectionIndex(currentCollectionIndex - 1);
-        if (updated) { sounds.nav(); }
+        if (updated) {
+            sounds.nav();
+            gameScroll.video.switchVideo();
+        }
     }
 
     Keys.onRightPressed: {
         event.accepted = true;
         const updated = updateCollectionIndex(currentCollectionIndex + 1);
-        if (updated) { sounds.nav(); }
+        if (updated) {
+            sounds.nav();
+            gameScroll.video.switchVideo();
+        }
     }
 
     function onAcceptPressed() {

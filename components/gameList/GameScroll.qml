@@ -3,6 +3,7 @@ import QtQuick 2.15
 import '../media' as Media
 
 Item {
+    property alias video: gameListVideo;
     property alias gamesListView: gamesListView;
     property double itemHeight: {
         return gamesListView.height * .12 * theme.fontScale;
