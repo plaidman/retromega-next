@@ -29,14 +29,8 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
 ## Settings
 [settings](SETTINGS.md)
 
-## Adding New Systems
-- add controller files into `/assets/images/devices/shortname.png`
-- add new metadata into `/components/resources/CollectionData.qml`
-- both of these steps are optional, you will be able to play any system without them
-
-## Adding Background Music
-- add .mp3 files into `/asssets/music/whatever.mp3`
-- follow the instructions in `/components/resources/Music.qml` [on lines 10-12](https://github.com/plaidman/retromega-next/blob/master/components/resources/Music.qml#L10-L12) to register the music files
+## Customization Tweaks
+[customization](CUSTOMIZATION.md)
 
 ## Version History and Planned Features
 [changelog](CHANGELOG.md)
