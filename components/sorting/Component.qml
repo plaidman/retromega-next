@@ -28,10 +28,10 @@ Item {
         }
     }
 
-    function onAcceptPressed() {
+    function onAcceptPressed(muteSound = false) {
         const currentKey = sorting.model.get(sortingScroll.sortingListView.currentIndex).key;
         sorting.executeCallback(currentKey);
-        sounds.nav();
+        if (!muteSound) sounds.nav();
     }
 
     function onCancelPressed() {

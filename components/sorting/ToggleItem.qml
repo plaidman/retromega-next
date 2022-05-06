@@ -11,12 +11,15 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
+            let muteSound = false;
+
             if (sortingListView.currentIndex !== index) {
                 sortingListView.currentIndex = index;
                 sounds.nav();
+                muteSound = true;
             }
 
-            onAcceptPressed();
+            onAcceptPressed(muteSound);
         }
     }
 
