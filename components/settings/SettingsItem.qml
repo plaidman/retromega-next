@@ -18,12 +18,15 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
+            let muteSound = false;
+
             if (settingsListView.currentIndex !== index) {
                 settingsListView.currentIndex = index;
                 sounds.nav();
+                muteSound = true;
             }
 
-            onAcceptPressed();
+            onAcceptPressed(muteSound);
         }
     }
 

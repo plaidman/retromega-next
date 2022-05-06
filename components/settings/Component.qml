@@ -28,11 +28,11 @@ Item {
         }
     }
 
-    function onAcceptPressed() {
+    function onAcceptPressed(muteSound = false) {
         const currentIndex = settingsScroll.settingsListView.currentIndex;
         const currentKey = settings.keys[currentIndex];
         settings.toggle(currentKey);
-        sounds.nav();
+        if (!muteSound) sounds.nav();
     }
 
     function onCancelPressed() {
