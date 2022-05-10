@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
 import '../footer' as Footer
-import '../header' as Header
 
 Item {
     anchors.fill: parent;

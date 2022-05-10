@@ -80,6 +80,7 @@ Item {
         interval: 2000;
         repeat: false;
         onTriggered: {
+            if (currentGame === null) return;
             if (currentGame.assets.video === '') return;
             if (settings.get(settingKey) === false) return;
             if (currentView !== validView) return;

@@ -1,8 +1,6 @@
 import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
-import '../media' as Media
-
 Item {
     property var blurSource;
 
