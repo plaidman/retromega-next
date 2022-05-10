@@ -25,7 +25,7 @@ FocusScope {
     property bool onlyFavorites: false;
     property string sortKey: 'sortBy';
     property var sortDir: Qt.AscendingOrder;
-    /* property string nameFilter: ''; */
+    property string nameFilter: '';
 
     function addCurrentViewCallback(callback) {
         currentViewCallbacks.push(callback);
@@ -87,7 +87,7 @@ FocusScope {
         onlyFavorites = api.memory.get('onlyFavorites') ?? false;
         sortKey = api.memory.get('sortKey') ?? 'sortBy';
         sortDir = api.memory.get('sortDir') ?? Qt.AscendingOrder;
-        /* nameFilter = api.memory.get('nameFilter') ?? ''; */
+        nameFilter = api.memory.get('nameFilter') ?? '';
 
         updateCollectionIndex(api.memory.get('currentCollectionIndex') ?? -1);
         updateGameIndex(api.memory.get('currentGameIndex') ?? -1, true);
@@ -107,7 +107,7 @@ FocusScope {
         api.memory.set('onlyFavorites', onlyFavorites);
         api.memory.set('sortKey', sortKey);
         api.memory.set('sortDir', sortDir);
-        /* api.memory.set('nameFilter', nameFilter); */
+        api.memory.set('nameFilter', nameFilter);
 
         settings.saveAll();
     }
@@ -139,8 +139,8 @@ FocusScope {
 
         sourceModel: api.allGames;
         filters: [
-            ValueFilter { roleName: 'favorite'; value: true; }
-            /* RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; } */
+            ValueFilter { roleName: 'favorite'; value: true; },
+            RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }
         ]
         sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
     }
@@ -151,7 +151,7 @@ FocusScope {
         sourceModel: api.allGames;
         filters: [
             ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
-            /* RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }, */
+            RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; },
             ExpressionFilter {
                 expression: {
                     const lastPlayedTime = lastPlayed.getTime();
@@ -172,8 +172,8 @@ FocusScope {
         sourceModel: currentCollection.games;
         sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
         filters: [
-            ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; }
-            /* RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; } */
+            ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
+            RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }
         ]
     }
 
