@@ -64,5 +64,14 @@ Item {
                 value: onlyFavorites;
             }
         }
+
+        DelegateChoice {
+            roleValue: 'nameFilter';
+
+            NameFilterItem {
+                width: sortingListView.width;
+                height: itemHeight;
+            }
+        }
     }
 }

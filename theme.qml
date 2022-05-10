@@ -200,6 +200,8 @@ FocusScope {
         property string fullStar: '\ue803';
         property string halfStar: '\uf123';
         property string emptyStar: '\ue804';
+        property string search: '\ue806';
+        property string cancel: '\ue807';
 
         source: "assets/images/fontello.ttf";
     }

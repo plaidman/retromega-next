@@ -7,6 +7,11 @@ Item {
         id: model;
 
         ListElement {
+            key: 'nameFilter';
+            type: 'nameFilter';
+        }
+
+        ListElement {
             key: 'sortBy';
             title: 'Title';
             type: 'sort';
@@ -60,6 +65,11 @@ Item {
 
     function executeCallback(key) {
         const callbacks = {
+            nameFilter: () => {
+                debug.text = key;
+                if (nameFilter === '') nameFilter = 'metal';
+                else nameFilter = '';
+            },
             sortBy: updateSort('sortBy', Qt.AscendingOrder),
             lastPlayed: updateSort('lastPlayed', Qt.DescendingOrder),
             rating: updateSort('rating', Qt.DescendingOrder),
