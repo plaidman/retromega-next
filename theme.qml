@@ -233,6 +233,8 @@ FocusScope {
     }
 
     Sorting.Component {
+        id: sortingComponent;
+
         visible: currentView === 'sorting';
         focus: currentView === 'sorting';
     }

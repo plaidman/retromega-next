@@ -66,9 +66,12 @@ Item {
     function executeCallback(key) {
         const callbacks = {
             nameFilter: () => {
-                debug.text = key;
-                if (nameFilter === '') nameFilter = 'metal';
-                else nameFilter = '';
+                if (nameFilter !== '') {
+                    nameFilter = '';
+                    return;
+                }
+
+                sortingComponent.showModal();
             },
             sortBy: updateSort('sortBy', Qt.AscendingOrder),
             lastPlayed: updateSort('lastPlayed', Qt.DescendingOrder),
