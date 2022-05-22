@@ -66,6 +66,16 @@ Item {
         }
 
         DelegateChoice {
+            roleValue: 'onlyMultiplayer';
+
+            ToggleItem {
+                width: sortingListView.width;
+                height: itemHeight;
+                value: onlyMultiplayer;
+            }
+        }
+
+        DelegateChoice {
             roleValue: 'nameFilter';
 
             NameFilterItem {

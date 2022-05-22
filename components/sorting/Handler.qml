@@ -44,6 +44,12 @@ Item {
             title: 'Only Favorites';
             type: 'onlyFavorites';
         }
+
+        ListElement {
+            key: 'onlyMultiplayer';
+            title: 'Only Multiplayer';
+            type: 'onlyMultiplayer';
+        }
     }
 
     function updateSort(key, defaultSort) {
@@ -78,6 +84,7 @@ Item {
             rating: updateSort('rating', Qt.DescendingOrder),
             release: updateSort('release', Qt.AscendingOrder),
             onlyFavorites: () => { onlyFavorites = !onlyFavorites; },
+            onlyMultiplayer: () => { onlyMultiplayer = !onlyMultiplayer; },
         };
 
         callbacks[key]();

@@ -23,6 +23,7 @@ FocusScope {
     property var currentGame;
 
     property bool onlyFavorites: false;
+    property bool onlyMultiplayer: false;
     property string sortKey: 'sortBy';
     property var sortDir: Qt.AscendingOrder;
     property string nameFilter: '';
@@ -85,6 +86,7 @@ FocusScope {
         currentView = api.memory.get('currentView') ?? 'collectionList';
 
         onlyFavorites = api.memory.get('onlyFavorites') ?? false;
+        onlyMultiplayer = api.memory.get('onlyMultiplayer') ?? false;
         sortKey = api.memory.get('sortKey') ?? 'sortBy';
         sortDir = api.memory.get('sortDir') ?? Qt.AscendingOrder;
         nameFilter = api.memory.get('nameFilter') ?? '';
@@ -105,6 +107,7 @@ FocusScope {
         api.memory.set('currentGameIndex', currentGameIndex);
 
         api.memory.set('onlyFavorites', onlyFavorites);
+        api.memory.set('onlyMultiplayer', onlyMultiplayer);
         api.memory.set('sortKey', sortKey);
         api.memory.set('sortDir', sortDir);
         api.memory.set('nameFilter', nameFilter);
@@ -140,6 +143,7 @@ FocusScope {
         sourceModel: api.allGames;
         filters: [
             ValueFilter { roleName: 'favorite'; value: true; },
+            ExpressionFilter { enabled: onlyMultiplayer; expression: { return players > 1; } },
             RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }
         ]
         sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
@@ -151,6 +155,7 @@ FocusScope {
         sourceModel: api.allGames;
         filters: [
             ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
+            ExpressionFilter { enabled: onlyMultiplayer; expression: { return players > 1; } },
             RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; },
             ExpressionFilter {
                 expression: {
@@ -173,6 +178,7 @@ FocusScope {
         sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
         filters: [
             ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
+            ExpressionFilter { enabled: onlyMultiplayer; expression: { return players > 1; } },
             RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }
         ]
     }

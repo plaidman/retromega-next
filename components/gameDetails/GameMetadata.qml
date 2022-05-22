@@ -57,6 +57,12 @@ Item {
         return 'Released ' + currentGame.releaseYear;
     }
 
+    property string playersText: {
+        if (currentGame === null) return '';
+        if (currentGame.players === 1) return '1 player';
+        return currentGame.players + ' players';
+    }
+
     property string developedByText: {
         if (currentGame === null) return '';
 
@@ -77,7 +83,7 @@ Item {
     }
 
     property var metadataText: {
-        const texts = [releaseDateText, genreText, developedByText, lastPlayedText];
+        const texts = [releaseDateText, genreText, developedByText, playersText, lastPlayedText];
         return texts.filter(v => { return v !== null })
             .filter(v => { return v !== '' });
     }
