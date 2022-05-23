@@ -11,6 +11,13 @@ Item {
     Rectangle {
         color: theme.current.bgColor;
         anchors.fill: parent;
+
+        MouseArea {
+            anchors.fill: parent;
+            onClicked: {
+                onCancelPressed();
+            }
+        }
     }
 
     FastBlur {
@@ -22,8 +29,6 @@ Item {
         cached: true;
     }
 
-    // todo: adjust for text scale
-    // todo: adjust for dark mode
     Rectangle {
         radius: 10;
         height: parent.height * .4;
@@ -40,12 +45,11 @@ Item {
             id: modalTitle;
 
             text: 'Name Filter';
-            height: root.height * .115 * theme.fontScale;
+            height: root.height * .115;
             verticalAlignment: Text.AlignVCenter;
-            // todo font color
+            color: theme.current.defaultHeaderNameColor
 
             font {
-                // todo theme size
                 family: globalFonts.sans;
                 pixelSize: parent.height * .11;
                 letterSpacing: -0.3;
@@ -55,7 +59,7 @@ Item {
             anchors {
                 top: parent.top;
                 left: parent.left;
-                leftMargin: 32;
+                leftMargin: 27;
             }
         }
 
@@ -63,44 +67,38 @@ Item {
             id: modalDividerTop;
 
             height: 1;
-            // todo theme
             color: theme.current.dividerColor;
 
             anchors {
                 top: modalTitle.bottom;
                 left: parent.left;
-                leftMargin: 22;
+                leftMargin: 23;
                 right: parent.right;
-                rightMargin: 22;
+                rightMargin: 23;
             }
         }
 
         Rectangle {
             id: textBox;
 
-            // todo theme
-            border.color: 'black';
-            // todo theme
-            color: 'yellow';
-
-            /* width: parent.width - 44; */
-            /* height: parent.height * .25; */
+            border.color: theme.current.textInputBorderColor;
+            color: theme.current.textInputBackgroundColor;
 
             anchors {
                 top: modalDividerTop.bottom;
-                topMargin: 22;
+                topMargin: 20;
                 left: parent.left;
-                leftMargin: 22;
+                leftMargin: 27;
                 right: parent.right;
-                rightMargin: 22;
+                rightMargin: 27;
                 bottom: nameFilterModalFooter.top;
-                bottomMargin: 22;
+                bottomMargin: 20;
             }
 
             Text {
-                text: '(no filter set)';
+                text: '(no filter)';
                 verticalAlignment: Text.AlignVCenter;
-                color: 'grey';
+                color: theme.current.textInputPlaceholderColor;
                 visible: nameFilterTextInput.text === '';
 
                 anchors {
@@ -121,6 +119,7 @@ Item {
 
                 text: nameFilter;
                 verticalAlignment: Text.AlignVCenter;
+                color: theme.current.defaultHeaderNameColor
 
                 anchors {
                     fill: parent;

@@ -65,6 +65,7 @@ Item {
             return;
         };
 
+        updateGameIndex(0, true);
         currentView = previousView;
         sounds.back();
     }
@@ -73,7 +74,7 @@ Item {
         if (!nameFilterShowing) return;
 
         nameFilterModal.textInput.clear();
-        sounds.nav();
+        onAcceptPressed();
     }
 
     Keys.onPressed: {

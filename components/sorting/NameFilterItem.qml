@@ -2,7 +2,7 @@ import QtQuick 2.15
 
 Item {
     property string nameFilterText: {
-        if (nameFilter === '') return 'Name: (tap to filter)';
+        if (nameFilter === '') return 'Name: (no filter)';
         return 'Name: ' + nameFilter;
     }
 

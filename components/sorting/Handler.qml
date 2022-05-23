@@ -81,6 +81,5 @@ Item {
         };
 
         callbacks[key]();
-        updateGameIndex(currentGameIndex, true);
     }
 }

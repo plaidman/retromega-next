@@ -18,6 +18,11 @@ Item {
     // settings
     property string highlightColor: '#333333';
 
+    // name filter modal
+    property string textInputBackgroundColor: '#222222';
+    property string textInputBorderColor: '#444444';
+    property string textInputPlaceholderColor: '#444444';
+
     // header
     property string defaultHeaderNameColor: '#aaaaaa';
     property string batteryColorLight: '#cccccc';
