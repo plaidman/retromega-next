@@ -44,10 +44,17 @@ Most things are interactable in the header and footer. Try tapping on them!
 |`b/x button`|`tap footer icons`|back to previous screen|
 ||`tap settings icon`|back to previous screen|
 
-## Settings
+## Sorting and Filters
 |controller|touch|action|
 |----------|-----|------|
 |`up/down`||highlight an item|
 |`a button`|`tap`|toggle item|
 |`b/R2 button`|`tap footer icons`|back to previous screen|
 ||`tap header icon`|back to previous screen|
+
+## Name Filter Modal
+|controller|touch|action|
+|----------|-----|------|
+|`a button`|`keyboard enter`|save name filter|
+|`b`|`tap outside modal window`|discard name filter changes|
+|`x button`|`tap footer icon`|clear name filter|

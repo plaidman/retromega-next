@@ -1,5 +1,4 @@
 # Planned Features
-- search for game by name
 - improve game selection
     - games with long names
     - games with multiple files
@@ -8,8 +7,20 @@
     - game list loop
 - "zoomed out" collection view
 - attract mode
+- slightly delayed images
 
 # Changes
+## Next - May 23rd
+- new settings filters
+    - filter games by title
+    - filter games by multiplayer
+    - recent games filter improvements
+- add number of players to game details
+- bug fixes
+    - recent played games list showing random games
+    - videos not resetting properly
+- general system stability improvements to enhance the user's experience
+
 ## Next - Apr 28th
 - game sorting screen
     - sort any collection by last played, release date, rating, title
