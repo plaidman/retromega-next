@@ -37,7 +37,8 @@ Item {
         border.color: theme.current.dividerColor;
 
         anchors {
-            verticalCenter: parent.verticalCenter;
+            top: parent.top;
+            topMargin: root.height * .06;
             horizontalCenter: parent.horizontalCenter;
         }
 
@@ -99,7 +100,7 @@ Item {
                 text: '(no filter)';
                 verticalAlignment: Text.AlignVCenter;
                 color: theme.current.textInputPlaceholderColor;
-                visible: nameFilterTextInput.text === '';
+                visible: nameFilterTextInput.preeditText === '' && nameFilterTextInput.text === '';
 
                 anchors {
                     fill: parent;

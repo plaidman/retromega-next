@@ -41,6 +41,8 @@ Item {
     }
 
     function onAcceptPressed() {
+        if (currentGameList.count === 0) return;
+
         sounds.launch();
         currentGame.launch();
     }

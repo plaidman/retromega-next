@@ -10,7 +10,6 @@ Item {
     function showModal() {
         nameFilterShowing = true;
         nameFilterModal.anchors.topMargin = 0;
-        nameFilterModal.textInput.forceActiveFocus();
         nameFilterModal.textInput.text = nameFilter;
     }
 
