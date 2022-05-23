@@ -1,11 +1,6 @@
 import QtQuick 2.15
 
 Item {
-    property string icon: {
-        if (nameFilter === '') return glyphs.search;
-        return glyphs.cancel;
-    }
-
     property string nameFilterText: {
         if (nameFilter === '') return 'Name: (tap to filter)';
         return 'Name: ' + nameFilter;
@@ -29,7 +24,7 @@ Item {
     Text {
         id: nameFilterIcon;
 
-        text: icon;
+        text: glyphs.search;
         verticalAlignment: Text.AlignVCenter;
         color: sortingListView.currentIndex === index
             ? theme.current.focusTextColor

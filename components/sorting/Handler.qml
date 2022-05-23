@@ -71,14 +71,7 @@ Item {
 
     function executeCallback(key) {
         const callbacks = {
-            nameFilter: () => {
-                if (nameFilter !== '') {
-                    nameFilter = '';
-                    return;
-                }
-
-                sortingComponent.showModal();
-            },
+            nameFilter: () => { sortingComponent.showModal(); },
             sortBy: updateSort('sortBy', Qt.AscendingOrder),
             lastPlayed: updateSort('lastPlayed', Qt.DescendingOrder),
             rating: updateSort('rating', Qt.DescendingOrder),

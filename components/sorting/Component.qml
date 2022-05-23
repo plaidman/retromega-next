@@ -11,6 +11,7 @@ Item {
         nameFilterShowing = true;
         nameFilterModal.anchors.topMargin = 0;
         nameFilterModal.textInput.forceActiveFocus();
+        nameFilterModal.textInput.text = nameFilter;
     }
 
     function hideModal() {
@@ -68,6 +69,13 @@ Item {
         sounds.back();
     }
 
+    function onClearPressed() {
+        if (!nameFilterShowing) return;
+
+        nameFilterModal.textInput.clear();
+        sounds.nav();
+    }
+
     Keys.onPressed: {
         if (api.keys.isCancel(event)) {
             event.accepted = true;
@@ -77,6 +85,11 @@ Item {
         if (api.keys.isAccept(event)) {
             event.accepted = true;
             onAcceptPressed();
+        }
+
+        if (api.keys.isDetails(event)) {
+            event.accepted = true;
+            onClearPressed();
         }
     }
 
@@ -140,7 +153,7 @@ Item {
         }
     }
 
-    NameFilterEntry {
+    NameFilterModal {
         id: nameFilterModal;
 
         height: parent.height;
