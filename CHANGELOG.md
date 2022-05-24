@@ -10,10 +10,11 @@
 - "zoomed out" collection view
 
 # Changes
-## Next - May XXth
+## Next - May 24th
 - button to quickly scroll to the beginning and end of collection screen
 - add name filter indicator in header
 - setting to reset name filter when pegasus reopens
+- fix for really small buttons on game detail screen
 
 ## Next - May 23rd
 - new settings filters

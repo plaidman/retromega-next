@@ -64,7 +64,7 @@ Item {
             top: parent.top;
             topMargin: 25;
             bottom: detailsDivider.top;
-            bottomMargin: 25;
+            bottomMargin: parent.height * .035;
             left: parent.left;
             leftMargin: 25;
         }

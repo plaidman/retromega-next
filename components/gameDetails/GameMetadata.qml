@@ -6,7 +6,7 @@ Item {
 
     property double actionButtonHeight: {
         return Math.min(
-            actionButtons.height * 0.7,
+            actionButtons.height * .85,
             root.height * 0.1,
         );
     }
@@ -78,7 +78,7 @@ Item {
     }
 
     property var metadataSpacing: {
-        if (title.lineCount > 1 && metadataText.length > 3) return 4;
+        if (title.lineCount > 1 && metadataText.length > 3) return 3;
         return 8;
     }
 
@@ -188,7 +188,6 @@ Item {
             width: parent.width / 2;
             height: actionButtonHeight;
             anchors.verticalCenter: parent.verticalCenter;
-
 
             MouseArea {
                 anchors.fill: parent;
