@@ -78,14 +78,14 @@ Item {
                 letterSpacing: -0.35;
                 bold: true;
             }
+        }
+    }
 
-            MouseArea {
-                anchors.fill: parent;
+    MouseArea {
+        anchors.fill: parent;
 
-                onClicked: {
-                    detailsButtonClicked('less');
-                }
-            }
+        onClicked: {
+            detailsButtonClicked('less');
         }
     }
 }
