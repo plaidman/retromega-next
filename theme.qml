@@ -98,6 +98,10 @@ FocusScope {
         theme.setDarkMode(settings.get('darkMode'));
         theme.setFontScale(settings.get('smallFont'));
 
+        if (settings.get('resetNameFilter')) {
+            nameFilter = '';
+        }
+
         sounds.start();
     }
 
