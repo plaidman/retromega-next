@@ -20,6 +20,12 @@ Item {
         return sortKey;
     }
 
+    property string filter: {
+        if (nameFilter === '') return '';
+        if (nameFilter.length > 4) return ':' + nameFilter.substring(0,3) + '…';
+        return ':' + nameFilter;
+    }
+
     property string icon: {
         if (sortDir === Qt.AscendingOrder) return glyphs.ascend;
         return glyphs.descend;
@@ -103,7 +109,7 @@ Item {
             Text {
                 id: labelText;
 
-                text: label;
+                text: label + filter;
                 color: shadeColor;
                 verticalAlignment: Text.AlignVCenter;
                 anchors.verticalCenter: parent.verticalCenter;

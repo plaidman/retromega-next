@@ -12,6 +12,7 @@
 # Changes
 ## Next - May XXth
 - button to quickly scroll to the beginning and end of collection screen
+- add name filter indicator in header
 
 ## Next - May 23rd
 - new settings filters
