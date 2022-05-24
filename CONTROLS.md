@@ -6,6 +6,7 @@ Most things are interactable in the header and footer. Try tapping on them!
 |controller|touch|action|
 |----------|-----|------|
 |`left/right`|`swipe left/right`|navigate forward/backward in the list|
+|`L1/R1`||move to beginning/end of list|
 |`a button`|`tap collection`|switch to games list|
 |`b button`||pegasus settings menu|
 |`x button`|`tap settings icon`|retromega settings menu|

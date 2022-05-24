@@ -1,4 +1,6 @@
 # Planned Features
+- attract mode
+- slightly delayed images for better performance
 - improve game selection
     - games with long names
     - games with multiple files
@@ -6,10 +8,11 @@
     - carousel loop
     - game list loop
 - "zoomed out" collection view
-- attract mode
-- slightly delayed images
 
 # Changes
+## Next - May XXth
+- button to quickly scroll to the beginning and end of collection screen
+
 ## Next - May 23rd
 - new settings filters
     - filter games by title

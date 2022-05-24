@@ -43,6 +43,20 @@ Item {
             event.accepted = true;
             onSettingsPressed();
         }
+
+        // L1
+        if (api.keys.isPrevPage(event)) {
+            event.accepted = true;
+            const updated = updateCollectionIndex(0);
+            if (updated) { sounds.nav(); }
+        }
+
+        // R1
+        if (api.keys.isNextPage(event)) {
+            event.accepted = true;
+            const updated = updateCollectionIndex(allCollections.length - 1);
+            if (updated) { sounds.nav(); }
+        }
     }
 
     Keys.onReleased: {
