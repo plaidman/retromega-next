@@ -60,6 +60,13 @@ Item {
     }
 
     Keys.onReleased: {
+        // L2
+        if (api.keys.isPageUp(event)) {
+            event.accepted = true;
+            currentView = 'attract';
+            sounds.forward();
+        }
+
         // R2
         if (api.keys.isPageDown(event)) {
             event.accepted = true;

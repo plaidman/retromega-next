@@ -8,6 +8,7 @@ import 'components/settings' as Settings
 import 'components/resources' as Resources
 import 'components/themes' as Themes
 import 'components/sorting' as Sorting
+import 'components/attract' as Attract
 
 FocusScope {
     id: root;
@@ -247,6 +248,13 @@ FocusScope {
 
         visible: currentView === 'sorting';
         focus: currentView === 'sorting';
+    }
+
+    Attract.Component {
+        id: attractComponent;
+
+        visible: currentView === 'attract';
+        focus: currentView === 'attract';
     }
 
     /* Text { id: debug; x: 20; y: 20; width: 20; height: 20; text: 'debug'; } */

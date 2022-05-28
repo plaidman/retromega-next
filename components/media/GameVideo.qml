@@ -47,7 +47,7 @@ Item {
             if (currentView === validView) {
                 switchVideo();
             } else {
-                videoOff();
+                if (videoPlayer.isPlaying) videoOff();
             }
         });
 
