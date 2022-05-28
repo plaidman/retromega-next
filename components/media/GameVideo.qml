@@ -65,6 +65,7 @@ Item {
         target: Qt.application;
         function onStateChanged() {
             if (videoPlayer.source === '') return;
+            if (currentView !== validView) return;
 
             if (Qt.application.state === Qt.ApplicationActive) {
                 switchVideo();
