@@ -115,7 +115,7 @@ debug.text = currentAttractGame.assets.video;
         // todo resuming to foreground makes video loud
         target: Qt.application;
         function onStateChanged() {
-            if (attractPlayer.source === '') return;
+            if (currentView !== 'attract') return;
 
             if (Qt.application.state === Qt.ApplicationActive) {
                 startVideo();
@@ -133,7 +133,10 @@ debug.text = currentAttractGame.assets.video;
         anchors.fill: parent;
 
         onStopped: {
-            if (isPlaying) nextVideo();
+            // only do this if the video stops BECAUSE it reached the end of the video
+            if (isPlaying && status === MediaPlayer.EndOfMedia) {
+                nextVideo();
+            }
         }
     }
 }
