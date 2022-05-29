@@ -46,8 +46,13 @@ Item {
     }
 
     function nextVideo() {
-        // todo display a message if attractGames.count is zero
         const gameCount = attractGames.count;
+
+        if (gameCount === 0) {
+            showTitle = true;
+            attractTitle.text = 'No Videos Found';
+        }
+
         const randomIndex = Math.floor(Math.random() * gameCount);
         currentAttractGame = api.allGames.get(attractGames.mapToSource(randomIndex));
         attractPlayer.source = currentAttractGame.assets.video;
