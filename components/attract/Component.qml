@@ -28,7 +28,7 @@ Item {
         attractPlayer.source = currentAttractGame.assets.video;
         currentAttractGame.launch();
         // todo do we need to pause video?
-        // todo test to be sure it's starting the correct game, even if the video title is not right
+        // todo test to be sure it's starting the correct game
     }
 
     function stopVideo() {
@@ -48,10 +48,7 @@ Item {
         const gameCount = attractGames.count;
         const randomIndex = Math.floor(Math.random() * gameCount);
         currentAttractGame = api.allGames.get(attractGames.mapToSource(randomIndex));
-
-debug.text = currentAttractGame.assets.video;
         attractPlayer.source = currentAttractGame.assets.video;
-        attractPlayer.play();
     }
 
     Keys.onUpPressed: { event.accepted = true; nextVideo(); }
@@ -112,7 +109,6 @@ debug.text = currentAttractGame.assets.video;
     }
 
     Connections {
-        // todo resuming to foreground makes video loud
         target: Qt.application;
         function onStateChanged() {
             if (currentView !== 'attract') return;
@@ -131,10 +127,14 @@ debug.text = currentAttractGame.assets.video;
         volume: 0.7;
         fillMode: VideoOutput.PreserveAspectFit;
         anchors.fill: parent;
+        autoPlay: true;
 
-        onStopped: {
-            // only do this if the video stops BECAUSE it reached the end of the video
-            if (isPlaying && status === MediaPlayer.EndOfMedia) {
+        onStatusChanged: {
+            if (status === MediaPlayer.InvalidMedia) {
+                nextVideo();
+            }
+
+            if (status === MediaPlayer.EndOfMedia) {
                 nextVideo();
             }
         }
