@@ -29,3 +29,9 @@ Switch between half second and two second delay for videos to play.
 
 ## Enable Video/Image Shadow
 Dropshadow can cause visual or performance issues for some people. This is where you can turn it off.
+
+## Clear Name Filter On Reload
+Optionally set the name filter to be lost whenever pegasus reloads after starting a game or reloading the application.
+
+## Game Title On Attract Mode
+This can enable or disable the title showing at the top of the screen during attract mode.

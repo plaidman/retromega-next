@@ -28,8 +28,6 @@ Item {
     function onAcceptPressed() {
         attractPlayer.source = currentAttractGame.assets.video;
         currentAttractGame.launch();
-        // todo do we need to pause video?
-        // todo test to be sure it's starting the correct game
     }
 
     function stopVideo() {

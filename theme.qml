@@ -257,7 +257,7 @@ FocusScope {
         focus: currentView === 'attract';
     }
 
-    /* Text { id: debug; x: 20; y: 20; width: 20; height: 20; text: 'debug'; } */
+    /* Text { id: debug; x: 20; y: 20; width: 20; height: 20; text: 'debug'; color: 'magenta'; } */
     /* Rectangle { width: 640; height: 480; color: 'transparent'; border.color: 'magenta'; } */
     /* Rectangle { width: 1280; height: 720; color: 'transparent'; border.color: 'magenta'; } */
 }

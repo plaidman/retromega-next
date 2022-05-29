@@ -33,6 +33,11 @@ Item {
         sounds.forward();
     }
 
+    function onAttractPressed() {
+        currentView = 'attract';
+        sounds.forward();
+    }
+
     Keys.onPressed: {
         if (api.keys.isAccept(event)) {
             event.accepted = true;
@@ -63,8 +68,7 @@ Item {
         // L2
         if (api.keys.isPageUp(event)) {
             event.accepted = true;
-            currentView = 'attract';
-            sounds.forward();
+            onAttractPressed();
         }
 
         // R2
@@ -96,11 +100,13 @@ Item {
             { title: 'Select', key: 'A', square: false, sigValue: 'accept' },
             { title: 'Menu', key: 'B', square: false, sigValue: null },
             { title: 'Settings', key: 'X', square: false, sigValue: 'settings' },
+            { title: 'Attract', key: 'L2', square: true, sigValue: 'attract' },
         ];
 
         onFooterButtonClicked: {
             if (sigValue === 'accept') onAcceptPressed();
             if (sigValue === 'settings') onSettingsPressed();
+            if (sigValue === 'attract') onAttractPressed();
         }
     }
 

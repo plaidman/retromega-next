@@ -4,7 +4,7 @@
 Adapted from [David Fumberger's RetroMega](https://github.com/djfumberger/retromega) theme. Completely rewritten from scratch to simplify code and allow me to add new features easier. I looked at each line of code, asking myself "what does it do?", "is it needed?", and "can it be done better?"
 
 ## Installation and Scraping
-[Download](https://github.com/plaidman/retromega/archive/main.zip) and extract to your [theme directory](http://pegasus-frontend.org/docs/user-guide/installing-themes) under the folder retromega. You can then select the theme in the settings menu of Pegasus.
+[Download](https://github.com/plaidman/retromega-next/releases) and extract to your [theme directory](http://pegasus-frontend.org/docs/user-guide/installing-themes) under the folder retromega. You can then select the theme in the settings menu of Pegasus.
 
 The theme uses `boxart2dfront` on the games list, and `screenshot` in the game detail view.
 
@@ -17,6 +17,7 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
 - sorting/filtering options
 - filter games by name
 - touch support
+- attract mode (view random game videos)
 - random game selection
 - 24/12 hour clock (tap the clock to switch)
 - background music and navigation sounds

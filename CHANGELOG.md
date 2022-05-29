@@ -1,5 +1,4 @@
 # Planned Features
-- attract mode
 - slightly delayed images for better performance
 - improve game selection
     - games with long names
@@ -8,13 +7,22 @@
     - carousel loop
     - game list loop
 - "zoomed out" collection view
+- add sort-related game data to game list below the game image
 
 # Changes
+## Next - May 29th
+- attract mode
+    - shows random videos which you can cycle through
+    - start the shown game by pressing A
+    - optionally show the game's title during the video
+- general system stability improvements to enhance the user's experience
+
 ## Next - May 24th
 - button to quickly scroll to the beginning and end of collection screen
 - add name filter indicator in header
 - setting to reset name filter when pegasus reopens
 - fix for really small buttons on game detail screen
+- general system stability improvements to enhance the user's experience
 
 ## Next - May 23rd
 - new settings filters
