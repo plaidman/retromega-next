@@ -96,7 +96,6 @@ Item {
 
     Component.onCompleted: {
         addCurrentViewCallback(function (currentView) {
-            // todo black screen if pegasus is started on attract mode, maybe set back to collection view
             if (currentView === 'attract') {
                 startVideo();
             } else {
@@ -104,6 +103,7 @@ Item {
             }
         });
 
+        if (currentView === 'attract') startVideo();
         quietAttractCallback(settings.get('quietVideo'));
         settings.addCallback('quietVideo', quietAttractCallback);
     }
