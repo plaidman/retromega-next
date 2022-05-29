@@ -3,7 +3,7 @@ import QtMultimedia 5.9
 import SortFilterProxyModel 0.2
 
 Item {
-    property bool showTitle: false;
+    property bool showTitle: true;
     property var currentAttractGame;
     property bool isPlaying: false;
 
@@ -21,7 +21,8 @@ Item {
     }
 
     function onDetailsPressed() {
-        //todo show/hide title
+        settings.toggle('attractTitle');
+        showTitle = settings.get('attractTitle');
     }
 
     function onAcceptPressed() {
@@ -40,6 +41,7 @@ Item {
     function startVideo() {
         if (attractPlayer.volume > 0) music.quiet();
         isPlaying = true;
+        showTitle = settings.get('attractTitle');
         nextVideo();
     }
 
@@ -49,6 +51,7 @@ Item {
         const randomIndex = Math.floor(Math.random() * gameCount);
         currentAttractGame = api.allGames.get(attractGames.mapToSource(randomIndex));
         attractPlayer.source = currentAttractGame.assets.video;
+        attractTitle.text = currentAttractGame.title;
     }
 
     Keys.onUpPressed: { event.accepted = true; nextVideo(); }
@@ -137,6 +140,34 @@ Item {
             if (status === MediaPlayer.EndOfMedia) {
                 nextVideo();
             }
+        }
+    }
+
+    Text {
+        id: attractTitle;
+
+        visible: showTitle;
+        width: parent.width;
+        color: 'white';
+        style: Text.Outline;
+        styleColor: 'black';
+        horizontalAlignment: Text.AlignHCenter;
+        elide: Text.ElideRight;
+        maximumLineCount: 2;
+        wrapMode: Text.WordWrap;
+
+        font {
+            pixelSize: root.height * .06;
+            bold: true;
+        }
+
+        anchors {
+            top: parent.top;
+            topMargin: root.height * .025;
+            left: parent.left;
+            leftMargin: root.width * .03;
+            right: parent.right;
+            rightMargin: root.width * .03;
         }
     }
 }

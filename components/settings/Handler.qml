@@ -4,7 +4,7 @@ Item {
     property var keys: [
         'bgMusic', 'navSounds', 'darkMode', 'twelveHour', 'smallFont',
         'gameListVideo', 'gameDetailsVideo', 'quietVideo', 'quickVideo',
-        'dropShadow', 'resetNameFilter'
+        'dropShadow', 'resetNameFilter', 'attractTitle'
     ];
 
     function title(key) { return titles[key]; }
@@ -57,6 +57,7 @@ Item {
         'quickVideo': false,
         'dropShadow': true,
         'resetNameFilter': false,
+        'attractTitle': true,
     }
 
     property var values: {
@@ -71,6 +72,7 @@ Item {
         'quickVideo': null,
         'dropShadow': null,
         'resetNameFilter': null,
+        'attractTitle': null,
     }
 
     property var callbacks: {
@@ -85,6 +87,7 @@ Item {
         'quickVideo': [],
         'dropShadow': [],
         'resetNameFilter': [],
+        'attractTitle': [],
     }
 
     property var titles: {
@@ -99,5 +102,6 @@ Item {
         'quickVideo': 'Shorter Video Delay',
         'dropShadow': 'Enable Video/Image Shadow',
         'resetNameFilter': 'Clear Name Filter On Reload',
+        'attractTitle': 'Game Title On Attract Mode',
     }
 }
