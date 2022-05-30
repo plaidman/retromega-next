@@ -6,10 +6,12 @@ import '../footer' as Footer
 Item {
     anchors.fill: parent;
     property bool fullDescriptionShowing: false;
+    property bool favoritesChanged: false;
 
     function onCancelPressed() {
-        if (currentCollection.shortName === 'favorites' || onlyFavorites === true) {
+        if (favoritesChanged === true) {
             updateGameIndex(currentGameIndex, true);
+            favoritesChanged = false;
         }
 
         currentView = 'gameList';
@@ -23,6 +25,7 @@ Item {
 
     function onFiltersPressed() {
         currentGame.favorite = !currentGame.favorite;
+        favoritesChanged = true;
         sounds.nav();
     }
 
