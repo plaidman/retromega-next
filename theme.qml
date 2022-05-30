@@ -25,6 +25,7 @@ FocusScope {
 
     property bool onlyFavorites: false;
     property bool onlyMultiplayer: false;
+    property bool favoritesOnTop: false;
     property string sortKey: 'sortBy';
     property var sortDir: Qt.AscendingOrder;
     property string nameFilter: '';
@@ -98,6 +99,11 @@ FocusScope {
         // this is done in here to prevent a quick flash of light mode
         theme.setDarkMode(settings.get('darkMode'));
         theme.setFontScale(settings.get('smallFont'));
+
+        favoritesOnTop = settings.get('favoritesOnTop');
+        settings.addCallback('favoritesOnTop', function (enabled) {
+            favoritesOnTop = enabled;
+        });
 
         if (settings.get('resetNameFilter')) {
             nameFilter = '';
@@ -173,14 +179,20 @@ FocusScope {
                 }
             }
         ]
-        sorters: RoleSorter { roleName: 'lastPlayed'; sortOrder: Qt.DescendingOrder; }
+        sorters: [
+            RoleSorter { roleName: 'favorite'; sortOrder: Qt.DescendingOrder; enabled: favoritesOnTop; },
+            RoleSorter { roleName: 'lastPlayed'; sortOrder: Qt.DescendingOrder; }
+        ]
     }
 
     SortFilterProxyModel {
         id: sortedCollection;
 
         sourceModel: currentCollection.games;
-        sorters: RoleSorter { roleName: sortKey; sortOrder: sortDir }
+        sorters: [
+            RoleSorter { roleName: 'favorite'; sortOrder: Qt.DescendingOrder; enabled: favoritesOnTop; },
+            RoleSorter { roleName: sortKey; sortOrder: sortDir }
+        ]
         filters: [
             ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
             ExpressionFilter { enabled: onlyMultiplayer; expression: { return players > 1; } },
