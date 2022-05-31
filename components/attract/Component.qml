@@ -62,13 +62,6 @@ Item {
     Keys.onLeftPressed: { event.accepted = true; nextVideo(); }
     Keys.onRightPressed: { event.accepted = true; nextVideo(); }
 
-    Keys.onReleased: {
-        if (api.keys.isPageUp(event)) {
-            event.accepted = true;
-            onCancelPressed();
-        }
-    }
-
     Keys.onPressed: {
         if (api.keys.isAccept(event)) {
             event.accepted = true;

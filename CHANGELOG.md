@@ -10,6 +10,11 @@
 - add sort-related game data to game list below the game image
 
 # Changes
+## Next- Jun XXth
+- new sorting option to sort by favorites
+- setting to have favorites on top regardless of sorting option
+- general system stability improvements to enhance the user's experience
+
 ## Next - May 29th
 - attract mode
     - shows random videos which you can cycle through

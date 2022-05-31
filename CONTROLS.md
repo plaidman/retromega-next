@@ -52,7 +52,7 @@ Most things are interactable in the header and footer. Try tapping on them!
 |`up/down`||highlight an item|
 ||`swipe up/down`|scroll list|
 |`A button`|`tap`|toggle item|
-|`B or R2 button`|`tap footer icons`|back to previous screen|
+|`B button`|`tap footer icons`|back to previous screen|
 ||`tap header icon`|back to previous screen|
 
 ## Name Filter Modal
@@ -67,5 +67,5 @@ Most things are interactable in the header and footer. Try tapping on them!
 |----------|------|
 |`any dpad or y button`|next video|
 |`A button`|launch game|
-|`B or L2 button`|back to collection view|
+|`B button`|back to collection view|
 |`X button`|toggle video title|

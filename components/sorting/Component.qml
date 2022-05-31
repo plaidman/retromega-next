@@ -93,17 +93,6 @@ Item {
         }
     }
 
-    Keys.onReleased: {
-        // R2
-        if (api.keys.isPageDown(event)) {
-            if (nameFilterShowing) return;
-
-            event.accepted = true;
-            currentView = previousView;
-            sounds.back();
-        }
-    }
-
     Item {
         id: allDetailsBlur;
 

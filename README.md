@@ -19,7 +19,6 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
 - touch support
 - attract mode (view random game videos)
 - random game selection
-- 24/12 hour clock (tap the clock to switch)
 - background music and navigation sounds
 - game details and metadata screen
 - settings screen
