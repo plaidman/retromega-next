@@ -24,26 +24,6 @@ Item {
         return false;
     }
 
-    property var ratingText: {
-        if (currentGame === null) return '';
-        if (currentGame.rating === 0) return '';
-
-        let stars = [];
-        const rating = Math.round(currentGame.rating * 500) / 100;
-
-        for (let i = 0; i < 5; i++) {
-            if (rating - i <= 0) {
-                stars.push(glyphs.emptyStar);
-            } else if (rating - i < 1) {
-                stars.push(glyphs.halfStar);
-            } else {
-                stars.push(glyphs.fullStar);
-            }
-        }
-
-        return stars.join(' ');
-    }
-
     property string imgSrc: {
         if (currentGame === null) return '';
         return currentGame.assets.screenshot;
@@ -94,7 +74,7 @@ Item {
     }
 
     Text {
-        text: ratingText;
+        text: gameData.ratingText;
         color: theme.current.detailsColor;
         opacity: 0.5;
         width: parent.width / 2;

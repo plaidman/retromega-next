@@ -205,6 +205,7 @@ FocusScope {
     Settings.Handler { id: settings; }
     Themes.Handler { id: theme; }
     Resources.CollectionData { id: collectionData; }
+    Resources.GameData { id: gameData; }
     Resources.Sounds { id: sounds; }
     Resources.Music { id: music; }
     Sorting.Handler { id: sorting; }
