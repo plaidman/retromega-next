@@ -31,7 +31,6 @@ Item {
         opacity: 0.5;
 
         font {
-            family: globalFonts.sans;
             pixelSize: parent.height * .065;
             letterSpacing: -0.3;
             bold: true;

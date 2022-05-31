@@ -41,7 +41,6 @@ Item {
         height: parent.height;
 
         font {
-            family: globalFonts.sans;
             pixelSize: parent.height * .43;
             letterSpacing: -0.3;
             bold: true;
