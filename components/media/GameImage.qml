@@ -35,7 +35,6 @@ Item {
 
         // invisible - displayed by the rounded element
         visible: false;
-        asynchronous: true;
         fillMode: Image.PreserveAspectFit;
         cache: false;
         width: parent.width * .75;
