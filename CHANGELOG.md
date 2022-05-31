@@ -13,6 +13,7 @@
 ## Next- Jun XXth
 - new sorting option to sort by favorites
 - setting to have favorites on top regardless of sorting option
+- dynamic metadata shown on game list screen
 - general system stability improvements to enhance the user's experience
 
 ## Next - May 29th

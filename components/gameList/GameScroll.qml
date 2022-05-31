@@ -5,6 +5,8 @@ import '../media' as Media
 Item {
     property alias video: gameListVideo;
     property alias gamesListView: gamesListView;
+    property var sortingFont: global.fonts.sans;
+
     property double itemHeight: {
         return gamesListView.height * .12 * theme.fontScale;
     }
@@ -12,6 +14,21 @@ Item {
     property string imgSrc: {
         if (currentGame === null) return '';
         return currentGame.assets.boxFront;
+    }
+
+    property var sortingText: {
+        if (sortKey === 'release') {
+            sortingFont = global.fonts.sans;
+            return gameData.releaseDateText;
+        }
+
+        if (sortKey === 'rating') {
+            sortingFont = glyphs.name;
+            return gameData.ratingText;
+        }
+
+        sortingFont = global.fonts.sans;
+        return gameData.lastPlayedText;
     }
 
     Component.onCompleted: {
@@ -99,6 +116,23 @@ Item {
 
         onVideoToggled: {
             gameListBoxart.videoPlaying = videoPlaying;
+        }
+    }
+
+    Text {
+        text: sortingText;
+        color: theme.current.detailsColor;
+        opacity: 0.5;
+        width: parent.width / 2;
+        height: parent.height * .95;
+        x: parent.width / 2;
+        verticalAlignment: Text.AlignBottom;
+        horizontalAlignment: Text.AlignHCenter;
+
+        font {
+            family: sortingFont;
+            pixelSize: parent.height * .04;
+            bold: true;
         }
     }
 }

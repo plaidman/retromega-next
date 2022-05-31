@@ -9,9 +9,13 @@
 - add .mp3 files into `/asssets/music/whatever.mp3`
 - follow the instructions in `/components/resources/Music.qml` [on lines 10-12](https://github.com/plaidman/retromega-next/blob/24may2022/components/resources/Music.qml#L10-L12) to register the music files
 
-## Removing Last Played and Favorites Collections
+## Removing Last Played and/or Favorites Collections
 - remove [these lines](https://github.com/plaidman/retromega-next/blob/24may2022/theme.qml#L127-L128) from `/theme.qml`
 
 ## Customizing Details Screen
 - you can remove certain items from the game metadata section
-- [here is an array](https://github.com/plaidman/retromega-next/blob/24may2022/components/gameDetails/GameMetadata.qml#L86) where you can remove any items that you don't care to see
+- [here is an array](https://github.com/plaidman/retromega-next/blob/24may2022/components/gameDetails/GameMetadata.qml#L86) where you can remove or reorder any items that you don't care to see
+
+## Customizing Game List Metadata
+- [here is the logic](https://github.com/plaidman/retromega-next/blob/main/components/gameList/GameScroll.qml#L19-L32) to decide what to show
+- you can adjust the logic to only show one item no matter what sort is being used
