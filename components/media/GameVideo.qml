@@ -11,7 +11,7 @@ Item {
         videoPlayer.stop();
         videoPlayer.source = '';
 
-        music.loud();
+        music.volumeCheck();
 
         videoPlayerTimer.restart();
         videoToggled(false);
@@ -47,9 +47,11 @@ Item {
             if (currentView === validView) {
                 switchVideo();
             } else {
-                if (videoPlayer.isPlaying) videoOff();
+                videoOff();
             }
         });
+
+        music.registerVideo(videoPlayer);
 
         quickVideoCallback(settings.get('quickVideo'));
         settings.addCallback('quickVideo', quickVideoCallback);
@@ -65,7 +67,6 @@ Item {
         target: Qt.application;
         function onStateChanged() {
             if (videoPlayer.source === '') return;
-            if (currentView !== validView) return;
 
             if (Qt.application.state === Qt.ApplicationActive) {
                 switchVideo();
@@ -88,10 +89,9 @@ Item {
 
             videoToggled(true);
 
-            if (videoPlayer.volume > 0) music.quiet();
-
             videoPlayer.source = currentGame.assets.video;
             videoPlayer.play();
+            music.volumeCheck();
         }
     }
 

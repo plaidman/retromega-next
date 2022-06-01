@@ -5,7 +5,6 @@ import SortFilterProxyModel 0.2
 Item {
     property bool showTitle: true;
     property var currentAttractGame;
-    property bool isPlaying: false;
 
     anchors.fill: parent;
 
@@ -15,7 +14,6 @@ Item {
     }
 
     function onCancelPressed() {
-        isPlaying = false;
         currentView = 'collectionList';
         sounds.back();
     }
@@ -31,16 +29,14 @@ Item {
     }
 
     function stopVideo() {
-        if (attractPlayer.volume > 0) music.loud();
-        isPlaying = false;
         attractPlayer.stop();
+        music.volumeCheck();
     }
 
     function startVideo() {
-        if (attractPlayer.volume > 0) music.quiet();
-        isPlaying = true;
         showTitle = settings.get('attractTitle');
         nextVideo();
+        music.volumeCheck();
     }
 
     function nextVideo() {
@@ -102,7 +98,9 @@ Item {
             }
         });
 
+        music.registerVideo(attractPlayer);
         if (currentView === 'attract') startVideo();
+
         quietAttractCallback(settings.get('quietVideo'));
         settings.addCallback('quietVideo', quietAttractCallback);
     }

@@ -15,6 +15,7 @@
 - setting to have favorites on top regardless of sorting option
 - dynamic metadata shown on game list screen
 - added a buncha new system (data, not images)
+- fixed a bug where video would continue to play in the background
 - general system stability improvements to enhance the user's experience
 
 ## Next - May 29th

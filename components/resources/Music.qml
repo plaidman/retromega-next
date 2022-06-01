@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtMultimedia 5.9
 
 Item {
+    property var videos: [];
     Playlist {
         id: bgPlaylist;
 
@@ -12,12 +13,24 @@ Item {
         // PlaylistItem { source: '../../assets/music/whatever.mp3'; }
     }
 
-    function loud() {
+    function volumeCheck() {
+        if (settings.get('quietVideo') === true) {
+            bgMusic.volume = 0.3;
+            return;
+        }
+
+        for (let i = 0; i < videos.length; i++) {
+            if (videos[i].playbackState === MediaPlayer.PlayingState) {
+                bgMusic.volume = 0.05;
+                return;
+            }
+        }
+
         bgMusic.volume = 0.3;
     }
 
-    function quiet() {
-        bgMusic.volume = 0.05;
+    function registerVideo(video) {
+        videos.push(video);
     }
 
     property bool isPlaying: {
