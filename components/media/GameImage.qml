@@ -15,6 +15,21 @@ Item {
         return true;
     }
 
+    /* Timer { */
+    /*     id: imageDelayTimer; */
+
+    /*     interval: 50; */
+    /*     repeat: false; */
+    /*     onTriggered: { */
+    /*         boxartImage.source = imageSource; */
+    /*     } */
+    /* } */
+
+    /* onImageSourceChanged: { */
+    /*     boxartImage.source = imageSource */
+    /*     imageDelayTimer.start(); */
+    /* } */
+
     function dropShadowCallback(enabled) {
         if (enabled) {
             dropShadow.visible = true;
@@ -48,6 +63,7 @@ Item {
         // invisible - boxartBuffer is shown and updated to prevent flickering
         visible: false;
         fillMode: Image.PreserveAspectFit;
+        // todo comment this when doing the delay thing
         source: imageSource;
         asynchronous: true;
         cache: false;

@@ -10,11 +10,11 @@
 - add sort-related game data to game list below the game image
 
 # Changes
-## Next- Jun XXth
-- new sorting option to sort by favorites
-- setting to have favorites on top regardless of sorting option
+## Next- Jun 2nd
+- setting to have favorites permanently on top
+- new sorting option to sort by favorites if you don't want them permanently on top
 - dynamic metadata shown on game list screen
-- added a buncha new system (data, not images)
+- added a buncha new system (data only, no images)
 - fixed a bug where video would continue to play in the background
 - general system stability improvements to enhance the user's experience
 
