@@ -1,5 +1,4 @@
 # Planned Features
-- slightly delayed images for better performance
 - improve game selection
     - games with long names
     - games with multiple files
@@ -7,10 +6,12 @@
     - carousel loop
     - game list loop
 - "zoomed out" collection view
-- add sort-related game data to game list below the game image
 
 # Changes
-## Next- Jun 2nd
+## Next - Jun XXth
+- setting to delay game list image loading for added performance on large collections
+
+## Next - Jun 2nd
 - setting to have favorites permanently on top
 - new sorting option to sort by favorites if you don't want them permanently on top
 - dynamic metadata shown on game list screen

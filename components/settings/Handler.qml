@@ -4,7 +4,8 @@ Item {
     property var keys: [
         'bgMusic', 'navSounds', 'darkMode', 'twelveHour', 'smallFont',
         'gameListVideo', 'gameDetailsVideo', 'quietVideo', 'quickVideo',
-        'dropShadow', 'resetNameFilter', 'attractTitle', 'favoritesOnTop'
+        'dropShadow', 'resetNameFilter', 'attractTitle', 'favoritesOnTop',
+        'delayedImage'
     ];
 
     function title(key) { return titles[key]; }
@@ -59,6 +60,7 @@ Item {
         'resetNameFilter': false,
         'attractTitle': true,
         'favoritesOnTop': false,
+        'delayedImage': false,
     }
 
     property var values: {
@@ -75,6 +77,7 @@ Item {
         'resetNameFilter': null,
         'attractTitle': null,
         'favoritesOnTop': null,
+        'delayedImage': null,
     }
 
     property var callbacks: {
@@ -91,6 +94,7 @@ Item {
         'resetNameFilter': [],
         'attractTitle': [],
         'favoritesOnTop': [],
+        'delayedImage': [],
     }
 
     property var titles: {
@@ -107,5 +111,6 @@ Item {
         'resetNameFilter': 'Clear Name Filter On Reload',
         'attractTitle': 'Game Title On Attract Mode',
         'favoritesOnTop': 'Favorites On Top',
+        'delayedImage': 'Delayed Images',
     }
 }

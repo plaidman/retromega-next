@@ -5,6 +5,7 @@ Item {
     property bool failed: true;
     property bool videoPlaying: false;
     property string imageSource: '';
+    property bool delayedImage: false;
 
     visible: {
         if (failed) return false;
@@ -15,20 +16,27 @@ Item {
         return true;
     }
 
-    /* Timer { */
-    /*     id: imageDelayTimer; */
+    Timer {
+        id: imageDelayTimer;
 
-    /*     interval: 50; */
-    /*     repeat: false; */
-    /*     onTriggered: { */
-    /*         boxartImage.source = imageSource; */
-    /*     } */
-    /* } */
+        interval: 75;
+        repeat: false;
+        onTriggered: {
+            boxartImage.source = imageSource;
+        }
+    }
 
-    /* onImageSourceChanged: { */
-    /*     boxartImage.source = imageSource */
-    /*     imageDelayTimer.start(); */
-    /* } */
+    onImageSourceChanged: {
+        if (delayedImage) {
+            imageDelayTimer.restart();
+        } else {
+            boxartImage.source = imageSource;
+        }
+    }
+
+    function delayedImageCallback(enabled) {
+        delayedImage = enabled;
+    }
 
     function dropShadowCallback(enabled) {
         if (enabled) {
@@ -41,6 +49,9 @@ Item {
     }
 
     Component.onCompleted: {
+        delayedImageCallback(settings.get('delayedImage'));
+        settings.addCallback('delayedImage', delayedImageCallback);
+
         dropShadowCallback(settings.get('dropShadow'));
         settings.addCallback('dropShadow', dropShadowCallback);
     }
@@ -63,8 +74,6 @@ Item {
         // invisible - boxartBuffer is shown and updated to prevent flickering
         visible: false;
         fillMode: Image.PreserveAspectFit;
-        // todo comment this when doing the delay thing
-        source: imageSource;
         asynchronous: true;
         cache: false;
         width: parent.width * .75;

@@ -38,3 +38,6 @@ This can enable or disable the title showing at the top of the screen during att
 
 ## Favorites On Top
 Favorites will always show on the top of game list regardless of sorting options
+
+## Delayed Images
+Adds a small delay when loading screenshot images on the game list. This can improve performance, especially for very large collections.
