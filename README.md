@@ -3,12 +3,16 @@
 
 Adapted from [David Fumberger's RetroMega](https://github.com/djfumberger/retromega) theme. Completely rewritten from scratch to simplify code and allow me to add new features easier. I looked at each line of code, asking myself "what does it do?", "is it needed?", and "can it be done better?"
 
+---
+
 ## Installation and Scraping
 [Download](https://github.com/plaidman/retromega-next/releases) and extract to your [theme directory](http://pegasus-frontend.org/docs/user-guide/installing-themes) under the folder retromega. You can then select the theme in the settings menu of Pegasus.
 
 The theme uses `boxart2dfront` on the games list, and `screenshot` in the game detail view.
 
 To setup Pegasus with scraped assets, there's a great written guide [available here](https://basvroegop.nl/pegasus) or a great video guide [available here](https://www.youtube.com/watch?v=fGWve7YYwGQ). You can also use [DragoonDorise's pegasus installer](https://www.pegasus-installer.com/) to scrape files on your device easier.
+
+---
 
 ## Features
 - optimized for handheld devices with small screens
@@ -23,6 +27,9 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
 - game details and metadata screen
 - settings screen
 - dark mode
+- multiple image packages for collections
+
+---
 
 ## Controls
 [controls](CONTROLS.md)
@@ -36,15 +43,29 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
 ## Version History and Planned Features
 [changelog](CHANGELOG.md)
 
+---
+
 ## Credits
 - original theme and design: [DJFumberger](https://github.com/djfumberger/retromega)
-- improvements: plaidman
+- next improvements: plaidman (this repo)
+- original theme images:
+    - [DJFumberger](https://github.com/djfumberger/retromega)
+- br1ans theme images:
+    - [br1ans](https://www.reddit.com/r/miniSNESmods/comments/av5i33/more_folders_by_request/)
+- pixel theme images:
+    - [ehettervik](https://github.com/ehettervik/es-theme-pixel)
+    - [Jetup13](https://github.com/jetup13/es-theme-pixel)
+    - [TheGemsbok](https://github.com/TheGemsbok/es-theme-pixel)
+- clusterm theme images:
+    - [ClusterM](https://github.com/ClusterM/hakchi2/tree/master/folder_images)
+    - [faustbear](https://www.reddit.com/r/miniSNESmods/comments/995ylx/additional_pixel_art_icon_pack_22/)
 
 ## License
 [![CC-BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-## Screenshots
 ---
+
+## Screenshots
 ![collection list 4:3](.meta/screenshots/genesis43.png)
 ---
 ![dark mode 4:3](.meta/screenshots/dark43.png)

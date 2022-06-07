@@ -14,6 +14,8 @@ Most things are interactable in the header and footer. Try tapping on them!
 |`R2`|`tap header icon`|open sorting screen|
 |`L2`|`tap footer icon`|attract mode|
 
+---
+
 ## Game List
 |controller|touch|action|
 |----------|-----|------|
@@ -27,6 +29,8 @@ Most things are interactable in the header and footer. Try tapping on them!
 |`R1/L1`||skip to previous or next letter|
 |`R2`|`tap header icon`|open sorting screen|
 
+---
+
 ## Game Details
 |controller|touch|action|
 |----------|-----|------|
@@ -37,6 +41,8 @@ Most things are interactable in the header and footer. Try tapping on them!
 |`Y button`|`tap heart button`|toggle favorite|
 |`any button`|`tap screen`|back to details (from full description)|
 
+---
+
 ## Settings
 |controller|touch|action|
 |----------|-----|------|
@@ -45,6 +51,8 @@ Most things are interactable in the header and footer. Try tapping on them!
 |`A button`|`tap`|toggle setting|
 |`B or X button`|`tap footer icons`|back to previous screen|
 ||`tap settings icon`|back to previous screen|
+
+---
 
 ## Sorting and Filters
 |controller|touch|action|
@@ -55,12 +63,16 @@ Most things are interactable in the header and footer. Try tapping on them!
 |`B button`|`tap footer icons`|back to previous screen|
 ||`tap header icon`|back to previous screen|
 
+---
+
 ## Name Filter Modal
 |controller|touch|action|
 |----------|-----|------|
 |`A button`|`keyboard enter`|save name filter|
 |`B button`|`tap outside modal window`|discard name filter changes|
 |`X button`|`tap footer icon`|clear name filter|
+
+---
 
 ## Attract Mode
 |controller|action|

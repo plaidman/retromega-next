@@ -1,15 +1,9 @@
-# Planned Features
-- improve game selection
-    - games with long names
-    - games with multiple files
-- additional settings
-    - carousel loop
-    - game list loop
-- "zoomed out" collection view
-
 # Changes
 ## Next - Jun XXth
 - setting to delay game list image loading for added performance on large collections
+- adding new collection image files and collection metadata
+
+---
 
 ## Next - Jun 2nd
 - setting to have favorites permanently on top
@@ -19,6 +13,8 @@
 - fixed a bug where video would continue to play in the background
 - general system stability improvements to enhance the user's experience
 
+---
+
 ## Next - May 29th
 - attract mode
     - shows random videos which you can cycle through
@@ -26,12 +22,16 @@
     - optionally show the game's title during the video
 - general system stability improvements to enhance the user's experience
 
+---
+
 ## Next - May 24th
 - button to quickly scroll to the beginning and end of collection screen
 - add name filter indicator in header
 - setting to reset name filter when pegasus reopens
 - fix for really small buttons on game detail screen
 - general system stability improvements to enhance the user's experience
+
+---
 
 ## Next - May 23rd
 - new settings filters
@@ -43,6 +43,8 @@
     - recent played games list showing random games
     - videos not resetting properly
 - general system stability improvements to enhance the user's experience
+
+---
 
 ## Next - Apr 28th
 - game sorting screen
@@ -59,6 +61,8 @@
     - improved navigation sounds
     - quicker changing settings with one tap
 - general system stability improvements to enhance the user's experience
+
+---
 
 ## Next - Apr 1st
 - system year on collection list
@@ -77,6 +81,7 @@
     - system name in game list was cut off too short
 - general system stability improvements to enhance the user's experience
 
+---
 
 ## Next - Feb 28th
 - new settings
@@ -89,11 +94,15 @@
     - silence navigation sound if the game selection doesn't move when pressing up or down
 - general system stability improvements to enhance the user's experience
 
+---
+
 ## Next - Feb 23rd
 - improved compatibility with different shortnames for collections
     - compatible with pegasus standard
     - compatible with es standard
     - compatible with any other weird aliases I could think of
+
+---
 
 ## Next - Feb 20th
 - added support for other handhelds (e.g. Odin, RG552)
@@ -117,6 +126,8 @@
 - added dark mode support to all existing screens
 - general system stability improvements to enhance the user's experience
 
+---
+
 ## Next - Jan 26th
 - rewrote all views and functionality from scratch
     - break up folder structure and code to make it easier to edit
@@ -139,12 +150,16 @@
     - removed pokemini and wswancolor for now until I can find better art
 - general system stability improvements to enhance the user's experience
 
+---
+
 ## Next - Jan 15th
 - updated arcade controller
 - added android controller
 - improved the clock widget
     - tap to toggle 24/12 hour
     - updates time correctly
+
+---
 
 ## Next - Jan 12th
 - added many new controller images

@@ -96,45 +96,18 @@ Item {
         id: device;
 
         source: '../../assets/images/devices/' + collectionData.getImage(modelData.shortName) + '.png';
-        width: root.width * .59;
-        height: root.height * .78;
+        width: root.width * .50;
+        height: root.height * .65;
         fillMode: Image.PreserveAspectFit;
-        horizontalAlignment: Image.AlignRight;
+        horizontalAlignment: Image.AlignHCenter;
         asynchronous: true;
+        smooth: true;
 
         anchors {
             verticalCenter: parent.verticalCenter;
             verticalCenterOffset: 10;
             right: parent.right;
-            rightMargin: 0;
-        }
-
-        states: [
-            State {
-                name: 'active';
-                when: collectionListView.currentIndex === index;
-                PropertyChanges { target: device; anchors.rightMargin: -60.0; }
-            },
-
-            State {
-                name: 'inactiveRight';
-                when: collectionListView.currentIndex < index;
-                PropertyChanges { target: device; anchors.rightMargin: -160.0; }
-            },
-
-            State {
-                name: 'inactiveLeft';
-                when: collectionListView.currentIndex > index;
-                PropertyChanges { target: device; anchors.rightMargin: 40.0; }
-            }
-        ]
-
-        transitions: Transition {
-            NumberAnimation {
-                properties: 'anchors.rightMargin';
-                easing.type: Easing.InOutCubic;
-                duration: 225;
-            }
+            rightMargin: root.width * .02;
         }
     }
 }
