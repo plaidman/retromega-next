@@ -31,6 +31,24 @@ Item {
             .replace(/, {1,}/g, ',  ');
     }
 
+    property var fullDescText: {
+        return descText + "\n\n" + filenames;
+    }
+
+    property var filenames: {
+        if (currentGame.files.count === 1) {
+            return 'file: ' + currentGame.files.get(0).path;
+        }
+
+        const files = [];
+        for (let i = 0; i < currentGame.files.count; i++) {
+            files.push(currentGame.files.get(i).path);
+        }
+
+
+        return "files:\n  - " + files.join("\n  - ");
+    }
+
     // background to lighten or darken the blur effect, since it's translucent
     Rectangle {
         color: theme.current.bgColor;
@@ -67,7 +85,7 @@ Item {
             id: fullDesc;
 
             width: root.width - flickable.leftMargin - flickable.rightMargin;
-            text: descText;
+            text: fullDescText;
             wrapMode: Text.WordWrap;
             lineHeight: 1.2;
             color: theme.current.detailsColor;

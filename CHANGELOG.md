@@ -2,6 +2,7 @@
 ## Next - Jun XXth
 - setting to delay game list image loading for added performance on large collections
 - adding new collection image files and collection metadata
+- show file name(s) in game long description
 - dark mode dropshadows are actually dark now
 
 ---
