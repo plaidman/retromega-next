@@ -107,7 +107,10 @@ Item {
             }
 
             const updated = updateGameIndex(newIndex);
-            if (updated) { sounds.nav(); }
+            if (updated) {
+                gameScroll.letter = currentGame.title[0].toUpperCase();
+                sounds.nav();
+            }
         }
 
         // R1
@@ -129,7 +132,10 @@ Item {
             }
 
             const updated = updateGameIndex(newIndex);
-            if (updated) { sounds.nav(); }
+            if (updated) {
+                gameScroll.letter = currentGame.title[0].toUpperCase();
+                sounds.nav();
+            }
         }
     }
 
@@ -152,6 +158,8 @@ Item {
 
     GameScroll {
         id: gameScroll;
+
+        letter: '';
 
         anchors {
             top: gameListHeader.bottom;

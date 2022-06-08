@@ -6,6 +6,7 @@ Item {
     property alias video: gameListVideo;
     property alias gamesListView: gamesListView;
     property var sortingFont: global.fonts.sans;
+    property alias letter: skipLetter.letter;
 
     property double itemHeight: {
         return gamesListView.height * .12 * theme.fontScale;
@@ -93,6 +94,15 @@ Item {
         GameItem {
             width: gamesListView.width;
             height: itemHeight;
+        }
+    }
+
+    SkipLetter {
+        id: skipLetter;
+
+        anchors {
+            verticalCenter: gamesListView.verticalCenter;
+            horizontalCenter: gamesListView.horizontalCenter;
         }
     }
 
