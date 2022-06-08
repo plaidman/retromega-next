@@ -102,6 +102,7 @@ Item {
         horizontalAlignment: Image.AlignHCenter;
         asynchronous: true;
         smooth: true;
+        visible: true;
 
         anchors {
             verticalCenter: parent.verticalCenter;
@@ -110,4 +111,14 @@ Item {
             rightMargin: root.width * .02;
         }
     }
+
+    // DropShadow {
+    //     source: device;
+    //     verticalOffset: 10;
+    //     color: '#30000000';
+    //     radius: 20;
+    //     samples: 41;
+    //     cached: true;
+    //     anchors.fill: device;
+    // }
 }

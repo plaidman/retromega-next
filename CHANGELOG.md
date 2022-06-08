@@ -1,10 +1,12 @@
 # Changes
-## Next - Jun XXth
+## Next - Jun 8th
 - adding new collection image files and collection metadata
+    - see [DEVICES.md](DEVICES.md) for more details and downloads
 - flash current letter when pressing L1/R1 on game list
-- setting to delay game list image loading for added performance on large collections
+- setting to delay game list image loading
+    - this helps with performance with large collections (300+)
 - show file name(s) in game long description
-- dark mode dropshadows are actually dark now
+- general system stability improvements to enhance the user's experience
 
 ---
 

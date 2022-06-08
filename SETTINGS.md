@@ -1,7 +1,7 @@
 # Settings
 
 ## Background Music
-Toggle music playing in the background. See [readme](README.md) for instructions on how to set up your own background music files.
+Toggle music playing in the background. See [CUSTOMIZATION.md](CUSTOMIZATION.md) for instructions on how to set up your own background music files.
 
 ---
 

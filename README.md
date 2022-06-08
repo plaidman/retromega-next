@@ -8,7 +8,7 @@ Adapted from [David Fumberger's RetroMega](https://github.com/djfumberger/retrom
 ## Installation and Scraping
 [Download](https://github.com/plaidman/retromega-next/releases) and extract to your [theme directory](http://pegasus-frontend.org/docs/user-guide/installing-themes) under the folder retromega. You can then select the theme in the settings menu of Pegasus.
 
-The theme uses `boxart2dfront` on the games list, and `screenshot` in the game detail view.
+The theme uses `boxart2dfront` on the games list, `screenshot` in the game detail view, and `video` in both areas.
 
 To setup Pegasus with scraped assets, there's a great written guide [available here](https://basvroegop.nl/pegasus) or a great video guide [available here](https://www.youtube.com/watch?v=fGWve7YYwGQ). You can also use [DragoonDorise's pegasus installer](https://www.pegasus-installer.com/) to scrape files on your device easier.
 
@@ -31,17 +31,17 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
 
 ---
 
-## Controls
-[controls](CONTROLS.md)
+## Controls Guide
+[CONTROLS.md](CONTROLS.md)
 
-## Settings
-[settings](SETTINGS.md)
+## Settings Guide
+[SETTINGS.md](SETTINGS.md)
 
-## Customization Tweaks
-[customization](CUSTOMIZATION.md)
+## Customization Options
+[CUSTOMIZATION.md](CUSTOMIZATION.md)
 
-## Version History and Planned Features
-[changelog](CHANGELOG.md)
+## Version History
+[CHANGELOG.md](CHANGELOG.md)
 
 ---
 
@@ -66,14 +66,8 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
 ---
 
 ## Screenshots
-![collection list 4:3](.meta/screenshots/genesis43.png)
----
-![dark mode 4:3](.meta/screenshots/dark43.png)
----
-![game list 4:3](.meta/screenshots/light43.png)
----
-![collection list 6:9](.meta/screenshots/snes169.png)
----
-![dark mode 6:9](.meta/screenshots/dark169.png)
----
-![game list 6:9](.meta/screenshots/light169.png)
+
+![collections](.meta/screenshots/readme/collections.png)
+![lightmode](.meta/screenshots/readme/lightmode.png)
+![details](.meta/screenshots/readme/details.png)
+![darkmode](.meta/screenshots/readme/darkmode.png)
