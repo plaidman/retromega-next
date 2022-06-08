@@ -70,10 +70,7 @@ Item {
         playlist: bgPlaylist;
 
         Behavior on volume {
-            NumberAnimation {
-                duration: 250;
-                easing.type: Easing.InOutQuad;
-            }
+            NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; }
         }
     }
 

@@ -78,7 +78,7 @@ Item {
         topMargin: 40;
 
         Behavior on contentY {
-            PropertyAnimation { easing.type: Easing.OutCubic; duration: 150  }
+            PropertyAnimation { easing.type: Easing.OutCubic; duration: 150; }
         }
 
         Text {

@@ -157,7 +157,7 @@ Item {
         }
 
         Behavior on anchors.topMargin {
-            PropertyAnimation { easing.type: Easing.OutCubic; duration: 200  }
+            PropertyAnimation { easing.type: Easing.OutCubic; duration: 200; }
         }
     }
 }

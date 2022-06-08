@@ -29,10 +29,7 @@ Item {
         opacity: theme.current.bgOpacity;
 
         Behavior on color {
-            ColorAnimation {
-                duration: 335;
-                easing.type: Easing.InOutQuad;
-            }
+            ColorAnimation { duration: 335; easing.type: Easing.InOutQuad; }
         }
     }
 
