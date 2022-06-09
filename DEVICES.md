@@ -32,7 +32,7 @@ Additionally, there are some zip files including some images I chose not to use 
 - add image files into `/assets/images/devices/shortname.png`
     - images should not have any padding, but can be worked around if it does
     - images may include dropshadow, or the shadow can be generated in the theme
-    - image are *not required* for a collection to work
+    - images are *not required* for a collection to work
 - add new metadata into `/components/resources/CollectionData.qml`
     - this metadata is *not required* for a collection to work
     - [alias](https://github.com/plaidman/retromega-next/blob/main/components/resources/CollectionData.qml#L32) notes
@@ -46,8 +46,9 @@ Additionally, there are some zip files including some images I chose not to use 
             - useful if multiple collections share an image, like arcade/atomiswave
         - any of these bits of metadata *may be excluded*, and the collection will still work
 - adjust `/components/collectionList/CollectionItem.qml` if necessary
-    - you can adjust the image sizes [here](https://github.com/plaidman/retromega-next/blob/main/components/collectionList/CollectionItem.qml#L99-L100), if you are using images that have padding or dropshadows.
+    - you can adjust the image sizes [here](https://github.com/plaidman/retromega-next/blob/main/components/collectionList/CollectionItem.qml#L99-L100)
+        - useful if you are using images that have padding or dropshadows.
     - you can uncomment the DropShadow element [here](https://github.com/plaidman/retromega-next/blob/main/components/collectionList/CollectionItem.qml#L115-L123) if your image doesn't include dropshadows.
         - also it's best to set the Image element [here](https://github.com/plaidman/retromega-next/blob/main/components/collectionList/CollectionItem.qml#L105) to invisible to prevent the image from drawing twice
     - you can also adjust the smoothing on image resizing [here](https://github.com/plaidman/retromega-next/blob/main/components/collectionList/CollectionItem.qml#L104)
-        - setting it to false is good for pixelated themes
+        - setting it to false is good for pixelated themes, so pegasus doesn't try to smooth out the pixelly goodness
