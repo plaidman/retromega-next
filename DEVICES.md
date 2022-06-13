@@ -10,7 +10,7 @@ You may download one of the image packs that will change how the collection list
 
 |theme|dreamcast|ngpc|pcengine|snes|
 |-----|---------|----|--------|----|
-|[original](.meta/extra-devices/original.zip?raw=true)<br>33&nbsp;files|![original dreamcast](.meta/screenshots/original/dreamcast.png)|![original ngpc](.meta/screenshots/original/ngpc.png)|![original pcengine](.meta/screenshots/original/pcengine.png)|![original snes](.meta/screenshots/original/snes.png)|
+|original<br>[centered](.meta/extra-devices/original-centered.zip?raw=true)<br>[offset](.meta/extra-devices/original-offset.zip)<br>33&nbsp;files|![original dreamcast](.meta/screenshots/original/dreamcast.png)|![original ngpc](.meta/screenshots/original/ngpc.png)|![original pcengine](.meta/screenshots/original/pcengine.png)|![original snes](.meta/screenshots/original/snes.png)|
 |[pixel](.meta/extra-devices/pixel.zip?raw=true)<br>71&nbsp;files|![pixel dreamcast](.meta/screenshots/pixel/dreamcast.png)|![pixel ngpc](.meta/screenshots/pixel/ngpc.png)|![pixel pcengine](.meta/screenshots/pixel/pcengine.png)|![pixel snes](.meta/screenshots/pixel/snes.png)|
 |[br1ans](.meta/extra-devices/br1ans.zip?raw=true)<br>58&nbsp;files|![br1ans dreamcast](.meta/screenshots/br1ans/dreamcast.png)|![br1ans ngpc](.meta/screenshots/br1ans/ngpc.png)|![br1ans pcengine](.meta/screenshots/br1ans/pcengine.png)|![br1ans snes](.meta/screenshots/br1ans/snes.png)|
 |[clusterm](.meta/extra-devices/clusterm.zip?raw=true)<br>54&nbsp;files|![clusterm dreamcast](.meta/screenshots/clusterm/dreamcast.png)|![clusterm ngpc](.meta/screenshots/clusterm/ngpc.png)|![clusterm pcengine](.meta/screenshots/clusterm/pcengine.png)|![clusterm snes](.meta/screenshots/clusterm/snes.png)|
