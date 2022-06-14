@@ -63,6 +63,8 @@ To setup Pegasus with scraped assets, there's a great written guide [available h
     - [faustbear](https://www.reddit.com/r/miniSNESmods/comments/995ylx/additional_pixel_art_icon_pack_22/)
 - a few added images here and there throughout the themes:
     - plaidman (this repo)
+- icons:
+    - [Tabler Icons](https://tabler-icons.io/)
 
 ## License
 [![CC-BY-NC-SA](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
