@@ -1,4 +1,7 @@
 # Changes
+## Next - Jul XXth
+
+
 ## Next - Jun 8th
 - adding new collection image files and collection metadata
     - see [DEVICES.md](DEVICES.md) for more details and downloads
