@@ -93,17 +93,17 @@ FocusScope {
         sortDir = api.memory.get('sortDir') ?? Qt.AscendingOrder;
         nameFilter = api.memory.get('nameFilter') ?? '';
 
+        favoritesOnTop = settings.get('favoritesOnTop');
+        settings.addCallback('favoritesOnTop', function (enabled) {
+            favoritesOnTop = enabled;
+        });
+
         updateCollectionIndex(api.memory.get('currentCollectionIndex') ?? -1);
         updateGameIndex(api.memory.get('currentGameIndex') ?? -1, true);
 
         // this is done in here to prevent a quick flash of light mode
         theme.setDarkMode(settings.get('darkMode'));
         theme.setFontScale(settings.get('smallFont'));
-
-        favoritesOnTop = settings.get('favoritesOnTop');
-        settings.addCallback('favoritesOnTop', function (enabled) {
-            favoritesOnTop = enabled;
-        });
 
         if (settings.get('resetNameFilter')) {
             nameFilter = '';
