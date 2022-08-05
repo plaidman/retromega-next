@@ -7,12 +7,15 @@ Rectangle {
     property bool showSorting: true;
     property bool showSettings: true;
     property string title: '';
+
+    property bool showBattery: {
+        return !isNaN(api.device.batteryPercent);
+    }
+
     property double titleWidth: {
-        return root.width - 50
-            - settingsIcon.width - settingsIcon.anchors.rightMargin
-            - battery.width - battery.anchors.rightMargin
-            - clock.width - clock.anchors.rightMargin
-            - sort.width - sort.anchors.rightMargin;
+        return root.width - headerWidgets.width
+            - (2 * headerWidgets.anchors.rightMargin)
+            - headerTitle.anchors.leftMargin;
     }
 
     color: 'transparent';
@@ -40,6 +43,8 @@ Rectangle {
     }
 
     Text {
+        id: headerTitle;
+
         visible: showTitle;
         text: title.length > 0
             ? title
@@ -53,7 +58,7 @@ Rectangle {
 
         anchors {
             left: parent.left;
-            leftMargin: 32;
+            leftMargin: parent.height * .30;
             verticalCenter: parent.verticalCenter;
         }
 
@@ -64,80 +69,75 @@ Rectangle {
         }
     }
 
-    Text {
-        id: settingsIcon;
+    Row {
+        id: headerWidgets;
 
-        text: showSettings ? glyphs.settings : '';
-        opacity: 0.5;
-        color: parent.shade === 'light'
-            ? theme.current.settingsColorLight
-            : theme.current.settingsColorDark;
-
-        font {
-            family: glyphs.name;
-            pixelSize: parent.height * .33;
-        }
+        property string shade: parent.shade;
+        spacing: parent.height * .30;
+        height: parent.height;
 
         anchors {
             right: parent.right;
-            rightMargin: showSettings ? parent.height * .30 : 0;
-            verticalCenter: parent.verticalCenter;
+            rightMargin: parent.height * .30;
         }
 
-        MouseArea {
-            anchors.fill: parent;
-            onClicked: {
-                if (currentView === 'settings') {
-                    currentView = previousView;
-                    sounds.back();
-                } else {
-                    previousView = currentView;
-                    currentView = 'settings';
-                    sounds.forward();
+        Sort {
+            id: sort;
+
+            shade: parent.shade;
+            height: parent.height * .5;
+            visible: showSorting;
+            anchors.verticalCenter: parent.verticalCenter;
+        }
+
+        Clock {
+            id: clock;
+
+            shade: parent.shade;
+            height: parent.height;
+            opacity: 0.5;
+        }
+
+        Battery {
+            id: battery;
+
+            visible: showBattery;
+            opacity: 0.5;
+            shade: parent.shade;
+            height: parent.height * .25;
+            width: parent.height * .55;
+            anchors.verticalCenter: parent.verticalCenter;
+        }
+
+        Text {
+            id: settingsIcon;
+
+            visible: showSettings
+            text: glyphs.settings;
+            opacity: 0.5;
+            color: parent.shade === 'light'
+                ? theme.current.settingsColorLight
+                : theme.current.settingsColorDark;
+            anchors.verticalCenter: parent.verticalCenter;
+
+            font {
+                family: glyphs.name;
+                pixelSize: parent.height * .33;
+            }
+
+            MouseArea {
+                anchors.fill: parent;
+                onClicked: {
+                    if (currentView === 'settings') {
+                        currentView = previousView;
+                        sounds.back();
+                    } else {
+                        previousView = currentView;
+                        currentView = 'settings';
+                        sounds.forward();
+                    }
                 }
             }
-        }
-    }
-
-    Battery {
-        id: battery;
-
-        opacity: 0.5;
-        shade: parent.shade;
-        height: parent.height * .25;
-        width: parent.height * .55;
-
-        anchors {
-            right: settingsIcon.left;
-            rightMargin: parent.height * .30;
-            verticalCenter: parent.verticalCenter;
-        }
-    }
-
-    Clock {
-        id: clock;
-
-        shade: parent.shade;
-        height: parent.height;
-        opacity: 0.5;
-
-        anchors {
-            right: battery.left;
-            rightMargin: parent.height * .30;
-        }
-    }
-
-    Sort {
-        id: sort;
-
-        shade: parent.shade;
-        height: parent.height * .5;
-        visible: showSorting;
-
-        anchors {
-            right: clock.left;
-            rightMargin: parent.height * .25;
-            verticalCenter: parent.verticalCenter;
         }
     }
 }
