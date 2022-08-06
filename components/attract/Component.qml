@@ -45,12 +45,14 @@ Item {
         if (gameCount === 0) {
             showTitle = true;
             attractTitle.text = 'No Videos Found';
+            collectionTitle.text = '';
         }
 
         const randomIndex = Math.floor(Math.random() * gameCount);
         currentAttractGame = api.allGames.get(attractGames.mapToSource(randomIndex));
         attractPlayer.source = currentAttractGame.assets.video;
         attractTitle.text = currentAttractGame.title;
+        collectionTitle.text = currentAttractGame.collections.get(0).name;
     }
 
     Keys.onUpPressed: { event.accepted = true; nextVideo(); }
@@ -149,6 +151,7 @@ Item {
         elide: Text.ElideRight;
         maximumLineCount: 2;
         wrapMode: Text.WordWrap;
+        opacity: .6;
 
         font {
             pixelSize: root.height * .06;
@@ -158,6 +161,35 @@ Item {
         anchors {
             top: parent.top;
             topMargin: root.height * .025;
+            left: parent.left;
+            leftMargin: root.width * .03;
+            right: parent.right;
+            rightMargin: root.width * .03;
+        }
+    }
+
+    Text {
+        id: collectionTitle;
+
+        visible: showTitle;
+        width: parent.width;
+        color: 'white';
+        style: Text.Outline;
+        styleColor: 'black';
+        horizontalAlignment: Text.AlignHCenter;
+        elide: Text.ElideRight;
+        maximumLineCount: 1;
+        wrapMode: Text.WordWrap;
+        opacity: .6;
+
+        font {
+            pixelSize: root.height * .06;
+            bold: true;
+        }
+
+        anchors {
+            bottom: parent.bottom;
+            bottomMargin: root.height * .025;
             left: parent.left;
             leftMargin: root.width * .03;
             right: parent.right;
