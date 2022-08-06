@@ -2,10 +2,10 @@ import QtQuick 2.15
 
 Item {
     property var keys: [
-        'bgMusic', 'navSounds', 'darkMode', 'twelveHour', 'smallFont',
-        'gameListVideo', 'gameDetailsVideo', 'quietVideo', 'quickVideo',
-        'dropShadow', 'resetNameFilter', 'attractTitle', 'favoritesOnTop',
-        'delayedImage'
+        'bgMusic', 'navSounds', 'darkMode', 'buttonGuide', 'twelveHour',
+        'smallFont', 'gameListVideo', 'gameDetailsVideo', 'quietVideo',
+        'quickVideo', 'dropShadow', 'resetNameFilter', 'attractTitle',
+        'favoritesOnTop', 'delayedImage'
     ];
 
     function title(key) { return titles[key]; }
@@ -50,6 +50,7 @@ Item {
         'bgMusic': true,
         'navSounds': true,
         'darkMode': false,
+        'buttonGuide': false,
         'twelveHour': false,
         'smallFont': false,
         'gameListVideo': true,
@@ -67,6 +68,7 @@ Item {
         'bgMusic': null,
         'navSounds': null,
         'darkMode': null,
+        'buttonGuide': null,
         'twelveHour': null,
         'smallFont': null,
         'gameListVideo': null,
@@ -84,6 +86,7 @@ Item {
         'bgMusic': [],
         'navSounds': [],
         'darkMode': [],
+        'buttonGuide': [],
         'twelveHour': [],
         'smallFont': [],
         'gameListVideo': [],
@@ -101,6 +104,7 @@ Item {
         'bgMusic': 'Background Music',
         'navSounds': 'Navigation Sounds',
         'darkMode': 'Dark Theme',
+        'buttonGuide': 'XBox Button Guide',
         'twelveHour': 'Twelve Hour Clock',
         'smallFont': 'Use Smaller Font',
         'gameListVideo': 'Video On Game List',

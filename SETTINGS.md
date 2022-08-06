@@ -15,6 +15,11 @@ Switch between dark and light mode.
 
 ---
 
+## XBox Button Guide
+Change to XBox buttons in the button list.
+
+---
+
 ## Twelve Hour Clock
 Change clock to 12 hour mode or 24 hour mode.
 

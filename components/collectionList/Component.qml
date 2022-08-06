@@ -97,10 +97,10 @@ Item {
         total: allCollections.length;
 
         buttons: [
-            { title: 'Select', key: 'A', square: false, sigValue: 'accept' },
-            { title: 'Menu', key: 'B', square: false, sigValue: null },
-            { title: 'Settings', key: 'X', square: false, sigValue: 'settings' },
-            { title: 'Attract', key: 'L2', square: true, sigValue: 'attract' },
+            { title: 'Select', key: theme.buttonGuide.accept, square: false, sigValue: 'accept' },
+            { title: 'Menu', key: theme.buttonGuide.cancel, square: false, sigValue: null },
+            { title: 'Settings', key: theme.buttonGuide.details, square: false, sigValue: 'settings' },
+            { title: 'Attract', key: theme.buttonGuide.pageUp, square: true, sigValue: 'attract' },
         ];
 
         onFooterButtonClicked: {

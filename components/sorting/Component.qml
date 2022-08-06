@@ -120,8 +120,8 @@ Item {
             total: 0;
 
             buttons: [
-                { title: 'Toggle', key: 'A', square: false, sigValue: 'accept' },
-                { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
+                { title: 'Toggle', key: theme.buttonGuide.accept, square: false, sigValue: 'accept' },
+                { title: 'Back', key: theme.buttonGuide.cancel, square: false, sigValue: 'cancel' },
             ];
 
             onFooterButtonClicked: {

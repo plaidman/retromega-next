@@ -25,3 +25,9 @@
 ## Customizing Game List Metadata
 - `/components/gameList/GameScroll.qml` has [some logic](https://github.com/plaidman/retromega-next/blob/main/components/gameList/GameScroll.qml#L21-L32) to decide what to show, depending on which sorting option you're using
 - you can change this to
+
+---
+
+## Customizing Theme & Button Guides
+
+- the files in `components/themes/` can be updated to change colors of elements for themes, or button labels if you use some other format of buttons on your controller.

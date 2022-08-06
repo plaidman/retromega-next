@@ -176,10 +176,10 @@ Item {
         total: currentGameList.count;
 
         buttons: [
-            { title: 'Play', key: 'A', square: false, sigValue: 'accept' },
-            { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
-            { title: 'Details', key: 'X', square: false, sigValue: 'details' },
-            { title: 'Random', key: 'Y', square: false, sigValue: 'filters' },
+            { title: 'Play', key: theme.buttonGuide.accept, square: false, sigValue: 'accept' },
+            { title: 'Back', key: theme.buttonGuide.cancel, square: false, sigValue: 'cancel' },
+            { title: 'Details', key: theme.buttonGuide.details, square: false, sigValue: 'details' },
+            { title: 'Random', key: theme.buttonGuide.filters, square: false, sigValue: 'filters' },
         ];
 
         onFooterButtonClicked: {
