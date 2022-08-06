@@ -146,9 +146,9 @@ Item {
             }
 
             buttons: [
-                { title: 'Filter', key: 'A', square: false, sigValue: 'accept' },
-                { title: 'Cancel', key: 'B', square: false, sigValue: 'cancel' },
-                { title: 'Clear', key: 'X', square: false, sigValue: 'clear' },
+                { title: 'Filter', key: theme.buttonGuide.accept, square: false, sigValue: 'accept' },
+                { title: 'Cancel', key: theme.buttonGuide.cancel, square: false, sigValue: 'cancel' },
+                { title: 'Clear', key: theme.buttonGuide.details, square: false, sigValue: 'clear' },
             ];
 
             onFooterButtonClicked: {

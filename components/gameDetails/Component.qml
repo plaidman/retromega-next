@@ -147,10 +147,10 @@ Item {
             total: 0;
 
             buttons: [
-                { title: 'Play', key: 'A', square: false, sigValue: 'accept' },
-                { title: 'Back', key: 'B', square: false, sigValue: 'cancel' },
-                { title: 'More', key: 'X', square: false, sigValue: 'details' },
-                { title: 'Favorite', key: 'Y', square: false, sigValue: 'filters' },
+                { title: 'Play', key: theme.buttonGuide.accept, square: false, sigValue: 'accept' },
+                { title: 'Back', key: theme.buttonGuide.cancel, square: false, sigValue: 'cancel' },
+                { title: 'More', key: theme.buttonGuide.details, square: false, sigValue: 'details' },
+                { title: 'Favorite', key: theme.buttonGuide.filters, square: false, sigValue: 'filters' },
             ];
 
             onFooterButtonClicked: {

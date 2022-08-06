@@ -63,7 +63,7 @@ Item {
 
             Text {
                 id: buttonText;
-                text: 'R2';
+                text: theme.buttonGuide.pageDown;
                 color: buttonColor;
 
                 anchors {

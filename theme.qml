@@ -101,8 +101,9 @@ FocusScope {
         updateCollectionIndex(api.memory.get('currentCollectionIndex') ?? -1);
         updateGameIndex(api.memory.get('currentGameIndex') ?? -1, true);
 
-        // this is done in here to prevent a quick flash of light mode
+        // this is done in here to prevent a quick flash of default themes
         theme.setDarkMode(settings.get('darkMode'));
+        theme.setButtonGuide(settings.get('buttonGuide'));
         theme.setFontScale(settings.get('smallFont'));
 
         if (settings.get('resetNameFilter')) {
