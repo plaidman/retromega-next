@@ -32,6 +32,14 @@ Item {
         return gameData.lastPlayedText;
     }
 
+    property string noGameText: {
+        if (nameFilter != '') {
+            return 'No Games With "' + nameFilter + '"';
+        }
+
+        return 'No Games';
+    }
+
     Component.onCompleted: {
         gamesListView.currentIndex = currentGameIndex;
         gamesListView.positionViewAtIndex(currentGameIndex, ListView.Center);
@@ -43,7 +51,7 @@ Item {
 
     Text {
         visible: currentGameList.count === 0;
-        text: 'No Games';
+        text: noGameText;
         anchors.centerIn: parent;
         color: theme.current.blurTextColor;
         opacity: 0.5;

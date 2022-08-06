@@ -174,7 +174,7 @@ FocusScope {
                     if (isNaN(lastPlayedTime)) return false;
 
                     const curTime = new Date().getTime();
-                    const lastMonth = 1000 * 60 * 60 * 24 * 31;
+                    const lastMonth = 1000 * 60 * 60 * 24 * 31; // ms in 31 days
                     return (curTime - lastPlayedTime < lastMonth)
                 }
             }
