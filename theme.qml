@@ -19,6 +19,7 @@ FocusScope {
 
     property int currentCollectionIndex: -1;
     property var currentCollection;
+    property string currentShortName;
     property var currentGameList;
     property int currentGameIndex: -1;
     property var currentGame;
@@ -44,23 +45,26 @@ FocusScope {
         return Math.max(0, Math.min(val, max));
     }
 
+    function updateSortedCollection() {
+        if (currentShortName === 'favorites') {
+            currentGameList = allFavorites;
+        } else if (currentShortName === 'recents') {
+            currentGameList = filterLastPlayed;
+        } else {
+            currentGameList = sortedCollection;
+        }
+
+        currentCollection = allCollections[currentCollectionIndex];
+        updateGameIndex(0, true);
+    }
+
     function updateCollectionIndex(newIndex, skipCollectionListUpdate = false) {
         const clampedIndex = clamp(0, newIndex, allCollections.length - 1);
 
         if (clampedIndex === currentCollectionIndex) return false;
 
         currentCollectionIndex = clampedIndex;
-        currentCollection = allCollections[currentCollectionIndex];
-
-        if (currentCollection.shortName === 'favorites') {
-            currentGameList = allFavorites;
-        } else if (currentCollection.shortName === 'recents') {
-            currentGameList = filterLastPlayed;
-        } else {
-            currentGameList = sortedCollection;
-        }
-
-        updateGameIndex(0, true);
+        currentShortName = allCollections[currentCollectionIndex].shortName;
 
         // this prevents a circular update loop if we're updating from dragging the collection list
         if (!skipCollectionListUpdate) {
@@ -99,6 +103,7 @@ FocusScope {
         });
 
         updateCollectionIndex(api.memory.get('currentCollectionIndex') ?? -1);
+        updateSortedCollection();
         updateGameIndex(api.memory.get('currentGameIndex') ?? -1, true);
 
         // this is done in here to prevent a quick flash of default themes

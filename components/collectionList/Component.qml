@@ -23,6 +23,7 @@ Item {
     }
 
     function onAcceptPressed() {
+        updateSortedCollection();
         currentView = 'gameList';
         sounds.forward();
     }

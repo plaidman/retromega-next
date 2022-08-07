@@ -7,7 +7,7 @@ Item {
     Rectangle {
         id: button;
 
-        color: collectionData.getColor(currentCollection.shortName);
+        color: collectionData.getColor(currentShortName);
         opacity: theme.current.bgOpacity;
         radius: parent.height * .05;
         width: parent.width;
