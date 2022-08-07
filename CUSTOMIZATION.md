@@ -12,7 +12,7 @@
 ---
 
 ## Removing Last Played and/or Favorites Collections
-- remove [these lines](https://github.com/plaidman/retromega-next/blob/main/theme.qml#L134-L135) from `/theme.qml`
+- remove [these lines](https://github.com/plaidman/retromega-next/blob/main/theme.qml#L140-L141) from `/theme.qml`
 
  ----
 

@@ -1,5 +1,15 @@
 # Changes
-## - Aug XXth
+## Next - Aug 7th
+- improve performance on the collection screen when sorting large collections
+    - this is a fairly complex change, please let me know if you see issues moving from the collection screen to the game screen and back.
+- allow for alternate button guides
+    - see [CUSTOMIZATION.md](CUSTOMIZATION.md) for more details
+- support Launchbox shortnames
+    - device image packs were updated, see [DEVICES.md](DEVICES.md)
+- add system name to attract mode
+- change the message when no games are found due to filtering rules
+- hide battery on devices without a battery
+- properly sort with favorites on top when the app is first loaded
 - general system stability improvements to enhance the user's experience
 
 ---
