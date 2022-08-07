@@ -51,7 +51,7 @@ Rectangle {
             : currentCollection.name;
         color: title.length > 0
             ? theme.current.defaultHeaderNameColor
-            : collectionData.getColor(currentCollection.shortName);
+            : collectionData.getColor(currentShortName);
         opacity: theme.current.bgOpacity;
         width: titleWidth;
         elide: Text.ElideRight;

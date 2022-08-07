@@ -9,7 +9,7 @@ Item {
         collectionListView.currentIndex = currentCollectionIndex;
         collectionListView.positionViewAtIndex(currentCollectionIndex, ListView.Center);
 
-        backgroundColor.color = collectionData.getColor(currentCollection.shortName);
+        backgroundColor.color = collectionData.getColor(currentShortName);
         muteStartup = false;
     }
 
@@ -25,7 +25,7 @@ Item {
 
         width: parent.width;
         height: parent.height;
-        color: collectionData.getColor(currentCollection.shortName);
+        color: collectionData.getColor(currentShortName);
         opacity: theme.current.bgOpacity;
 
         Behavior on color {
@@ -68,7 +68,7 @@ Item {
                 if (updated && !muteStartup) sounds.nav();
             }
 
-            backgroundColor.color = collectionData.getColor(currentCollection.shortName);
+            backgroundColor.color = collectionData.getColor(currentShortName);
         }
     }
 

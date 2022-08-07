@@ -85,7 +85,7 @@ Item {
         }
 
         highlight: Rectangle {
-            color: collectionData.getColor(currentCollection.shortName);
+            color: collectionData.getColor(currentShortName);
             opacity: theme.current.bgOpacity;
             radius: 8;
             width: gamesListView.width;

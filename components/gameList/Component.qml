@@ -26,6 +26,7 @@ Item {
         event.accepted = true;
         const updated = updateCollectionIndex(currentCollectionIndex - 1);
         if (updated) {
+            updateSortedCollection();
             sounds.nav();
             gameScroll.video.switchVideo();
         }
@@ -35,6 +36,7 @@ Item {
         event.accepted = true;
         const updated = updateCollectionIndex(currentCollectionIndex + 1);
         if (updated) {
+            updateSortedCollection();
             sounds.nav();
             gameScroll.video.switchVideo();
         }

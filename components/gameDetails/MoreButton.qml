@@ -20,7 +20,7 @@ Item {
             id: moreText;
 
             text: 'MORE';
-            color: collectionData.getColor(currentCollection.shortName);
+            color: collectionData.getColor(currentShortName);
             opacity: theme.current.bgOpacity;
 
             font {
