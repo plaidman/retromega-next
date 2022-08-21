@@ -5,7 +5,7 @@ Item {
         'bgMusic', 'navSounds', 'darkMode', 'buttonGuide', 'twelveHour',
         'smallFont', 'gameListVideo', 'gameDetailsVideo', 'quietVideo',
         'quickVideo', 'dropShadow', 'resetNameFilter', 'attractTitle',
-        'favoritesOnTop', 'delayedImage'
+        'favoritesOnTop', 'delayedImage', 'showAllGames', 'showRecents', 'showFavorites'
     ];
 
     function title(key) { return titles[key]; }
