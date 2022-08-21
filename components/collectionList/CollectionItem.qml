@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtGraphicalEffects 1.12
+import SortFilterProxyModel 0.2
 
 Item {
     MouseArea {
@@ -53,9 +54,9 @@ Item {
             verticalCenterOffset: -5;
         }
     }
-
+	
     Text {
-        text: modelData.games.count + ' games';
+        text: sortedGamesCollection.count + ' games';
         color: theme.current.titleColor;
         opacity: 0.7;
 
@@ -71,6 +72,17 @@ Item {
             letterSpacing: -0.3;
             bold: true;
         }
+    }
+	
+	SortFilterProxyModel {
+        id: sortedGamesCollection;
+
+        sourceModel: allCollections[collectionListView.currentIndex].games;
+        filters: [
+            ValueFilter { roleName: 'favorite'; value: true; enabled: onlyFavorites; },
+            ExpressionFilter { enabled: onlyMultiplayer; expression: { return players > 1; } },
+            RegExpFilter { roleName: 'title'; pattern: nameFilter; caseSensitivity: Qt.CaseInsensitive; enabled: nameFilter !== ''; }
+        ]
     }
 
     Text {
