@@ -62,6 +62,9 @@ Item {
         'attractTitle': true,
         'favoritesOnTop': false,
         'delayedImage': false,
+		'showAllGames': true,
+		'showRecents': true,
+		'showFavorites': true,
     }
 
     property var values: {
@@ -80,6 +83,9 @@ Item {
         'attractTitle': null,
         'favoritesOnTop': null,
         'delayedImage': null,
+		'showAllGames': null,
+		'showRecents': null,
+		'showFavorites': null,
     }
 
     property var callbacks: {
@@ -98,6 +104,9 @@ Item {
         'attractTitle': [],
         'favoritesOnTop': [],
         'delayedImage': [],
+		'showAllGames': [],
+		'showRecents': [],
+		'showFavorites': [],
     }
 
     property var titles: {
@@ -116,5 +125,8 @@ Item {
         'attractTitle': 'Game Title On Attract Mode',
         'favoritesOnTop': 'Favorites On Top',
         'delayedImage': 'Delayed Images',
+		'showAllGames': 'Show All Games Collection',
+		'showRecents': 'Show Last Played Collection',
+		'showFavorites': 'Show Favorites Collection',
     }
 }
