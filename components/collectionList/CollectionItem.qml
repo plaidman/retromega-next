@@ -56,7 +56,7 @@ Item {
     }
 	
     Text {
-        text: sortedGamesCollection.count + ' games';
+        text: filteredGamesCollection.count + ' games';
         color: theme.current.titleColor;
         opacity: 0.7;
 
@@ -75,7 +75,7 @@ Item {
     }
 	
 	SortFilterProxyModel {
-        id: sortedGamesCollection;
+        id: filteredGamesCollection;
 
         sourceModel: allCollections[collectionListView.currentIndex].games;
         filters: [
