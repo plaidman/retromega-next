@@ -72,3 +72,18 @@ Favorites will always show on the top of game list regardless of sorting options
 
 ## Delayed Images
 Adds a small delay when loading screenshot images on the game list. This can improve performance, especially for very large collections.
+
+---
+
+## Show All Games
+Whether or not to show the All Games collection in the collections list.
+
+---
+
+## Show Last Played
+Whether or not to show the Last Played collection in the collections list.
+
+---
+
+## Show Favorites
+Whether or not to show the Favorites collection in the collections list.
