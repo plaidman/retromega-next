@@ -50,7 +50,7 @@ Rectangle {
                 title: modelData.title;
                 key: modelData.key;
                 square: modelData.square;
-				visible: modelData.visible ?? true;
+                visible: modelData.visible ?? true;
 
                 MouseArea {
                     anchors.fill: parent;

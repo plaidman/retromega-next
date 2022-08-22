@@ -75,15 +75,5 @@ Adds a small delay when loading screenshot images on the game list. This can imp
 
 ---
 
-## Show All Games
-Whether or not to show the All Games collection in the collections list.
-
----
-
-## Show Last Played
-Whether or not to show the Last Played collection in the collections list.
-
----
-
-## Show Favorites
-Whether or not to show the Favorites collection in the collections list.
+## Show All Games/Last Played/Favorites
+Optionally show/hide these meta-collections.

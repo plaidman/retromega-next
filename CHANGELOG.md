@@ -1,4 +1,9 @@
 # Changes
+## Next - Aug 22nd
+- L2 on game list to mark favorite (zenijin)
+- config options to show/hide all games, last played, and favorites collections (zenijin)
+- fix game count on collection list to take filtered games into consideration (zenijin)
+
 ## Next - Aug 7th
 - improve performance on the collection screen when sorting large collections
     - this is a fairly complex change, please let me know if you see issues moving from the collection screen to the game screen and back.

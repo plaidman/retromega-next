@@ -54,7 +54,7 @@ Item {
             verticalCenterOffset: -5;
         }
     }
-	
+
     Text {
         text: filteredGamesCollection.count + ' games';
         color: theme.current.titleColor;
@@ -73,8 +73,8 @@ Item {
             bold: true;
         }
     }
-	
-	SortFilterProxyModel {
+
+    SortFilterProxyModel {
         id: filteredGamesCollection;
 
         sourceModel: allCollections[collectionListView.currentIndex].games;
