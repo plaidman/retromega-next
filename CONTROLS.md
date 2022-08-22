@@ -28,6 +28,7 @@ Most things are interactable in the header and footer. Try tapping on them!
 |`Y button`|`tap footer icon`|select random game|
 |`R1/L1`||skip to previous or next letter|
 |`R2`|`tap header icon`|open sorting screen|
+|`L2`|`tap footer icon`|mark game as favorite|
 
 ---
 

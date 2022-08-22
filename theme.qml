@@ -137,10 +137,18 @@ FocusScope {
     property var allCollections: {
         const collections = api.collections.toVarArray();
 
-        collections.unshift({'name': 'Favorites', 'shortName': 'favorites', 'games': allFavorites});
-        collections.unshift({'name': 'Last Played', 'shortName': 'recents', 'games': filterLastPlayed});
-        collections.unshift({'name': 'All Games', 'shortName': 'allgames', 'games': api.allGames});
-
+		if (settings.get('showFavorites')) {
+			collections.unshift({'name': 'Favorites', 'shortName': 'favorites', 'games': allFavorites});
+        }
+		
+		if (settings.get('showRecents')) {
+			collections.unshift({'name': 'Last Played', 'shortName': 'recents', 'games': filterLastPlayed});
+        }
+		
+		if (settings.get('showAllGames')) {
+			collections.unshift({'name': 'All Games', 'shortName': 'allgames', 'games': api.allGames});
+		}
+		
         return collections;
     };
 
