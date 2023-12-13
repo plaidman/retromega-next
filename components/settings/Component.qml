@@ -41,6 +41,10 @@ Item {
     }
 
     Keys.onPressed: {
+        if (event.isAutoRepeat) {
+            return;
+        }
+
         if (api.keys.isCancel(event)) {
             event.accepted = true;
             onCancelPressed();

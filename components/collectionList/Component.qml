@@ -41,12 +41,12 @@ Item {
     }
 
     Keys.onPressed: {
-        if (api.keys.isAccept(event)) {
+        if (api.keys.isAccept(event) && !event.isAutoRepeat) {
             event.accepted = true;
             onAcceptPressed();
         }
 
-        if (api.keys.isDetails(event)) {
+        if (api.keys.isDetails(event) && !event.isAutoRepeat) {
             event.accepted = true;
             onSettingsPressed();
         }
