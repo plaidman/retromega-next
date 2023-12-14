@@ -93,6 +93,10 @@ Item {
     }
 
     Keys.onPressed: {
+        if (event.isAutoRepeat) {
+            return;
+        }
+
         if (fullDescriptionShowing) {
             event.accepted = true;
             hideFullDescription();
