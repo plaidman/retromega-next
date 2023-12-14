@@ -14,7 +14,12 @@ Item {
 
     property string imgSrc: {
         if (currentGame === null) return '';
-        return currentGame.assets.boxFront;
+
+        const preferBox = settings.get('preferBox')
+        const main = preferBox ? currentGame.assets.boxFront : currentGame.assets.poster;
+        const fallback = preferBox ? currentGame.assets.poster : currentGame.assets.boxFront;
+
+        return main == '' ? fallback : main;
     }
 
     property var sortingText: {
