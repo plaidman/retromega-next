@@ -3,7 +3,7 @@ import QtQuick 2.15
 Item {
     property var keys: [
         'bgMusic', 'navSounds', 'darkMode', 'buttonGuide', 'twelveHour',
-        'smallFont', 'gameListVideo', 'gameDetailsVideo', 'quietVideo',
+        'smallFont', 'preferBox', 'gameListVideo', 'gameDetailsVideo', 'quietVideo',
         'quickVideo', 'dropShadow', 'resetNameFilter', 'attractTitle',
         'favoritesOnTop', 'delayedImage', 'showAllGames', 'showRecents', 'showFavorites'
     ];
@@ -53,6 +53,7 @@ Item {
         'buttonGuide': false,
         'twelveHour': false,
         'smallFont': false,
+        'preferBox': false,
         'gameListVideo': true,
         'gameDetailsVideo': true,
         'quietVideo': false,
@@ -74,6 +75,7 @@ Item {
         'buttonGuide': null,
         'twelveHour': null,
         'smallFont': null,
+        'preferBox': null,
         'gameListVideo': null,
         'gameDetailsVideo': null,
         'quietVideo': null,
@@ -95,6 +97,7 @@ Item {
         'buttonGuide': [],
         'twelveHour': [],
         'smallFont': [],
+        'preferBox': [],
         'gameListVideo': [],
         'gameDetailsVideo': [],
         'quietVideo': [],
@@ -116,6 +119,7 @@ Item {
         'buttonGuide': 'XBox Button Guide',
         'twelveHour': 'Twelve Hour Clock',
         'smallFont': 'Use Smaller Font',
+        'preferBox': 'Prefer Box to Poster',
         'gameListVideo': 'Video On Game List',
         'gameDetailsVideo': 'Video On Game Details',
         'quietVideo': 'Silent Videos',
