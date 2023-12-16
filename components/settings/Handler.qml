@@ -53,7 +53,7 @@ Item {
         'buttonGuide': false,
         'twelveHour': false,
         'smallFont': false,
-        'preferBox': false,
+        'preferBox': true,
         'gameListVideo': true,
         'gameDetailsVideo': true,
         'quietVideo': false,
